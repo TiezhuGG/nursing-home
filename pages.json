@@ -1,0 +1,102 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/workbench/workbench",
+			"style": {
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#24C789"
+			}
+		},
+		{
+			"path": "pages/notice/notice",
+			"style": {
+				"navigationBarTitleText": "公告信息"
+			}
+		},
+		{
+			"path": "pages/personal/personal",
+			"style": {
+				"navigationBarTitleText": "个人信息",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+			"path": "pages/video/video",
+			"style": {
+				"navigationBarTitleText": "视频监控",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+			"path": "pages/blood-status/blood-status",
+			"style": {
+				"navigationBarTitleText": "血压 血氧 血糖"
+			}
+		},
+		{
+			"path": "pages/electrocardiogram/electrocardiogram",
+			"style": {
+				"navigationBarTitleText": "心电图",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#24C789"
+			}
+		},
+		{
+			"path": "pages/heart-rate/heart-rate",
+			"style": {
+				"navigationBarTitleText": "实时心率",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#24C789"
+			}
+		},
+		{
+			"path": "pages/management/management",
+			"style": {
+				"navigationBarTitleText": "客户管理"
+			}
+		}, {
+			"path": "pages/warning/warning",
+			"style": {
+				"navigationBarTitleText": "报警"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		// "navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#BBBBBB",
+		"selectedColor": "#564C5E",
+		"borderStyle": "black",
+		"backgroundColor": "#fff",
+		"list": [{
+			"pagePath": "pages/workbench/workbench",
+			"iconPath": "static/images/unworkbench.png",
+			"selectedIconPath": "static/images/workbench.png",
+			"text": "工作台"
+		}, {
+			"pagePath": "pages/warning/warning",
+			"iconPath": "static/images/unwarning.png",
+			"selectedIconPath": "static/images/warning.png",
+			"text": "报警"
+		}, {
+			"pagePath": "pages/management/management",
+			"iconPath": "static/images/unmanagement.png",
+			"selectedIconPath": "static/images/management.png",
+			"text": "客户管理"
+		}]
+	}
+}

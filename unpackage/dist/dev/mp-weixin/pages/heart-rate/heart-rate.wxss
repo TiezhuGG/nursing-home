@@ -1,0 +1,248 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.heart-rate {
+  background-color: #F7F7F7;
+}
+.heart-rate .top {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    width: 750rpx;
+    height: 740rpx;
+    background-color: #24C789;
+}
+.heart-rate .top .patient_infos {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      width: 690rpx;
+      height: 140rpx;
+      margin-top: 30rpx;
+      background-color: #fff;
+      border-radius: 77px;
+}
+.heart-rate .top .patient_infos .avatar {
+        width: 92rpx;
+        height: 92rpx;
+        margin-left: 24rpx;
+}
+.heart-rate .top .patient_infos .info {
+        height: 92rpx;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+                justify-content: space-between;
+        margin-left: 24rpx;
+}
+.heart-rate .top .patient_infos .info .name {
+          font-size: 32rpx;
+          font-weight: 500;
+          color: #333;
+}
+.heart-rate .top .patient_infos .info .other {
+          font-size: 24rpx;
+          color: #999;
+}
+.heart-rate .top .patient_infos .info .other .gender {
+            margin-left: 28rpx;
+            margin-bottom: 10rpx;
+}
+.heart-rate .top .patient_infos .more {
+        width: 24rpx;
+        height: 16rpx;
+        margin-left: 242rpx;
+}
+.heart-rate .top .date-module {
+      width: 224rpx;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+              flex-direction: column;
+      margin-top: 40rpx;
+}
+.heart-rate .top .date-module .date {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+                justify-content: space-between;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center;
+}
+.heart-rate .top .date-module .date .back {
+          width: 10rpx;
+          height: 16rpx;
+}
+.heart-rate .top .date-module .date .txt {
+          font-size: 28rpx;
+          color: #fff;
+}
+.heart-rate .top .date-module .total {
+        font-size: 24rpx;
+        color: #fff;
+        margin-top: 8rpx;
+        margin-left: 42rpx;
+}
+.heart-rate .middle {
+    width: 750rpx;
+    height: 236rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+            justify-content: space-between;
+    background-color: #fff;
+}
+.heart-rate .middle .time-range {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between;
+}
+.heart-rate .middle .time-range .time {
+        margin: 20rpx 24rpx 0;
+        font-size: 20rpx;
+        color: #999;
+}
+.heart-rate .middle .beat {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between;
+}
+.heart-rate .middle .beat .beat-item {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center;
+        margin: 0 30rpx 40rpx;
+}
+.heart-rate .middle .beat .beat-item .txt {
+          font-size: 24rpx;
+          color: #999;
+}
+.heart-rate .middle .beat .beat-item .val {
+          margin-top: 20rpx;
+          font-size: 48rpx;
+          color: #333;
+}
+.heart-rate .bottom {
+    width: 750rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    margin-top: 20rpx;
+    background-color: #fff;
+}
+.heart-rate .bottom .bottom-top {
+      height: 100rpx;
+      line-height: 100rpx;
+      padding-left: 30rpx;
+      font-size: 28rpx;
+      font-weight: 500;
+      color: #333;
+      border-bottom: 1rpx solid #DCDCDC;
+}
+.heart-rate .bottom .bottom-item {
+      width: 690rpx;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+              flex-direction: column;
+      margin-left: 30rpx;
+      padding-bottom: 8rpx;
+      border-bottom: 1rpx solid #DCDCDC;
+}
+.heart-rate .bottom .bottom-item .date {
+        height: 88rpx;
+        line-height: 88rpx;
+        font-size: 28rpx;
+        color: #666;
+}
+.heart-rate .bottom .bottom-item .time {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+                justify-content: space-between;
+        font-size: 28rpx;
+}
+.heart-rate .bottom .bottom-item .time .txt {
+          color: #999;
+          margin-bottom: 28rpx;
+}
+.heart-rate .bottom .bottom-item .time .bpm {
+          color: #333;
+}
+.heart-rate .bottom .bottom-item:last-child {
+      border-bottom: none;
+}
+

@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/workbench/workbench",
+    "pages/notice/notice",
+    "pages/personal/personal",
+    "pages/video/video",
+    "pages/blood-status/blood-status",
+    "pages/electrocardiogram/electrocardiogram",
+    "pages/heart-rate/heart-rate",
+    "pages/management/management",
+    "pages/warning/warning",
+    "pages/login/login",
+    "pages/index/index"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#BBBBBB",
+    "selectedColor": "#564C5E",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/workbench/workbench",
+        "iconPath": "static/images/unworkbench.png",
+        "selectedIconPath": "static/images/workbench.png",
+        "text": "工作台"
+      },
+      {
+        "pagePath": "pages/warning/warning",
+        "iconPath": "static/images/unwarning.png",
+        "selectedIconPath": "static/images/warning.png",
+        "text": "报警"
+      },
+      {
+        "pagePath": "pages/management/management",
+        "iconPath": "static/images/unmanagement.png",
+        "selectedIconPath": "static/images/management.png",
+        "text": "客户管理"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap93.json"
+}
