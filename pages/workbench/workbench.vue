@@ -13,37 +13,37 @@
 		</view>
 		
 		<!-- 通知 -->
-		<view class="notice">
+		<navigator class="notice" url="../notice/notice">
 			<img class="notice-img" src="../../static/images/notice.png">
 			<text class="notice-txt">重磅！我国养老服务领域第一项强制性国家政策出台，好多护士姐姐啊~</text>
-		</view>
+		</navigator>
 		
 		<!-- 内容 -->
 		<view class="main">
-			<view class="item">
+			<navigator class="item" url="../heart-rate/heart-rate">
 				<img class="item-img" src="../../static/images/item-img1.png">
 				<text class="item-txt">实时心率</text>
-			</view>
-			<view class="item">
+			</navigator>
+			<navigator class="item" url="../heart-rate/heart-rate">
 				<img class="item-img" src="../../static/images/item-img2.png">
 				<text class="item-txt">心率回放</text>
-			</view>
-			<view class="item">
+			</navigator>
+			<navigator class="item" url="../electrocardiogram/electrocardiogram">
 				<img class="item-img" src="../../static/images/heart.png">
 				<text class="item-txt">心电图</text>
-			</view>
-			<view class="item">
+			</navigator>
+			<navigator class="item" url="../blood-status/blood-status">
 				<img class="item-img" src="../../static/images/item-img4.png">
 				<text class="item-txt">血压 血氧 血糖</text>
-			</view>
-			<view class="item">
+			</navigator>
+			<navigator class="item" url="../video/video">
 				<img class="item-img" src="../../static/images/item-img5.png">
 				<text class="item-txt">视频监控</text>
-			</view>
-			<view class="item">
+			</navigator>
+			<navigator class="item">
 				<img class="item-img" src="../../static/images/item-img6.png">
 				<text class="item-txt">起夜/摔倒警报</text>
-			</view>
+			</navigator>
 		</view>
 	</view>
 </template>

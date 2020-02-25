@@ -6,14 +6,13 @@
 				<input 
 				class="account-input" 
 				type="text" 
-				maxlength="11"
 				placeholder-class="account-placeholder" 
 				placeholder="请输入您的手机号"
 				v-model="user_phone">
 				<img 
 				class="off" 
 				src="../../static/images/off.png" 
-				v-show="user_phone !== null"  
+				v-show="user_phone !== ''"  
 				@click="clearAccount">
 			</view>
 			<view class="password">
@@ -27,16 +26,16 @@
 				<img 
 				class="change-status" 
 				src="../../static/images/hidden.png" 
-				v-show="user_pwd !== null && change_type === 'password'" 
+				v-show="user_pwd !== '' && change_type === 'password'" 
 				@click="changeStatus">
 				<img 
 				class="change-status" 
 				src="../../static/images/show.png" 
-				v-show="user_pwd !== null && change_type === 'text'" 
+				v-show="user_pwd !== '' && change_type === 'text'" 
 				@click="changeStatus">
 			</view>
 		</view>
-		<button class="btn" open-type="getUserInfo" @getuserinfo="bindGetUserInfo">登 录</button>
+		<button class="btn" @click="sign_in">登 录</button>
 	</view>
 </template>
 
@@ -44,20 +43,62 @@
 	export default {
 		data() {
 			return {
-				user_phone: null,
-				user_pwd: null,
+				user_phone: '',
+				user_pwd: '',
 				change_type: 'password'
 			};
 		},
 		methods: {
 			clearAccount() {
-				this.user_phone = null
+				this.user_phone = ''
 			},
 			changeStatus() {
 				this.change_type = this.change_type === 'password' ? 'text' : 'password'
 			},
-			bindGetUserInfo(e) {
-				console.log(e)
+			sign_in() {
+				if(this.user_phone.length <= 0) {
+					uni.showToast({
+						icon: 'none',
+						title: '请输入账号'
+					})
+					return
+				}
+				if(this.user_pwd.length <= 0) {
+					uni.showToast({
+						icon: 'none',
+						title: '请输入密码'
+					}) 
+					return
+				}
+				uni.request({
+					url: 'https://ciai.le-cx.com/api/nurse/login',
+					data: {
+						account: this.user_phone,
+						password: this.user_pwd
+					},
+					success: res => {
+						console.log(res.data)
+						if(res.data.code !== 1) {
+							uni.showToast({
+								icon: 'none',
+								title: '登录失败，账号或者密码错误'
+							})
+						} else {
+							uni.showToast({
+								icon: 'success',
+								title: res.data.msg
+							})
+							// 保存userInfo到本地并进行登录跳转
+							uni.setStorage({
+								key: 'userInfo',
+								data: res.data.data
+							})
+							uni.switchTab({
+								url: '../workbench/workbench'
+							})
+						}
+					}
+				})
 			}
 		}
 	}

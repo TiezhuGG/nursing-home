@@ -149,8 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -195,21 +194,64 @@ var _default =
 {
   data: function data() {
     return {
-      user_phone: null,
-      user_pwd: null,
+      user_phone: '',
+      user_pwd: '',
       change_type: 'password' };
 
   },
   methods: {
     clearAccount: function clearAccount() {
-      this.user_phone = null;
+      this.user_phone = '';
     },
     changeStatus: function changeStatus() {
       this.change_type = this.change_type === 'password' ? 'text' : 'password';
     },
-    bindGetUserInfo: function bindGetUserInfo(e) {
-      console.log(e);
+    sign_in: function sign_in() {
+      if (this.user_phone.length <= 0) {
+        uni.showToast({
+          icon: 'none',
+          title: '请输入账号' });
+
+        return;
+      }
+      if (this.user_pwd.length <= 0) {
+        uni.showToast({
+          icon: 'none',
+          title: '请输入密码' });
+
+        return;
+      }
+      uni.request({
+        url: 'https://ciai.le-cx.com/api/nurse/login',
+        data: {
+          account: this.user_phone,
+          password: this.user_pwd },
+
+        success: function success(res) {
+          console.log(res.data);
+          if (res.data.code !== 1) {
+            uni.showToast({
+              icon: 'none',
+              title: '登录失败，账号或者密码错误' });
+
+          } else {
+            uni.showToast({
+              icon: 'success',
+              title: res.data.msg });
+
+            // 保存userInfo到本地并进行登录跳转
+            uni.setStorage({
+              key: 'userInfo',
+              data: res.data.data });
+
+            uni.switchTab({
+              url: '../workbench/workbench' });
+
+          }
+        } });
+
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
