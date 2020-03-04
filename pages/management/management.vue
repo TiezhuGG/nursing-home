@@ -1,65 +1,66 @@
 <template>
 	<view>
 		<view class="input">
-			<input placeholder="搜索用户姓名" placeholder-style="font-size: 28upx" :value="inputName" @input="bindKeyInput" @blur="bindBlur" />
+			<img src="../../static/images/search.png" @click="onFocus">
+			<input placeholder="搜索客户姓名" :value="inputName" @input="bindKeyInput" @blur="bindBlur" :focus="focus" />
 		</view>
 
-		<view class="container-inner">
+		<scroll-view class="container-inner">
 			<view class="searchLetter touchClass">
-				<view v-for="(item, idx) in searchLetter" :key="idx" style="color:#24C789;font-size:24upx;" :data-letter="item.name"
+				<view v-for="(item, idx) in searchLetter" :key="idx" style="color:#24C789;font-size:28upx;" :data-letter="item.name"
 				 @click="clickLetter">
 					{{ item.name }}
 				</view>
 			</view>
 
 			<view class="container">
-<!-- 				<view v-if="isShowLetter">
-					<view class="showSlectedLetter">
-						{{ toastShowLetter }}
-					</view>
-				</view> -->
 				<scroll-view scroll-y="true" v-bind:style="{height: winHeight + 'px'}" :scroll-into-view="scrollTopId">
-					<view class="selection" v-for="(item, idx) in cityList" :key="idx">
-						<view class="item_letter" :id="item.initial">{{ item.initial }}</view>
-						<view class="item_city" v-for="(cityItem, index) in item.cityInfo" :key="index" :data-code="cityItem.code"
-						 :data-city="cityItem.city" @click="bindCity">
-							{{cityItem.city}}
-						</view>
-					</view>
+					<block v-for="(item, idx) in list" :key="idx">
+						<view class="item_letter" :id="item.letter">{{ item.letter }}</view>
+						<block v-for="(user, index) in item.data" :key="index">
+							<view class="selection" @click="toPatientDetail(user.id)">
+								<img class="item_avatar" :src="user.avatar" />
+								<view>
+									<text class="item_name">{{ user.name }}</text>
+									<text class="item_age">年龄: {{ user.age }}</text>
+								</view>
+							</view>
+						</block>
+					</block>
 				</scroll-view>
 			</view>
-		</view>
+		</scroll-view>
 	</view>
 </template>
 
 <script>
 	import city from '../../common/city.js';
+	import {
+		initial
+	} from "@/common/chineseConversion.js"
 	export default {
 		data() {
 			return {
-				searchLetter: [],
-				showLetter: '',
-				winHeight: 0,
-				cityList: [],
-				isShowLetter: false,
-				// 置顶id
+				url: 'https://ciai.le-cx.com/api/patient/info?id=',
+				searchLetter: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'W', 'X',
+					'Y', 'Z'
+				],
+				focus: false,
+				list: [],
 				scrollTopId: '',
-				hotcityList: [],
 				inputName: '',
 				completeList: [],
-				condition: false,
-				detailAddress: '',
+				winHeight: 0,
+				showLetter: '',
+				isShowLetter: false,
 				toastShowLetter: '',
-				currentCity: ''
 			};
 		},
 		onLoad() {
-
-			console.log(city);
-			const searchLetter = city.searchLetter;
-			const cityList = city.cityList();
+			this.fetchPatientList()
+			const searchLetter = this.searchLetter;
 			const sysInfo = uni.getSystemInfoSync();
-			console.log(sysInfo);
+			// console.log(sysInfo);
 			const winHeight = sysInfo.windowHeight;
 			const itemH = winHeight / searchLetter.length;
 			let tempArr = [];
@@ -73,33 +74,63 @@
 					tempArr.push(temp);
 				}
 			);
-
+			
 			this.winHeight = winHeight;
 			this.itemH = itemH;
 			this.searchLetter = tempArr;
-			this.cityList = cityList;
-			this.getLocation();
+			console.log(this.searchLetter)
 		},
 		methods: {
-			getLocation() {
-				uni.getLocation({
-					type: 'wgs84',
-					success: res => {
-						console.log(res);
-						let latitude = res.latitude;
-						let longitude = res.longitude;
-						uni.request({
-							url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + latitude + ',' + longitude +
-								'&key=UGMBZ-S5AKU-YQGV3-47M5J-BAQ62-ZBBJW',
-							success: data => {
-								console.log(data.data.result.address_component);
-								this.currentCity = data.data.result.address_component.city;
-							}
-						});
-					}
-				});
+			// 点击搜索图标获取input焦点
+			onFocus() {
+				this.focus = !this.focus
 			},
+			// 获取患者列表
+			fetchPatientList() {
+				uni.request({
+					url: 'https://ciai.le-cx.com/api/patient/patientList',
+					success: res => {
+						let letterList = []
+						for (let item of res.data.data) {
+							let letter = initial(item.name)
+							let index = letterList.indexOf(letter)
+							if (index === -1) {
+								letterList.push(letter)
+								let obj = {
+									letter: '',
+									data: []
+								}
+								obj.letter = letter
+								obj.data.push(item)
+								this.list.push(obj)
+							} else {
+								this.list[index].data.push(item)
+							}
+						}
+						this.sortLetter(this.list)
+						console.log(this.list)
+					}
+				})
+			},
+			// 跳转个人详情页
+			toPatientDetail(id) {
+				uni.navigateTo({
+					url: `../personal/personal?id=${id}`				
+				})
+			},
+			// 按字母a-z排序
+			sortLetter(arr) {
+				arr.sort((s, t) => {
+					let a = s.letter.toLowerCase();
+					let b = t.letter.toLowerCase();
+					if (a < b) return -1;
+					if (a > b) return 1;
+					return 0;
+				})
+			},
+			// 点击右侧索引字母
 			clickLetter(e) {
+				console.log(e)
 				const showLetter = e.currentTarget.dataset.letter;
 				this.toastShowLetter = showLetter;
 				this.isShowLetter = true;
@@ -110,21 +141,6 @@
 					self.isShowLetter = false;
 				}, 500);
 			},
-			reGetLocation() {
-				this.getLocation();
-			},
-			// 选择城市
-			bindCity(e) {
-				this.condition = true;
-				//缓存选择的城市
-				uni.setStorageSync('selectCity', e.currentTarget.dataset.city);
-				uni.navigateBack({
-					delta: 1
-				});
-			},
-			hotCity() {
-				this.scrollTopId = 'currentcity';
-			},
 			bindScroll(e) {
 				console.log(e.detail);
 			},
@@ -132,6 +148,7 @@
 				this.inputName = '';
 			},
 			bindKeyInput(e) {
+				console.log(e)
 				this.inputName = e.mp.detail.value;
 				// 空搜索框时 取消匹配显示
 				if (this.inputName.length < 1) {
@@ -210,35 +227,55 @@
 	};
 </script>
 
-<style>
+<style lang="scss">
 	.container-inner {
 		display: flex;
 		flex-direction: row-reverse;
+		position: relative;
 	}
 
 	.container {
 		flex-grow: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 10upx;
 	}
 
-	input {
-		text-align: center;
-		font-size: 32upx;
-		padding: 5px;
+	.input {
+		display: flex;
+		align-items: center;
+		height: 104upx;
+		input {
+			width: 628upx;
+			height: 64upx;
+			font-size: 28upx;
+			background-color: #F4F4F4;
+			border-radius: 2upx;
+		}
+		
+		img {
+			width: 32upx;
+			height: 32upx;
+			padding: 17upx;
+			margin-left: 30upx;
+			background-color: #F4F4F4;
+			z-index: 1;
+		}
 	}
 
 	.searchLetter {
 		flex-shrink: 0;
 		width: 50upx;
 		text-align: center;
+		margin-top: 94upx;
 		display: flex;
 		flex-direction: column;
+		position: absolute;
+		right: 1upx;
+		z-index: 1111;
 	}
 
 	.searchLetter view {
-		margin-top: 10upx;
+		margin-top: 5upx;
 	}
 
 	.touchClass {
@@ -248,151 +285,52 @@
 		padding-bottom: 16upx;
 	}
 
-	.showSlectedLetter {
-		background-color: rgba(0, 0, 0, 0.5);
-		color: #fff;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		margin: -100upx;
-		width: 200upx;
-		height: 200upx;
-		border-radius: 20upx;
-		font-size: 52upx;
-		z-index: 1;
-	}
-
 	.selection {
 		display: flex;
 		width: 100%;
-		flex-direction: column;
-		margin-top: 10upx;
-	}
+		height: 144upx;
+		align-items: center;
+		
+		.item_avatar {
+			width: 84upx;
+			height: 84upx;
+			margin-left: 30upx;
+			border-radius: 50%;
+		}
 
-	.selectCity {
-		padding: 16upx;
-		background-color: #f5f5f5;
-		margin-bottom: -10upx;
-	}
+		view {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 84upx;
+			margin-left: 20upx;
+			.item_name {
+				color: #333;
+				font-size: 30upx;
+			}
 
+			.item_age {
+				color: #B4B4B4;
+				font-size: 26upx;
+			}
+		}
+	}
+	
+	.selection:not(:nth-last-child(1)) {
+			border-bottom: 1upx solid #DDD;
+			border-bottom-width: 100%;
+		}
+	
 	.item_letter {
-		display: flex;
-		background-color: #f5f5f5;
-		height: 40upx;
-		padding-left: 34upx;
-		align-items: center;
-		font-size: 24upx;
-		color: #666;
-	}
-
-	.item_city {
-		display: flex;
-		background-color: #fff;
-		height: 100upx;
-		padding-left: 34upx;
-		align-items: center;
-		border-bottom: 1upx solid #ededed;
-		font-size: 24upx;
-		color: #666;
-	}
-
-	.hotcity-common {
-		font-size: 24upx;
-		color: #666;
-		padding-bottom: 0;
-		margin: 8upx 0;
-		margin-left: 16upx;
-	}
-
-	.hotcity {
-		padding-right: 50upx;
-		margin: auto;
-	}
-
-	.thisCityName {
-		display: inline-block;
-		border: 1upx solid #8BC34A;
-		border-radius: 8upx;
-		padding: 10upx 0;
-		font-size: 24upx;
-		color: #8BC34A;
-		text-align: center;
-		min-width: 149.5upx;
-		margin: 16upx 0;
-	}
-
-	.thishotText {
-		color: #8BC34A;
-		font-size: 20upx;
-		margin: 0 !important;
-	}
-
-	.slectCity {
-		border-color: #8BC34A !important;
-	}
-
-	.slectCity view {
-		color: #8BC34A !important;
-	}
-
-	.weui-grid {
-		padding: 10upx 0;
-		width: 200upx;
-		box-sizing: border-box;
-		border: 1upx solid #ececec;
-		border-radius: 8upx;
-		background-color: white;
-		margin: 8upx 0;
-	}
-
-	.weui-grids {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		border: none;
-	}
-
-	.weui-grid__label {
-		display: block;
-		text-align: center;
-		color: #333;
-		font-size: 24upx;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
-	}
-
-	.ul {
-		display: block;
-		color: grey;
-		margin-left: 20upx;
-	}
-
-	.li {
-		display: block;
-		font-weight: 100;
-		font-size: 28upx;
-		padding: 16upx 0;
-	}
-
-	input {
-		background-color: #eee;
-	}
-
-	.input {
-		padding: 16upx;
-		border-bottom: 1upx solid #f1f1f1;
-	}
-
-	.county {
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	view {
-		display: block;
+		background-color: #F7F7F7;
+		height: 88upx;
+		line-height: 88upx;
+		padding-left: 30upx;
+		font-size: 32upx;
+		color: #BEBEBE;
+		margin-right: 52upx;
+		&:nth-child(1) {
+			width: 100%;
+		}
 	}
 </style>

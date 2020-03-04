@@ -86,7 +86,8 @@
 						} else {
 							uni.showToast({
 								icon: 'success',
-								title: res.data.msg
+								title: res.data.msg,
+								duration: 2000
 							})
 							// 保存userInfo到本地并进行登录跳转
 							uni.setStorage({

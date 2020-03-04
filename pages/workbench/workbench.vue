@@ -15,7 +15,7 @@
 		<!-- 通知 -->
 		<navigator class="notice" url="../notice/notice">
 			<img class="notice-img" src="../../static/images/notice.png">
-			<text class="notice-txt">重磅！我国养老服务领域第一项强制性国家政策出台，好多护士姐姐啊~</text>
+			<text class="notice-txt">重磅！我国养老服务领域第一项强制性国家标准发布~</text>
 		</navigator>
 		
 		<!-- 内容 -->

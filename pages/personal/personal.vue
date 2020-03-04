@@ -103,6 +103,7 @@
 	export default {
 		data() {
 			return {
+				patient_id: '', 
 				user_pic:"../../static/images/user.jpg",
 				user_name:"王健林",
 				user_year:"74岁",
@@ -140,8 +141,19 @@
 				smoking_quit_year:"45岁",
 			}
 		},
+		onLoad(option) {
+			this.patient_id = option.id
+			this.fetchPatientInfo(this.patient_id)
+		},
 		methods: {
-			
+			fetchPatientInfo(id) {
+				uni.request({
+					url: `https://ciai.le-cx.com/api/patient/info?id=${this.patient_id}`,
+					success: res => {
+						console.log(res)
+					}
+				})
+			}
 		}
 	}
 </script>

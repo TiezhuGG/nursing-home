@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/management/management",
     "pages/workbench/workbench",
     "pages/notice/notice",
     "pages/personal/personal",
@@ -7,7 +8,6 @@
     "pages/blood-status/blood-status",
     "pages/electrocardiogram/electrocardiogram",
     "pages/heart-rate/heart-rate",
-    "pages/management/management",
     "pages/warning/warning",
     "pages/login/login",
     "pages/index/index"
@@ -45,5 +45,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap93.json"
+  "sitemapLocation": "sitemap67.json"
 }

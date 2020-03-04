@@ -100,14 +100,10 @@ __webpack_require__.r(__webpack_exports__);
     hasLogin: function hasLogin() {
       var userInfo = uni.getStorageSync('userInfo');
       if (userInfo) {
-        uni.switchTab({
-          url: 'pages/workbench/workbench' });
-
+        // uni.switchTab({
+        // 	url: 'pages/workbench/workbench'
+        // })
       } else {
-        uni.showToast({
-          icon: 'none',
-          title: '请先登录' });
-
         uni.reLaunch({
           url: 'pages/login/login' });
 
