@@ -24,6 +24,14 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+/*样式的width和height一定要与定义的cWidth和cHeight相对应*/
+.qiun-charts {
+  width: 750rpx;
+}
+.charts {
+  width: 750rpx;
+  height: 430rpx;
+}
 .heart-rate {
   background-color: #F7F7F7;
 }
@@ -59,6 +67,7 @@
         width: 92rpx;
         height: 92rpx;
         margin-left: 24rpx;
+        border-radius: 50%;
 }
 .heart-rate .top .patient_infos .info {
         height: 92rpx;

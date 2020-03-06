@@ -144,7 +144,7 @@ var _default =
 {
   data: function data() {
     return {
-      title: 'Hello-aaa' };
+      title: 'Hello' };
 
   },
   onLoad: function onLoad() {

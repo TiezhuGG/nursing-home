@@ -77,7 +77,7 @@
 						password: this.user_pwd
 					},
 					success: res => {
-						console.log(res.data)
+						// console.log(res.data)
 						if(res.data.code !== 1) {
 							uni.showToast({
 								icon: 'none',

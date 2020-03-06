@@ -1,11 +1,1 @@
-<view class="notice"><view class="main"><view class="title">重磅！我国养老服务领域第一项强
-				制性国家标准发布</view><view class="time"><view class="time-pic"><image src="../../static/images/time.png"></image></view><view class="timer">{{timer}}</view><view class="clear"></view></view><view class="content"><view class="p1 _p">2019年12月27日，国家市场监督管理总局、国家标
-准化管理委员会发布公告，正式批准gb38600-2019
-《养老机构服务安全基本规范》强制性国家标准并予
-以公布。这是我国养老服务领域第一项强制性国家
-标准，明确了养老机构服务安全“红线”，将有利于
-防范、排查和整治养老机构服务中的安全隐患，推
-进养老服务高质量发展。。</view><view class="p2 _p">《养老机构服务安全基本规范》基本要求有哪些？
-如何进行安全风险评估和服务防护?具体管理要求又
-是什么?这些群众高度关切、社会普遍关注的问题，
-小编带您一图看懂!</view></view></view></view>
+<view class="notice"><view class="main"><view class="title">{{''+noticeInfo.title+''}}</view><view class="time"><view class="time-pic"><image src="../../static/images/time.png"></image></view><view class="timer">{{noticeInfo.createtime}}</view><view class="clear"></view></view><view class="content"><text class="txt">{{noticeInfo.content}}</text></view></view></view>

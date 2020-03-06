@@ -55,11 +55,15 @@
 .user-box {
   float: left;
 }
+.user-top {
+  height: 44rpx;
+  margin-bottom: 32rpx;
+}
 .user-name {
   font-size: 44rpx;
   vertical-align: text-bottom;
 }
-.user-year {
+.user-age {
   font-size: 24rpx;
   color: #999999;
   padding-left: 15rpx;

@@ -1584,6 +1584,17 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6
 
 /***/ }),
 
+/***/ 139:
+/*!*********************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/search.png ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE2ElEQVRYR71Xb4hUVRT/nTu71s6aH9SsKDNJkAJJMUTB/uxSuPvueU76YYVMIjJTCSuCSES/ZFIhqCSkKAUVGFstbu++NzuIDFlZ0kKRH0oDjYxalv5I6Gzs7Lsn7vBGZ8d1Z3ZXux/vPefc3zn3/PldQh0rCII0AB/AI0qp+SIym4imiMgQgL8AnAbwlVIq8jzvOACpw2xJhEYTDMPwVgAvi8haADfVafQnADubm5vfaWlpcQBHXVcFEIbhsyLyJoApiQUL4BsROUJEp4jovLW2QSl1i4jcR0QsIjMrbjsZx/GTmUzm29EQXAGgt7e3sb+/f6+1dl2ieFFEdllr385kMr+NZiwIgkVEtAXA8lJ4iZzuU8z80dX0hgFwl/f19UXurRMDh1Op1Ma2trbfa4Wy8rynp+eBoaGh9wHMSvLheWZ+ayQbwwBEUbQ/8VxE5DVm3kZEdSdU5QVdXV0zJk2a9AmApQBi90Ra655qEJcAJG++zwmIyHbf97eOxeuRZF31KKW+EJEFAM4DWMjMZyplSwBctovIKZdwInKYmVeO1/NqILlcbubg4GAvEc0Qkazv+94VAIwxuwC8AOAiEc3RWvdN1PtK/TAM14rIAbenlFrqed6X5XPK5XLNxWLRJZmr81fdu1/Ly52tzs7OVDqd/h7AvUTUqbVedQlAFEWrrLUfArBxHM+sVWrjBReG4SYR2QPg38bGxunLli27WKq0MAwPJJ3uBDMvHu8FtfTCMHQleVZEXN61MXOuBMAY0+uy83qFvyoXfhSRuQBeYeY3ygD+BDAVwBpm/qCWJxM5D8PwUxFxQ20/M68vP8GgiDQSka+1NhO5oJZuEATvEdEaAIeY+fFyBAoAmpRSKzzPO1zLyETOjTFdAFYQ0UGt9TPlCJwTkTtEZIPv+6VOeL2WMcZxhSUAdjCzG1qgIAiOElErEe3TWm+4XpeLiDLG9BPRNCJar7XeX36C7QC2ENGvWus7x8JmxgI2m80uiePYRcCN6blaa8eiQFUHi7XWJ8ZiuF5ZY8xOAC8B+IWZXU8orfIwKtdnyMxcr9F65aIoujmO4zNENJmItmqtXdQvAzDGPA3gYLLXysz5eo3XI2eMcWTkORG5MDAwMKujo8MR2csA3LBobm7uFZH5RHQOwKJrNRGNMSsBfJxEewsz76gEXUlI5llrjydh+jqdTj/a0tJyoR4PryYTRdHd1lpHSt2kPV4oFB7s6OiIRwTgNsMwzIiIaxYKwMlUKrW8vb395/GCCIJgNRGV2ruIvO77/uZqW1ewYmPMOiLa69ozgD+UUtuampoO1MPxq43n8/mGQqHQ5fp/wrA2aq2HNbsR/wVRFLVaazsBTEvq9rRjNCLS7fu++3gMW27EZrPZ+dba1QAeJqLNWusjTiifz99YKBR6ROQhEbFKqSe01oeGJeFIIXZcrlgs7iGix5IZXhY7m3zF/k6G2AzHdMpgE6HdzPxiWSGKIsc1j4rI/QCKRLSyPPhG/Zo5A8aYhUS0yVrriOrkGvng8uVdpdRuz/P+qZQNgmA6ER0DcA+AAaVUu+d5n9UEUOHFDQAWW2sXENFdCYMe9jll5h9GAxgEwe1E9DmA2QAcwNa6AYy3Eqr1uru75zQ0NBwTkdtcW/7fASTlPk9EHPn57j/R6i5Y3XWCCwAAAABJRU5ErkJggg=="
+
+/***/ }),
+
 /***/ 14:
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -1702,17 +1713,6 @@ function normalizeComponent (
   }
 }
 
-
-/***/ }),
-
-/***/ 19:
-/*!*********************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/search.png ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE2ElEQVRYR71Xb4hUVRT/nTu71s6aH9SsKDNJkAJJMUTB/uxSuPvueU76YYVMIjJTCSuCSES/ZFIhqCSkKAUVGFstbu++NzuIDFlZ0kKRH0oDjYxalv5I6Gzs7Lsn7vBGZ8d1Z3ZXux/vPefc3zn3/PldQh0rCII0AB/AI0qp+SIym4imiMgQgL8AnAbwlVIq8jzvOACpw2xJhEYTDMPwVgAvi8haADfVafQnADubm5vfaWlpcQBHXVcFEIbhsyLyJoApiQUL4BsROUJEp4jovLW2QSl1i4jcR0QsIjMrbjsZx/GTmUzm29EQXAGgt7e3sb+/f6+1dl2ieFFEdllr385kMr+NZiwIgkVEtAXA8lJ4iZzuU8z80dX0hgFwl/f19UXurRMDh1Op1Ma2trbfa4Wy8rynp+eBoaGh9wHMSvLheWZ+ayQbwwBEUbQ/8VxE5DVm3kZEdSdU5QVdXV0zJk2a9AmApQBi90Ra655qEJcAJG++zwmIyHbf97eOxeuRZF31KKW+EJEFAM4DWMjMZyplSwBctovIKZdwInKYmVeO1/NqILlcbubg4GAvEc0Qkazv+94VAIwxuwC8AOAiEc3RWvdN1PtK/TAM14rIAbenlFrqed6X5XPK5XLNxWLRJZmr81fdu1/Ly52tzs7OVDqd/h7AvUTUqbVedQlAFEWrrLUfArBxHM+sVWrjBReG4SYR2QPg38bGxunLli27WKq0MAwPJJ3uBDMvHu8FtfTCMHQleVZEXN61MXOuBMAY0+uy83qFvyoXfhSRuQBeYeY3ygD+BDAVwBpm/qCWJxM5D8PwUxFxQ20/M68vP8GgiDQSka+1NhO5oJZuEATvEdEaAIeY+fFyBAoAmpRSKzzPO1zLyETOjTFdAFYQ0UGt9TPlCJwTkTtEZIPv+6VOeL2WMcZxhSUAdjCzG1qgIAiOElErEe3TWm+4XpeLiDLG9BPRNCJar7XeX36C7QC2ENGvWus7x8JmxgI2m80uiePYRcCN6blaa8eiQFUHi7XWJ8ZiuF5ZY8xOAC8B+IWZXU8orfIwKtdnyMxcr9F65aIoujmO4zNENJmItmqtXdQvAzDGPA3gYLLXysz5eo3XI2eMcWTkORG5MDAwMKujo8MR2csA3LBobm7uFZH5RHQOwKJrNRGNMSsBfJxEewsz76gEXUlI5llrjydh+jqdTj/a0tJyoR4PryYTRdHd1lpHSt2kPV4oFB7s6OiIRwTgNsMwzIiIaxYKwMlUKrW8vb395/GCCIJgNRGV2ruIvO77/uZqW1ewYmPMOiLa69ozgD+UUtuampoO1MPxq43n8/mGQqHQ5fp/wrA2aq2HNbsR/wVRFLVaazsBTEvq9rRjNCLS7fu++3gMW27EZrPZ+dba1QAeJqLNWusjTiifz99YKBR6ROQhEbFKqSe01oeGJeFIIXZcrlgs7iGix5IZXhY7m3zF/k6G2AzHdMpgE6HdzPxiWSGKIsc1j4rI/QCKRLSyPPhG/Zo5A8aYhUS0yVrriOrkGvng8uVdpdRuz/P+qZQNgmA6ER0DcA+AAaVUu+d5n9UEUOHFDQAWW2sXENFdCYMe9jll5h9GAxgEwe1E9DmA2QAcwNa6AYy3Eqr1uru75zQ0NBwTkdtcW/7fASTlPk9EHPn57j/R6i5Y3XWCCwAAAABJRU5ErkJggg=="
 
 /***/ }),
 
@@ -7747,69 +7747,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 22:
-/*!***********************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/common/city.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-var cityObj = [{ 'id': '35', 'provincecode': '150000', 'city': "\u963F\u62C9\u5584\u76DF", 'code': '152900', 'initial': 'A' },
-{ 'id': '38', 'provincecode': '210000', 'city': "\u978D\u5C71\u5E02", 'code': '210300', 'initial': 'A' },
-{ 'id': '105', 'provincecode': '340000', 'city': "\u5B89\u5E86\u5E02", 'code': '340800', 'initial': 'A' },
-{ 'id': '156', 'provincecode': '410000', 'city': "\u5B89\u9633\u5E02", 'code': '410500', 'initial': 'A' },
-{ 'id': '256', 'provincecode': '510000', 'city': "\u963F\u575D\u85CF\u65CF\u7F8C\u65CF\u81EA\u6CBB\u5DDE", 'code': '513200', 'initial': 'A' },
-{ 'id': '262', 'provincecode': '520000', 'city': "\u5B89\u987A\u5E02", 'code': '520400', 'initial': 'A' },
-{ 'id': '289', 'provincecode': '540000', 'city': "\u963F\u91CC\u5730\u533A", 'code': '542500', 'initial': 'A' },
-{ 'id': '299', 'provincecode': '610000', 'city': "\u5B89\u5EB7\u5E02", 'code': '610900', 'initial': 'A' },
-{ 'id': '335', 'provincecode': '650000', 'city': "\u963F\u514B\u82CF\u5730\u533A", 'code': '652900', 'initial': 'A' },
-{ 'id': '341', 'provincecode': '650000', 'city': "\u963F\u52D2\u6CF0\u5730\u533A", 'code': '654300', 'initial': 'A' },
-{ 'id': '1', 'provincecode': '110000', 'city': "\u5317\u4EAC\u5E02", 'code': '110000', 'initial': 'B' }, { 'id': '7', 'provincecode': '130000', 'city': "\u4FDD\u5B9A\u5E02", 'code': '130600', 'initial': 'B' }, { 'id': '25', 'provincecode': '150000', 'city': "\u5305\u5934\u5E02", 'code': '150200', 'initial': 'B' }, { 'id': '31', 'provincecode': '150000', 'city': "\u5DF4\u5F66\u6DD6\u5C14\u5E02", 'code': '150800', 'initial': 'B' }, { 'id': '40', 'provincecode': '210000', 'city': "\u672C\u6EAA\u5E02", 'code': '210500', 'initial': 'B' }, { 'id': '55', 'provincecode': '220000', 'city': "\u767D\u5C71\u5E02", 'code': '220600', 'initial': 'B' }, { 'id': '57', 'provincecode': '220000', 'city': "\u767D\u57CE\u5E02", 'code': '220800', 'initial': 'B' }, { 'id': '100', 'provincecode': '340000', 'city': "\u868C\u57E0\u5E02", 'code': '340300', 'initial': 'B' }, { 'id': '150', 'provincecode': '370000', 'city': "\u6EE8\u5DDE\u5E02", 'code': '371600', 'initial': 'B' }, { 'id': '222', 'provincecode': '450000', 'city': "\u5317\u6D77\u5E02", 'code': '450500', 'initial': 'B' }, { 'id': '227', 'provincecode': '450000', 'city': "\u767E\u8272\u5E02", 'code': '451000', 'initial': 'B' }, { 'id': '254', 'provincecode': '510000', 'city': "\u5DF4\u4E2D\u5E02", 'code': '511900', 'initial': 'B' }, { 'id': '265', 'provincecode': '520000', 'city': "\u6BD5\u8282\u5730\u533A", 'code': '522400', 'initial': 'B' }, { 'id': '271', 'provincecode': '530000', 'city': "\u4FDD\u5C71\u5E02", 'code': '530500', 'initial': 'B' }, { 'id': '293', 'provincecode': '610000', 'city': "\u5B9D\u9E21\u5E02", 'code': '610300', 'initial': 'B' }, { 'id': '304', 'provincecode': '620000', 'city': "\u767D\u94F6\u5E02", 'code': '620400', 'initial': 'B' }, { 'id': '333', 'provincecode': '650000', 'city': "\u535A\u5C14\u5854\u62C9\u8499\u53E4\u81EA\u6CBB\u5DDE", 'code': '652700', 'initial': 'B' }, { 'id': '334', 'provincecode': '650000', 'city': "\u5DF4\u97F3\u90ED\u695E\u8499\u53E4\u81EA\u6CBB\u5DDE", 'code': '652800', 'initial': 'B' }, { 'id': '', 'provincecode': '500000', 'city': "\u91CD\u5E86\u5E02", 'code': '500000', 'initial': 'C' }, { 'id': '9', 'provincecode': '130000', 'city': "\u627F\u5FB7\u5E02", 'code': '130800', 'initial': 'C' }, { 'id': '10', 'provincecode': '130000', 'city': "\u6CA7\u5DDE\u5E02", 'code': '130900', 'initial': 'C' }, { 'id': '16', 'provincecode': '140000', 'city': "\u957F\u6CBB\u5E02", 'code': '140400', 'initial': 'C' }, { 'id': '27', 'provincecode': '150000', 'city': "\u8D64\u5CF0\u5E02", 'code': '150400', 'initial': 'C' }, { 'id': '48', 'provincecode': '210000', 'city': "\u671D\u9633\u5E02", 'code': '211300', 'initial': 'C' }, { 'id': '50', 'provincecode': '220000', 'city': "\u957F\u6625\u5E02", 'code': '220100', 'initial': 'C' }, { 'id': '77', 'provincecode': '320000', 'city': "\u5E38\u5DDE\u5E02", 'code': '320400', 'initial': 'C' }, { 'id': '107', 'provincecode': '340000', 'city': "\u6EC1\u5DDE\u5E02", 'code': '341100', 'initial': 'C' }, { 'id': '110', 'provincecode': '340000', 'city': "\u5DE2\u6E56\u5E02", 'code': '341400', 'initial': 'C' }, { 'id': '113', 'provincecode': '340000', 'city': "\u6C60\u5DDE\u5E02", 'code': '341700', 'initial': 'C' }, { 'id': '183', 'provincecode': '430000', 'city': "\u957F\u6C99\u5E02", 'code': '430100', 'initial': 'C' }, { 'id': '189', 'provincecode': '430000', 'city': "\u5E38\u5FB7\u5E02", 'code': '430700', 'initial': 'C' }, { 'id': '192', 'provincecode': '430000', 'city': "\u90F4\u5DDE\u5E02", 'code': '431000', 'initial': 'C' }, { 'id': '215', 'provincecode': '440000', 'city': "\u6F6E\u5DDE\u5E02", 'code': '445100', 'initial': 'C' }, { 'id': '231', 'provincecode': '450000', 'city': "\u5D07\u5DE6\u5E02", 'code': '451400', 'initial': 'C' }, { 'id': '238', 'provincecode': '510000', 'city': "\u6210\u90FD\u5E02", 'code': '510100', 'initial': 'C' }, { 'id': '276', 'provincecode': '530000', 'city': "\u695A\u96C4\u5F5D\u65CF\u81EA\u6CBB\u5DDE", 'code': '532300', 'initial': 'C' }, { 'id': '285', 'provincecode': '540000', 'city': "\u660C\u90FD\u5730\u533A", 'code': '542100', 'initial': 'C' }, { 'id': '332', 'provincecode': '650000', 'city': "\u660C\u5409\u56DE\u65CF\u81EA\u6CBB\u5DDE", 'code': '652300', 'initial': 'C' }, { 'id': '14', 'provincecode': '140000', 'city': "\u5927\u540C\u5E02", 'code': '140200', 'initial': 'D' }, { 'id': '37', 'provincecode': '210000', 'city': "\u5927\u8FDE\u5E02", 'code': '210200', 'initial': 'D' }, { 'id': '41', 'provincecode': '210000', 'city': "\u4E39\u4E1C\u5E02", 'code': '210600', 'initial': 'D' }, { 'id': '64', 'provincecode': '230000', 'city': "\u5927\u5E86\u5E02", 'code': '230600', 'initial': 'D' }, { 'id': '71', 'provincecode': '230000', 'city': "\u5927\u5174\u5B89\u5CAD\u5730\u533A", 'code': '232700', 'initial': 'D' }, { 'id': '139', 'provincecode': '370000', 'city': "\u4E1C\u8425\u5E02", 'code': '370500', 'initial': 'D' }, { 'id': '148', 'provincecode': '370000', 'city': "\u5FB7\u5DDE\u5E02", 'code': '371400', 'initial': 'D' }, { 'id': '213', 'provincecode': '440000', 'city': "\u4E1C\u839E\u5E02", 'code': '441900', 'initial': 'D' }, { 'id': '242', 'provincecode': '510000', 'city': "\u5FB7\u9633\u5E02", 'code': '510600', 'initial': 'D' }, { 'id': '252', 'provincecode': '510000', 'city': "\u8FBE\u5DDE\u5E02", 'code': '511700', 'initial': 'D' }, { 'id': '280', 'provincecode': '530000', 'city': "\u5927\u7406\u767D\u65CF\u81EA\u6CBB\u5DDE", 'code': '532900', 'initial': 'D' }, { 'id': '281', 'provincecode': '530000', 'city': "\u5FB7\u5B8F\u50A3\u65CF\u666F\u9887\u65CF\u81EA\u6CBB\u5DDE", 'code': '533100', 'initial': 'D' }, { 'id': '283', 'provincecode': '530000', 'city': "\u8FEA\u5E86\u85CF\u65CF\u81EA\u6CBB\u5DDE", 'code': '533400', 'initial': 'D' }, { 'id': '311', 'provincecode': '620000', 'city': "\u5B9A\u897F\u5E02", 'code': '621100', 'initial': 'D' }, { 'id': '29', 'provincecode': '150000', 'city': "\u9102\u5C14\u591A\u65AF\u5E02", 'code': '150600', 'initial': 'E' }, { 'id': '174', 'provincecode': '420000', 'city': "\u9102\u5DDE\u5E02", 'code': '420700', 'initial': 'E' }, { 'id': '181', 'provincecode': '420000', 'city': "\u6069\u65BD\u571F\u5BB6\u65CF\u82D7\u65CF\u81EA\u6CBB\u5DDE", 'code': '422800', 'initial': 'E' }, { 'id': '39', 'provincecode': '210000', 'city': "\u629A\u987A\u5E02", 'code': '210400', 'initial': 'F' }, { 'id': '44', 'provincecode': '210000', 'city': "\u961C\u65B0\u5E02", 'code': '210900', 'initial': 'F' }, { 'id': '108', 'provincecode': '340000', 'city': "\u961C\u9633\u5E02", 'code': '341200', 'initial': 'F' }, { 'id': '115', 'provincecode': '350000', 'city': "\u798F\u5DDE\u5E02", 'code': '350100', 'initial': 'F' }, { 'id': '133', 'provincecode': '360000', 'city': "\u629A\u5DDE\u5E02", 'code': '361000', 'initial': 'F' }, { 'id': '202', 'provincecode': '440000', 'city': "\u4F5B\u5C71\u5E02", 'code': '440600', 'initial': 'F' }, { 'id': '223', 'provincecode': '450000', 'city': "\u9632\u57CE\u6E2F\u5E02", 'code': '450600', 'initial': 'F' }, { 'id': '130', 'provincecode': '360000', 'city': "\u8D63\u5DDE\u5E02", 'code': '360700', 'initial': 'G' }, { 'id': '197', 'provincecode': '440000', 'city': "\u5E7F\u5DDE\u5E02", 'code': '440100', 'initial': 'G' }, { 'id': '220', 'provincecode': '450000', 'city': "\u6842\u6797\u5E02", 'code': '450300', 'initial': 'G' }, { 'id': '225', 'provincecode': '450000', 'city': "\u8D35\u6E2F\u5E02", 'code': '450800', 'initial': 'G' }, { 'id': '244', 'provincecode': '510000', 'city': "\u5E7F\u5143\u5E02", 'code': '510800', 'initial': 'G' }, { 'id': '251', 'provincecode': '510000', 'city': "\u5E7F\u5B89\u5E02", 'code': '511600', 'initial': 'G' }, { 'id': '257', 'provincecode': '510000', 'city': "\u7518\u5B5C\u85CF\u65CF\u81EA\u6CBB\u5DDE", 'code': '513300', 'initial': 'G' }, { 'id': '259', 'provincecode': '520000', 'city': "\u8D35\u9633\u5E02", 'code': '520100', 'initial': 'G' }, { 'id': '314', 'provincecode': '620000', 'city': "\u7518\u5357\u85CF\u65CF\u81EA\u6CBB\u5DDE", 'code': '623000', 'initial': 'G' }, { 'id': '320', 'provincecode': '630000', 'city': "\u679C\u6D1B\u85CF\u65CF\u81EA\u6CBB\u5DDE", 'code': '632600', 'initial': 'G' }, { 'id': '326', 'provincecode': '640000', 'city': "\u56FA\u539F\u5E02", 'code': '640400', 'initial': 'G' }, { 'id': '5', 'provincecode': '130000', 'city': "\u90AF\u90F8\u5E02", 'code': '130400', 'initial': 'H' }, { 'id': '12', 'provincecode': '130000', 'city': "\u8861\u6C34\u5E02", 'code': '131100', 'initial': 'H' }, { 'id': '24', 'provincecode': '150000', 'city': "\u547C\u548C\u6D69\u7279\u5E02", 'code': '150100', 'initial': 'H' }, { 'id': '30', 'provincecode': '150000', 'city': "\u547C\u4F26\u8D1D\u5C14\u5E02", 'code': '150700', 'initial': 'H' }, { 'id': '49', 'provincecode': '210000', 'city': "\u846B\u82A6\u5C9B\u5E02", 'code': '211400', 'initial': 'H' }, { 'id': '59', 'provincecode': '230000', 'city': "\u54C8\u5C14\u6EE8\u5E02", 'code': '230100', 'initial': 'H' }, { 'id': '62', 'provincecode': '230000', 'city': "\u9E64\u5C97\u5E02", 'code': '230400', 'initial': 'H' }, { 'id': '69', 'provincecode': '230000', 'city': "\u9ED1\u6CB3\u5E02", 'code': '231100', 'initial': 'H' }, { 'id': '81', 'provincecode': '320000', 'city': "\u6DEE\u5B89\u5E02", 'code': '320800', 'initial': 'H' }, { 'id': '87', 'provincecode': '330000', 'city': "\u676D\u5DDE\u5E02", 'code': '330100', 'initial': 'H' }, { 'id': '91', 'provincecode': '330000', 'city': "\u6E56\u5DDE\u5E02", 'code': '330500', 'initial': 'H' }, { 'id': '98', 'provincecode': '340000', 'city': "\u5408\u80A5\u5E02", 'code': '340100', 'initial': 'H' }, { 'id': '101', 'provincecode': '340000', 'city': "\u6DEE\u5357\u5E02", 'code': '340400', 'initial': 'H' }, { 'id': '103', 'provincecode': '340000', 'city': "\u6DEE\u5317\u5E02", 'code': '340600', 'initial': 'H' }, { 'id': '106', 'provincecode': '340000', 'city': "\u9EC4\u5C71\u5E02", 'code': '341000', 'initial': 'H' }, { 'id': '112', 'provincecode': '340000', 'city': "\u4EB3\u5DDE\u5E02", 'code': '341600', 'initial': 'H' }, { 'id': '151', 'provincecode': '370000', 'city': "\u8377\u6CFD\u5E02", 'code': '371700', 'initial': 'H' }, { 'id': '157', 'provincecode': '410000', 'city': "\u9E64\u58C1\u5E02", 'code': '410600', 'initial': 'H' }, { 'id': '170', 'provincecode': '420000', 'city': "\u9EC4\u77F3\u5E02", 'code': '420200', 'initial': 'H' }, { 'id': '178', 'provincecode': '420000', 'city': "\u9EC4\u5188\u5E02", 'code': '421100', 'initial': 'H' }, { 'id': '186', 'provincecode': '430000', 'city': "\u8861\u9633\u5E02", 'code': '430400', 'initial': 'H' }, { 'id': '194', 'provincecode': '430000', 'city': "\u6000\u5316\u5E02", 'code': '431200', 'initial': 'H' }, { 'id': '207', 'provincecode': '440000', 'city': "\u60E0\u5DDE\u5E02", 'code': '441300', 'initial': 'H' }, { 'id': '210', 'provincecode': '440000', 'city': "\u6CB3\u6E90\u5E02", 'code': '441600', 'initial': 'H' }, { 'id': '228', 'provincecode': '450000', 'city': "\u8D3A\u5DDE\u5E02", 'code': '451100', 'initial': 'H' }, { 'id': '229', 'provincecode': '450000', 'city': "\u6CB3\u6C60\u5E02", 'code': '451200', 'initial': 'H' }, { 'id': '232', 'provincecode': '460000', 'city': "\u6D77\u53E3\u5E02", 'code': '460100', 'initial': 'H' }, { 'id': '277', 'provincecode': '530000', 'city': "\u7EA2\u6CB3\u54C8\u5C3C\u65CF\u5F5D\u65CF\u81EA\u6CBB\u5DDE", 'code': '532500', 'initial': 'H' }, { 'id': '297', 'provincecode': '610000', 'city': "\u6C49\u4E2D\u5E02", 'code': '610700', 'initial': 'H' }, { 'id': '316', 'provincecode': '630000', 'city': "\u6D77\u4E1C\u5730\u533A", 'code': '632100', 'initial': 'H' }, { 'id': '317', 'provincecode': '630000', 'city': "\u6D77\u5317\u85CF\u65CF\u81EA\u6CBB\u5DDE", 'code': '632200', 'initial': 'H' }, { 'id': '318', 'provincecode': '630000', 'city': "\u9EC4\u5357\u85CF\u65CF\u81EA\u6CBB\u5DDE", 'code': '632300', 'initial': 'H' }, { 'id': '319', 'provincecode': '630000', 'city': "\u6D77\u5357\u85CF\u65CF\u81EA\u6CBB\u5DDE", 'code': '632500', 'initial': 'H' }, { 'id': '322', 'provincecode': '630000', 'city': "\u6D77\u897F\u8499\u53E4\u65CF\u85CF\u65CF\u81EA\u6CBB\u5DDE", 'code': '632800', 'initial': 'H' }, { 'id': '331', 'provincecode': '650000', 'city': "\u54C8\u5BC6\u5730\u533A", 'code': '652200', 'initial': 'H' }, { 'id': '338', 'provincecode': '650000', 'city': "\u548C\u7530\u5730\u533A", 'code': '653200', 'initial': 'H' }, { 'id': '17', 'provincecode': '140000', 'city': "\u664B\u57CE\u5E02", 'code': '140500', 'initial': 'J' }, { 'id': '19', 'provincecode': '140000', 'city': "\u664B\u4E2D\u5E02", 'code': '140700', 'initial': 'J' }, { 'id': '42', 'provincecode': '210000', 'city': "\u9526\u5DDE\u5E02", 'code': '210700', 'initial': 'J' }, { 'id': '51', 'provincecode': '220000', 'city': "\u5409\u6797\u5E02", 'code': '220200', 'initial': 'J' }, { 'id': '61', 'provincecode': '230000', 'city': "\u9E21\u897F\u5E02", 'code': '230300', 'initial': 'J' }, { 'id': '66', 'provincecode': '230000', 'city': "\u4F73\u6728\u65AF\u5E02", 'code': '230800', 'initial': 'J' }, { 'id': '90', 'provincecode': '330000', 'city': "\u5609\u5174\u5E02", 'code': '330400', 'initial': 'J' }, { 'id': '93', 'provincecode': '330000', 'city': "\u91D1\u534E\u5E02", 'code': '330700', 'initial': 'J' }, { 'id': '125', 'provincecode': '360000', 'city': "\u666F\u5FB7\u9547\u5E02", 'code': '360200', 'initial': 'J' }, { 'id': '127', 'provincecode': '360000', 'city': "\u4E5D\u6C5F\u5E02", 'code': '360400', 'initial': 'J' }, { 'id': '131', 'provincecode': '360000', 'city': "\u5409\u5B89\u5E02", 'code': '360800', 'initial': 'J' }, { 'id': '135', 'provincecode': '370000', 'city': "\u6D4E\u5357\u5E02", 'code': '370100', 'initial': 'J' }, { 'id': '142', 'provincecode': '370000', 'city': "\u6D4E\u5B81\u5E02", 'code': '370800', 'initial': 'J' }, { 'id': '159', 'provincecode': '410000', 'city': "\u7126\u4F5C\u5E02", 'code': '410800', 'initial': 'J' }, { 'id': '175', 'provincecode': '420000', 'city': "\u8346\u95E8\u5E02", 'code': '420800', 'initial': 'J' }, { 'id': '177', 'provincecode': '420000', 'city': "\u8346\u5DDE\u5E02", 'code': '421000', 'initial': 'J' }, { 'id': '203', 'provincecode': '440000', 'city': "\u6C5F\u95E8\u5E02", 'code': '440700', 'initial': 'J' }, { 'id': '216', 'provincecode': '440000', 'city': "\u63ED\u9633\u5E02", 'code': '445200', 'initial': 'J' }, { 'id': '302', 'provincecode': '620000', 'city': "\u5609\u5CEA\u5173\u5E02", 'code': '620200', 'initial': 'J' }, { 'id': '303', 'provincecode': '620000', 'city': "\u91D1\u660C\u5E02", 'code': '620300', 'initial': 'J' }, { 'id': '309', 'provincecode': '620000', 'city': "\u9152\u6CC9\u5E02", 'code': '620900', 'initial': 'J' }, { 'id': '153', 'provincecode': '410000', 'city': "\u5F00\u5C01\u5E02", 'code': '410200', 'initial': 'K' }, { 'id': '268', 'provincecode': '530000', 'city': "\u6606\u660E\u5E02", 'code': '530100', 'initial': 'K' }, { 'id': '329', 'provincecode': '650000', 'city': "\u514B\u62C9\u739B\u4F9D\u5E02", 'code': '650200', 'initial': 'K' }, { 'id': '336', 'provincecode': '650000', 'city': "\u514B\u5B5C\u52D2\u82CF\u67EF\u5C14\u514B\u5B5C\u81EA\u6CBB\u5DDE", 'code': '653000', 'initial': 'K' }, { 'id': '337', 'provincecode': '650000', 'city': "\u5580\u4EC0\u5730\u533A", 'code': '653100', 'initial': 'K' }, { 'id': '11', 'provincecode': '130000', 'city': "\u5ECA\u574A\u5E02", 'code': '131000', 'initial': 'L' }, { 'id': '22', 'provincecode': '140000', 'city': "\u4E34\u6C7E\u5E02", 'code': '141000', 'initial': 'L' }, { 'id': '23', 'provincecode': '140000', 'city': "\u5415\u6881\u5E02", 'code': '141100', 'initial': 'L' }, { 'id': '45', 'provincecode': '210000', 'city': "\u8FBD\u9633\u5E02", 'code': '211000', 'initial': 'L' }, { 'id': '53', 'provincecode': '220000', 'city': "\u8FBD\u6E90\u5E02", 'code': '220400', 'initial': 'L' }, { 'id': '80', 'provincecode': '320000', 'city': "\u8FDE\u4E91\u6E2F\u5E02", 'code': '320700', 'initial': 'L' }, { 'id': '97', 'provincecode': '330000', 'city': "\u4E3D\u6C34\u5E02", 'code': '331100', 'initial': 'L' }, { 'id': '111', 'provincecode': '340000', 'city': "\u516D\u5B89\u5E02", 'code': '341500', 'initial': 'L' }, { 'id': '122', 'provincecode': '350000', 'city': "\u9F99\u5CA9\u5E02", 'code': '350800', 'initial': 'L' }, { 'id': '146', 'provincecode': '370000', 'city': "\u83B1\u829C\u5E02", 'code': '371200', 'initial': 'L' }, { 'id': '147', 'provincecode': '370000', 'city': "\u4E34\u6C82\u5E02", 'code': '371300', 'initial': 'L' }, { 'id': '149', 'provincecode': '370000', 'city': "\u804A\u57CE\u5E02", 'code': '371500', 'initial': 'L' }, { 'id': '154', 'provincecode': '410000', 'city': "\u6D1B\u9633\u5E02", 'code': '410300', 'initial': 'L' }, { 'id': '162', 'provincecode': '410000', 'city': "\u6F2F\u6CB3\u5E02", 'code': '411100', 'initial': 'L' }, { 'id': '195', 'provincecode': '430000', 'city': "\u5A04\u5E95\u5E02", 'code': '431300', 'initial': 'L' }, { 'id': '219', 'provincecode': '450000', 'city': "\u67F3\u5DDE\u5E02", 'code': '450200', 'initial': 'L' }, { 'id': '230', 'provincecode': '450000', 'city': "\u6765\u5BBE\u5E02", 'code': '451300', 'initial': 'L' }, { 'id': '241', 'provincecode': '510000', 'city': "\u6CF8\u5DDE\u5E02", 'code': '510500', 'initial': 'L' }, { 'id': '247', 'provincecode': '510000', 'city': "\u4E50\u5C71\u5E02", 'code': '511100', 'initial': 'L' }, { 'id': '258', 'provincecode': '510000', 'city': "\u51C9\u5C71\u5F5D\u65CF\u81EA\u6CBB\u5DDE", 'code': '513400', 'initial': 'L' }, { 'id': '260', 'provincecode': '520000', 'city': "\u516D\u76D8\u6C34\u5E02", 'code': '520200', 'initial': 'L' }, { 'id': '273', 'provincecode': '530000', 'city': "\u4E3D\u6C5F\u5E02", 'code': '530700', 'initial': 'L' }, { 'id': '275', 'provincecode': '530000', 'city': "\u4E34\u6CA7\u5E02", 'code': '530900', 'initial': 'L' }, { 'id': '284', 'provincecode': '540000', 'city': "\u62C9\u8428\u5E02", 'code': '540100', 'initial': 'L' }, { 'id': '290', 'provincecode': '540000', 'city': "\u6797\u829D\u5730\u533A", 'code': '542600', 'initial': 'L' }, { 'id': '301', 'provincecode': '620000', 'city': "\u5170\u5DDE\u5E02", 'code': '620100', 'initial': 'L' }, { 'id': '312', 'provincecode': '620000', 'city': "\u9647\u5357\u5E02", 'code': '621200', 'initial': 'L' }, { 'id': '313', 'provincecode': '620000', 'city': "\u4E34\u590F\u56DE\u65CF\u81EA\u6CBB\u5DDE", 'code': '622900', 'initial': 'L' }, { 'id': '68', 'provincecode': '230000', 'city': "\u7261\u4E39\u6C5F\u5E02", 'code': '231000', 'initial': 'M' }, { 'id': '102', 'provincecode': '340000', 'city': "\u9A6C\u978D\u5C71\u5E02", 'code': '340500', 'initial': 'M' }, { 'id': '205', 'provincecode': '440000', 'city': "\u8302\u540D\u5E02", 'code': '440900', 'initial': 'M' }, { 'id': '208', 'provincecode': '440000', 'city': "\u6885\u5DDE\u5E02", 'code': '441400', 'initial': 'M' }, { 'id': '243', 'provincecode': '510000', 'city': "\u7EF5\u9633\u5E02", 'code': '510700', 'initial': 'M' }, { 'id': '249', 'provincecode': '510000', 'city': "\u7709\u5C71\u5E02", 'code': '511400', 'initial': 'M' }, { 'id': '74', 'provincecode': '320000', 'city': "\u5357\u4EAC\u5E02", 'code': '320100', 'initial': 'N' }, { 'id': '79', 'provincecode': '320000', 'city': "\u5357\u901A\u5E02", 'code': '320600', 'initial': 'N' }, { 'id': '88', 'provincecode': '330000', 'city': "\u5B81\u6CE2\u5E02", 'code': '330200', 'initial': 'N' }, { 'id': '121', 'provincecode': '350000', 'city': "\u5357\u5E73\u5E02", 'code': '350700', 'initial': 'N' }, { 'id': '123', 'provincecode': '350000', 'city': "\u5B81\u5FB7\u5E02", 'code': '350900', 'initial': 'N' }, { 'id': '124', 'provincecode': '360000', 'city': "\u5357\u660C\u5E02", 'code': '360100', 'initial': 'N' }, { 'id': '164', 'provincecode': '410000', 'city': "\u5357\u9633\u5E02", 'code': '411300', 'initial': 'N' }, { 'id': '218', 'provincecode': '450000', 'city': "\u5357\u5B81\u5E02", 'code': '450100', 'initial': 'N' }, { 'id': '246', 'provincecode': '510000', 'city': "\u5185\u6C5F\u5E02", 'code': '511000', 'initial': 'N' }, { 'id': '248', 'provincecode': '510000', 'city': "\u5357\u5145\u5E02", 'code': '511300', 'initial': 'N' }, { 'id': '282', 'provincecode': '530000', 'city': "\u6012\u6C5F\u5088\u50F3\u65CF\u81EA\u6CBB\u5DDE", 'code': '533300', 'initial': 'N' }, { 'id': '288', 'provincecode': '540000', 'city': "\u90A3\u66F2\u5730\u533A", 'code': '542400', 'initial': 'N' }, { 'id': '46', 'provincecode': '210000', 'city': "\u76D8\u9526\u5E02", 'code': '211100', 'initial': 'P' }, { 'id': '117', 'provincecode': '350000', 'city': "\u8386\u7530\u5E02", 'code': '350300', 'initial': 'P' }, { 'id': '126', 'provincecode': '360000', 'city': "\u840D\u4E61\u5E02", 'code': '360300', 'initial': 'P' }, { 'id': '155', 'provincecode': '410000', 'city': "\u5E73\u9876\u5C71\u5E02", 'code': '410400', 'initial': 'P' }, { 'id': '160', 'provincecode': '410000', 'city': "\u6FEE\u9633\u5E02", 'code': '410900', 'initial': 'P' }, { 'id': '240', 'provincecode': '510000', 'city': "\u6500\u679D\u82B1\u5E02", 'code': '510400', 'initial': 'P' }, { 'id': '308', 'provincecode': '620000', 'city': "\u5E73\u51C9\u5E02", 'code': '620800', 'initial': 'P' }, { 'id': '4', 'provincecode': '130000', 'city': "\u79E6\u7687\u5C9B\u5E02", 'code': '130300', 'initial': 'Q' }, { 'id': '60', 'provincecode': '230000', 'city': "\u9F50\u9F50\u54C8\u5C14\u5E02", 'code': '230200', 'initial': 'Q' }, { 'id': '67', 'provincecode': '230000', 'city': "\u4E03\u53F0\u6CB3\u5E02", 'code': '230900', 'initial': 'Q' }, { 'id': '94', 'provincecode': '330000', 'city': "\u8862\u5DDE\u5E02", 'code': '330800', 'initial': 'Q' }, { 'id': '119', 'provincecode': '350000', 'city': "\u6CC9\u5DDE\u5E02", 'code': '350500', 'initial': 'Q' }, { 'id': '136', 'provincecode': '370000', 'city': "\u9752\u5C9B\u5E02", 'code': '370200', 'initial': 'Q' }, { 'id': '212', 'provincecode': '440000', 'city': "\u6E05\u8FDC\u5E02", 'code': '441800', 'initial': 'Q' }, { 'id': '224', 'provincecode': '450000', 'city': "\u94A6\u5DDE\u5E02", 'code': '450700', 'initial': 'Q' }, { 'id': '264', 'provincecode': '520000', 'city': "\u9ED4\u897F\u5357\u5E03\u4F9D\u65CF\u82D7\u65CF\u81EA\u6CBB\u5DDE", 'code': '522300', 'initial': 'Q' }, { 'id': '266', 'provincecode': '520000', 'city': "\u9ED4\u4E1C\u5357\u82D7\u65CF\u4F97\u65CF\u81EA\u6CBB\u5DDE", 'code': '522600', 'initial': 'Q' }, { 'id': '267', 'provincecode': '520000', 'city': "\u9ED4\u5357\u5E03\u4F9D\u65CF\u82D7\u65CF\u81EA\u6CBB\u5DDE", 'code': '522700', 'initial': 'Q' }, { 'id': '269', 'provincecode': '530000', 'city': "\u66F2\u9756\u5E02", 'code': '530300', 'initial': 'Q' }, { 'id': '310', 'provincecode': '620000', 'city': "\u5E86\u9633\u5E02", 'code': '621000', 'initial': 'Q' }, { 'id': '145', 'provincecode': '370000', 'city': "\u65E5\u7167\u5E02", 'code': '371100', 'initial': 'R' }, { 'id': '287', 'provincecode': '540000', 'city': "\u65E5\u5580\u5219\u5730\u533A", 'code': '542300', 'initial': 'R' }, { 'id': '2', 'provincecode': '130000', 'city': "\u77F3\u5BB6\u5E84\u5E02", 'code': '130100', 'initial': 'S' }, { 'id': '', 'provincecode': '310000', 'city': "\u4E0A\u6D77\u5E02", 'code': '310000', 'initial': 'S' }, { 'id': '18', 'provincecode': '140000', 'city': "\u6714\u5DDE\u5E02", 'code': '140600', 'initial': 'S' }, { 'id': '36', 'provincecode': '210000', 'city': "\u6C88\u9633\u5E02", 'code': '210100', 'initial': 'S' }, { 'id': '52', 'provincecode': '220000', 'city': "\u56DB\u5E73\u5E02", 'code': '220300', 'initial': 'S' }, { 'id': '56', 'provincecode': '220000', 'city': "\u677E\u539F\u5E02", 'code': '220700', 'initial': 'S' }, { 'id': '63', 'provincecode': '230000', 'city': "\u53CC\u9E2D\u5C71\u5E02", 'code': '230500', 'initial': 'S' }, { 'id': '70', 'provincecode': '230000', 'city': "\u7EE5\u5316\u5E02", 'code': '231200', 'initial': 'S' }, { 'id': '78', 'provincecode': '320000', 'city': "\u82CF\u5DDE\u5E02", 'code': '320500', 'initial': 'S' }, { 'id': '86', 'provincecode': '320000', 'city': "\u5BBF\u8FC1\u5E02", 'code': '321300', 'initial': 'S' }, { 'id': '92', 'provincecode': '330000', 'city': "\u7ECD\u5174\u5E02", 'code': '330600', 'initial': 'S' }, { 'id': '109', 'provincecode': '340000', 'city': "\u5BBF\u5DDE\u5E02", 'code': '341300', 'initial': 'S' }, { 'id': '118', 'provincecode': '350000', 'city': "\u4E09\u660E\u5E02", 'code': '350400', 'initial': 'S' }, { 'id': '134', 'provincecode': '360000', 'city': "\u4E0A\u9976\u5E02", 'code': '361100', 'initial': 'S' }, { 'id': '163', 'provincecode': '410000', 'city': "\u4E09\u95E8\u5CE1\u5E02", 'code': '411200', 'initial': 'S' }, { 'id': '165', 'provincecode': '410000', 'city': "\u5546\u4E18\u5E02", 'code': '411400', 'initial': 'S' }, { 'id': '171', 'provincecode': '420000', 'city': "\u5341\u5830\u5E02", 'code': '420300', 'initial': 'S' }, { 'id': '180', 'provincecode': '420000', 'city': "\u968F\u5DDE\u5E02", 'code': '421300', 'initial': 'S' }, { 'id': '187', 'provincecode': '430000', 'city': "\u90B5\u9633\u5E02", 'code': '430500', 'initial': 'S' }, { 'id': '198', 'provincecode': '440000', 'city': "\u97F6\u5173\u5E02", 'code': '440200', 'initial': 'S' }, { 'id': '199', 'provincecode': '440000', 'city': "\u6DF1\u5733\u5E02", 'code': '440300', 'initial': 'S' }, { 'id': '201', 'provincecode': '440000', 'city': "\u6C55\u5934\u5E02", 'code': '440500', 'initial': 'S' }, { 'id': '209', 'provincecode': '440000', 'city': "\u6C55\u5C3E\u5E02", 'code': '441500', 'initial': 'S' }, { 'id': '233', 'provincecode': '460000', 'city': "\u4E09\u4E9A\u5E02", 'code': '460200', 'initial': 'S' }, { 'id': '245', 'provincecode': '510000', 'city': "\u9042\u5B81\u5E02", 'code': '510900', 'initial': 'S' }, { 'id': '274', 'provincecode': '530000', 'city': "\u666E\u6D31\u5E02", 'code': '530800', 'initial': 'P' }, { 'id': '286', 'provincecode': '540000', 'city': "\u5C71\u5357\u5730\u533A", 'code': '542200', 'initial': 'S' }, { 'id': '300', 'provincecode': '610000', 'city': "\u5546\u6D1B\u5E02", 'code': '611000', 'initial': 'S' }, { 'id': '324', 'provincecode': '640000', 'city': "\u77F3\u5634\u5C71\u5E02", 'code': '640200', 'initial': 'S' }, { 'id': '3', 'provincecode': '130000', 'city': "\u5510\u5C71\u5E02", 'code': '130200', 'initial': 'T' }, { 'id': '13', 'provincecode': '140000', 'city': "\u592A\u539F\u5E02", 'code': '140100', 'initial': 'T' }, { 'id': '28', 'provincecode': '150000', 'city': "\u901A\u8FBD\u5E02", 'code': '150500', 'initial': 'T' }, { 'id': '47', 'provincecode': '210000', 'city': "\u94C1\u5CAD\u5E02", 'code': '211200', 'initial': 'T' }, { 'id': '54', 'provincecode': '220000', 'city': "\u901A\u5316\u5E02", 'code': '220500', 'initial': 'T' }, { 'id': '85', 'provincecode': '320000', 'city': "\u6CF0\u5DDE\u5E02", 'code': '321200', 'initial': 'T' }, { 'id': '96', 'provincecode': '330000', 'city': "\u53F0\u5DDE\u5E02", 'code': '331000', 'initial': 'T' }, { 'id': '104', 'provincecode': '340000', 'city': "\u94DC\u9675\u5E02", 'code': '340700', 'initial': 'T' }, { 'id': '143', 'provincecode': '370000', 'city': "\u6CF0\u5B89\u5E02", 'code': '370900', 'initial': 'T' }, { 'id': '263', 'provincecode': '520000', 'city': "\u94DC\u4EC1\u5730\u533A", 'code': '522200', 'initial': 'T' }, { 'id': '292', 'provincecode': '610000', 'city': "\u94DC\u5DDD\u5E02", 'code': '610200', 'initial': 'T' }, { 'id': '305', 'provincecode': '620000', 'city': "\u5929\u6C34\u5E02", 'code': '620500', 'initial': 'T' }, { 'id': '330', 'provincecode': '650000', 'city': "\u5410\u9C81\u756A\u5730\u533A", 'code': '652100', 'initial': 'T' }, { 'id': '340', 'provincecode': '650000', 'city': "\u5854\u57CE\u5730\u533A", 'code': '654200', 'initial': 'T' }, { 'id': '343', 'provincecode': '120000', 'city': "\u5929\u6D25\u5E02", 'code': '120000', 'initial': 'T' }, { 'id': '26', 'provincecode': '150000', 'city': "\u4E4C\u6D77\u5E02", 'code': '150300', 'initial': 'W' }, { 'id': '32', 'provincecode': '150000', 'city': "\u4E4C\u5170\u5BDF\u5E03\u5E02", 'code': '150900', 'initial': 'W' }, { 'id': '75', 'provincecode': '320000', 'city': "\u65E0\u9521\u5E02", 'code': '320200', 'initial': 'W' }, { 'id': '89', 'provincecode': '330000', 'city': "\u6E29\u5DDE\u5E02", 'code': '330300', 'initial': 'W' }, { 'id': '99', 'provincecode': '340000', 'city': "\u829C\u6E56\u5E02", 'code': '340200', 'initial': 'W' }, { 'id': '141', 'provincecode': '370000', 'city': "\u6F4D\u574A\u5E02", 'code': '370700', 'initial': 'W' }, { 'id': '144', 'provincecode': '370000', 'city': "\u5A01\u6D77\u5E02", 'code': '371000', 'initial': 'W' }, { 'id': '169', 'provincecode': '420000', 'city': "\u6B66\u6C49\u5E02", 'code': '420100', 'initial': 'W' }, { 'id': '221', 'provincecode': '450000', 'city': "\u68A7\u5DDE\u5E02", 'code': '450400', 'initial': 'W' }, { 'id': '278', 'provincecode': '530000', 'city': "\u6587\u5C71\u58EE\u65CF\u82D7\u65CF\u81EA\u6CBB\u5DDE", 'code': '532600', 'initial': 'W' }, { 'id': '295', 'provincecode': '610000', 'city': "\u6E2D\u5357\u5E02", 'code': '610500', 'initial': 'W' }, { 'id': '306', 'provincecode': '620000', 'city': "\u6B66\u5A01\u5E02", 'code': '620600', 'initial': 'W' }, { 'id': '325', 'provincecode': '640000', 'city': "\u5434\u5FE0\u5E02", 'code': '640300', 'initial': 'W' }, { 'id': '328', 'provincecode': '650000', 'city': "\u4E4C\u9C81\u6728\u9F50\u5E02", 'code': '650100', 'initial': 'W' }, { 'id': '6', 'provincecode': '130000', 'city': "\u90A2\u53F0\u5E02", 'code': '130500', 'initial': 'X' }, { 'id': '21', 'provincecode': '140000', 'city': "\u5FFB\u5DDE\u5E02", 'code': '140900', 'initial': 'X' }, { 'id': '33', 'provincecode': '150000', 'city': "\u5174\u5B89\u76DF", 'code': '152200', 'initial': 'X' }, { 'id': '34', 'provincecode': '150000', 'city': "\u9521\u6797\u90ED\u52D2\u76DF", 'code': '152500', 'initial': 'X' }, { 'id': '76', 'provincecode': '320000', 'city': "\u5F90\u5DDE\u5E02", 'code': '320300', 'initial': 'X' }, { 'id': '114', 'provincecode': '340000', 'city': "\u5BA3\u57CE\u5E02", 'code': '341800', 'initial': 'X' }, { 'id': '116', 'provincecode': '350000', 'city': "\u53A6\u95E8\u5E02", 'code': '350200', 'initial': 'X' }, { 'id': '128', 'provincecode': '360000', 'city': "\u65B0\u4F59\u5E02", 'code': '360500', 'initial': 'X' }, { 'id': '158', 'provincecode': '410000', 'city': "\u65B0\u4E61\u5E02", 'code': '410700', 'initial': 'X' }, { 'id': '161', 'provincecode': '410000', 'city': "\u8BB8\u660C\u5E02", 'code': '411000', 'initial': 'X' }, { 'id': '166', 'provincecode': '410000', 'city': "\u4FE1\u9633\u5E02", 'code': '411500', 'initial': 'X' }, { 'id': '173', 'provincecode': '420000', 'city': "\u8944\u6A0A\u5E02", 'code': '420600', 'initial': 'X' }, { 'id': '176', 'provincecode': '420000', 'city': "\u5B5D\u611F\u5E02", 'code': '420900', 'initial': 'X' }, { 'id': '179', 'provincecode': '420000', 'city': "\u54B8\u5B81\u5E02", 'code': '421200', 'initial': 'X' }, { 'id': '185', 'provincecode': '430000', 'city': "\u6E58\u6F6D\u5E02", 'code': '430300', 'initial': 'X' }, { 'id': '196', 'provincecode': '430000', 'city': "\u6E58\u897F\u571F\u5BB6\u65CF\u82D7\u65CF\u81EA\u6CBB\u5DDE", 'code': '433100', 'initial': 'X' }, { 'id': '279', 'provincecode': '530000', 'city': "\u897F\u53CC\u7248\u7EB3\u50A3\u65CF\u81EA\u6CBB\u5DDE", 'code': '532800', 'initial': 'X' }, { 'id': '291', 'provincecode': '610000', 'city': "\u897F\u5B89\u5E02", 'code': '610100', 'initial': 'X' }, { 'id': '294', 'provincecode': '610000', 'city': "\u54B8\u9633\u5E02", 'code': '610400', 'initial': 'X' }, { 'id': '315', 'provincecode': '630000', 'city': "\u897F\u5B81\u5E02", 'code': '630100', 'initial': 'X' }, { 'id': '15', 'provincecode': '140000', 'city': "\u9633\u6CC9\u5E02", 'code': '140300', 'initial': 'Y' }, { 'id': '20', 'provincecode': '140000', 'city': "\u8FD0\u57CE\u5E02", 'code': '140800', 'initial': 'Y' }, { 'id': '43', 'provincecode': '210000', 'city': "\u8425\u53E3\u5E02", 'code': '210800', 'initial': 'Y' }, { 'id': '58', 'provincecode': '220000', 'city': "\u5EF6\u8FB9\u671D\u9C9C\u65CF\u81EA\u6CBB\u5DDE", 'code': '222400', 'initial': 'Y' }, { 'id': '65', 'provincecode': '230000', 'city': "\u4F0A\u6625\u5E02", 'code': '230700', 'initial': 'Y' }, { 'id': '82', 'provincecode': '320000', 'city': "\u76D0\u57CE\u5E02", 'code': '320900', 'initial': 'Y' }, { 'id': '83', 'provincecode': '320000', 'city': "\u626C\u5DDE\u5E02", 'code': '321000', 'initial': 'Y' }, { 'id': '129', 'provincecode': '360000', 'city': "\u9E70\u6F6D\u5E02", 'code': '360600', 'initial': 'Y' }, { 'id': '132', 'provincecode': '360000', 'city': "\u5B9C\u6625\u5E02", 'code': '360900', 'initial': 'Y' }, { 'id': '140', 'provincecode': '370000', 'city': "\u70DF\u53F0\u5E02", 'code': '370600', 'initial': 'Y' }, { 'id': '172', 'provincecode': '420000', 'city': "\u5B9C\u660C\u5E02", 'code': '420500', 'initial': 'Y' }, { 'id': '188', 'provincecode': '430000', 'city': "\u5CB3\u9633\u5E02", 'code': '430600', 'initial': 'Y' }, { 'id': '191', 'provincecode': '430000', 'city': "\u76CA\u9633\u5E02", 'code': '430900', 'initial': 'Y' }, { 'id': '193', 'provincecode': '430000', 'city': "\u6C38\u5DDE\u5E02", 'code': '431100', 'initial': 'Y' }, { 'id': '211', 'provincecode': '440000', 'city': "\u9633\u6C5F\u5E02", 'code': '441700', 'initial': 'Y' }, { 'id': '217', 'provincecode': '440000', 'city': "\u4E91\u6D6E\u5E02", 'code': '445300', 'initial': 'Y' }, { 'id': '226', 'provincecode': '450000', 'city': "\u7389\u6797\u5E02", 'code': '450900', 'initial': 'Y' }, { 'id': '250', 'provincecode': '510000', 'city': "\u5B9C\u5BBE\u5E02", 'code': '511500', 'initial': 'Y' }, { 'id': '253', 'provincecode': '510000', 'city': "\u96C5\u5B89\u5E02", 'code': '511800', 'initial': 'Y' }, { 'id': '270', 'provincecode': '530000', 'city': "\u7389\u6EAA\u5E02", 'code': '530400', 'initial': 'Y' }, { 'id': '296', 'provincecode': '610000', 'city': "\u5EF6\u5B89\u5E02", 'code': '610600', 'initial': 'Y' }, { 'id': '298', 'provincecode': '610000', 'city': "\u6986\u6797\u5E02", 'code': '610800', 'initial': 'Y' }, { 'id': '321', 'provincecode': '630000', 'city': "\u7389\u6811\u85CF\u65CF\u81EA\u6CBB\u5DDE", 'code': '632700', 'initial': 'Y' }, { 'id': '323', 'provincecode': '640000', 'city': "\u94F6\u5DDD\u5E02", 'code': '640100', 'initial': 'Y' }, { 'id': '339', 'provincecode': '650000', 'city': "\u4F0A\u7281\u54C8\u8428\u514B\u81EA\u6CBB\u5DDE", 'code': '654000', 'initial': 'Y' }, { 'id': '8', 'provincecode': '130000', 'city': "\u5F20\u5BB6\u53E3\u5E02", 'code': '130700', 'initial': 'Z' }, { 'id': '84', 'provincecode': '320000', 'city': "\u9547\u6C5F\u5E02", 'code': '321100', 'initial': 'Z' }, { 'id': '95', 'provincecode': '330000', 'city': "\u821F\u5C71\u5E02", 'code': '330900', 'initial': 'Z' }, { 'id': '120', 'provincecode': '350000', 'city': "\u6F33\u5DDE\u5E02", 'code': '350600', 'initial': 'Z' }, { 'id': '137', 'provincecode': '370000', 'city': "\u6DC4\u535A\u5E02", 'code': '370300', 'initial': 'Z' }, { 'id': '138', 'provincecode': '370000', 'city': "\u67A3\u5E84\u5E02", 'code': '370400', 'initial': 'Z' }, { 'id': '152', 'provincecode': '410000', 'city': "\u90D1\u5DDE\u5E02", 'code': '410100', 'initial': 'Z' }, { 'id': '167', 'provincecode': '410000', 'city': "\u5468\u53E3\u5E02", 'code': '411600', 'initial': 'Z' }, { 'id': '168', 'provincecode': '410000', 'city': "\u9A7B\u9A6C\u5E97\u5E02", 'code': '411700', 'initial': 'Z' }, { 'id': '184', 'provincecode': '430000', 'city': "\u682A\u6D32\u5E02", 'code': '430200', 'initial': 'Z' }, { 'id': '190', 'provincecode': '430000', 'city': "\u5F20\u5BB6\u754C\u5E02", 'code': '430800', 'initial': 'Z' }, { 'id': '200', 'provincecode': '440000', 'city': "\u73E0\u6D77\u5E02", 'code': '440400', 'initial': 'Z' }, { 'id': '204', 'provincecode': '440000', 'city': "\u6E5B\u6C5F\u5E02", 'code': '440800', 'initial': 'Z' }, { 'id': '206', 'provincecode': '440000', 'city': "\u8087\u5E86\u5E02", 'code': '441200', 'initial': 'Z' }, { 'id': '214', 'provincecode': '440000', 'city': "\u4E2D\u5C71\u5E02", 'code': '442000', 'initial': 'Z' }, { 'id': '239', 'provincecode': '510000', 'city': "\u81EA\u8D21\u5E02", 'code': '510300', 'initial': 'Z' }, { 'id': '255', 'provincecode': '510000', 'city': "\u8D44\u9633\u5E02", 'code': '512000', 'initial': 'Z' }, { 'id': '261', 'provincecode': '520000', 'city': "\u9075\u4E49\u5E02", 'code': '520300', 'initial': 'Z' }, { 'id': '272', 'provincecode': '530000', 'city': "\u662D\u901A\u5E02", 'code': '530600', 'initial': 'Z' }, { 'id': '307', 'provincecode': '620000', 'city': "\u5F20\u6396\u5E02", 'code': '620700', 'initial': 'Z' }, { 'id': '327', 'provincecode': '640000', 'city': "\u4E2D\u536B\u5E02", 'code': '640500', 'initial': 'Z' }];
-
-var cityObjs = [{ 'id': '35', 'provincecode': '150000', 'city': '阿拉善盟', 'code': '152900', 'initial': 'A', 'short': 'Alashanmeng' }, { 'id': '38', 'provincecode': '210000', 'city': '鞍山市', 'code': '210300', 'initial': 'A', 'short': 'Anshan' }, { 'id': '105', 'provincecode': '340000', 'city': '安庆市', 'code': '340800', 'initial': 'A', 'short': 'Anqing' }, { 'id': '156', 'provincecode': '410000', 'city': '安阳市', 'code': '410500', 'initial': 'A', 'short': 'Anyang' }, { 'id': '256', 'provincecode': '510000', 'city': '阿坝藏族羌族自治州', 'code': '513200', 'initial': 'A', 'short': 'Aba' }, { 'id': '262', 'provincecode': '520000', 'city': '安顺市', 'code': '520400', 'initial': 'A', 'short': 'Anshun' }, { 'id': '289', 'provincecode': '540000', 'city': '阿里地区', 'code': '542500', 'initial': 'A', 'short': 'Ali' }, { 'id': '299', 'provincecode': '610000', 'city': '安康市', 'code': '610900', 'initial': 'A', 'short': 'Ankang' }, { 'id': '335', 'provincecode': '650000', 'city': '阿克苏地区', 'code': '652900', 'initial': 'A', 'short': 'Akesu' }, { 'id': '341', 'provincecode': '650000', 'city': '阿勒泰地区', 'code': '654300', 'initial': 'A', 'short': 'Aletai' }, { 'id': '1', 'provincecode': '110000', 'city': '北京市', 'code': '110000', 'initial': 'B', 'short': 'Beijing' }, { 'id': '7', 'provincecode': '130000', 'city': '保定市', 'code': '130600', 'initial': 'B', 'short': 'Baoding' }, { 'id': '25', 'provincecode': '150000', 'city': '包头市', 'code': '150200', 'initial': 'B', 'short': 'Baotou' }, { 'id': '31', 'provincecode': '150000', 'city': '巴彦淖尔市', 'code': '150800', 'initial': 'B', 'short': 'Bayannaoer' }, { 'id': '40', 'provincecode': '210000', 'city': '本溪市', 'code': '210500', 'initial': 'B', 'short': 'Benxi' }, { 'id': '55', 'provincecode': '220000', 'city': '白山市', 'code': '220600', 'initial': 'B', 'short': 'Baishan' }, { 'id': '57', 'provincecode': '220000', 'city': '白城市', 'code': '220800', 'initial': 'B', 'short': 'Baicheng' }, { 'id': '100', 'provincecode': '340000', 'city': '蚌埠市', 'code': '340300', 'initial': 'B', 'short': 'Bangbu' }, { 'id': '150', 'provincecode': '370000', 'city': '滨州市', 'code': '371600', 'initial': 'B', 'short': 'Binzhou' }, { 'id': '222', 'provincecode': '450000', 'city': '北海市', 'code': '450500', 'initial': 'B', 'short': 'Beihai' }, { 'id': '227', 'provincecode': '450000', 'city': '百色市', 'code': '451000', 'initial': 'B', 'short': 'Baise' }, { 'id': '254', 'provincecode': '510000', 'city': '巴中市', 'code': '511900', 'initial': 'B', 'short': 'Bazhong' }, { 'id': '265', 'provincecode': '520000', 'city': '毕节地区', 'code': '522400', 'initial': 'B', 'short': 'Bijie' }, { 'id': '271', 'provincecode': '530000', 'city': '保山市', 'code': '530500', 'initial': 'B', 'short': 'Baoshan' }, { 'id': '293', 'provincecode': '610000', 'city': '宝鸡市', 'code': '610300', 'initial': 'B', 'short': 'Baoji' }, { 'id': '304', 'provincecode': '620000', 'city': '白银市', 'code': '620400', 'initial': 'B', 'short': 'Baiyin' }, { 'id': '333', 'provincecode': '650000', 'city': '博尔塔拉蒙古自治州', 'code': '652700', 'initial': 'B', 'short': 'Boertala' }, { 'id': '334', 'provincecode': '650000', 'city': '巴音郭楞蒙古自治州', 'code': '652800', 'initial': 'B', 'short': 'Bayinguoleng' }, { 'id': '', 'provincecode': '500000', 'city': '重庆市', 'code': '500000', 'initial': 'C', 'short': 'Chongqing' }, { 'id': '9', 'provincecode': '130000', 'city': '承德市', 'code': '130800', 'initial': 'C', 'short': 'Chengde' }, { 'id': '10', 'provincecode': '130000', 'city': '沧州市', 'code': '130900', 'initial': 'C', 'short': 'Cangzhou' }, { 'id': '16', 'provincecode': '140000', 'city': '长治市', 'code': '140400', 'initial': 'C', 'short': 'Changzhi' }, { 'id': '27', 'provincecode': '150000', 'city': '赤峰市', 'code': '150400', 'initial': 'C', 'short': 'Chifeng' }, { 'id': '48', 'provincecode': '210000', 'city': '朝阳市', 'code': '211300', 'initial': 'C', 'short': 'Chaoyang' }, { 'id': '50', 'provincecode': '220000', 'city': '长春市', 'code': '220100', 'initial': 'C', 'short': 'Changchun' }, { 'id': '77', 'provincecode': '320000', 'city': '常州市', 'code': '320400', 'initial': 'C', 'short': 'Changzhou' }, { 'id': '107', 'provincecode': '340000', 'city': '滁州市', 'code': '341100', 'initial': 'C', 'short': 'Chuzhou' }, { 'id': '110', 'provincecode': '340000', 'city': '巢湖市', 'code': '341400', 'initial': 'C', 'short': 'Chaohu' }, { 'id': '113', 'provincecode': '340000', 'city': '池州市', 'code': '341700', 'initial': 'C', 'short': 'Chizhou' }, { 'id': '183', 'provincecode': '430000', 'city': '长沙市', 'code': '430100', 'initial': 'C', 'short': 'Changsha' }, { 'id': '189', 'provincecode': '430000', 'city': '常德市', 'code': '430700', 'initial': 'C', 'short': 'Changde' }, { 'id': '192', 'provincecode': '430000', 'city': '郴州市', 'code': '431000', 'initial': 'C', 'short': 'Chenzhou' }, { 'id': '215', 'provincecode': '440000', 'city': '潮州市', 'code': '445100', 'initial': 'C', 'short': 'Chaozhou' }, { 'id': '231', 'provincecode': '450000', 'city': '崇左市', 'code': '451400', 'initial': 'C', 'short': 'Chongzuo' }, { 'id': '238', 'provincecode': '510000', 'city': '成都市', 'code': '510100', 'initial': 'C', 'short': 'Chengdu' }, { 'id': '276', 'provincecode': '530000', 'city': '楚雄彝族自治州', 'code': '532300', 'initial': 'C', 'short': 'Chuxiong' }, { 'id': '285', 'provincecode': '540000', 'city': '昌都地区', 'code': '542100', 'initial': 'C', 'short': 'Changdu' }, { 'id': '332', 'provincecode': '650000', 'city': '昌吉回族自治州', 'code': '652300', 'initial': 'C', 'short': 'Changji' }, { 'id': '14', 'provincecode': '140000', 'city': '大同市', 'code': '140200', 'initial': 'D', 'short': 'Datong' }, { 'id': '37', 'provincecode': '210000', 'city': '大连市', 'code': '210200', 'initial': 'D', 'short': 'Dalian' }, { 'id': '41', 'provincecode': '210000', 'city': '丹东市', 'code': '210600', 'initial': 'D', 'short': 'Dandong' }, { 'id': '64', 'provincecode': '230000', 'city': '大庆市', 'code': '230600', 'initial': 'D', 'short': 'Daqing' }, { 'id': '71', 'provincecode': '230000', 'city': '大兴安岭地区', 'code': '232700', 'initial': 'D', 'short': 'Daxinganling' }, { 'id': '139', 'provincecode': '370000', 'city': '东营市', 'code': '370500', 'initial': 'D', 'short': 'Dongying' }, { 'id': '148', 'provincecode': '370000', 'city': '德州市', 'code': '371400', 'initial': 'D', 'short': 'Dezhou' }, { 'id': '213', 'provincecode': '440000', 'city': '东莞市', 'code': '441900', 'initial': 'D', 'short': 'Dongguan' }, { 'id': '242', 'provincecode': '510000', 'city': '德阳市', 'code': '510600', 'initial': 'D', 'short': 'Deyang' }, { 'id': '252', 'provincecode': '510000', 'city': '达州市', 'code': '511700', 'initial': 'D', 'short': 'Dazhou' }, { 'id': '280', 'provincecode': '530000', 'city': '大理白族自治州', 'code': '532900', 'initial': 'D', 'short': 'Dali' }, { 'id': '281', 'provincecode': '530000', 'city': '德宏傣族景颇族自治州', 'code': '533100', 'initial': 'D', 'short': 'Dehong' }, { 'id': '283', 'provincecode': '530000', 'city': '迪庆藏族自治州', 'code': '533400', 'initial': 'D', 'short': 'Diqing' }, { 'id': '311', 'provincecode': '620000', 'city': '定西市', 'code': '621100', 'initial': 'D', 'short': 'Dingxi' }, { 'id': '29', 'provincecode': '150000', 'city': '鄂尔多斯市', 'code': '150600', 'initial': 'E', 'short': 'Eerduosi' }, { 'id': '174', 'provincecode': '420000', 'city': '鄂州市', 'code': '420700', 'initial': 'E', 'short': 'Ezhou' }, { 'id': '181', 'provincecode': '420000', 'city': '恩施土家族苗族自治州', 'code': '422800', 'initial': 'E', 'short': 'Enshi' }, { 'id': '39', 'provincecode': '210000', 'city': '抚顺市', 'code': '210400', 'initial': 'F', 'short': 'Fushun' }, { 'id': '44', 'provincecode': '210000', 'city': '阜新市', 'code': '210900', 'initial': 'F', 'short': 'Fuxin' }, { 'id': '108', 'provincecode': '340000', 'city': '阜阳市', 'code': '341200', 'initial': 'F', 'short': 'Fuyang' }, { 'id': '115', 'provincecode': '350000', 'city': '福州市', 'code': '350100', 'initial': 'F', 'short': 'Fuzhou' }, { 'id': '133', 'provincecode': '360000', 'city': '抚州市', 'code': '361000', 'initial': 'F', 'short': 'Fuzhou' }, { 'id': '202', 'provincecode': '440000', 'city': '佛山市', 'code': '440600', 'initial': 'F', 'short': 'Foshan' }, { 'id': '223', 'provincecode': '450000', 'city': '防城港市', 'code': '450600', 'initial': 'F', 'short': 'Fangchenggang' }, { 'id': '130', 'provincecode': '360000', 'city': '赣州市', 'code': '360700', 'initial': 'G', 'short': 'Ganzhou' }, { 'id': '197', 'provincecode': '440000', 'city': '广州市', 'code': '440100', 'initial': 'G', 'short': 'Guangzhou' }, { 'id': '220', 'provincecode': '450000', 'city': '桂林市', 'code': '450300', 'initial': 'G', 'short': 'Guilin' }, { 'id': '225', 'provincecode': '450000', 'city': '贵港市', 'code': '450800', 'initial': 'G', 'short': 'Guigang' }, { 'id': '244', 'provincecode': '510000', 'city': '广元市', 'code': '510800', 'initial': 'G', 'short': 'Guangyuan' }, { 'id': '251', 'provincecode': '510000', 'city': '广安市', 'code': '511600', 'initial': 'G', 'short': 'Guangan' }, { 'id': '257', 'provincecode': '510000', 'city': '甘孜藏族自治州', 'code': '513300', 'initial': 'G', 'short': 'Ganzi' }, { 'id': '259', 'provincecode': '520000', 'city': '贵阳市', 'code': '520100', 'initial': 'G', 'short': 'Guiyang' }, { 'id': '314', 'provincecode': '620000', 'city': '甘南藏族自治州', 'code': '623000', 'initial': 'G', 'short': 'Gannan' }, { 'id': '320', 'provincecode': '630000', 'city': '果洛藏族自治州', 'code': '632600', 'initial': 'G', 'short': 'Guoluo' }, { 'id': '326', 'provincecode': '640000', 'city': '固原市', 'code': '640400', 'initial': 'G', 'short': 'Guyuan' }, { 'id': '5', 'provincecode': '130000', 'city': '邯郸市', 'code': '130400', 'initial': 'H', 'short': 'Handan' }, { 'id': '12', 'provincecode': '130000', 'city': '衡水市', 'code': '131100', 'initial': 'H', 'short': 'Hengshui' }, { 'id': '', 'provincecode': '370000', 'city': '菏泽市', 'code': '371700', 'initial': 'H', 'short': 'Heze' }, { 'id': '24', 'provincecode': '150000', 'city': '呼和浩特市', 'code': '150100', 'initial': 'H', 'short': 'Huhehaote' }, { 'id': '30', 'provincecode': '150000', 'city': '呼伦贝尔市', 'code': '150700', 'initial': 'H', 'short': 'Hulunbeier' }, { 'id': '49', 'provincecode': '210000', 'city': '葫芦岛市', 'code': '211400', 'initial': 'H', 'short': 'Huludao' }, { 'id': '59', 'provincecode': '230000', 'city': '哈尔滨市', 'code': '230100', 'initial': 'H', 'short': 'Haerbin' }, { 'id': '62', 'provincecode': '230000', 'city': '鹤岗市', 'code': '230400', 'initial': 'H', 'short': 'Hegang' }, { 'id': '69', 'provincecode': '230000', 'city': '黑河市', 'code': '231100', 'initial': 'H', 'short': 'Heihe' }, { 'id': '81', 'provincecode': '320000', 'city': '淮安市', 'code': '320800', 'initial': 'H', 'short': 'Huaian' }, { 'id': '87', 'provincecode': '330000', 'city': '杭州市', 'code': '330100', 'initial': 'H', 'short': 'Hangzhou' }, { 'id': '91', 'provincecode': '330000', 'city': '湖州市', 'code': '330500', 'initial': 'H', 'short': 'Huzhou' }, { 'id': '98', 'provincecode': '340000', 'city': '合肥市', 'code': '340100', 'initial': 'H', 'short': 'Hefei' }, { 'id': '101', 'provincecode': '340000', 'city': '淮南市', 'code': '340400', 'initial': 'H', 'short': 'Huainan' }, { 'id': '103', 'provincecode': '340000', 'city': '淮北市', 'code': '340600', 'initial': 'H', 'short': 'Huaibei' }, { 'id': '106', 'provincecode': '340000', 'city': '黄山市', 'code': '341000', 'initial': 'H', 'short': 'Huangshan' }, { 'id': '112', 'provincecode': '340000', 'city': '亳州市', 'code': '341600', 'initial': 'H', 'short': 'Bozhou' }, { 'id': '157', 'provincecode': '410000', 'city': '鹤壁市', 'code': '410600', 'initial': 'H', 'short': 'Hebi' }, { 'id': '170', 'provincecode': '420000', 'city': '黄石市', 'code': '420200', 'initial': 'H', 'short': 'Huangshi' }, { 'id': '178', 'provincecode': '420000', 'city': '黄冈市', 'code': '421100', 'initial': 'H', 'short': 'Huanggang' }, { 'id': '186', 'provincecode': '430000', 'city': '衡阳市', 'code': '430400', 'initial': 'H', 'short': 'Hengyang' }, { 'id': '194', 'provincecode': '430000', 'city': '怀化市', 'code': '431200', 'initial': 'H', 'short': 'Huaihua' }, { 'id': '207', 'provincecode': '440000', 'city': '惠州市', 'code': '441300', 'initial': 'H', 'short': 'Huizhou' }, { 'id': '210', 'provincecode': '440000', 'city': '河源市', 'code': '441600', 'initial': 'H', 'short': 'Heyuan' }, { 'id': '228', 'provincecode': '450000', 'city': '贺州市', 'code': '451100', 'initial': 'H', 'short': 'Hezhou' }, { 'id': '229', 'provincecode': '450000', 'city': '河池市', 'code': '451200', 'initial': 'H', 'short': 'Hechi' }, { 'id': '232', 'provincecode': '460000', 'city': '海口市', 'code': '460100', 'initial': 'H', 'short': 'Haikou' }, { 'id': '277', 'provincecode': '530000', 'city': '红河哈尼族彝族自治州', 'code': '532500', 'initial': 'H', 'short': 'Honghe' }, { 'id': '297', 'provincecode': '610000', 'city': '汉中市', 'code': '610700', 'initial': 'H', 'short': 'Hanzhong' }, { 'id': '316', 'provincecode': '630000', 'city': '海东地区', 'code': '632100', 'initial': 'H', 'short': 'Haidong' }, { 'id': '317', 'provincecode': '630000', 'city': '海北藏族自治州', 'code': '632200', 'initial': 'H', 'short': 'Haibei' }, { 'id': '318', 'provincecode': '630000', 'city': '黄南藏族自治州', 'code': '632300', 'initial': 'H', 'short': 'Huangnan' }, { 'id': '319', 'provincecode': '630000', 'city': '海南藏族自治州', 'code': '632500', 'initial': 'H', 'short': 'Hainan' }, { 'id': '322', 'provincecode': '630000', 'city': '海西蒙古族藏族自治州', 'code': '632800', 'initial': 'H', 'short': 'Haixi' }, { 'id': '331', 'provincecode': '650000', 'city': '哈密地区', 'code': '652200', 'initial': 'H', 'short': 'Hami' }, { 'id': '338', 'provincecode': '650000', 'city': '和田地区', 'code': '653200', 'initial': 'H', 'short': 'Hetiandi' }, { 'id': '17', 'provincecode': '140000', 'city': '晋城市', 'code': '140500', 'initial': 'J', 'short': 'Jincheng' }, { 'id': '19', 'provincecode': '140000', 'city': '晋中市', 'code': '140700', 'initial': 'J', 'short': 'Jinzhong' }, { 'id': '42', 'provincecode': '210000', 'city': '锦州市', 'code': '210700', 'initial': 'J', 'short': 'Jinzhou' }, { 'id': '51', 'provincecode': '220000', 'city': '吉林市', 'code': '220200', 'initial': 'J', 'short': 'Jilin' }, { 'id': '61', 'provincecode': '230000', 'city': '鸡西市', 'code': '230300', 'initial': 'J', 'short': 'Jixi' }, { 'id': '66', 'provincecode': '230000', 'city': '佳木斯市', 'code': '230800', 'initial': 'J', 'short': 'Jiamusi' }, { 'id': '90', 'provincecode': '330000', 'city': '嘉兴市', 'code': '330400', 'initial': 'J', 'short': 'Jiaxing' }, { 'id': '93', 'provincecode': '330000', 'city': '金华市', 'code': '330700', 'initial': 'J', 'short': 'Jinhua' }, { 'id': '125', 'provincecode': '360000', 'city': '景德镇市', 'code': '360200', 'initial': 'J', 'short': 'Jingdezhen' }, { 'id': '127', 'provincecode': '360000', 'city': '九江市', 'code': '360400', 'initial': 'J', 'short': 'Jiujiang' }, { 'id': '131', 'provincecode': '360000', 'city': '吉安市', 'code': '360800', 'initial': 'J', 'short': 'Jian' }, { 'id': '135', 'provincecode': '370000', 'city': '济南市', 'code': '370100', 'initial': 'J', 'short': 'Jinan' }, { 'id': '142', 'provincecode': '370000', 'city': '济宁市', 'code': '370800', 'initial': 'J', 'short': 'Jining' }, { 'id': '159', 'provincecode': '410000', 'city': '焦作市', 'code': '410800', 'initial': 'J', 'short': 'Jiaozuo' }, { 'id': '175', 'provincecode': '420000', 'city': '荆门市', 'code': '420800', 'initial': 'J', 'short': 'Jingmen' }, { 'id': '177', 'provincecode': '420000', 'city': '荆州市', 'code': '421000', 'initial': 'J', 'short': 'Jingzhou' }, { 'id': '203', 'provincecode': '440000', 'city': '江门市', 'code': '440700', 'initial': 'J', 'short': 'Jiangmen' }, { 'id': '216', 'provincecode': '440000', 'city': '揭阳市', 'code': '445200', 'initial': 'J', 'short': 'Jieyang' }, { 'id': '302', 'provincecode': '620000', 'city': '嘉峪关市', 'code': '620200', 'initial': 'J', 'short': 'Jiayuguan' }, { 'id': '303', 'provincecode': '620000', 'city': '金昌市', 'code': '620300', 'initial': 'J', 'short': 'Jinchang' }, { 'id': '309', 'provincecode': '620000', 'city': '酒泉市', 'code': '620900', 'initial': 'J', 'short': 'Jiuquan' }, { 'id': '153', 'provincecode': '410000', 'city': '开封市', 'code': '410200', 'initial': 'K', 'short': 'Kaifeng' }, { 'id': '268', 'provincecode': '530000', 'city': '昆明市', 'code': '530100', 'initial': 'K', 'short': 'Kunming' }, { 'id': '329', 'provincecode': '650000', 'city': '克拉玛依市', 'code': '650200', 'initial': 'K', 'short': 'Kelamayi' }, { 'id': '336', 'provincecode': '650000', 'city': '克孜勒苏柯尔克孜自治州', 'code': '653000', 'initial': 'K', 'short': 'Kezile' }, { 'id': '337', 'provincecode': '650000', 'city': '喀什地区', 'code': '653100', 'initial': 'K', 'short': 'Kashidi' }, { 'id': '11', 'provincecode': '130000', 'city': '廊坊市', 'code': '131000', 'initial': 'L', 'short': 'Langfang' }, { 'id': '22', 'provincecode': '140000', 'city': '临汾市', 'code': '141000', 'initial': 'L', 'short': 'Linfen' }, { 'id': '23', 'provincecode': '140000', 'city': '吕梁市', 'code': '141100', 'initial': 'L', 'short': 'Lvliang' }, { 'id': '45', 'provincecode': '210000', 'city': '辽阳市', 'code': '211000', 'initial': 'L', 'short': 'Liaoyang' }, { 'id': '53', 'provincecode': '220000', 'city': '辽源市', 'code': '220400', 'initial': 'L', 'short': 'Liaoyuan' }, { 'id': '80', 'provincecode': '320000', 'city': '连云港市', 'code': '320700', 'initial': 'L', 'short': 'Lianyungang' }, { 'id': '97', 'provincecode': '330000', 'city': '丽水市', 'code': '331100', 'initial': 'L', 'short': 'Lishui' }, { 'id': '111', 'provincecode': '340000', 'city': '六安市', 'code': '341500', 'initial': 'L', 'short': 'Liuan' }, { 'id': '122', 'provincecode': '350000', 'city': '龙岩市', 'code': '350800', 'initial': 'L', 'short': 'Longyan' }, { 'id': '146', 'provincecode': '370000', 'city': '莱芜市', 'code': '371200', 'initial': 'L', 'short': 'Laiwu' }, { 'id': '147', 'provincecode': '370000', 'city': '临沂市', 'code': '371300', 'initial': 'L', 'short': 'Linyi' }, { 'id': '149', 'provincecode': '370000', 'city': '聊城市', 'code': '371500', 'initial': 'L', 'short': 'Liaocheng' }, { 'id': '154', 'provincecode': '410000', 'city': '洛阳市', 'code': '410300', 'initial': 'L', 'short': 'Luoyang' }, { 'id': '162', 'provincecode': '410000', 'city': '漯河市', 'code': '411100', 'initial': 'L', 'short': 'Luohe' }, { 'id': '195', 'provincecode': '430000', 'city': '娄底市', 'code': '431300', 'initial': 'L', 'short': 'Loudi' }, { 'id': '219', 'provincecode': '450000', 'city': '柳州市', 'code': '450200', 'initial': 'L', 'short': 'Liuzhou' }, { 'id': '230', 'provincecode': '450000', 'city': '来宾市', 'code': '451300', 'initial': 'L', 'short': 'Laibin' }, { 'id': '241', 'provincecode': '510000', 'city': '泸州市', 'code': '510500', 'initial': 'L', 'short': 'Luzhou' }, { 'id': '247', 'provincecode': '510000', 'city': '乐山市', 'code': '511100', 'initial': 'L', 'short': 'Leshan' }, { 'id': '258', 'provincecode': '510000', 'city': '凉山彝族自治州', 'code': '513400', 'initial': 'L', 'short': 'Liangshan' }, { 'id': '260', 'provincecode': '520000', 'city': '六盘水市', 'code': '520200', 'initial': 'L', 'short': 'Liupanshui' }, { 'id': '273', 'provincecode': '530000', 'city': '丽江市', 'code': '530700', 'initial': 'L', 'short': 'Lijiang' }, { 'id': '275', 'provincecode': '530000', 'city': '临沧市', 'code': '530900', 'initial': 'L', 'short': 'Lincang' }, { 'id': '284', 'provincecode': '540000', 'city': '拉萨市', 'code': '540100', 'initial': 'L', 'short': 'Lasa' }, { 'id': '290', 'provincecode': '540000', 'city': '林芝地区', 'code': '542600', 'initial': 'L', 'short': 'Linzhi' }, { 'id': '301', 'provincecode': '620000', 'city': '兰州市', 'code': '620100', 'initial': 'L', 'short': 'Lanzhou' }, { 'id': '312', 'provincecode': '620000', 'city': '陇南市', 'code': '621200', 'initial': 'L', 'short': 'Longnan' }, { 'id': '313', 'provincecode': '620000', 'city': '临夏回族自治州', 'code': '622900', 'initial': 'L', 'short': 'Linxia' }, { 'id': '68', 'provincecode': '230000', 'city': '牡丹江市', 'code': '231000', 'initial': 'M', 'short': 'Mudanjiang' }, { 'id': '102', 'provincecode': '340000', 'city': '马鞍山市', 'code': '340500', 'initial': 'M', 'short': 'Maanshan' }, { 'id': '205', 'provincecode': '440000', 'city': '茂名市', 'code': '440900', 'initial': 'M', 'short': 'Maoming' }, { 'id': '208', 'provincecode': '440000', 'city': '梅州市', 'code': '441400', 'initial': 'M', 'short': 'Meizhou' }, { 'id': '243', 'provincecode': '510000', 'city': '绵阳市', 'code': '510700', 'initial': 'M', 'short': 'Mianyang' }, { 'id': '249', 'provincecode': '510000', 'city': '眉山市', 'code': '511400', 'initial': 'M', 'short': 'Meishan' }, { 'id': '74', 'provincecode': '320000', 'city': '南京市', 'code': '320100', 'initial': 'N', 'short': 'Nanjing' }, { 'id': '79', 'provincecode': '320000', 'city': '南通市', 'code': '320600', 'initial': 'N', 'short': 'Nantong' }, { 'id': '88', 'provincecode': '330000', 'city': '宁波市', 'code': '330200', 'initial': 'N', 'short': 'Ningbo' }, { 'id': '121', 'provincecode': '350000', 'city': '南平市', 'code': '350700', 'initial': 'N', 'short': 'Nanping' }, { 'id': '123', 'provincecode': '350000', 'city': '宁德市', 'code': '350900', 'initial': 'N', 'short': 'Ningde' }, { 'id': '124', 'provincecode': '360000', 'city': '南昌市', 'code': '360100', 'initial': 'N', 'short': 'Nanchang' }, { 'id': '164', 'provincecode': '410000', 'city': '南阳市', 'code': '411300', 'initial': 'N', 'short': 'Nanyang' }, { 'id': '218', 'provincecode': '450000', 'city': '南宁市', 'code': '450100', 'initial': 'N', 'short': 'Nanning' }, { 'id': '246', 'provincecode': '510000', 'city': '内江市', 'code': '511000', 'initial': 'N', 'short': 'Neijiang' }, { 'id': '248', 'provincecode': '510000', 'city': '南充市', 'code': '511300', 'initial': 'N', 'short': 'Nanchong' }, { 'id': '282', 'provincecode': '530000', 'city': '怒江傈僳族自治州', 'code': '533300', 'initial': 'N', 'short': 'Nujiang' }, { 'id': '288', 'provincecode': '540000', 'city': '那曲地区', 'code': '542400', 'initial': 'N', 'short': 'Naqu' }, { 'id': '46', 'provincecode': '210000', 'city': '盘锦市', 'code': '211100', 'initial': 'P', 'short': 'Panjin' }, { 'id': '117', 'provincecode': '350000', 'city': '莆田市', 'code': '350300', 'initial': 'P', 'short': 'Putian' }, { 'id': '126', 'provincecode': '360000', 'city': '萍乡市', 'code': '360300', 'initial': 'P', 'short': 'Pingxiang' }, { 'id': '155', 'provincecode': '410000', 'city': '平顶山市', 'code': '410400', 'initial': 'P', 'short': 'Pingdingshan' }, { 'id': '160', 'provincecode': '410000', 'city': '濮阳市', 'code': '410900', 'initial': 'P', 'short': 'Puyang' }, { 'id': '240', 'provincecode': '510000', 'city': '攀枝花市', 'code': '510400', 'initial': 'P', 'short': 'Panzhihua' }, { 'id': '308', 'provincecode': '620000', 'city': '平凉市', 'code': '620800', 'initial': 'P', 'short': 'Pingliang' }, { 'id': '4', 'provincecode': '130000', 'city': '秦皇岛市', 'code': '130300', 'initial': 'Q', 'short': 'Qinhuangdao' }, { 'id': '60', 'provincecode': '230000', 'city': '齐齐哈尔市', 'code': '230200', 'initial': 'Q', 'short': 'Qiqihaer' }, { 'id': '67', 'provincecode': '230000', 'city': '七台河市', 'code': '230900', 'initial': 'Q', 'short': 'Qitaihe' }, { 'id': '94', 'provincecode': '330000', 'city': '衢州市', 'code': '330800', 'initial': 'Q', 'short': 'Quzhou' }, { 'id': '119', 'provincecode': '350000', 'city': '泉州市', 'code': '350500', 'initial': 'Q', 'short': 'Quanzhou' }, { 'id': '136', 'provincecode': '370000', 'city': '青岛市', 'code': '370200', 'initial': 'Q', 'short': 'Qingdao' }, { 'id': '212', 'provincecode': '440000', 'city': '清远市', 'code': '441800', 'initial': 'Q', 'short': 'Qingyuan' }, { 'id': '224', 'provincecode': '450000', 'city': '钦州市', 'code': '450700', 'initial': 'Q', 'short': 'Qinzhou' }, { 'id': '264', 'provincecode': '520000', 'city': '黔西南布依族苗族自治州', 'code': '522300', 'initial': 'Q', 'short': 'Qianxinan' }, { 'id': '266', 'provincecode': '520000', 'city': '黔东南苗族侗族自治州', 'code': '522600', 'initial': 'Q', 'short': 'Qiandong' }, { 'id': '267', 'provincecode': '520000', 'city': '黔南布依族苗族自治州', 'code': '522700', 'initial': 'Q', 'short': 'Qiannan' }, { 'id': '269', 'provincecode': '530000', 'city': '曲靖市', 'code': '530300', 'initial': 'Q', 'short': 'Qujing' }, { 'id': '310', 'provincecode': '620000', 'city': '庆阳市', 'code': '621000', 'initial': 'Q', 'short': 'Qingyang' }, { 'id': '145', 'provincecode': '370000', 'city': '日照市', 'code': '371100', 'initial': 'R', 'short': 'Rizhao' }, { 'id': '287', 'provincecode': '540000', 'city': '日喀则地区', 'code': '542300', 'initial': 'R', 'short': 'Rikaze' }, { 'id': '2', 'provincecode': '130000', 'city': '石家庄市', 'code': '130100', 'initial': 'S', 'short': 'Shijiazhuang' }, { 'id': '', 'provincecode': '310000', 'city': '上海市', 'code': '310000', 'initial': 'S', 'short': 'Shanghai' }, { 'id': '18', 'provincecode': '140000', 'city': '朔州市', 'code': '140600', 'initial': 'S', 'short': 'Shuozhou' }, { 'id': '36', 'provincecode': '210000', 'city': '沈阳市', 'code': '210100', 'initial': 'S', 'short': 'Shenyang' }, { 'id': '', 'provincecode': '530000', 'city': '普洱市', 'code': '530800', 'initial': 'P', 'short': 'Puer' }, { 'id': '52', 'provincecode': '220000', 'city': '四平市', 'code': '220300', 'initial': 'S', 'short': 'Siping' }, { 'id': '56', 'provincecode': '220000', 'city': '松原市', 'code': '220700', 'initial': 'S', 'short': 'Songyuan' }, { 'id': '63', 'provincecode': '230000', 'city': '双鸭山市', 'code': '230500', 'initial': 'S', 'short': 'Shuangyashan' }, { 'id': '70', 'provincecode': '230000', 'city': '绥化市', 'code': '231200', 'initial': 'S', 'short': 'Suihua' }, { 'id': '78', 'provincecode': '320000', 'city': '苏州市', 'code': '320500', 'initial': 'S', 'short': 'Suzhou' }, { 'id': '86', 'provincecode': '320000', 'city': '宿迁市', 'code': '321300', 'initial': 'S', 'short': 'Suqian' }, { 'id': '92', 'provincecode': '330000', 'city': '绍兴市', 'code': '330600', 'initial': 'S', 'short': 'Shaoxing' }, { 'id': '109', 'provincecode': '340000', 'city': '宿州市', 'code': '341300', 'initial': 'S', 'short': 'Suzhou' }, { 'id': '118', 'provincecode': '350000', 'city': '三明市', 'code': '350400', 'initial': 'S', 'short': 'Sanming' }, { 'id': '134', 'provincecode': '360000', 'city': '上饶市', 'code': '361100', 'initial': 'S', 'short': 'Shangrao' }, { 'id': '163', 'provincecode': '410000', 'city': '三门峡市', 'code': '411200', 'initial': 'S', 'short': 'Sanmenxia' }, { 'id': '165', 'provincecode': '410000', 'city': '商丘市', 'code': '411400', 'initial': 'S', 'short': 'Shangqiu' }, { 'id': '171', 'provincecode': '420000', 'city': '十堰市', 'code': '420300', 'initial': 'S', 'short': 'Shiyan' }, { 'id': '180', 'provincecode': '420000', 'city': '随州市', 'code': '421300', 'initial': 'S', 'short': 'Suizhou' }, { 'id': '187', 'provincecode': '430000', 'city': '邵阳市', 'code': '430500', 'initial': 'S', 'short': 'Shaoyang' }, { 'id': '198', 'provincecode': '440000', 'city': '韶关市', 'code': '440200', 'initial': 'S', 'short': 'Shaoguan' }, { 'id': '199', 'provincecode': '440000', 'city': '深圳市', 'code': '440300', 'initial': 'S', 'short': 'Shenzhen' }, { 'id': '201', 'provincecode': '440000', 'city': '汕头市', 'code': '440500', 'initial': 'S', 'short': 'Shantou' }, { 'id': '209', 'provincecode': '440000', 'city': '汕尾市', 'code': '441500', 'initial': 'S', 'short': 'Shanwei' }, { 'id': '233', 'provincecode': '460000', 'city': '三亚市', 'code': '460200', 'initial': 'S', 'short': 'Sanya' }, { 'id': '245', 'provincecode': '510000', 'city': '遂宁市', 'code': '510900', 'initial': 'S', 'short': 'Suining' }, { 'id': '286', 'provincecode': '540000', 'city': '山南地区', 'code': '542200', 'initial': 'S', 'short': 'Shannan' }, { 'id': '300', 'provincecode': '610000', 'city': '商洛市', 'code': '611000', 'initial': 'S', 'short': 'Shangluo' }, { 'id': '324', 'provincecode': '640000', 'city': '石嘴山市', 'code': '640200', 'initial': 'S', 'short': 'Shizuishan' }, { 'id': '3', 'provincecode': '130000', 'city': '唐山市', 'code': '130200', 'initial': 'T', 'short': 'Tangshan' }, { 'id': '13', 'provincecode': '140000', 'city': '太原市', 'code': '140100', 'initial': 'T', 'short': 'Taiyuan' }, { 'id': '28', 'provincecode': '150000', 'city': '通辽市', 'code': '150500', 'initial': 'T', 'short': 'Tongliao' }, { 'id': '47', 'provincecode': '210000', 'city': '铁岭市', 'code': '211200', 'initial': 'T', 'short': 'Tieling' }, { 'id': '54', 'provincecode': '220000', 'city': '通化市', 'code': '220500', 'initial': 'T', 'short': 'Tonghua' }, { 'id': '85', 'provincecode': '320000', 'city': '泰州市', 'code': '321200', 'initial': 'T', 'short': 'Taizhou' }, { 'id': '96', 'provincecode': '330000', 'city': '台州市', 'code': '331000', 'initial': 'T', 'short': 'Taizhou' }, { 'id': '104', 'provincecode': '340000', 'city': '铜陵市', 'code': '340700', 'initial': 'T', 'short': 'Tongling' }, { 'id': '143', 'provincecode': '370000', 'city': '泰安市', 'code': '370900', 'initial': 'T', 'short': 'Taian' }, { 'id': '263', 'provincecode': '520000', 'city': '铜仁地区', 'code': '522200', 'initial': 'T', 'short': 'Tongren' }, { 'id': '292', 'provincecode': '610000', 'city': '铜川市', 'code': '610200', 'initial': 'T', 'short': 'Tongchuan' }, { 'id': '305', 'provincecode': '620000', 'city': '天水市', 'code': '620500', 'initial': 'T', 'short': 'Tianshui' }, { 'id': '330', 'provincecode': '650000', 'city': '吐鲁番地区', 'code': '652100', 'initial': 'T', 'short': 'Tulufan' }, { 'id': '340', 'provincecode': '650000', 'city': '塔城地区', 'code': '654200', 'initial': 'T', 'short': 'Tachengdi' }, { 'id': '343', 'provincecode': '120000', 'city': '天津市', 'code': '120000', 'initial': 'T', 'short': 'Tianjin' }, { 'id': '26', 'provincecode': '150000', 'city': '乌海市', 'code': '150300', 'initial': 'W', 'short': 'Wuhai' }, { 'id': '32', 'provincecode': '150000', 'city': '乌兰察布市', 'code': '150900', 'initial': 'W', 'short': 'Wulanchabu' }, { 'id': '75', 'provincecode': '320000', 'city': '无锡市', 'code': '320200', 'initial': 'W', 'short': 'Wuxi' }, { 'id': '89', 'provincecode': '330000', 'city': '温州市', 'code': '330300', 'initial': 'W', 'short': 'Wenzhou' }, { 'id': '99', 'provincecode': '340000', 'city': '芜湖市', 'code': '340200', 'initial': 'W', 'short': 'Wuhu' }, { 'id': '141', 'provincecode': '370000', 'city': '潍坊市', 'code': '370700', 'initial': 'W', 'short': 'Weifang' }, { 'id': '144', 'provincecode': '370000', 'city': '威海市', 'code': '371000', 'initial': 'W', 'short': 'Weihai' }, { 'id': '169', 'provincecode': '420000', 'city': '武汉市', 'code': '420100', 'initial': 'W', 'short': 'Wuhan' }, { 'id': '221', 'provincecode': '450000', 'city': '梧州市', 'code': '450400', 'initial': 'W', 'short': 'Wuzhou' }, { 'id': '278', 'provincecode': '530000', 'city': '文山壮族苗族自治州', 'code': '532600', 'initial': 'W', 'short': 'Wenshan' }, { 'id': '295', 'provincecode': '610000', 'city': '渭南市', 'code': '610500', 'initial': 'W', 'short': 'Weinan' }, { 'id': '306', 'provincecode': '620000', 'city': '武威市', 'code': '620600', 'initial': 'W', 'short': 'Wuwei' }, { 'id': '325', 'provincecode': '640000', 'city': '吴忠市', 'code': '640300', 'initial': 'W', 'short': 'Wuzhong' }, { 'id': '328', 'provincecode': '650000', 'city': '乌鲁木齐市', 'code': '650100', 'initial': 'W', 'short': 'Wulumuqi' }, { 'id': '6', 'provincecode': '130000', 'city': '邢台市', 'code': '130500', 'initial': 'X', 'short': 'Xingtai' }, { 'id': '21', 'provincecode': '140000', 'city': '忻州市', 'code': '140900', 'initial': 'X', 'short': 'Xinzhou' }, { 'id': '33', 'provincecode': '150000', 'city': '兴安盟', 'code': '152200', 'initial': 'X', 'short': 'Xinganmeng' }, { 'id': '34', 'provincecode': '150000', 'city': '锡林郭勒盟', 'code': '152500', 'initial': 'X', 'short': 'Xilinguolemeng' }, { 'id': '76', 'provincecode': '320000', 'city': '徐州市', 'code': '320300', 'initial': 'X', 'short': 'Xuzhou' }, { 'id': '114', 'provincecode': '340000', 'city': '宣城市', 'code': '341800', 'initial': 'X', 'short': 'Xuancheng' }, { 'id': '116', 'provincecode': '350000', 'city': '厦门市', 'code': '350200', 'initial': 'X', 'short': 'Xiamen' }, { 'id': '128', 'provincecode': '360000', 'city': '新余市', 'code': '360500', 'initial': 'X', 'short': 'Xinyu' }, { 'id': '158', 'provincecode': '410000', 'city': '新乡市', 'code': '410700', 'initial': 'X', 'short': 'Xinxiang' }, { 'id': '161', 'provincecode': '410000', 'city': '许昌市', 'code': '411000', 'initial': 'X', 'short': 'Xuchang' }, { 'id': '166', 'provincecode': '410000', 'city': '信阳市', 'code': '411500', 'initial': 'X', 'short': 'Xinyang' }, { 'id': '173', 'provincecode': '420000', 'city': '襄樊市', 'code': '420600', 'initial': 'X', 'short': 'Xiangfan' }, { 'id': '176', 'provincecode': '420000', 'city': '孝感市', 'code': '420900', 'initial': 'X', 'short': 'Xiaogan' }, { 'id': '179', 'provincecode': '420000', 'city': '咸宁市', 'code': '421200', 'initial': 'X', 'short': 'Xianning' }, { 'id': '185', 'provincecode': '430000', 'city': '湘潭市', 'code': '430300', 'initial': 'X', 'short': 'Xiangtan' }, { 'id': '196', 'provincecode': '430000', 'city': '湘西土家族苗族自治州', 'code': '433100', 'initial': 'X', 'short': 'Xiangxi' }, { 'id': '279', 'provincecode': '530000', 'city': '西双版纳傣族自治州', 'code': '532800', 'initial': 'X', 'short': 'Xishuangbanna' }, { 'id': '291', 'provincecode': '610000', 'city': '西安市', 'code': '610100', 'initial': 'X', 'short': 'Xian' }, { 'id': '294', 'provincecode': '610000', 'city': '咸阳市', 'code': '610400', 'initial': 'X', 'short': 'Xianyang' }, { 'id': '315', 'provincecode': '630000', 'city': '西宁市', 'code': '630100', 'initial': 'X', 'short': 'Xining' }, { 'id': '15', 'provincecode': '140000', 'city': '阳泉市', 'code': '140300', 'initial': 'Y', 'short': 'Yangquan' }, { 'id': '20', 'provincecode': '140000', 'city': '运城市', 'code': '140800', 'initial': 'Y', 'short': 'Yuncheng' }, { 'id': '43', 'provincecode': '210000', 'city': '营口市', 'code': '210800', 'initial': 'Y', 'short': 'Yingkou' }, { 'id': '58', 'provincecode': '220000', 'city': '延边朝鲜族自治州', 'code': '222400', 'initial': 'Y', 'short': 'Yanbian' }, { 'id': '65', 'provincecode': '230000', 'city': '伊春市', 'code': '230700', 'initial': 'Y', 'short': 'Yichun' }, { 'id': '82', 'provincecode': '320000', 'city': '盐城市', 'code': '320900', 'initial': 'Y', 'short': 'Yancheng' }, { 'id': '83', 'provincecode': '320000', 'city': '扬州市', 'code': '321000', 'initial': 'Y', 'short': 'Yangzhou' }, { 'id': '129', 'provincecode': '360000', 'city': '鹰潭市', 'code': '360600', 'initial': 'Y', 'short': 'Yingtan' }, { 'id': '132', 'provincecode': '360000', 'city': '宜春市', 'code': '360900', 'initial': 'Y', 'short': 'Yichun' }, { 'id': '140', 'provincecode': '370000', 'city': '烟台市', 'code': '370600', 'initial': 'Y', 'short': 'Yantai' }, { 'id': '172', 'provincecode': '420000', 'city': '宜昌市', 'code': '420500', 'initial': 'Y', 'short': 'Yichang' }, { 'id': '188', 'provincecode': '430000', 'city': '岳阳市', 'code': '430600', 'initial': 'Y', 'short': 'Yueyang' }, { 'id': '191', 'provincecode': '430000', 'city': '益阳市', 'code': '430900', 'initial': 'Y', 'short': 'Yiyang' }, { 'id': '193', 'provincecode': '430000', 'city': '永州市', 'code': '431100', 'initial': 'Y', 'short': 'Yongzhou' }, { 'id': '211', 'provincecode': '440000', 'city': '阳江市', 'code': '441700', 'initial': 'Y', 'short': 'Yangjiang' }, { 'id': '217', 'provincecode': '440000', 'city': '云浮市', 'code': '445300', 'initial': 'Y', 'short': 'Yunfu' }, { 'id': '226', 'provincecode': '450000', 'city': '玉林市', 'code': '450900', 'initial': 'Y', 'short': 'Yulin' }, { 'id': '250', 'provincecode': '510000', 'city': '宜宾市', 'code': '511500', 'initial': 'Y', 'short': 'Yibin' }, { 'id': '253', 'provincecode': '510000', 'city': '雅安市', 'code': '511800', 'initial': 'Y', 'short': 'Yaan' }, { 'id': '270', 'provincecode': '530000', 'city': '玉溪市', 'code': '530400', 'initial': 'Y', 'short': 'Yuxi' }, { 'id': '296', 'provincecode': '610000', 'city': '延安市', 'code': '610600', 'initial': 'Y', 'short': 'Yanan' }, { 'id': '298', 'provincecode': '610000', 'city': '榆林市', 'code': '610800', 'initial': 'Y', 'short': 'Yulin' }, { 'id': '321', 'provincecode': '630000', 'city': '玉树藏族自治州', 'code': '632700', 'initial': 'Y', 'short': 'Yushu' }, { 'id': '323', 'provincecode': '640000', 'city': '银川市', 'code': '640100', 'initial': 'Y', 'short': 'Yinchuan' }, { 'id': '339', 'provincecode': '650000', 'city': '伊犁哈萨克自治州', 'code': '654000', 'initial': 'Y', 'short': 'Yilihasake' }, { 'id': '8', 'provincecode': '130000', 'city': '张家口市', 'code': '130700', 'initial': 'Z', 'short': 'Zhangjiakou' }, { 'id': '84', 'provincecode': '320000', 'city': '镇江市', 'code': '321100', 'initial': 'Z', 'short': 'Zhenjiang' }, { 'id': '95', 'provincecode': '330000', 'city': '舟山市', 'code': '330900', 'initial': 'Z', 'short': 'Zhoushan' }, { 'id': '120', 'provincecode': '350000', 'city': '漳州市', 'code': '350600', 'initial': 'Z', 'short': 'Zhangzhou' }, { 'id': '137', 'provincecode': '370000', 'city': '淄博市', 'code': '370300', 'initial': 'Z', 'short': 'Zibo' }, { 'id': '138', 'provincecode': '370000', 'city': '枣庄市', 'code': '370400', 'initial': 'Z', 'short': 'Zaozhuang' }, { 'id': '152', 'provincecode': '410000', 'city': '郑州市', 'code': '410100', 'initial': 'Z', 'short': 'Zhengzhou' }, { 'id': '167', 'provincecode': '410000', 'city': '周口市', 'code': '411600', 'initial': 'Z', 'short': 'Zhoukou' }, { 'id': '168', 'provincecode': '410000', 'city': '驻马店市', 'code': '411700', 'initial': 'Z', 'short': 'Zhumadian' }, { 'id': '184', 'provincecode': '430000', 'city': '株洲市', 'code': '430200', 'initial': 'Z', 'short': 'Zhuzhou' }, { 'id': '190', 'provincecode': '430000', 'city': '张家界市', 'code': '430800', 'initial': 'Z', 'short': 'Zhangjiajie' }, { 'id': '200', 'provincecode': '440000', 'city': '珠海市', 'code': '440400', 'initial': 'Z', 'short': 'Zhuhai' }, { 'id': '204', 'provincecode': '440000', 'city': '湛江市', 'code': '440800', 'initial': 'Z', 'short': 'Zhanjiang' }, { 'id': '206', 'provincecode': '440000', 'city': '肇庆市', 'code': '441200', 'initial': 'Z', 'short': 'Zhaoqing' }, { 'id': '214', 'provincecode': '440000', 'city': '中山市', 'code': '442000', 'initial': 'Z', 'short': 'Zhongshan' }, { 'id': '239', 'provincecode': '510000', 'city': '自贡市', 'code': '510300', 'initial': 'Z', 'short': 'Zigong' }, { 'id': '255', 'provincecode': '510000', 'city': '资阳市', 'code': '512000', 'initial': 'Z', 'short': 'Ziyang' }, { 'id': '261', 'provincecode': '520000', 'city': '遵义市', 'code': '520300', 'initial': 'Z', 'short': 'Zunyi' }, { 'id': '272', 'provincecode': '530000', 'city': '昭通市', 'code': '530600', 'initial': 'Z', 'short': 'Zhaotong' }, { 'id': '307', 'provincecode': '620000', 'city': '张掖市', 'code': '620700', 'initial': 'Z', 'short': 'Zhangye' }, { 'id': '327', 'provincecode': '640000', 'city': '中卫市', 'code': '640500', 'initial': 'Z', 'short': 'Zhongwei' }];
-
-// 城市检索的首字母
-var searchLetter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'W', 'X', 'Y', 'Z'];
-
-// function searchLetter() {
-//     return searchLetter;
-// }
-
-// 对城市信息进行分组
-function cityList() {
-  var tempArr = [];
-
-  searchLetter.map(
-  function (initial) {
-    var tempObj = {};
-    // let cityInfo = [];
-
-    tempObj.initial = initial;
-    tempObj.cityInfo = cityObj.filter(
-    function (city) {return city.initial === initial;});
-
-
-    tempArr.push(tempObj);
-  });
-
-
-  // console.log(JSON.stringify(tempArr));
-  return tempArr;
-}
-
-// function pushCity() {
-
-// }
-
-module.exports = {
-  searchLetter: searchLetter,
-  cityList: cityList,
-  cityObjs: cityObjs };
-
-/***/ }),
-
-/***/ 23:
+/***/ 21:
 /*!************************************************************************!*\
   !*** C:/Users/window/Desktop/nursing-home/common/chineseConversion.js ***!
   \************************************************************************/
@@ -8736,6 +8674,17 @@ function initial(str) {
 
 /***/ }),
 
+/***/ 28:
+/*!******************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/glu.png ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAET0lEQVRoQ+2ZX2hbVRzHv797ky11OB0yh4W2SjJB9GFYp10FmQ9qa9K8JZnTpdVhfRVhrRWEMlBMJ1P0ZXbS2gRskz4M1xtLB7oqmw3YKYLbZCYiVhF0wpzOqDHnJze9N8vKzb1pk9QEc55yOH9+v8/5/Tnn/kKo80Z1rj/yAH5PkP8LGGJ+LBqPTK1VdgNgrSenr6uWBY6Ccbpc5YzWSyCbIH67ugCMvlg8PFENAJ/Pt4HSTX81ALQTMA7iGrGAr/vJrZCzLpuEKz9e/u7c/Pz8Pyu9oiYBfN4nXMT0JpgeBiBpSv8C8EhMiRwCkE/5pgDOhZGQROyoWCwwjuw4vJgyiwGfd78LIpMg4KYicsdiSnh/Pob0H9dcZJoLuRKhS2DcUCkABj969+EzH5gB+N29J0D8kKlM5q5YPDKnzjG1wHoD7PE+1ZwVme8JlNOLgRMSxABJcpsQHAGwWVP63agSfrySAGpa3GhlKSsL7PH07RYQJ/V9ZJLumJx55yu173cHj4DwjDZ2JqaE76kIABPiBETBCJcL4PP2dZEQs/o+G+28LXIs8lMOwNMbAnhAs8zZaSV8VyUAfpXYfueFzud+cC2E3gfQbQZhZYF1B2BI/aldB46qSt92+tU2WcqeBbCpGERNATBwKtUx+ADoak52fRIaAuHlugAQEnZ+c9/gYqGy2+YObbp+szgPoMUIonYsQLSU7BhoNVJyeyI0wowDtQ0AfJ3cNXi7kZLOROggMV6sdQCGTbQndw59fo2ii/12V8b5GYBcilvZaseFljU7zyy8qc6hpNq59eSww+ZoegPA03URxNqF8gdAcxL4MgO7AbTV1T1gdfPWugutVn/UWgw0AHKPsYLC1rq/hVZrgoYLreE5PQbGdas96WLzSdArO17/9FyxT8qKu1ClFC/cx6ywVTkAUALAt9UAALMEgl/fuzpBXBXNjTf93wAEPPueZ6bcRz0TLkwr4UdyaVg/l4AnqH7TGrwgcwWme/UBBs9LoLT2FtoOwKWNXSHg46vz0AFgi9ZfIuBLo/0FcWh6JvKROmYWA0UTg5W3+L3BByHwoT5PkuXWqffGl9S+3xM8COTf/smYElaBcs3fEzwFxv25UyIajc5M6CWRoiIbAEZHU/cW6G/vt6db07ovw3nMeXEYw8LKhfa6926RN8h2dZ49a0+PHR/7zcpdq+JCZkJXxEAqpoT1gLbS1XA80BPsZkY+mXBWvnl6dvxns83K+p844N73LBO9pgn4U6ZMy+TM5MU1ab9c/3wBhJe09eLGZodjdHQ0UzUAn7u3nYgLa0NJhlorpfx/YCXDMDcDCICQczsACzEl3Gm1viwLLKfL3lkwd1kJWuU4SxL1TB2fiFutKxvA1+3bSnKTWlFutxJW4rgAeCimREZKmV82gCpEzVSXbvm7jyG8BLQwYCtFeOEcCfgdRF+ApbeiyrhaWyqpVQSgJElVmlT3AP8CJDy5bbGniKoAAAAASUVORK5CYII="
+
+/***/ }),
+
 /***/ 3:
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -8767,91 +8716,36 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 30:
-/*!********************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/heart.png ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
-
-/***/ }),
-
-/***/ 31:
-/*!********************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/medal.png ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
-
-/***/ }),
-
-/***/ 32:
-/*!*********************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/notice.png ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAkCAYAAACe0YppAAAELklEQVRYR+2Xf2hbVRTHv+c1bdO1na4rjm6MKvtB3YauCv4YiEWluuYHY5LXVpuX+GuIUMNQOnSimQ4HXZ0/UCeyP5Zk65Y82JhJW5WhDhHnD6RqV/9YocJYVcZsa9fVpck98vLeStqmy2vTgX/0/HnvOd/PPeeed9+9hNkZ1ds9bgY/A/BGgJhA3YL4IzUabJ+NFJl1rqmpsdxUUnkU4EczxRDo8K2xWxQ//MKMpmlwvcOzi5lf1UX5ZwaOEiQi8OMMrDfGX47EQnvmDeyt8Vovl4i/ACwm0Fdg0cwslXGeIAvRYFLgPQD3MzCEorFlqqrGs8FNZeyyK3cR8J0hlgSQN0V4YoyBu9VY8PucwbLd6wDEBwBWZhMz5rVt2JYNfs2MZYfyOjO/QiDDj/4mcAeDvwZwnogYwApmvg8gG4ClegtgnEC+cEdg/0yLnRFcb/PsZuKdRuBlgPYUxsXboc9Do5nEHA7HoiIu84F5JwjFKR8iXyQa0PZ/mmUEyw7vFrA4poUCOEcktoSjh34yU+pGp3JbQvAnBKoEkGTiWjUa+mJq7DSwu9ZdfKWQzoJRAeZhtohN6onDvWagV33q65S1LPFpgJaA8fuIuFDV1dV1JV1jGli2eV4AcVuqUiBPOBYIzgY6Abe5G5joiL7laFZjwfevCXbZlR4C1jPwixoLbtTj5mQk25UfANwJoDsSC1bPCN76cFOFJV8a0LNFSzgW3DsnpBHksis+At5JZS2kCrXz4J9X9SaV2lXX9AhJUpfhWK12HuzOCbz5iXWUlzyja7AtEgt1ZgTLNqUJhJA2OZ6P8uPHgxdzATudT5ZaReIfnQtvpCMYyJyxw/0UMR1I+RWNWVRV1Y7CnEy2KwntiGWm59S0A2VyqRfAC6WeQ5stNNf/4zveWvdYZZ5keYOABwEsvx4HCAFnmHDCIhJt7R3tg9TgVKqF4C8BuiG9d+b75ErTHiDmh8hlV04amSYZ6CLCkOYUjgYUQupOlZPJdk8AxBJYS4w3A7AAOKn9My8B2h2JWiOxwI6cKFmCXTbPbtLvcXGSbUo/CDeD+FO2lrpU9UNtIfNuqStVgXQEYAeAAZLtnpcAftMgaX+jSXejeVxBYdpDwE9++KVeW38bk2gmkFb/62kJEPazdWz7xG+x0dm4THD+HYJhnUoeXVm8/EL1khZtfHHfpQNlvUM96T7DVTdWDa4teVYbW/rr8Ful/SPnpmpIhH/H46L72GeH/tDmTL2d1vW8VhAfWXQeQDlApwpKR2t7N+zSH2Y/bstflVjdqX0iAC6ivGhF35rns26XKbCmv/rb1u0A7zMy+Y1A7QKsPcwbAN5gZOE7e++OjC+HqRUwDQaD1pxufZfBzdOaQH9D7eu7p+VFsw1iHmworvpm7wPIE08T8+36kNQNxsd9m1pOmYVqfv8B/LkFhZxI10sAAAAASUVORK5CYII="
-
-/***/ }),
-
-/***/ 33:
-/*!************************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/item-img1.png ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
-
-/***/ }),
-
-/***/ 34:
-/*!************************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/item-img2.png ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAE0UlEQVR4Xu3cTYwTZRgH8P87ZY2sUWMQTfyM7IQLKIkh0CFBo4SDuppI2JqIcFEvfiYi7eLFetFtV038wIt4ATFhm2Ciqx6MH1FCu4YLflzI7BpBTRCJEeKauHYeM7t02t2dMlNn5pnp9OmVd95n3t/895m3TFsFebEIKJYqUgQCzRQCgRZoJgGmMpJogWYSYCojiY4TOje4g5jqp7LM2Pi+RQF2TbRAB7v+Ah3Mz/fRAu2bKthAgQ7m5/togfZNFWxgGNAnCagFO410HK2ALIDr3VYTGJqASmV8Xy4dVMFWMTS4Y0wBQwIdzNHzaIH2JApnACu0Xi311DtI0yg4b/AEOpzAus4i0BHitk4t0ALNJMBURhIt0EwCTGXSmOhTgHoBoLeYDH2VSR00kbVlcsPu9/Vq6SCAxLzlTxe0Uu+a2fx2O2L6Vy8uR1/mewBX+YpcxIPSA0349Z+6tfrExt1/NMz0WmkrCJWIDX1Nnw5opcgCBqey+Y8XrjopLSQd0MA7plF4xC1aSWkhKYBWP0FN32Jmi2dt6JVfFK+0lvYXzWz+iWYLeXkrqB5rC+l2aLIy2Dy1rvCZg1otHwDoQWgqZ67PO7hxt5DuhlZqz7zkVkfuBdQHs+hEp3Gxtcq89bnTSdiFdDP05Ll+bc2pNbv+siFXHB25XJvRfgDo2mavVhXTyDt7ab0WXwvpSmgCrExf5vbja5893GwZpbcBLL4hJqSFxAd9pOz6cNLPppQy6szk+l2fN8au+OaVTVr9308Bl28hBGgh9gVVCk/CUrPtJ8jL3NC8X7A+YQly0q3HXn1s9JJLp63vANzUfk6qmMZws4XYF1nRmNc5EPD6pFF42mtcp//eldAD1dJrCnjKc7GLWsjIGKAu9Ff147l+7ebGPcBz/g4GsELrAVqHsyaNlhPhDQVonuvsrIWQlVmyeWrdTmfbODAxeqeq0zLPOm0GxNY64nkK7ruF7DWNwqMNs5UT5Y11i770dUHbQffcU3DPFqJ+sfqsVVNrh/+0zc7fA44BGPi/abaPi2/XEdfnOjxbCN1nGsMftmwb9wB4LAhyb0LPirVrIeo908hva24bS5u0Oty3jR3K916iG0Ckcq03KL1WflP7e7p4/I7i7/YQvVa8DNT/LUA3dmjqOrx3oYHfMFNfbd42938hC196tbQXwMNhIPdw63BiPe+NjNMyauW7NWAcRKF9xa+XEz3nuqCF3PD1S1dctESznzVeE1aaJdFzkvNaiF4r7wfRQ2EiC7SjObcLGZgYvV9Z1qGwkQW6VVThcRCej+rjCdKjo4ivy5wCLdBMAkxlJNECzSTAVEYSLdBMAkxlYks00/oSWYb1mWEiBZhOSqDTAA1Afkbi/IWM9GckmMLS9WUC/15H1wswLUCgBZpJgKmMJFqgmQSYyvhOdLvzeeCe7UOklOtHZRVR7uBH+2P9Mk/YjmGut6NH8WEWDhslivnCXK9AX+AKCXQU8XWZU6AFWm6G7TIQXo8GXgVRun63VKksAc+44XW6ywoNmumvOTFlBJrpUgi0QDMJMJWRRAs0kwBTmUgTveWubdf1aZrBtJZEl5mxrOqhTw787PckO9re+Z1Uxi0WEGimVAi0QDMJMJWRRAs0kwBTGUm0QDMJMJX5D1G5bJdlLcDCAAAAAElFTkSuQmCC"
-
-/***/ }),
-
-/***/ 35:
-/*!************************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/item-img4.png ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAADgElEQVR4Xu2cv2tTURTHz0lSxYS6dBCrEgg6qItLsToFRBAaKSpJiz8i4uriorg5dnLVSWoEscmWphbsYDb9Hyw4ZNLFoakUbXvlJalEmrS5591337vpN/P93nPu530597z73gsTflYIsJUoCEIAbckEAA3QlghYCqPl6EKuqCzlFekwiqhSqZUKOkkCtA6tzliAFkCTSABaQk2gAWgBNIkEoCXUBJowQTcU0RdBzpGWMFG+V4KhgZYEjjThTnL92lnJeo20d5LAAL0HAZNXGKAB+h8Bk8ZC6bBkLIB2CTQRob3bZ9Mx4mgXNjaTOUq6LIAWXAGAFkCTSABaQk2gAWgBNIkEoCXUBJrAQXfnlM8Vy/1Ot8q1ktYmK1hrIJKZqXt5xVzuNTkrVVhYeluRBhYDAWg95ADdxQuO1jOPeDRAi9HpCQFaj5d4NECL0ekJAVqPl3g0QIvR6QkBWo+XeLRzoMUr7Qglt7h+Y3p6gDZBcYA5AHoASCaGHDjQa+lU4+vdtJ1XzJhfrE4+bcU6cKB/nj1K326eMmHS/edQXFi9/KR1KgfQ++OSj3AZtNc17Ky8mU5NbibjWvZcP5GkHxfH5PB0lC6D7j74P/15rkzEPV9/1eER2FiADgzt/xMDNEC3CAz6KAulo22YwB9lATRAtwm4XKPR3u3eXwIpHX63MdwZdhHcazMEaDh6NwGXazQcDUfD0d0EsBkOuBniUMlS6QBogB6uGg1Hw9FwtN/eW6x3+YbF+95jZ+GNa8cf/0klLumA+D06QusnkzoS+ViXQctX3Vaijx6wjwZoS5shQAP0cHUdcDQcPVyORntnydG4BQfo4SodcDQcDUf7bQnFepfPOlA6QigdYqeFIHTuGxb81Y8lR8dinHtffbMUginFIbPZbOLYaPqVUuphr0ki+Z9KSinFMf6gFP0Sr9yykInPEKkL/cJGErRlRlbChQZ65vqdiW0VX2YiS9+pWeHZL8injVhiulp9vSbNQvx+tBcwP/3gHG9trRDRuDSB6Ot4Mdnkwnx9fsNPrr5Ae4FvTd3OxDi+wsQZP4lEUctE7743M/fr9eebfvPzDdpLYPbq7Lg6fOijIjrvN6Go6Jnp5cJi6RERbZvIyQhoL5EbV4pjI0d4mUhNmEgszDkU0VylVnpmMgdjoE0mNYxzAbSlqwrQAG2JgKUwcLQl0H8BupUylz9wcgEAAAAASUVORK5CYII="
-
-/***/ }),
-
-/***/ 36:
-/*!************************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/item-img5.png ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
-
-/***/ }),
-
 /***/ 37:
-/*!************************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/item-img6.png ***!
-  \************************************************************************/
+/*!*******************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/test.jpg ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "data:image/png;base64,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"
+module.exports = "data:image/jpeg;base64,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"
+
+/***/ }),
+
+/***/ 38:
+/*!*******************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/more.png ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAQCAYAAAAMJL+VAAAA0ElEQVQ4T7WUQQqDMBAAs+TW4gdyl4X27ndqX1b7He8tBO9+ILQ32bLSiEqsG5LmKsmYGbJgrb0RUa3+sACggb7vD865lojOORkA8CiKogI+tOu60zAMrVLqmAny0lpXZVk+RwAva+2FiJocAACoEfHOZ02ALyS5B3tHxKv/0QUgtYf3box5BwGJPSbvc82LG6T0mHvfBcT2WHsXAaQ9Qt5FAGGPoHcxYO99bHmPAmz1+OU9GrDusec9GrDqofyckYyV4DvY2sjzir/5OSMBfABokYz3uo6VUQAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ 39:
+/*!********************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/back2.png ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAkCAYAAACNBsqdAAACXElEQVRIS63X3YtNURjH8e8vIpH3vOQl5KWElAulXJgrUyQUMdEkSqZG4oIwypSa0jQXiiIkIcwkSd4vuFAu/R9cECUzflq1znTOnrXP2fucWZdnn+fT2ns9z7OfLcZh2Z4FPAZ6JH0OpFp1bc8F3gIbgZ/ADkkfW4JtzwfeAeuqNvgL2NU0bHsR8B5Yk7jroaZg20sjujKBPgP2l4Ztr4josgQaDrBD0nAp2PYq4AOwOIHeBzoljZTKCttr40EtTKC3gWOS/lWuFdqx7Q0xpeYl0OtAlyRXX2sI294EvAbmJNABSadStVAXtr0ZeAXMTAT3STqbV2C5sO2twAtgeiL4sqRL9ao2CdtuA54DUxPB5yVdadQKxsC2twNDwJRMcDicM5L6G6Fj0s32TuAJMDmBdku6VgStgW3vBR4AkzLBITePS7pZFB2FbR8A7gETM8Ghio5ICtdKLdnuBG4BEzKRw8AhSY9KifHPAQ7PrSsR/A1ok/S1KTgE2b4KnE4A34F2SV/K4qPpZrsXuJAAfsTXzacyeE0e2w4lGpI/m9+/gd2S3hTFUwXSDQwk8D/APkmhIhuuvJI+CtxIZMpf4HCRTKnXhDqAuzm5HZr6ndJNqBJgew/wMKcaT9Yr8SKNvh0YzGlK5yT1pXbeEI55vi220WkJpFdST/b3QnDEtwAvgRkJvF9STYEVhiNe7/0XsuhE5aVaCo54mNPCELggsfPQBUM3HCkNR3x1nDGWJPCnwMGm4Igvj3gYubJrsGk44qmJs7UxtqqIwowcnvn6cRu8q/DZ8VPhYuVT4T+W8cn9slNPQgAAAABJRU5ErkJggg=="
 
 /***/ }),
 
@@ -8864,6 +8758,5662 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4
 
 "use strict";
 
+
+/***/ }),
+
+/***/ 42:
+/*!****************************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/components/u-charts/u-charts.js ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {/*
+ * uCharts v1.9.3.20190922
+ * uni-app平台高性能跨全端图表，支持H5、APP、小程序（微信/支付宝/百度/头条/QQ/360）
+ * Copyright (c) 2019 QIUN秋云 https://www.ucharts.cn All rights reserved.
+ * Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+ * 
+ * uCharts官方网站
+ * https://www.uCharts.cn
+ * 
+ * 开源地址:
+ * https://gitee.com/uCharts/uCharts
+ * 
+ * uni-app插件市场地址：
+ * http://ext.dcloud.net.cn/plugin?id=271
+ * 
+ */
+
+
+
+var config = {
+  yAxisWidth: 15,
+  yAxisSplit: 5,
+  xAxisHeight: 15,
+  xAxisLineHeight: 15,
+  legendHeight: 15,
+  yAxisTitleWidth: 15,
+  padding: [10, 10, 10, 10],
+  pixelRatio: 1,
+  rotate: false,
+  columePadding: 3,
+  fontSize: 13,
+  //dataPointShape: ['diamond', 'circle', 'triangle', 'rect'],
+  dataPointShape: ['circle', 'circle', 'circle', 'circle'],
+  colors: ['#1890ff', '#2fc25b', '#facc14', '#f04864', '#8543e0', '#90ed7d'],
+  pieChartLinePadding: 15,
+  pieChartTextPadding: 5,
+  xAxisTextPadding: 3,
+  titleColor: '#333333',
+  titleFontSize: 20,
+  subtitleColor: '#999999',
+  subtitleFontSize: 15,
+  toolTipPadding: 3,
+  toolTipBackground: '#000000',
+  toolTipOpacity: 0.7,
+  toolTipLineHeight: 20,
+  radarLabelTextMargin: 15,
+  gaugeLabelTextMargin: 15 };
+
+
+var assign = function assign(target) {for (var _len2 = arguments.length, varArgs = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {varArgs[_key2 - 1] = arguments[_key2];}
+  if (target == null) {
+    throw new TypeError('Cannot convert undefined or null to object');
+  }
+  if (!varArgs || varArgs.length <= 0) {
+    return target;
+  }
+  // 深度合并对象
+  function deepAssign(obj1, obj2) {
+    for (var key in obj2) {
+      obj1[key] = obj1[key] && obj1[key].toString() === "[object Object]" ?
+      deepAssign(obj1[key], obj2[key]) : obj1[key] = obj2[key];
+    }
+    return obj1;
+  }
+
+  varArgs.forEach(function (val) {
+    target = deepAssign(target, val);
+  });
+  return target;
+};
+
+var util = {
+  toFixed: function toFixed(num, limit) {
+    limit = limit || 2;
+    if (this.isFloat(num)) {
+      num = num.toFixed(limit);
+    }
+    return num;
+  },
+  isFloat: function isFloat(num) {
+    return num % 1 !== 0;
+  },
+  approximatelyEqual: function approximatelyEqual(num1, num2) {
+    return Math.abs(num1 - num2) < 1e-10;
+  },
+  isSameSign: function isSameSign(num1, num2) {
+    return Math.abs(num1) === num1 && Math.abs(num2) === num2 || Math.abs(num1) !== num1 && Math.abs(num2) !== num2;
+  },
+  isSameXCoordinateArea: function isSameXCoordinateArea(p1, p2) {
+    return this.isSameSign(p1.x, p2.x);
+  },
+  isCollision: function isCollision(obj1, obj2) {
+    obj1.end = {};
+    obj1.end.x = obj1.start.x + obj1.width;
+    obj1.end.y = obj1.start.y - obj1.height;
+    obj2.end = {};
+    obj2.end.x = obj2.start.x + obj2.width;
+    obj2.end.y = obj2.start.y - obj2.height;
+    var flag = obj2.start.x > obj1.end.x || obj2.end.x < obj1.start.x || obj2.end.y > obj1.start.y || obj2.start.y < obj1.end.y;
+    return !flag;
+  } };
+
+
+//兼容H5点击事件
+function getH5Offset(e) {
+  e.mp = {
+    changedTouches: [] };
+
+  e.mp.changedTouches.push({
+    x: e.offsetX,
+    y: e.offsetY });
+
+  return e;
+}
+
+// hex 转 rgba
+function hexToRgb(hexValue, opc) {
+  var rgx = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  var hex = hexValue.replace(rgx, function (m, r, g, b) {
+    return r + r + g + g + b + b;
+  });
+  var rgb = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  var r = parseInt(rgb[1], 16);
+  var g = parseInt(rgb[2], 16);
+  var b = parseInt(rgb[3], 16);
+  return 'rgba(' + r + ',' + g + ',' + b + ',' + opc + ')';
+}
+
+function findRange(num, type, limit) {
+  if (isNaN(num)) {
+    throw new Error('[uCharts] unvalid series data!');
+  }
+  limit = limit || 10;
+  type = type ? type : 'upper';
+  var multiple = 1;
+  while (limit < 1) {
+    limit *= 10;
+    multiple *= 10;
+  }
+  if (type === 'upper') {
+    num = Math.ceil(num * multiple);
+  } else {
+    num = Math.floor(num * multiple);
+  }
+  while (num % limit !== 0) {
+    if (type === 'upper') {
+      num++;
+    } else {
+      num--;
+    }
+  }
+  return num / multiple;
+}
+
+function calCandleMA(dayArr, nameArr, colorArr, kdata) {
+  var seriesTemp = [];
+  for (var k = 0; k < dayArr.length; k++) {
+    var seriesItem = {
+      data: [],
+      name: nameArr[k],
+      color: colorArr[k] };
+
+    for (var i = 0, len = kdata.length; i < len; i++) {
+      if (i < dayArr[k]) {
+        seriesItem.data.push(null);
+        continue;
+      }
+      var sum = 0;
+      for (var j = 0; j < dayArr[k]; j++) {
+        sum += kdata[i - j][1];
+      }
+      seriesItem.data.push(+(sum / dayArr[k]).toFixed(3));
+    }
+    seriesTemp.push(seriesItem);
+  }
+  return seriesTemp;
+}
+
+function calValidDistance(self, distance, chartData, config, opts) {
+  var dataChartAreaWidth = opts.width - opts.area[1] - opts.area[3];
+  var dataChartWidth = chartData.eachSpacing * (opts.chartData.xAxisData.xAxisPoints.length - 1);
+  var validDistance = distance;
+  if (distance >= 0) {
+    validDistance = 0;
+    self.event.trigger('scrollLeft');
+  } else if (Math.abs(distance) >= dataChartWidth - dataChartAreaWidth) {
+    validDistance = dataChartAreaWidth - dataChartWidth;
+    self.event.trigger('scrollRight');
+  }
+  return validDistance;
+}
+
+function isInAngleRange(angle, startAngle, endAngle) {
+  function adjust(angle) {
+    while (angle < 0) {
+      angle += 2 * Math.PI;
+    }
+    while (angle > 2 * Math.PI) {
+      angle -= 2 * Math.PI;
+    }
+    return angle;
+  }
+  angle = adjust(angle);
+  startAngle = adjust(startAngle);
+  endAngle = adjust(endAngle);
+  if (startAngle > endAngle) {
+    endAngle += 2 * Math.PI;
+    if (angle < startAngle) {
+      angle += 2 * Math.PI;
+    }
+  }
+  return angle >= startAngle && angle <= endAngle;
+}
+
+function calRotateTranslate(x, y, h) {
+  var xv = x;
+  var yv = h - y;
+  var transX = xv + (h - yv - xv) / Math.sqrt(2);
+  transX *= -1;
+  var transY = (h - yv) * (Math.sqrt(2) - 1) - (h - yv - xv) / Math.sqrt(2);
+  return {
+    transX: transX,
+    transY: transY };
+
+}
+
+function createCurveControlPoints(points, i) {
+
+  function isNotMiddlePoint(points, i) {
+    if (points[i - 1] && points[i + 1]) {
+      return points[i].y >= Math.max(points[i - 1].y, points[i + 1].y) || points[i].y <= Math.min(points[i - 1].y,
+      points[
+      i + 1].y);
+    } else {
+      return false;
+    }
+  }
+  var a = 0.2;
+  var b = 0.2;
+  var pAx = null;
+  var pAy = null;
+  var pBx = null;
+  var pBy = null;
+  if (i < 1) {
+    pAx = points[0].x + (points[1].x - points[0].x) * a;
+    pAy = points[0].y + (points[1].y - points[0].y) * a;
+  } else {
+    pAx = points[i].x + (points[i + 1].x - points[i - 1].x) * a;
+    pAy = points[i].y + (points[i + 1].y - points[i - 1].y) * a;
+  }
+
+  if (i > points.length - 3) {
+    var last = points.length - 1;
+    pBx = points[last].x - (points[last].x - points[last - 1].x) * b;
+    pBy = points[last].y - (points[last].y - points[last - 1].y) * b;
+  } else {
+    pBx = points[i + 1].x - (points[i + 2].x - points[i].x) * b;
+    pBy = points[i + 1].y - (points[i + 2].y - points[i].y) * b;
+  }
+  if (isNotMiddlePoint(points, i + 1)) {
+    pBy = points[i + 1].y;
+  }
+  if (isNotMiddlePoint(points, i)) {
+    pAy = points[i].y;
+  }
+  if (pAy >= Math.max(points[i].y, points[i + 1].y) || pAy <= Math.min(points[i].y, points[i + 1].y)) {
+    pAy = points[i].y;
+  }
+  if (pBy >= Math.max(points[i].y, points[i + 1].y) || pBy <= Math.min(points[i].y, points[i + 1].y)) {
+    pBy = points[i + 1].y;
+  }
+  return {
+    ctrA: {
+      x: pAx,
+      y: pAy },
+
+    ctrB: {
+      x: pBx,
+      y: pBy } };
+
+
+}
+
+function convertCoordinateOrigin(x, y, center) {
+  return {
+    x: center.x + x,
+    y: center.y - y };
+
+}
+
+function avoidCollision(obj, target) {
+  if (target) {
+    // is collision test
+    while (util.isCollision(obj, target)) {
+      if (obj.start.x > 0) {
+        obj.start.y--;
+      } else if (obj.start.x < 0) {
+        obj.start.y++;
+      } else {
+        if (obj.start.y > 0) {
+          obj.start.y++;
+        } else {
+          obj.start.y--;
+        }
+      }
+    }
+  }
+  return obj;
+}
+
+function fillSeries(series, opts, config) {
+  var index = 0;
+  return series.map(function (item) {
+    if (!item.color) {
+      item.color = config.colors[index];
+      index = (index + 1) % config.colors.length;
+    }
+    if (!item.index) {
+      item.index = 0;
+    }
+    if (!item.type) {
+      item.type = opts.type;
+    }
+    if (typeof item.show == "undefined") {
+      item.show = true;
+    }
+    if (!item.type) {
+      item.type = opts.type;
+    }
+    if (!item.pointShape) {
+      item.pointShape = "circle";
+    }
+    if (!item.legendShape) {
+      switch (item.type) {
+        case 'line':
+          item.legendShape = "line";
+          break;
+        case 'column':
+          item.legendShape = "rect";
+          break;
+        case 'area':
+          item.legendShape = "triangle";
+          break;
+        default:
+          item.legendShape = "circle";}
+
+    }
+    return item;
+  });
+}
+
+function getDataRange(minData, maxData) {
+  var limit = 0;
+  var range = maxData - minData;
+  if (range >= 10000) {
+    limit = 1000;
+  } else if (range >= 1000) {
+    limit = 100;
+  } else if (range >= 100) {
+    limit = 10;
+  } else if (range >= 10) {
+    limit = 5;
+  } else if (range >= 1) {
+    limit = 1;
+  } else if (range >= 0.1) {
+    limit = 0.1;
+  } else if (range >= 0.01) {
+    limit = 0.01;
+  } else if (range >= 0.001) {
+    limit = 0.001;
+  } else if (range >= 0.0001) {
+    limit = 0.0001;
+  } else if (range >= 0.00001) {
+    limit = 0.00001;
+  } else {
+    limit = 0.000001;
+  }
+  return {
+    minRange: findRange(minData, 'lower', limit),
+    maxRange: findRange(maxData, 'upper', limit) };
+
+}
+
+function measureText(text) {
+  var fontSize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : config.fontSize;
+  text = String(text);
+  var text = text.split('');
+  var width = 0;
+  for (var i = 0; i < text.length; i++) {
+    var item = text[i];
+    if (/[a-zA-Z]/.test(item)) {
+      width += 7;
+    } else if (/[0-9]/.test(item)) {
+      width += 5.5;
+    } else if (/\./.test(item)) {
+      width += 2.7;
+    } else if (/-/.test(item)) {
+      width += 3.25;
+    } else if (/[\u4e00-\u9fa5]/.test(item)) {
+      width += 10;
+    } else if (/\(|\)/.test(item)) {
+      width += 3.73;
+    } else if (/\s/.test(item)) {
+      width += 2.5;
+    } else if (/%/.test(item)) {
+      width += 8;
+    } else {
+      width += 10;
+    }
+  }
+  return width * fontSize / 10;
+}
+
+function dataCombine(series) {
+  return series.reduce(function (a, b) {
+    return (a.data ? a.data : a).concat(b.data);
+  }, []);
+}
+
+function dataCombineStack(series, len) {
+  var sum = new Array(len);
+  for (var j = 0; j < sum.length; j++) {
+    sum[j] = 0;
+  }
+  for (var i = 0; i < series.length; i++) {
+    for (var j = 0; j < sum.length; j++) {
+      sum[j] += series[i].data[j];
+    }
+  }
+  return series.reduce(function (a, b) {
+    return (a.data ? a.data : a).concat(b.data).concat(sum);
+  }, []);
+}
+
+function getTouches(touches, opts, e) {
+  var x, y;
+  if (touches.clientX) {
+    if (opts.rotate) {
+      y = opts.height - touches.clientX * opts.pixelRatio;
+      x = (touches.pageY - e.currentTarget.offsetTop - opts.height / opts.pixelRatio / 2 * (opts.pixelRatio - 1)) *
+      opts.pixelRatio;
+    } else {
+      x = touches.clientX * opts.pixelRatio;
+      y = (touches.pageY - e.currentTarget.offsetTop - opts.height / opts.pixelRatio / 2 * (opts.pixelRatio - 1)) *
+      opts.pixelRatio;
+    }
+  } else {
+    if (opts.rotate) {
+      y = opts.height - touches.x * opts.pixelRatio;
+      x = touches.y * opts.pixelRatio;
+    } else {
+      x = touches.x * opts.pixelRatio;
+      y = touches.y * opts.pixelRatio;
+    }
+  }
+  return {
+    x: x,
+    y: y };
+
+}
+
+function getSeriesDataItem(series, index) {
+  var data = [];
+  for (var i = 0; i < series.length; i++) {
+    var item = series[i];
+    if (item.data[index] !== null && typeof item.data[index] !== 'undefined' && item.show) {
+      var seriesItem = {};
+      seriesItem.color = item.color;
+      seriesItem.type = item.type;
+      seriesItem.style = item.style;
+      seriesItem.pointShape = item.pointShape;
+      seriesItem.disableLegend = item.disableLegend;
+      seriesItem.name = item.name;
+      seriesItem.show = item.show;
+      seriesItem.data = item.format ? item.format(item.data[index]) : item.data[index];
+      data.push(seriesItem);
+    }
+  }
+  return data;
+}
+
+function getMaxTextListLength(list) {
+  var lengthList = list.map(function (item) {
+    return measureText(item);
+  });
+  return Math.max.apply(null, lengthList);
+}
+
+function getRadarCoordinateSeries(length) {
+  var eachAngle = 2 * Math.PI / length;
+  var CoordinateSeries = [];
+  for (var i = 0; i < length; i++) {
+    CoordinateSeries.push(eachAngle * i);
+  }
+
+  return CoordinateSeries.map(function (item) {
+    return -1 * item + Math.PI / 2;
+  });
+}
+
+function getToolTipData(seriesData, calPoints, index, categories) {
+  var option = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : {};
+
+  var textList = seriesData.map(function (item) {
+    var titleText = [];
+    if (categories) {
+      titleText = categories;
+    } else {
+      titleText = item.data;
+    }
+    return {
+      text: option.format ? option.format(item, titleText[index]) : item.name + ': ' + item.data,
+      color: item.color };
+
+  });
+  var validCalPoints = [];
+  var offset = {
+    x: 0,
+    y: 0 };
+
+  for (var i = 0; i < calPoints.length; i++) {
+    var points = calPoints[i];
+    if (typeof points[index] !== 'undefined' && points[index] !== null) {
+      validCalPoints.push(points[index]);
+    }
+  }
+  for (var _i = 0; _i < validCalPoints.length; _i++) {
+    var item = validCalPoints[_i];
+    offset.x = Math.round(item.x);
+    offset.y += item.y;
+  }
+  offset.y /= validCalPoints.length;
+  return {
+    textList: textList,
+    offset: offset };
+
+}
+
+function getMixToolTipData(seriesData, calPoints, index, categories) {
+  var option = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : {};
+  var textList = seriesData.map(function (item) {
+    return {
+      text: option.format ? option.format(item, categories[index]) : item.name + ': ' + item.data,
+      color: item.color,
+      disableLegend: item.disableLegend ? true : false };
+
+  });
+  textList = textList.filter(function (item) {
+    if (item.disableLegend !== true) {
+      return item;
+    }
+  });
+  var validCalPoints = [];
+  var offset = {
+    x: 0,
+    y: 0 };
+
+  for (var i = 0; i < calPoints.length; i++) {
+    var points = calPoints[i];
+    if (typeof points[index] !== 'undefined' && points[index] !== null) {
+      validCalPoints.push(points[index]);
+    }
+  }
+  for (var _i2 = 0; _i2 < validCalPoints.length; _i2++) {
+    var item = validCalPoints[_i2];
+    offset.x = Math.round(item.x);
+    offset.y += item.y;
+  }
+  offset.y /= validCalPoints.length;
+  return {
+    textList: textList,
+    offset: offset };
+
+}
+
+function getCandleToolTipData(series, seriesData, calPoints, index, categories, extra) {
+  var option = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : {};
+  var upColor = extra.color.upFill;
+  var downColor = extra.color.downFill;
+  //颜色顺序为开盘，收盘，最低，最高
+  var color = [upColor, upColor, downColor, upColor];
+  var textList = [];
+  var text0 = {
+    text: categories[index],
+    color: null };
+
+  textList.push(text0);
+  seriesData.map(function (item) {
+    if (index == 0 && item.data[1] - item.data[0] < 0) {
+      color[1] = downColor;
+    } else {
+      if (item.data[0] < series[index - 1][1]) {
+        color[0] = downColor;
+      }
+      if (item.data[1] < item.data[0]) {
+        color[1] = downColor;
+      }
+      if (item.data[2] > series[index - 1][1]) {
+        color[2] = upColor;
+      }
+      if (item.data[3] < series[index - 1][1]) {
+        color[3] = downColor;
+      }
+    }
+    var text1 = {
+      text: '开盘：' + item.data[0],
+      color: color[0] };
+
+    var text2 = {
+      text: '收盘：' + item.data[1],
+      color: color[1] };
+
+    var text3 = {
+      text: '最低：' + item.data[2],
+      color: color[2] };
+
+    var text4 = {
+      text: '最高：' + item.data[3],
+      color: color[3] };
+
+    textList.push(text1, text2, text3, text4);
+  });
+  var validCalPoints = [];
+  var offset = {
+    x: 0,
+    y: 0 };
+
+  for (var i = 0; i < calPoints.length; i++) {
+    var points = calPoints[i];
+    if (typeof points[index] !== 'undefined' && points[index] !== null) {
+      validCalPoints.push(points[index]);
+    }
+  }
+  offset.x = Math.round(validCalPoints[0][0].x);
+  return {
+    textList: textList,
+    offset: offset };
+
+}
+
+function filterSeries(series) {
+  var tempSeries = [];
+  for (var i = 0; i < series.length; i++) {
+    if (series[i].show == true) {
+      tempSeries.push(series[i]);
+    }
+  }
+  return tempSeries;
+}
+
+function findCurrentIndex(currentPoints, calPoints, opts, config) {
+  var offset = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
+  var currentIndex = -1;
+  var spacing = 0;
+  var xAxisPoints = [];
+  for (var i = 0; i < calPoints[0].length; i++) {
+    xAxisPoints.push(calPoints[0][i].x);
+  }
+  if ((opts.type == 'line' || opts.type == 'area') && opts.xAxis.boundaryGap == 'justify') {
+    spacing = opts.chartData.eachSpacing / 2;
+  }
+  if (!opts.categories) {
+    spacing = 0;
+  }
+  if (isInExactChartArea(currentPoints, opts, config)) {
+    xAxisPoints.forEach(function (item, index) {
+      if (currentPoints.x + offset + spacing > item) {
+        currentIndex = index;
+      }
+    });
+  }
+  return currentIndex;
+}
+
+function findLegendIndex(currentPoints, legendData, opts) {
+  var currentIndex = -1;
+  if (isInExactLegendArea(currentPoints, legendData.area)) {
+    var points = legendData.points;
+    var index = -1;
+    for (var i = 0, len = points.length; i < len; i++) {
+      var item = points[i];
+      for (var j = 0; j < item.length; j++) {
+        index += 1;
+        var area = item[j]['area'];
+        if (currentPoints.x > area[0] && currentPoints.x < area[2] && currentPoints.y > area[1] && currentPoints.y < area[3]) {
+          currentIndex = index;
+          break;
+        }
+      }
+    }
+    return currentIndex;
+  }
+  return currentIndex;
+}
+
+function isInExactLegendArea(currentPoints, area) {
+  return currentPoints.x > area.start.x && currentPoints.x < area.end.x && currentPoints.y > area.start.y &&
+  currentPoints.y < area.end.y;
+}
+
+function isInExactChartArea(currentPoints, opts, config) {
+  return currentPoints.x <= opts.width - opts.area[1] + 10 && currentPoints.x >= opts.area[3] - 10 && currentPoints.y >= opts.area[0] && currentPoints.y <= opts.height - opts.area[2];
+}
+
+function findRadarChartCurrentIndex(currentPoints, radarData, count) {
+  var eachAngleArea = 2 * Math.PI / count;
+  var currentIndex = -1;
+  if (isInExactPieChartArea(currentPoints, radarData.center, radarData.radius)) {
+    var fixAngle = function fixAngle(angle) {
+      if (angle < 0) {
+        angle += 2 * Math.PI;
+      }
+      if (angle > 2 * Math.PI) {
+        angle -= 2 * Math.PI;
+      }
+      return angle;
+    };
+
+    var angle = Math.atan2(radarData.center.y - currentPoints.y, currentPoints.x - radarData.center.x);
+    angle = -1 * angle;
+    if (angle < 0) {
+      angle += 2 * Math.PI;
+    }
+
+    var angleList = radarData.angleList.map(function (item) {
+      item = fixAngle(-1 * item);
+
+      return item;
+    });
+
+    angleList.forEach(function (item, index) {
+      var rangeStart = fixAngle(item - eachAngleArea / 2);
+      var rangeEnd = fixAngle(item + eachAngleArea / 2);
+      if (rangeEnd < rangeStart) {
+        rangeEnd += 2 * Math.PI;
+      }
+      if (angle >= rangeStart && angle <= rangeEnd || angle + 2 * Math.PI >= rangeStart && angle + 2 * Math.PI <=
+      rangeEnd) {
+        currentIndex = index;
+      }
+    });
+  }
+
+  return currentIndex;
+}
+
+function findFunnelChartCurrentIndex(currentPoints, funnelData) {
+  var currentIndex = -1;
+  for (var i = 0, len = funnelData.series.length; i < len; i++) {
+    var item = funnelData.series[i];
+    if (currentPoints.x > item.funnelArea[0] && currentPoints.x < item.funnelArea[2] && currentPoints.y > item.funnelArea[1] && currentPoints.y < item.funnelArea[3]) {
+      currentIndex = i;
+      break;
+    }
+  }
+  return currentIndex;
+}
+
+function findWordChartCurrentIndex(currentPoints, wordData) {
+  var currentIndex = -1;
+  for (var i = 0, len = wordData.length; i < len; i++) {
+    var item = wordData[i];
+    if (currentPoints.x > item.area[0] && currentPoints.x < item.area[2] && currentPoints.y > item.area[1] && currentPoints.y < item.area[3]) {
+      currentIndex = i;
+      break;
+    }
+  }
+  return currentIndex;
+}
+
+function findMapChartCurrentIndex(currentPoints, opts) {
+  var currentIndex = -1;
+  var cData = opts.chartData.mapData;
+  var data = opts.series;
+  var tmp = pointToCoordinate(currentPoints.y, currentPoints.x, cData.bounds, cData.scale, cData.xoffset, cData.yoffset);
+  var poi = [tmp.x, tmp.y];
+  for (var i = 0, len = data.length; i < len; i++) {
+    var item = data[i].geometry.coordinates;
+    if (isPoiWithinPoly(poi, item)) {
+      currentIndex = i;
+      break;
+    }
+  }
+  return currentIndex;
+}
+
+function findPieChartCurrentIndex(currentPoints, pieData) {
+  var currentIndex = -1;
+  if (isInExactPieChartArea(currentPoints, pieData.center, pieData.radius)) {
+    var angle = Math.atan2(pieData.center.y - currentPoints.y, currentPoints.x - pieData.center.x);
+    angle = -angle;
+    for (var i = 0, len = pieData.series.length; i < len; i++) {
+      var item = pieData.series[i];
+      if (isInAngleRange(angle, item._start_, item._start_ + item._proportion_ * 2 * Math.PI)) {
+        currentIndex = i;
+        break;
+      }
+    }
+  }
+
+  return currentIndex;
+}
+
+function isInExactPieChartArea(currentPoints, center, radius) {
+  return Math.pow(currentPoints.x - center.x, 2) + Math.pow(currentPoints.y - center.y, 2) <= Math.pow(radius, 2);
+}
+
+function splitPoints(points) {
+  var newPoints = [];
+  var items = [];
+  points.forEach(function (item, index) {
+    if (item !== null) {
+      items.push(item);
+    } else {
+      if (items.length) {
+        newPoints.push(items);
+      }
+      items = [];
+    }
+  });
+  if (items.length) {
+    newPoints.push(items);
+  }
+
+  return newPoints;
+}
+
+function calLegendData(series, opts, config, chartData) {
+  var legendData = {
+    area: {
+      start: {
+        x: 0,
+        y: 0 },
+
+      end: {
+        x: 0,
+        y: 0 },
+
+      width: 0,
+      height: 0,
+      wholeWidth: 0,
+      wholeHeight: 0 },
+
+    points: [],
+    widthArr: [],
+    heightArr: [] };
+
+  if (opts.legend.show === false) {
+    chartData.legendData = legendData;
+    return legendData;
+  }
+
+  var padding = opts.legend.padding;
+  var margin = opts.legend.margin;
+  var fontSize = opts.legend.fontSize;
+  var shapeWidth = 15 * opts.pixelRatio;
+  var shapeRight = 5 * opts.pixelRatio;
+  var lineHeight = Math.max(opts.legend.lineHeight * opts.pixelRatio, fontSize);
+  if (opts.legend.position == 'top' || opts.legend.position == 'bottom') {
+    var legendList = [];
+    var widthCount = 0;
+    var widthCountArr = [];
+    var currentRow = [];
+    for (var i = 0; i < series.length; i++) {
+      var item = series[i];
+      var itemWidth = shapeWidth + shapeRight + measureText(item.name || 'undefined', fontSize) + opts.legend.itemGap;
+      if (widthCount + itemWidth > opts.width - opts.padding[1] - opts.padding[3]) {
+        legendList.push(currentRow);
+        widthCountArr.push(widthCount - opts.legend.itemGap);
+        widthCount = itemWidth;
+        currentRow = [item];
+      } else {
+        widthCount += itemWidth;
+        currentRow.push(item);
+      }
+    }
+    if (currentRow.length) {
+      legendList.push(currentRow);
+      widthCountArr.push(widthCount - opts.legend.itemGap);
+      legendData.widthArr = widthCountArr;
+      var legendWidth = Math.max.apply(null, widthCountArr);
+      switch (opts.legend.float) {
+        case 'left':
+          legendData.area.start.x = opts.padding[3];
+          legendData.area.end.x = opts.padding[3] + 2 * padding;
+          break;
+        case 'right':
+          legendData.area.start.x = opts.width - opts.padding[1] - legendWidth - 2 * padding;
+          legendData.area.end.x = opts.width - opts.padding[1];
+          break;
+        default:
+          legendData.area.start.x = (opts.width - legendWidth) / 2 - padding;
+          legendData.area.end.x = (opts.width + legendWidth) / 2 + padding;}
+
+      legendData.area.width = legendWidth + 2 * padding;
+      legendData.area.wholeWidth = legendWidth + 2 * padding;
+      legendData.area.height = legendList.length * lineHeight + 2 * padding;
+      legendData.area.wholeHeight = legendList.length * lineHeight + 2 * padding + 2 * margin;
+      legendData.points = legendList;
+    }
+  } else {
+    var len = series.length;
+    var maxHeight = opts.height - opts.padding[0] - opts.padding[2] - 2 * margin - 2 * padding;
+    var maxLength = Math.min(Math.floor(maxHeight / lineHeight), len);
+    legendData.area.height = maxLength * lineHeight + padding * 2;
+    legendData.area.wholeHeight = maxLength * lineHeight + padding * 2;
+    switch (opts.legend.float) {
+      case 'top':
+        legendData.area.start.y = opts.padding[0] + margin;
+        legendData.area.end.y = opts.padding[0] + margin + legendData.area.height;
+        break;
+      case 'bottom':
+        legendData.area.start.y = opts.height - opts.padding[2] - margin - legendData.area.height;
+        legendData.area.end.y = opts.height - opts.padding[2] - margin;
+        break;
+      default:
+        legendData.area.start.y = (opts.height - legendData.area.height) / 2;
+        legendData.area.end.y = (opts.height + legendData.area.height) / 2;}
+
+    var lineNum = len % maxLength === 0 ? len / maxLength : Math.floor(len / maxLength + 1);
+    var _currentRow = [];
+    for (var _i3 = 0; _i3 < lineNum; _i3++) {
+      var temp = series.slice(_i3 * maxLength, _i3 * maxLength + maxLength);
+      _currentRow.push(temp);
+    }
+
+    legendData.points = _currentRow;
+
+    if (_currentRow.length) {
+      for (var _i4 = 0; _i4 < _currentRow.length; _i4++) {
+        var _item = _currentRow[_i4];
+        var maxWidth = 0;
+        for (var j = 0; j < _item.length; j++) {
+          var _itemWidth = shapeWidth + shapeRight + measureText(_item[j].name || 'undefined', fontSize) + opts.legend.itemGap;
+          if (_itemWidth > maxWidth) {
+            maxWidth = _itemWidth;
+          }
+        }
+        legendData.widthArr.push(maxWidth);
+        legendData.heightArr.push(_item.length * lineHeight + padding * 2);
+      }
+      var _legendWidth = 0;
+      for (var _i5 = 0; _i5 < legendData.widthArr.length; _i5++) {
+        _legendWidth += legendData.widthArr[_i5];
+      }
+      legendData.area.width = _legendWidth - opts.legend.itemGap + 2 * padding;
+      legendData.area.wholeWidth = legendData.area.width + padding;
+    }
+  }
+
+  switch (opts.legend.position) {
+    case 'top':
+      legendData.area.start.y = opts.padding[0] + margin;
+      legendData.area.end.y = opts.padding[0] + margin + legendData.area.height;
+      break;
+    case 'bottom':
+      legendData.area.start.y = opts.height - opts.padding[2] - legendData.area.height - margin;
+      legendData.area.end.y = opts.height - opts.padding[2] - margin;
+      break;
+    case 'left':
+      legendData.area.start.x = opts.padding[3];
+      legendData.area.end.x = opts.padding[3] + legendData.area.width;
+      break;
+    case 'right':
+      legendData.area.start.x = opts.width - opts.padding[1] - legendData.area.width;
+      legendData.area.end.x = opts.width - opts.padding[1];
+      break;}
+
+  chartData.legendData = legendData;
+  return legendData;
+}
+
+function calCategoriesData(categories, opts, config, eachSpacing) {
+  var result = {
+    angle: 0,
+    xAxisHeight: config.xAxisHeight };
+
+  var categoriesTextLenth = categories.map(function (item) {
+    return measureText(item, opts.xAxis.fontSize || config.fontSize);
+  });
+  var maxTextLength = Math.max.apply(this, categoriesTextLenth);
+
+  if (opts.xAxis.rotateLabel == true && maxTextLength + 2 * config.xAxisTextPadding > eachSpacing) {
+    result.angle = 45 * Math.PI / 180;
+    result.xAxisHeight = 2 * config.xAxisTextPadding + maxTextLength * Math.sin(result.angle);
+  }
+  return result;
+}
+
+function getXAxisTextList(series, opts, config) {
+  var index = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : -1;
+  var data = dataCombine(series);
+  var sorted = [];
+  // remove null from data
+  data = data.filter(function (item) {
+    //return item !== null;
+    if (typeof item === 'object' && item !== null) {
+      if (item.constructor == Array) {
+        return item !== null;
+      } else {
+        return item.value !== null;
+      }
+    } else {
+      return item !== null;
+    }
+  });
+  data.map(function (item) {
+    if (typeof item === 'object') {
+      if (item.constructor == Array) {
+        if (opts.type == 'candle') {
+          item.map(function (subitem) {
+            sorted.push(subitem);
+          });
+        } else {
+          sorted.push(item[0]);
+        }
+      } else {
+        sorted.push(item.value);
+      }
+    } else {
+      sorted.push(item);
+    }
+  });
+
+  var minData = 0;
+  var maxData = 0;
+  if (sorted.length > 0) {
+    minData = Math.min.apply(this, sorted);
+    maxData = Math.max.apply(this, sorted);
+  }
+  //为了兼容v1.9.0之前的项目
+  if (index > -1) {
+    if (typeof opts.xAxis.data[index].min === 'number') {
+      minData = Math.min(opts.xAxis.data[index].min, minData);
+    }
+    if (typeof opts.xAxis.data[index].max === 'number') {
+      maxData = Math.max(opts.xAxis.data[index].max, maxData);
+    }
+  } else {
+    if (typeof opts.xAxis.min === 'number') {
+      minData = Math.min(opts.xAxis.min, minData);
+    }
+    if (typeof opts.xAxis.max === 'number') {
+      maxData = Math.max(opts.xAxis.max, maxData);
+    }
+  }
+
+
+  if (minData === maxData) {
+    var rangeSpan = maxData || 10;
+    maxData += rangeSpan;
+  }
+
+  var dataRange = getDataRange(minData, maxData);
+  var minRange = dataRange.minRange;
+  var maxRange = dataRange.maxRange;
+
+  var range = [];
+  var eachRange = (maxRange - minRange) / opts.xAxis.splitNumber;
+
+  for (var i = 0; i <= opts.xAxis.splitNumber; i++) {
+    range.push(minRange + eachRange * i);
+  }
+  return range;
+}
+
+function calXAxisData(series, opts, config) {
+  var result = {
+    angle: 0,
+    xAxisHeight: config.xAxisHeight };
+
+
+  result.ranges = getXAxisTextList(series, opts, config);
+  result.rangesFormat = result.ranges.map(function (item) {
+    item = opts.xAxis.format ? opts.xAxis.format(item) : util.toFixed(item, 2);
+    return item;
+  });
+  var xAxisScaleValues = result.ranges.map(function (item) {
+    // 如果刻度值是浮点数,则保留两位小数
+    item = util.toFixed(item, 2);
+    // 若有自定义格式则调用自定义的格式化函数
+    item = opts.xAxis.format ? opts.xAxis.format(Number(item)) : item;
+    return item;
+  });
+
+  result = Object.assign(result, getXAxisPoints(xAxisScaleValues, opts, config));
+  // 计算X轴刻度的属性譬如每个刻度的间隔,刻度的起始点\结束点以及总长
+  var eachSpacing = result.eachSpacing;
+
+  var textLength = xAxisScaleValues.map(function (item) {
+    return measureText(item);
+  });
+
+  // get max length of categories text
+  var maxTextLength = Math.max.apply(this, textLength);
+
+  // 如果刻度值文本内容过长,则将其逆时针旋转45°
+  if (maxTextLength + 2 * config.xAxisTextPadding > eachSpacing) {
+    result.angle = 45 * Math.PI / 180;
+    result.xAxisHeight = 2 * config.xAxisTextPadding + maxTextLength * Math.sin(result.angle);
+  }
+
+  if (opts.xAxis.disabled === true) {
+    result.xAxisHeight = 0;
+  }
+
+  return result;
+}
+
+function getRadarDataPoints(angleList, center, radius, series, opts) {
+  var process = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 1;
+
+  var radarOption = opts.extra.radar || {};
+  radarOption.max = radarOption.max || 0;
+  var maxData = Math.max(radarOption.max, Math.max.apply(null, dataCombine(series)));
+
+  var data = [];var _loop2 = function _loop2(
+  i) {
+    var each = series[i];
+    var listItem = {};
+    listItem.color = each.color;
+    listItem.legendShape = each.legendShape;
+    listItem.pointShape = each.pointShape;
+    listItem.data = [];
+    each.data.forEach(function (item, index) {
+      var tmp = {};
+      tmp.angle = angleList[index];
+
+      tmp.proportion = item / maxData;
+      tmp.position = convertCoordinateOrigin(radius * tmp.proportion * process * Math.cos(tmp.angle), radius * tmp.proportion *
+      process * Math.sin(tmp.angle), center);
+      listItem.data.push(tmp);
+    });
+
+    data.push(listItem);};for (var i = 0; i < series.length; i++) {_loop2(i);
+  }
+
+  return data;
+}
+
+function getPieDataPoints(series, radius) {
+  var process = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+
+  var count = 0;
+  var _start_ = 0;
+  for (var i = 0; i < series.length; i++) {
+    var item = series[i];
+    item.data = item.data === null ? 0 : item.data;
+    count += item.data;
+  }
+  for (var _i6 = 0; _i6 < series.length; _i6++) {
+    var _item2 = series[_i6];
+    _item2.data = _item2.data === null ? 0 : _item2.data;
+    if (count === 0) {
+      _item2._proportion_ = 1 / series.length * process;
+    } else {
+      _item2._proportion_ = _item2.data / count * process;
+    }
+    _item2._radius_ = radius;
+  }
+  for (var _i7 = 0; _i7 < series.length; _i7++) {
+    var _item3 = series[_i7];
+    _item3._start_ = _start_;
+    _start_ += 2 * _item3._proportion_ * Math.PI;
+  }
+
+  return series;
+}
+
+function getFunnelDataPoints(series, radius) {
+  var process = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+  series = series.sort(function (a, b) {return parseInt(b.data) - parseInt(a.data);});
+  for (var i = 0; i < series.length; i++) {
+    series[i].radius = series[i].data / series[0].data * radius * process;
+    series[i]._proportion_ = series[i].data / series[0].data;
+  }
+  return series.reverse();
+}
+
+function getRoseDataPoints(series, type, minRadius, radius) {
+  var process = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+  var count = 0;
+  var _start_ = 0;
+
+  var dataArr = [];
+  for (var i = 0; i < series.length; i++) {
+    var item = series[i];
+    item.data = item.data === null ? 0 : item.data;
+    count += item.data;
+    dataArr.push(item.data);
+  }
+
+  var minData = Math.min.apply(null, dataArr);
+  var maxData = Math.max.apply(null, dataArr);
+  var radiusLength = radius - minRadius;
+
+  for (var _i8 = 0; _i8 < series.length; _i8++) {
+    var _item4 = series[_i8];
+    _item4.data = _item4.data === null ? 0 : _item4.data;
+    if (count === 0 || type == 'area') {
+      _item4._proportion_ = _item4.data / count * process;
+      _item4._rose_proportion_ = 1 / series.length * process;
+    } else {
+      _item4._proportion_ = _item4.data / count * process;
+      _item4._rose_proportion_ = _item4.data / count * process;
+    }
+    _item4._radius_ = minRadius + radiusLength * ((_item4.data - minData) / (maxData - minData));
+  }
+  for (var _i9 = 0; _i9 < series.length; _i9++) {
+    var _item5 = series[_i9];
+    _item5._start_ = _start_;
+    _start_ += 2 * _item5._rose_proportion_ * Math.PI;
+  }
+
+  return series;
+}
+
+function getArcbarDataPoints(series, arcbarOption) {
+  var process = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+  if (process == 1) {
+    process = 0.999999;
+  }
+  for (var i = 0; i < series.length; i++) {
+    var item = series[i];
+    item.data = item.data === null ? 0 : item.data;
+    var totalAngle = void 0;
+    if (arcbarOption.type == 'circle') {
+      totalAngle = 2;
+    } else {
+      if (arcbarOption.endAngle < arcbarOption.startAngle) {
+        totalAngle = 2 + arcbarOption.endAngle - arcbarOption.startAngle;
+      } else {
+        totalAngle = arcbarOption.startAngle - arcbarOption.endAngle;
+      }
+    }
+    item._proportion_ = totalAngle * item.data * process + arcbarOption.startAngle;
+    if (item._proportion_ >= 2) {
+      item._proportion_ = item._proportion_ % 2;
+    }
+  }
+  return series;
+}
+
+function getGaugeAxisPoints(categories, startAngle, endAngle) {
+  var totalAngle = startAngle - endAngle + 1;
+  var tempStartAngle = startAngle;
+  for (var i = 0; i < categories.length; i++) {
+    categories[i].value = categories[i].value === null ? 0 : categories[i].value;
+    categories[i]._startAngle_ = tempStartAngle;
+    categories[i]._endAngle_ = totalAngle * categories[i].value + startAngle;
+    if (categories[i]._endAngle_ >= 2) {
+      categories[i]._endAngle_ = categories[i]._endAngle_ % 2;
+    }
+    tempStartAngle = categories[i]._endAngle_;
+  }
+  return categories;
+}
+
+function getGaugeDataPoints(series, categories, gaugeOption) {
+  var process = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1;
+  for (var i = 0; i < series.length; i++) {
+    var item = series[i];
+    item.data = item.data === null ? 0 : item.data;
+    if (gaugeOption.pointer.color == 'auto') {
+      for (var _i10 = 0; _i10 < categories.length; _i10++) {
+        if (item.data <= categories[_i10].value) {
+          item.color = categories[_i10].color;
+          break;
+        }
+      }
+    } else {
+      item.color = gaugeOption.pointer.color;
+    }
+    var totalAngle = gaugeOption.startAngle - gaugeOption.endAngle + 1;
+    item._endAngle_ = totalAngle * item.data + gaugeOption.startAngle;
+    item._oldAngle_ = gaugeOption.oldAngle;
+    if (gaugeOption.oldAngle < gaugeOption.endAngle) {
+      item._oldAngle_ += 2;
+    }
+    if (item.data >= gaugeOption.oldData) {
+      item._proportion_ = (item._endAngle_ - item._oldAngle_) * process + gaugeOption.oldAngle;
+    } else {
+      item._proportion_ = item._oldAngle_ - (item._oldAngle_ - item._endAngle_) * process;
+    }
+    if (item._proportion_ >= 2) {
+      item._proportion_ = item._proportion_ % 2;
+    }
+  }
+  return series;
+}
+
+function getPieTextMaxLength(series) {
+  series = getPieDataPoints(series);
+  var maxLength = 0;
+  for (var i = 0; i < series.length; i++) {
+    var item = series[i];
+    var text = item.format ? item.format(+item._proportion_.toFixed(2)) : util.toFixed(item._proportion_ * 100) + '%';
+    maxLength = Math.max(maxLength, measureText(text));
+  }
+
+  return maxLength;
+}
+
+function fixColumeData(points, eachSpacing, columnLen, index, config, opts) {
+  return points.map(function (item) {
+    if (item === null) {
+      return null;
+    }
+    item.width = Math.ceil((eachSpacing - 2 * config.columePadding) / columnLen);
+
+    if (opts.extra.column && opts.extra.column.width && +opts.extra.column.width > 0) {
+      item.width = Math.min(item.width, +opts.extra.column.width);
+    }
+    if (item.width <= 0) {
+      item.width = 1;
+    }
+    item.x += (index + 0.5 - columnLen / 2) * item.width;
+    return item;
+  });
+}
+
+function fixColumeMeterData(points, eachSpacing, columnLen, index, config, opts, border) {
+  return points.map(function (item) {
+    if (item === null) {
+      return null;
+    }
+    item.width = Math.ceil((eachSpacing - 2 * config.columePadding) / 2);
+
+    if (opts.extra.column && opts.extra.column.width && +opts.extra.column.width > 0) {
+      item.width = Math.min(item.width, +opts.extra.column.width);
+    }
+
+    if (index > 0) {
+      item.width -= 2 * border;
+    }
+    return item;
+  });
+}
+
+function fixColumeStackData(points, eachSpacing, columnLen, index, config, opts, series) {
+
+  return points.map(function (item, indexn) {
+
+    if (item === null) {
+      return null;
+    }
+    item.width = Math.ceil((eachSpacing - 2 * config.columePadding) / 2);
+
+    if (opts.extra.column && opts.extra.column.width && +opts.extra.column.width > 0) {
+      item.width = Math.min(item.width, +opts.extra.column.width);
+    }
+    return item;
+  });
+}
+
+function getXAxisPoints(categories, opts, config) {
+  var spacingValid = opts.width - opts.area[1] - opts.area[3];
+  var dataCount = opts.enableScroll ? Math.min(opts.xAxis.itemCount, categories.length) : categories.length;
+  if ((opts.type == 'line' || opts.type == 'area') && dataCount > 1 && opts.xAxis.boundaryGap == 'justify') {
+    dataCount -= 1;
+  }
+  var eachSpacing = spacingValid / dataCount;
+
+  var xAxisPoints = [];
+  var startX = opts.area[3];
+  var endX = opts.width - opts.area[1];
+  categories.forEach(function (item, index) {
+    xAxisPoints.push(startX + index * eachSpacing);
+  });
+  if (opts.xAxis.boundaryGap !== 'justify') {
+    if (opts.enableScroll === true) {
+      xAxisPoints.push(startX + categories.length * eachSpacing);
+    } else {
+      xAxisPoints.push(endX);
+    }
+  }
+  return {
+    xAxisPoints: xAxisPoints,
+    startX: startX,
+    endX: endX,
+    eachSpacing: eachSpacing };
+
+}
+
+function getCandleDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config) {
+  var process = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : 1;
+  var points = [];
+  var validHeight = opts.height - opts.area[0] - opts.area[2];
+  data.forEach(function (item, index) {
+    if (item === null) {
+      points.push(null);
+    } else {
+      var cPoints = [];
+      item.forEach(function (items, indexs) {
+        var point = {};
+        point.x = xAxisPoints[index] + Math.round(eachSpacing / 2);
+        var value = items.value || items;
+        var height = validHeight * (value - minRange) / (maxRange - minRange);
+        height *= process;
+        point.y = opts.height - Math.round(height) - opts.area[2];
+        cPoints.push(point);
+      });
+      points.push(cPoints);
+    }
+  });
+
+  return points;
+}
+
+function getDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config) {
+  var process = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : 1;
+  var boundaryGap = 'center';
+  if (opts.type == 'line' || opts.type == 'area') {
+    boundaryGap = opts.xAxis.boundaryGap;
+  }
+  var points = [];
+  var validHeight = opts.height - opts.area[0] - opts.area[2];
+  var validWidth = opts.width - opts.area[1] - opts.area[3];
+  data.forEach(function (item, index) {
+    if (item === null) {
+      points.push(null);
+    } else {
+      var point = {};
+      point.color = item.color;
+      point.x = xAxisPoints[index];
+      var value = item;
+      if (typeof item === 'object' && item !== null) {
+        if (item.constructor == Array) {
+          var xranges, xminRange, xmaxRange;
+          xranges = [].concat(opts.chartData.xAxisData.ranges);
+
+          xminRange = xranges.shift();
+          xmaxRange = xranges.pop();
+          value = item[1];
+          point.x = opts.area[3] + validWidth * (item[0] - xminRange) / (xmaxRange - xminRange);
+        } else {
+          value = item.value;
+        }
+      }
+      if (boundaryGap == 'center') {
+        point.x += Math.round(eachSpacing / 2);
+      }
+      var height = validHeight * (value - minRange) / (maxRange - minRange);
+      height *= process;
+      point.y = opts.height - Math.round(height) - opts.area[2];
+      points.push(point);
+    }
+  });
+
+  return points;
+}
+
+function getStackDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, seriesIndex, stackSeries) {
+  var process = arguments.length > 9 && arguments[9] !== undefined ? arguments[9] : 1;
+  var points = [];
+  var validHeight = opts.height - opts.area[0] - opts.area[2];
+
+  data.forEach(function (item, index) {
+    if (item === null) {
+      points.push(null);
+    } else {
+      var point = {};
+      point.color = item.color;
+      point.x = xAxisPoints[index] + Math.round(eachSpacing / 2);
+
+      if (seriesIndex > 0) {
+        var value = 0;
+        for (var i = 0; i <= seriesIndex; i++) {
+          value += stackSeries[i].data[index];
+        }
+        var value0 = value - item;
+        var height = validHeight * (value - minRange) / (maxRange - minRange);
+        var height0 = validHeight * (value0 - minRange) / (maxRange - minRange);
+      } else {
+        var value = item;
+        var height = validHeight * (value - minRange) / (maxRange - minRange);
+        var height0 = 0;
+      }
+      var heightc = height0;
+      height *= process;
+      heightc *= process;
+      point.y = opts.height - Math.round(height) - opts.area[2];
+      point.y0 = opts.height - Math.round(heightc) - opts.area[2];
+      points.push(point);
+    }
+  });
+
+  return points;
+}
+
+function getYAxisTextList(series, opts, config, stack) {
+  var index = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : -1;
+  var data;
+  if (stack == 'stack') {
+    data = dataCombineStack(series, opts.categories.length);
+  } else {
+    data = dataCombine(series);
+  }
+  var sorted = [];
+  // remove null from data
+  data = data.filter(function (item) {
+    //return item !== null;
+    if (typeof item === 'object' && item !== null) {
+      if (item.constructor == Array) {
+        return item !== null;
+      } else {
+        return item.value !== null;
+      }
+    } else {
+      return item !== null;
+    }
+  });
+  data.map(function (item) {
+    if (typeof item === 'object') {
+      if (item.constructor == Array) {
+        if (opts.type == 'candle') {
+          item.map(function (subitem) {
+            sorted.push(subitem);
+          });
+        } else {
+          sorted.push(item[1]);
+        }
+      } else {
+        sorted.push(item.value);
+      }
+    } else {
+      sorted.push(item);
+    }
+  });
+
+  var minData = 0;
+  var maxData = 0;
+  if (sorted.length > 0) {
+    minData = Math.min.apply(this, sorted);
+    maxData = Math.max.apply(this, sorted);
+  }
+  //为了兼容v1.9.0之前的项目
+  if (index > -1) {
+    if (typeof opts.yAxis.data[index].min === 'number') {
+      minData = Math.min(opts.yAxis.data[index].min, minData);
+    }
+    if (typeof opts.yAxis.data[index].max === 'number') {
+      maxData = Math.max(opts.yAxis.data[index].max, maxData);
+    }
+  } else {
+    if (typeof opts.yAxis.min === 'number') {
+      minData = Math.min(opts.yAxis.min, minData);
+    }
+    if (typeof opts.yAxis.max === 'number') {
+      maxData = Math.max(opts.yAxis.max, maxData);
+    }
+  }
+
+
+  if (minData === maxData) {
+    var rangeSpan = maxData || 10;
+    maxData += rangeSpan;
+  }
+
+  var dataRange = getDataRange(minData, maxData);
+  var minRange = dataRange.minRange;
+  var maxRange = dataRange.maxRange;
+
+  var range = [];
+  var eachRange = (maxRange - minRange) / opts.yAxis.splitNumber;
+
+  for (var i = 0; i <= opts.yAxis.splitNumber; i++) {
+    range.push(minRange + eachRange * i);
+  }
+  return range.reverse();
+}
+
+function calYAxisData(series, opts, config) {
+  //堆叠图重算Y轴
+  var columnstyle = assign({}, {
+    type: "" },
+  opts.extra.column);
+  //如果是多Y轴，重新计算
+  var YLength = opts.yAxis.data.length;
+  var newSeries = new Array(YLength);
+  if (YLength > 0) {
+    for (var i = 0; i < YLength; i++) {
+      newSeries[i] = [];
+      for (var j = 0; j < series.length; j++) {
+        if (series[j].index == i) {
+          newSeries[i].push(series[j]);
+        }
+      }
+    }
+    var rangesArr = new Array(YLength);
+    var rangesFormatArr = new Array(YLength);
+    var yAxisWidthArr = new Array(YLength);var _loop3 = function _loop3(
+
+    _i11) {
+      var yData = opts.yAxis.data[_i11];
+      //如果总开关不显示，强制每个Y轴为不显示
+      if (opts.yAxis.disabled == true) {
+        yData.disabled = true;
+      }
+      rangesArr[_i11] = getYAxisTextList(newSeries[_i11], opts, config, columnstyle.type, _i11);
+      var yAxisFontSizes = yData.fontSize || config.fontSize;
+      yAxisWidthArr[_i11] = { position: yData.position ? yData.position : 'left', width: 0 };
+      rangesFormatArr[_i11] = rangesArr[_i11].map(function (items) {
+        items = util.toFixed(items, 6);
+        items = yData.format ? yData.format(Number(items)) : items;
+        yAxisWidthArr[_i11].width = Math.max(yAxisWidthArr[_i11].width, measureText(items, yAxisFontSizes) + 5);
+        return items;
+      });
+      var calibration = yData.calibration ? 4 * opts.pixelRatio : 0;
+      yAxisWidthArr[_i11].width += calibration + 3 * opts.pixelRatio;
+      if (yData.disabled === true) {
+        yAxisWidthArr[_i11].width = 0;
+      }};for (var _i11 = 0; _i11 < YLength; _i11++) {_loop3(_i11);
+    }
+
+  } else {
+    var rangesArr = new Array(1);
+    var rangesFormatArr = new Array(1);
+    var yAxisWidthArr = new Array(1);
+    rangesArr[0] = getYAxisTextList(series, opts, config, columnstyle.type);
+    yAxisWidthArr[0] = { position: 'left', width: 0 };
+    var yAxisFontSize = opts.yAxis.fontSize || config.fontSize;
+    rangesFormatArr[0] = rangesArr[0].map(function (item) {
+      item = util.toFixed(item, 6);
+      item = opts.yAxis.format ? opts.yAxis.format(Number(item)) : item;
+      yAxisWidthArr[0].width = Math.max(yAxisWidthArr[0].width, measureText(item, yAxisFontSize) + 5);
+      return item;
+    });
+    yAxisWidthArr[0].width += 3 * opts.pixelRatio;
+    if (opts.yAxis.disabled === true) {
+      yAxisWidthArr[0] = { position: 'left', width: 0 };
+      opts.yAxis.data[0] = { disabled: true };
+    } else {
+      opts.yAxis.data[0] = { disabled: false, position: 'left', max: opts.yAxis.max, min: opts.yAxis.min, format: opts.yAxis.format };
+    }
+
+  }
+
+  return {
+    rangesFormat: rangesFormatArr,
+    ranges: rangesArr,
+    yAxisWidth: yAxisWidthArr };
+
+
+}
+
+function calTooltipYAxisData(point, series, opts, config, eachSpacing) {
+  var ranges = [].concat(opts.chartData.yAxisData.ranges);
+  var spacingValid = opts.height - opts.area[0] - opts.area[2];
+  var minAxis = opts.area[0];
+  var items = [];
+  for (var i = 0; i < ranges.length; i++) {
+    var maxVal = ranges[i].shift();
+    var minVal = ranges[i].pop();
+    var item = maxVal - (maxVal - minVal) * (point - minAxis) / spacingValid;
+    item = opts.yAxis.data[i].format ? opts.yAxis.data[i].format(Number(item)) : item.toFixed(0);
+    items.push(String(item));
+  }
+  return items;
+}
+
+function calMarkLineData(points, opts) {
+  var minRange, maxRange;
+  var spacingValid = opts.height - opts.area[0] - opts.area[2];
+  for (var i = 0; i < points.length; i++) {
+    points[i].yAxisIndex = points[i].yAxisIndex ? points[i].yAxisIndex : 0;
+    var range = [].concat(opts.chartData.yAxisData.ranges[points[i].yAxisIndex]);
+    minRange = range.pop();
+    maxRange = range.shift();
+    var height = spacingValid * (points[i].value - minRange) / (maxRange - minRange);
+    points[i].y = opts.height - Math.round(height) - opts.area[2];
+  }
+  return points;
+}
+
+function contextRotate(context, opts) {
+  if (opts.rotateLock !== true) {
+    context.translate(opts.height, 0);
+    context.rotate(90 * Math.PI / 180);
+  } else if (opts._rotate_ !== true) {
+    context.translate(opts.height, 0);
+    context.rotate(90 * Math.PI / 180);
+    opts._rotate_ = true;
+  }
+}
+
+function drawPointShape(points, color, shape, context, opts) {
+  context.beginPath();
+  if (opts.dataPointShapeType == 'hollow') {
+    context.setStrokeStyle(color);
+    context.setFillStyle(opts.background);
+    context.setLineWidth(2 * opts.pixelRatio);
+  } else {
+    context.setStrokeStyle("#ffffff");
+    context.setFillStyle(color);
+    context.setLineWidth(1 * opts.pixelRatio);
+  }
+  if (shape === 'diamond') {
+    points.forEach(function (item, index) {
+      if (item !== null) {
+        context.moveTo(item.x, item.y - 4.5);
+        context.lineTo(item.x - 4.5, item.y);
+        context.lineTo(item.x, item.y + 4.5);
+        context.lineTo(item.x + 4.5, item.y);
+        context.lineTo(item.x, item.y - 4.5);
+      }
+    });
+  } else if (shape === 'circle') {
+    points.forEach(function (item, index) {
+      if (item !== null) {
+        context.moveTo(item.x + 2.5 * opts.pixelRatio, item.y);
+        context.arc(item.x, item.y, 3 * opts.pixelRatio, 0, 2 * Math.PI, false);
+      }
+    });
+  } else if (shape === 'rect') {
+    points.forEach(function (item, index) {
+      if (item !== null) {
+        context.moveTo(item.x - 3.5, item.y - 3.5);
+        context.rect(item.x - 3.5, item.y - 3.5, 7, 7);
+      }
+    });
+  } else if (shape === 'triangle') {
+    points.forEach(function (item, index) {
+      if (item !== null) {
+        context.moveTo(item.x, item.y - 4.5);
+        context.lineTo(item.x - 4.5, item.y + 4.5);
+        context.lineTo(item.x + 4.5, item.y + 4.5);
+        context.lineTo(item.x, item.y - 4.5);
+      }
+    });
+  }
+  context.closePath();
+  context.fill();
+  context.stroke();
+}
+
+function drawRingTitle(opts, config, context, center) {
+  var titlefontSize = opts.title.fontSize || config.titleFontSize;
+  var subtitlefontSize = opts.subtitle.fontSize || config.subtitleFontSize;
+  var title = opts.title.name || '';
+  var subtitle = opts.subtitle.name || '';
+  var titleFontColor = opts.title.color || config.titleColor;
+  var subtitleFontColor = opts.subtitle.color || config.subtitleColor;
+  var titleHeight = title ? titlefontSize : 0;
+  var subtitleHeight = subtitle ? subtitlefontSize : 0;
+  var margin = 5;
+
+  if (subtitle) {
+    var textWidth = measureText(subtitle, subtitlefontSize);
+    var startX = center.x - textWidth / 2 + (opts.subtitle.offsetX || 0);
+    var startY = center.y + subtitlefontSize / 2 + (opts.subtitle.offsetY || 0);
+    if (title) {
+      startY += (titleHeight + margin) / 2;
+    }
+    context.beginPath();
+    context.setFontSize(subtitlefontSize);
+    context.setFillStyle(subtitleFontColor);
+    context.fillText(subtitle, startX, startY);
+    context.closePath();
+    context.stroke();
+  }
+  if (title) {
+    var _textWidth = measureText(title, titlefontSize);
+    var _startX = center.x - _textWidth / 2 + (opts.title.offsetX || 0);
+    var _startY = center.y + titlefontSize / 2 + (opts.title.offsetY || 0);
+    if (subtitle) {
+      _startY -= (subtitleHeight + margin) / 2;
+    }
+    context.beginPath();
+    context.setFontSize(titlefontSize);
+    context.setFillStyle(titleFontColor);
+    context.fillText(title, _startX, _startY);
+    context.closePath();
+    context.stroke();
+  }
+}
+
+function drawPointText(points, series, config, context) {
+  // 绘制数据文案
+  var data = series.data;
+  points.forEach(function (item, index) {
+    if (item !== null) {
+      //var formatVal = series.format ? series.format(data[index]) : data[index];
+      context.beginPath();
+      context.setFontSize(series.textSize || config.fontSize);
+      context.setFillStyle(series.textColor || '#666666');
+      var value = data[index];
+      if (typeof data[index] === 'object' && data[index] !== null) {
+        if (data[index].constructor == Array) {
+          value = data[index][1];
+        } else {
+          value = data[index].value;
+        }
+      }
+      var formatVal = series.format ? series.format(value) : value;
+      context.fillText(String(formatVal), item.x - measureText(formatVal, series.textSize || config.fontSize) / 2, item.y - 4);
+      context.closePath();
+      context.stroke();
+    }
+  });
+
+}
+
+function drawGaugeLabel(gaugeOption, radius, centerPosition, opts, config, context) {
+  radius -= gaugeOption.width / 2 + config.gaugeLabelTextMargin;
+
+  var totalAngle = gaugeOption.startAngle - gaugeOption.endAngle + 1;
+  var splitAngle = totalAngle / gaugeOption.splitLine.splitNumber;
+  var totalNumber = gaugeOption.endNumber - gaugeOption.startNumber;
+  var splitNumber = totalNumber / gaugeOption.splitLine.splitNumber;
+  var nowAngle = gaugeOption.startAngle;
+  var nowNumber = gaugeOption.startNumber;
+  for (var i = 0; i < gaugeOption.splitLine.splitNumber + 1; i++) {
+    var pos = {
+      x: radius * Math.cos(nowAngle * Math.PI),
+      y: radius * Math.sin(nowAngle * Math.PI) };
+
+    var labelText = gaugeOption.labelFormat ? gaugeOption.labelFormat(nowNumber) : nowNumber;
+    pos.x += centerPosition.x - measureText(labelText) / 2;
+    pos.y += centerPosition.y;
+    var startX = pos.x;
+    var startY = pos.y;
+    context.beginPath();
+    context.setFontSize(config.fontSize);
+    context.setFillStyle(gaugeOption.labelColor || '#666666');
+    context.fillText(labelText, startX, startY + config.fontSize / 2);
+    context.closePath();
+    context.stroke();
+
+    nowAngle += splitAngle;
+    if (nowAngle >= 2) {
+      nowAngle = nowAngle % 2;
+    }
+    nowNumber += splitNumber;
+  }
+
+}
+
+function drawRadarLabel(angleList, radius, centerPosition, opts, config, context) {
+  var radarOption = opts.extra.radar || {};
+  radius += config.radarLabelTextMargin;
+
+  angleList.forEach(function (angle, index) {
+    var pos = {
+      x: radius * Math.cos(angle),
+      y: radius * Math.sin(angle) };
+
+    var posRelativeCanvas = convertCoordinateOrigin(pos.x, pos.y, centerPosition);
+    var startX = posRelativeCanvas.x;
+    var startY = posRelativeCanvas.y;
+    if (util.approximatelyEqual(pos.x, 0)) {
+      startX -= measureText(opts.categories[index] || '') / 2;
+    } else if (pos.x < 0) {
+      startX -= measureText(opts.categories[index] || '');
+    }
+    context.beginPath();
+    context.setFontSize(config.fontSize);
+    context.setFillStyle(radarOption.labelColor || '#666666');
+    context.fillText(opts.categories[index] || '', startX, startY + config.fontSize / 2);
+    context.closePath();
+    context.stroke();
+  });
+
+}
+
+function drawPieText(series, opts, config, context, radius, center) {
+  var lineRadius = config.pieChartLinePadding;
+  var textObjectCollection = [];
+  var lastTextObject = null;
+
+  var seriesConvert = series.map(function (item) {
+    var text = item.format ? item.format(+item._proportion_.toFixed(2)) : util.toFixed(item._proportion_.toFixed(4) * 100) + '%';
+    if (item._rose_proportion_) item._proportion_ = item._rose_proportion_;
+    var arc = 2 * Math.PI - (item._start_ + 2 * Math.PI * item._proportion_ / 2);
+    var color = item.color;
+    var radius = item._radius_;
+    return {
+      arc: arc,
+      text: text,
+      color: color,
+      radius: radius,
+      textColor: item.textColor,
+      textSize: item.textSize };
+
+  });
+  for (var i = 0; i < seriesConvert.length; i++) {
+    var item = seriesConvert[i];
+    // line end
+    var orginX1 = Math.cos(item.arc) * (item.radius + lineRadius);
+    var orginY1 = Math.sin(item.arc) * (item.radius + lineRadius);
+
+    // line start
+    var orginX2 = Math.cos(item.arc) * item.radius;
+    var orginY2 = Math.sin(item.arc) * item.radius;
+
+    // text start
+    var orginX3 = orginX1 >= 0 ? orginX1 + config.pieChartTextPadding : orginX1 - config.pieChartTextPadding;
+    var orginY3 = orginY1;
+    var textWidth = measureText(item.text, item.textSize || config.fontSize);
+    var startY = orginY3;
+
+    if (lastTextObject && util.isSameXCoordinateArea(lastTextObject.start, {
+      x: orginX3 }))
+    {
+      if (orginX3 > 0) {
+        startY = Math.min(orginY3, lastTextObject.start.y);
+      } else if (orginX1 < 0) {
+        startY = Math.max(orginY3, lastTextObject.start.y);
+      } else {
+        if (orginY3 > 0) {
+          startY = Math.max(orginY3, lastTextObject.start.y);
+        } else {
+          startY = Math.min(orginY3, lastTextObject.start.y);
+        }
+      }
+    }
+    if (orginX3 < 0) {
+      orginX3 -= textWidth;
+    }
+
+    var textObject = {
+      lineStart: {
+        x: orginX2,
+        y: orginY2 },
+
+      lineEnd: {
+        x: orginX1,
+        y: orginY1 },
+
+      start: {
+        x: orginX3,
+        y: startY },
+
+      width: textWidth,
+      height: config.fontSize,
+      text: item.text,
+      color: item.color,
+      textColor: item.textColor,
+      textSize: item.textSize };
+
+    lastTextObject = avoidCollision(textObject, lastTextObject);
+    textObjectCollection.push(lastTextObject);
+  }
+
+  for (var _i12 = 0; _i12 < textObjectCollection.length; _i12++) {
+    var _item6 = textObjectCollection[_i12];
+    var lineStartPoistion = convertCoordinateOrigin(_item6.lineStart.x, _item6.lineStart.y, center);
+    var lineEndPoistion = convertCoordinateOrigin(_item6.lineEnd.x, _item6.lineEnd.y, center);
+    var textPosition = convertCoordinateOrigin(_item6.start.x, _item6.start.y, center);
+    context.setLineWidth(1 * opts.pixelRatio);
+    context.setFontSize(config.fontSize);
+    context.beginPath();
+    context.setStrokeStyle(_item6.color);
+    context.setFillStyle(_item6.color);
+    context.moveTo(lineStartPoistion.x, lineStartPoistion.y);
+    var curveStartX = _item6.start.x < 0 ? textPosition.x + _item6.width : textPosition.x;
+    var textStartX = _item6.start.x < 0 ? textPosition.x - 5 : textPosition.x + 5;
+    context.quadraticCurveTo(lineEndPoistion.x, lineEndPoistion.y, curveStartX, textPosition.y);
+    context.moveTo(lineStartPoistion.x, lineStartPoistion.y);
+    context.stroke();
+    context.closePath();
+    context.beginPath();
+    context.moveTo(textPosition.x + _item6.width, textPosition.y);
+    context.arc(curveStartX, textPosition.y, 2, 0, 2 * Math.PI);
+    context.closePath();
+    context.fill();
+    context.beginPath();
+    context.setFontSize(_item6.textSize || config.fontSize);
+    context.setFillStyle(_item6.textColor || '#666666');
+    context.fillText(_item6.text, textStartX, textPosition.y + 3);
+    context.closePath();
+    context.stroke();
+    context.closePath();
+  }
+}
+
+function drawToolTipSplitLine(offsetX, opts, config, context) {
+  var toolTipOption = opts.extra.tooltip || {};
+  toolTipOption.gridType = toolTipOption.gridType == undefined ? 'solid' : toolTipOption.gridType;
+  toolTipOption.dashLength = toolTipOption.dashLength == undefined ? 4 : toolTipOption.dashLength;
+  var startY = opts.area[0];
+  var endY = opts.height - opts.area[2];
+
+  if (toolTipOption.gridType == 'dash') {
+    context.setLineDash([toolTipOption.dashLength, toolTipOption.dashLength]);
+  }
+  context.setStrokeStyle(toolTipOption.gridColor || '#cccccc');
+  context.setLineWidth(1 * opts.pixelRatio);
+  context.beginPath();
+  context.moveTo(offsetX, startY);
+  context.lineTo(offsetX, endY);
+  context.stroke();
+  context.setLineDash([]);
+
+  if (toolTipOption.xAxisLabel) {
+    var labelText = opts.categories[opts.tooltip.index];
+    context.setFontSize(config.fontSize);
+    var textWidth = measureText(labelText, config.fontSize);
+
+    var textX = offsetX - 0.5 * textWidth;
+    var textY = endY;
+    context.beginPath();
+    context.setFillStyle(hexToRgb(toolTipOption.labelBgColor || config.toolTipBackground, toolTipOption.labelBgOpacity || config.toolTipOpacity));
+    context.setStrokeStyle(toolTipOption.labelBgColor || config.toolTipBackground);
+    context.setLineWidth(1 * opts.pixelRatio);
+    context.rect(textX - config.toolTipPadding, textY, textWidth + 2 * config.toolTipPadding, config.fontSize + 2 * config.toolTipPadding);
+    context.closePath();
+    context.stroke();
+    context.fill();
+
+    context.beginPath();
+    context.setFontSize(config.fontSize);
+    context.setFillStyle(toolTipOption.labelFontColor || config.fontColor);
+    context.fillText(String(labelText), textX, textY + config.toolTipPadding + config.fontSize);
+    context.closePath();
+    context.stroke();
+  }
+}
+
+function drawMarkLine(opts, config, context) {
+  var markLineOption = assign({}, {
+    type: 'solid',
+    dashLength: 4,
+    data: [] },
+  opts.extra.markLine);
+  var startX = opts.area[3];
+  var endX = opts.width - opts.area[1];
+  var points = calMarkLineData(markLineOption.data, opts);
+
+  for (var i = 0; i < points.length; i++) {
+    var item = assign({}, {
+      lineColor: '#DE4A42',
+      showLabel: false,
+      labelFontColor: '#666666',
+      labelBgColor: '#DFE8FF',
+      labelBgOpacity: 0.8,
+      yAxisIndex: 0 },
+    points[i]);
+
+    if (markLineOption.type == 'dash') {
+      context.setLineDash([markLineOption.dashLength, markLineOption.dashLength]);
+    }
+    context.setStrokeStyle(item.lineColor);
+    context.setLineWidth(1 * opts.pixelRatio);
+    context.beginPath();
+    context.moveTo(startX, item.y);
+    context.lineTo(endX, item.y);
+    context.stroke();
+    context.setLineDash([]);
+    if (item.showLabel) {
+      var labelText = opts.yAxis.format ? opts.yAxis.format(Number(item.value)) : item.value;
+      context.setFontSize(config.fontSize);
+      var textWidth = measureText(labelText, config.fontSize);
+      var bgStartX = opts.padding[3] + config.yAxisTitleWidth - config.toolTipPadding;
+      var bgEndX = Math.max(opts.area[3], textWidth + config.toolTipPadding * 2);
+      var bgWidth = bgEndX - bgStartX;
+
+      var textX = bgStartX + (bgWidth - textWidth) / 2;
+      var textY = item.y;
+      context.setFillStyle(hexToRgb(item.labelBgColor, item.labelBgOpacity));
+      context.setStrokeStyle(item.labelBgColor);
+      context.setLineWidth(1 * opts.pixelRatio);
+      context.beginPath();
+      context.rect(bgStartX, textY - 0.5 * config.fontSize - config.toolTipPadding, bgWidth, config.fontSize + 2 * config.toolTipPadding);
+      context.closePath();
+      context.stroke();
+      context.fill();
+
+      context.beginPath();
+      context.setFontSize(config.fontSize);
+      context.setFillStyle(item.labelFontColor);
+      context.fillText(String(labelText), textX, textY + 0.5 * config.fontSize);
+      context.stroke();
+    }
+  }
+}
+
+function drawToolTipHorizentalLine(opts, config, context, eachSpacing, xAxisPoints) {
+  var toolTipOption = assign({}, {
+    gridType: 'solid',
+    dashLength: 4 },
+  opts.extra.tooltip);
+
+  var startX = opts.area[3];
+  var endX = opts.width - opts.area[1];
+
+  if (toolTipOption.gridType == 'dash') {
+    context.setLineDash([toolTipOption.dashLength, toolTipOption.dashLength]);
+  }
+  context.setStrokeStyle(toolTipOption.gridColor || '#cccccc');
+  context.setLineWidth(1 * opts.pixelRatio);
+  context.beginPath();
+  context.moveTo(startX, opts.tooltip.offset.y);
+  context.lineTo(endX, opts.tooltip.offset.y);
+  context.stroke();
+  context.setLineDash([]);
+
+  if (toolTipOption.yAxisLabel) {
+    var labelText = calTooltipYAxisData(opts.tooltip.offset.y, opts.series, opts, config, eachSpacing);
+    var widthArr = opts.chartData.yAxisData.yAxisWidth;
+    var tStartLeft = opts.area[3];
+    var tStartRight = opts.width - opts.area[1];
+    for (var i = 0; i < labelText.length; i++) {
+      context.setFontSize(config.fontSize);
+      var textWidth = measureText(labelText[i], config.fontSize);
+      var bgStartX = void 0,bgEndX = void 0,bgWidth = void 0;
+      if (widthArr[i].position == 'left') {
+        bgStartX = tStartLeft - widthArr[i].width;
+        bgEndX = Math.max(bgStartX, bgStartX + textWidth + config.toolTipPadding * 2);
+      } else {
+        bgStartX = tStartRight;
+        bgEndX = Math.max(bgStartX + widthArr[i].width, bgStartX + textWidth + config.toolTipPadding * 2);
+      }
+      bgWidth = bgEndX - bgStartX;
+
+      var textX = bgStartX + (bgWidth - textWidth) / 2;
+      var textY = opts.tooltip.offset.y;
+      context.beginPath();
+      context.setFillStyle(hexToRgb(toolTipOption.labelBgColor || config.toolTipBackground, toolTipOption.labelBgOpacity || config.toolTipOpacity));
+      context.setStrokeStyle(toolTipOption.labelBgColor || config.toolTipBackground);
+      context.setLineWidth(1 * opts.pixelRatio);
+      context.rect(bgStartX, textY - 0.5 * config.fontSize - config.toolTipPadding, bgWidth, config.fontSize + 2 * config.toolTipPadding);
+      context.closePath();
+      context.stroke();
+      context.fill();
+
+      context.beginPath();
+      context.setFontSize(config.fontSize);
+      context.setFillStyle(toolTipOption.labelFontColor || config.fontColor);
+      context.fillText(labelText[i], textX, textY + 0.5 * config.fontSize);
+      context.closePath();
+      context.stroke();
+      if (widthArr[i].position == 'left') {
+        tStartLeft -= widthArr[i].width + opts.yAxis.padding;
+      } else {
+        tStartRight += widthArr[i].width + opts.yAxis.padding;
+      }
+    }
+  }
+}
+
+function drawToolTipSplitArea(offsetX, opts, config, context, eachSpacing) {
+  var toolTipOption = assign({}, {
+    activeBgColor: '#000000',
+    activeBgOpacity: 0.08 },
+  opts.extra.tooltip);
+  var startY = opts.area[0];
+  var endY = opts.height - opts.area[2];
+  context.beginPath();
+  context.setFillStyle(hexToRgb(toolTipOption.activeBgColor, toolTipOption.activeBgOpacity));
+  context.rect(offsetX - eachSpacing / 2, startY, eachSpacing, endY - startY);
+  context.closePath();
+  context.fill();
+}
+
+function drawToolTip(textList, offset, opts, config, context, eachSpacing, xAxisPoints) {
+  var toolTipOption = assign({}, {
+    showBox: true,
+    bgColor: '#000000',
+    bgOpacity: 0.7,
+    fontColor: '#FFFFFF' },
+  opts.extra.tooltip);
+  var legendWidth = 4 * opts.pixelRatio;
+  var legendMarginRight = 5 * opts.pixelRatio;
+  var arrowWidth = 8 * opts.pixelRatio;
+  var isOverRightBorder = false;
+  if (opts.type == 'line' || opts.type == 'area' || opts.type == 'candle' || opts.type == 'mix') {
+    drawToolTipSplitLine(opts.tooltip.offset.x, opts, config, context);
+  }
+
+  offset = assign({
+    x: 0,
+    y: 0 },
+  offset);
+  offset.y -= 8 * opts.pixelRatio;
+  var textWidth = textList.map(function (item) {
+    return measureText(item.text, config.fontSize);
+  });
+  var toolTipWidth = legendWidth + legendMarginRight + 4 * config.toolTipPadding + Math.max.apply(null, textWidth);
+  var toolTipHeight = 2 * config.toolTipPadding + textList.length * config.toolTipLineHeight;
+
+  if (toolTipOption.showBox == false) {return;}
+  // if beyond the right border
+  if (offset.x - Math.abs(opts._scrollDistance_) + arrowWidth + toolTipWidth > opts.width) {
+    isOverRightBorder = true;
+  }
+  if (toolTipHeight + offset.y > opts.height) {
+    offset.y = opts.height - toolTipHeight;
+  }
+  // draw background rect
+  context.beginPath();
+  context.setFillStyle(hexToRgb(toolTipOption.bgColor || config.toolTipBackground, toolTipOption.bgOpacity || config.toolTipOpacity));
+  if (isOverRightBorder) {
+    context.moveTo(offset.x, offset.y + 10 * opts.pixelRatio);
+    context.lineTo(offset.x - arrowWidth, offset.y + 10 * opts.pixelRatio - 5 * opts.pixelRatio);
+    context.lineTo(offset.x - arrowWidth, offset.y);
+    context.lineTo(offset.x - arrowWidth - Math.round(toolTipWidth), offset.y);
+    context.lineTo(offset.x - arrowWidth - Math.round(toolTipWidth), offset.y + toolTipHeight);
+    context.lineTo(offset.x - arrowWidth, offset.y + toolTipHeight);
+    context.lineTo(offset.x - arrowWidth, offset.y + 10 * opts.pixelRatio + 5 * opts.pixelRatio);
+    context.lineTo(offset.x, offset.y + 10 * opts.pixelRatio);
+  } else {
+    context.moveTo(offset.x, offset.y + 10 * opts.pixelRatio);
+    context.lineTo(offset.x + arrowWidth, offset.y + 10 * opts.pixelRatio - 5 * opts.pixelRatio);
+    context.lineTo(offset.x + arrowWidth, offset.y);
+    context.lineTo(offset.x + arrowWidth + Math.round(toolTipWidth), offset.y);
+    context.lineTo(offset.x + arrowWidth + Math.round(toolTipWidth), offset.y + toolTipHeight);
+    context.lineTo(offset.x + arrowWidth, offset.y + toolTipHeight);
+    context.lineTo(offset.x + arrowWidth, offset.y + 10 * opts.pixelRatio + 5 * opts.pixelRatio);
+    context.lineTo(offset.x, offset.y + 10 * opts.pixelRatio);
+  }
+
+  context.closePath();
+  context.fill();
+
+  // draw legend
+  textList.forEach(function (item, index) {
+    if (item.color !== null) {
+      context.beginPath();
+      context.setFillStyle(item.color);
+      var startX = offset.x + arrowWidth + 2 * config.toolTipPadding;
+      var startY = offset.y + (config.toolTipLineHeight - config.fontSize) / 2 + config.toolTipLineHeight * index +
+      config.toolTipPadding + 1;
+      if (isOverRightBorder) {
+        startX = offset.x - toolTipWidth - arrowWidth + 2 * config.toolTipPadding;
+      }
+      context.fillRect(startX, startY, legendWidth, config.fontSize);
+      context.closePath();
+    }
+  });
+
+  // draw text list
+
+  textList.forEach(function (item, index) {
+    var startX = offset.x + arrowWidth + 2 * config.toolTipPadding + legendWidth + legendMarginRight;
+    if (isOverRightBorder) {
+      startX = offset.x - toolTipWidth - arrowWidth + 2 * config.toolTipPadding + +legendWidth + legendMarginRight;
+    }
+    var startY = offset.y + (config.toolTipLineHeight - config.fontSize) / 2 + config.toolTipLineHeight * index +
+    config.toolTipPadding;
+    context.beginPath();
+    context.setFontSize(config.fontSize);
+    context.setFillStyle(toolTipOption.fontColor);
+    context.fillText(item.text, startX, startY + config.fontSize);
+    context.closePath();
+    context.stroke();
+  });
+}
+
+function drawYAxisTitle(title, opts, config, context) {
+  var startX = config.xAxisHeight + (opts.height - config.xAxisHeight - measureText(title)) / 2;
+  context.save();
+  context.beginPath();
+  context.setFontSize(config.fontSize);
+  context.setFillStyle(opts.yAxis.titleFontColor || '#333333');
+  context.translate(0, opts.height);
+  context.rotate(-90 * Math.PI / 180);
+  context.fillText(title, startX, opts.padding[3] + 0.5 * config.fontSize);
+  context.closePath();
+  context.stroke();
+  context.restore();
+}
+
+function drawColumnDataPoints(series, opts, config, context) {
+  var process = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+  var xAxisData = opts.chartData.xAxisData,
+  xAxisPoints = xAxisData.xAxisPoints,
+  eachSpacing = xAxisData.eachSpacing;
+  var columnOption = assign({}, {
+    type: 'group',
+    width: eachSpacing / 2,
+    meter: {
+      border: 4,
+      fillColor: '#FFFFFF' } },
+
+  opts.extra.column);
+
+  var calPoints = [];
+  context.save();
+
+  var leftNum = -2;
+  var rightNum = xAxisPoints.length + 2;
+
+  if (opts._scrollDistance_ && opts._scrollDistance_ !== 0 && opts.enableScroll === true) {
+    context.translate(opts._scrollDistance_, 0);
+    leftNum = Math.floor(-opts._scrollDistance_ / eachSpacing) - 2;
+    rightNum = leftNum + opts.xAxis.itemCount + 4;
+  }
+  if (opts.tooltip && opts.tooltip.textList && opts.tooltip.textList.length && process === 1) {
+    drawToolTipSplitArea(opts.tooltip.offset.x, opts, config, context, eachSpacing);
+  }
+
+  series.forEach(function (eachSeries, seriesIndex) {
+    var ranges, minRange, maxRange;
+    ranges = [].concat(opts.chartData.yAxisData.ranges[eachSeries.index]);
+    minRange = ranges.pop();
+    maxRange = ranges.shift();
+
+    var data = eachSeries.data;
+    switch (columnOption.type) {
+      case 'group':
+        var points = getDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, process);
+        var tooltipPoints = getStackDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, seriesIndex, series, process);
+        calPoints.push(tooltipPoints);
+        points = fixColumeData(points, eachSpacing, series.length, seriesIndex, config, opts);
+        for (var i = 0; i < points.length; i++) {
+          var item = points[i];
+          if (item !== null && i > leftNum && i < rightNum) {
+            context.beginPath();
+            context.setStrokeStyle(item.color || eachSeries.color);
+            context.setLineWidth(1);
+            context.setFillStyle(item.color || eachSeries.color);
+            var startX = item.x - item.width / 2;
+            var height = opts.height - item.y - opts.area[2];
+            context.moveTo(startX - 1, item.y);
+            context.lineTo(startX + item.width - 2, item.y);
+            context.lineTo(startX + item.width - 2, opts.height - opts.area[2]);
+            context.lineTo(startX, opts.height - opts.area[2]);
+            context.lineTo(startX, item.y);
+            context.closePath();
+            context.stroke();
+            context.fill();
+          }
+        };
+        break;
+      case 'stack':
+        // 绘制堆叠数据图
+        var points = getStackDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, seriesIndex, series, process);
+        calPoints.push(points);
+        points = fixColumeStackData(points, eachSpacing, series.length, seriesIndex, config, opts, series);
+
+        for (var _i13 = 0; _i13 < points.length; _i13++) {
+          var _item7 = points[_i13];
+          if (_item7 !== null && _i13 > leftNum && _i13 < rightNum) {
+            context.beginPath();
+            context.setFillStyle(_item7.color || eachSeries.color);
+            var startX = _item7.x - _item7.width / 2 + 1;
+            var height = opts.height - _item7.y - opts.area[2];
+            var height0 = opts.height - _item7.y0 - opts.area[2];
+            if (seriesIndex > 0) {
+              height -= height0;
+            }
+            context.moveTo(startX, _item7.y);
+            context.fillRect(startX, _item7.y, _item7.width - 2, height);
+            context.closePath();
+            context.fill();
+          }
+        };
+        break;
+      case 'meter':
+        // 绘制温度计数据图
+        var points = getDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, process);
+        calPoints.push(points);
+        points = fixColumeMeterData(points, eachSpacing, series.length, seriesIndex, config, opts, columnOption.meter.border);
+        if (seriesIndex == 0) {
+          for (var _i14 = 0; _i14 < points.length; _i14++) {
+            var _item8 = points[_i14];
+            if (_item8 !== null && _i14 > leftNum && _i14 < rightNum) {
+              //画背景颜色
+              context.beginPath();
+              context.setFillStyle(columnOption.meter.fillColor);
+              var startX = _item8.x - _item8.width / 2;
+              var height = opts.height - _item8.y - opts.area[2];
+              context.moveTo(startX, _item8.y);
+              context.fillRect(startX, _item8.y, _item8.width, height);
+              context.closePath();
+              context.fill();
+              //画边框线
+              if (columnOption.meter.border > 0) {
+                context.beginPath();
+                context.setStrokeStyle(eachSeries.color);
+                context.setLineWidth(columnOption.meter.border * opts.pixelRatio);
+                context.moveTo(startX + columnOption.meter.border * 0.5, _item8.y + height);
+                context.lineTo(startX + columnOption.meter.border * 0.5, _item8.y + columnOption.meter.border * 0.5);
+                context.lineTo(startX + _item8.width - columnOption.meter.border * 0.5, _item8.y + columnOption.meter.border * 0.5);
+                context.lineTo(startX + _item8.width - columnOption.meter.border * 0.5, _item8.y + height);
+                context.stroke();
+              }
+            }
+          };
+        } else {
+          for (var _i15 = 0; _i15 < points.length; _i15++) {
+            var _item9 = points[_i15];
+            if (_item9 !== null && _i15 > leftNum && _i15 < rightNum) {
+              context.beginPath();
+              context.setFillStyle(_item9.color || eachSeries.color);
+              var startX = _item9.x - _item9.width / 2;
+              var height = opts.height - _item9.y - opts.area[2];
+              context.moveTo(startX, _item9.y);
+              context.fillRect(startX, _item9.y, _item9.width, height);
+              context.closePath();
+              context.fill();
+            }
+          };
+        }
+        break;}
+
+  });
+
+  if (opts.dataLabel !== false && process === 1) {
+    series.forEach(function (eachSeries, seriesIndex) {
+      var ranges, minRange, maxRange;
+      ranges = [].concat(opts.chartData.yAxisData.ranges[eachSeries.index]);
+      minRange = ranges.pop();
+      maxRange = ranges.shift();
+      var data = eachSeries.data;
+      switch (columnOption.type) {
+        case 'group':
+          var points = getDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, process);
+          points = fixColumeData(points, eachSpacing, series.length, seriesIndex, config, opts);
+          drawPointText(points, eachSeries, config, context);
+          break;
+        case 'stack':
+          var points = getStackDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, seriesIndex, series, process);
+          drawPointText(points, eachSeries, config, context);
+          break;
+        case 'meter':
+          var points = getDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, process);
+          drawPointText(points, eachSeries, config, context);
+          break;}
+
+    });
+  }
+
+  context.restore();
+
+  return {
+    xAxisPoints: xAxisPoints,
+    calPoints: calPoints,
+    eachSpacing: eachSpacing };
+
+}
+
+function drawCandleDataPoints(series, seriesMA, opts, config, context) {
+  var process = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 1;
+  var candleOption = assign({}, {
+    color: {},
+    average: {} },
+  opts.extra.candle);
+  candleOption.color = assign({}, {
+    upLine: '#f04864',
+    upFill: '#f04864',
+    downLine: '#2fc25b',
+    downFill: '#2fc25b' },
+  candleOption.color);
+  candleOption.average = assign({}, {
+    show: false,
+    name: [],
+    day: [],
+    color: config.colors },
+  candleOption.average);
+  opts.extra.candle = candleOption;
+
+  var xAxisData = opts.chartData.xAxisData,
+  xAxisPoints = xAxisData.xAxisPoints,
+  eachSpacing = xAxisData.eachSpacing;
+
+  var calPoints = [];
+
+  context.save();
+
+  var leftNum = -2;
+  var rightNum = xAxisPoints.length + 2;
+  var leftSpace = 0;
+  var rightSpace = opts.width + eachSpacing;
+
+  if (opts._scrollDistance_ && opts._scrollDistance_ !== 0 && opts.enableScroll === true) {
+    context.translate(opts._scrollDistance_, 0);
+    leftNum = Math.floor(-opts._scrollDistance_ / eachSpacing) - 2;
+    rightNum = leftNum + opts.xAxis.itemCount + 4;
+    leftSpace = -opts._scrollDistance_ - eachSpacing + opts.area[3];
+    rightSpace = leftSpace + (opts.xAxis.itemCount + 4) * eachSpacing;
+  }
+
+  //画均线
+  if (candleOption.average.show) {
+    seriesMA.forEach(function (eachSeries, seriesIndex) {
+      var ranges, minRange, maxRange;
+      ranges = [].concat(opts.chartData.yAxisData.ranges[eachSeries.index]);
+      minRange = ranges.pop();
+      maxRange = ranges.shift();
+
+      var data = eachSeries.data;
+      var points = getDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, process);
+      var splitPointList = splitPoints(points);
+
+      for (var i = 0; i < splitPointList.length; i++) {
+        var _points = splitPointList[i];
+        context.beginPath();
+        context.setStrokeStyle(eachSeries.color);
+        context.setLineWidth(1);
+        if (_points.length === 1) {
+          context.moveTo(_points[0].x, _points[0].y);
+          context.arc(_points[0].x, _points[0].y, 1, 0, 2 * Math.PI);
+        } else {
+          context.moveTo(_points[0].x, _points[0].y);
+          var startPoint = 0;
+          for (var j = 0; j < _points.length; j++) {
+            var item = _points[j];
+            if (startPoint == 0 && item.x > leftSpace) {
+              context.moveTo(item.x, item.y);
+              startPoint = 1;
+            }
+            if (j > 0 && item.x > leftSpace && item.x < rightSpace) {
+              var ctrlPoint = createCurveControlPoints(_points, j - 1);
+              context.bezierCurveTo(ctrlPoint.ctrA.x, ctrlPoint.ctrA.y, ctrlPoint.ctrB.x, ctrlPoint.ctrB.y, item.x, item.y);
+            }
+          }
+          context.moveTo(_points[0].x, _points[0].y);
+        }
+        context.closePath();
+        context.stroke();
+      }
+    });
+  }
+  //画K线
+  series.forEach(function (eachSeries, seriesIndex) {
+    var ranges, minRange, maxRange;
+    ranges = [].concat(opts.chartData.yAxisData.ranges[eachSeries.index]);
+    minRange = ranges.pop();
+    maxRange = ranges.shift();
+    var data = eachSeries.data;
+    var points = getCandleDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, process);
+    calPoints.push(points);
+    var splitPointList = splitPoints(points);
+
+    for (var i = 0; i < splitPointList[0].length; i++) {
+      if (i > leftNum && i < rightNum) {
+        var item = splitPointList[0][i];
+        context.beginPath();
+        //如果上涨
+        if (data[i][1] - data[i][0] > 0) {
+          context.setStrokeStyle(candleOption.color.upLine);
+          context.setFillStyle(candleOption.color.upFill);
+          context.setLineWidth(1 * opts.pixelRatio);
+          context.moveTo(item[3].x, item[3].y); //顶点
+          context.lineTo(item[1].x, item[1].y); //收盘中间点
+          context.lineTo(item[1].x - eachSpacing / 4, item[1].y); //收盘左侧点
+          context.lineTo(item[0].x - eachSpacing / 4, item[0].y); //开盘左侧点
+          context.lineTo(item[0].x, item[0].y); //开盘中间点
+          context.lineTo(item[2].x, item[2].y); //底点
+          context.lineTo(item[0].x, item[0].y); //开盘中间点
+          context.lineTo(item[0].x + eachSpacing / 4, item[0].y); //开盘右侧点
+          context.lineTo(item[1].x + eachSpacing / 4, item[1].y); //收盘右侧点
+          context.lineTo(item[1].x, item[1].y); //收盘中间点
+          context.moveTo(item[3].x, item[3].y); //顶点
+        } else {
+          context.setStrokeStyle(candleOption.color.downLine);
+          context.setFillStyle(candleOption.color.downFill);
+          context.setLineWidth(1 * opts.pixelRatio);
+          context.moveTo(item[3].x, item[3].y); //顶点
+          context.lineTo(item[0].x, item[0].y); //开盘中间点
+          context.lineTo(item[0].x - eachSpacing / 4, item[0].y); //开盘左侧点
+          context.lineTo(item[1].x - eachSpacing / 4, item[1].y); //收盘左侧点
+          context.lineTo(item[1].x, item[1].y); //收盘中间点
+          context.lineTo(item[2].x, item[2].y); //底点
+          context.lineTo(item[1].x, item[1].y); //收盘中间点
+          context.lineTo(item[1].x + eachSpacing / 4, item[1].y); //收盘右侧点
+          context.lineTo(item[0].x + eachSpacing / 4, item[0].y); //开盘右侧点
+          context.lineTo(item[0].x, item[0].y); //开盘中间点
+          context.moveTo(item[3].x, item[3].y); //顶点
+        }
+        context.closePath();
+        context.fill();
+        context.stroke();
+      }
+    }
+  });
+
+  context.restore();
+
+  return {
+    xAxisPoints: xAxisPoints,
+    calPoints: calPoints,
+    eachSpacing: eachSpacing };
+
+}
+
+function drawAreaDataPoints(series, opts, config, context) {
+  var process = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+  var areaOption = assign({}, {
+    type: 'straight',
+    opacity: 0.2,
+    addLine: false,
+    width: 2,
+    gradient: false },
+  opts.extra.area);
+
+  var xAxisData = opts.chartData.xAxisData,
+  xAxisPoints = xAxisData.xAxisPoints,
+  eachSpacing = xAxisData.eachSpacing;
+
+  var endY = opts.height - opts.area[2];
+  var calPoints = [];
+
+  context.save();
+  var leftSpace = 0;
+  var rightSpace = opts.width + eachSpacing;
+  if (opts._scrollDistance_ && opts._scrollDistance_ !== 0 && opts.enableScroll === true) {
+    context.translate(opts._scrollDistance_, 0);
+    leftSpace = -opts._scrollDistance_ - eachSpacing + opts.area[3];
+    rightSpace = leftSpace + (opts.xAxis.itemCount + 4) * eachSpacing;
+  }
+
+  series.forEach(function (eachSeries, seriesIndex) {
+    var ranges, minRange, maxRange;
+    ranges = [].concat(opts.chartData.yAxisData.ranges[eachSeries.index]);
+    minRange = ranges.pop();
+    maxRange = ranges.shift();
+    var data = eachSeries.data;
+    var points = getDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, process);
+    calPoints.push(points);
+
+    var splitPointList = splitPoints(points);
+    for (var i = 0; i < splitPointList.length; i++) {
+      var _points2 = splitPointList[i];
+      // 绘制区域数
+      context.beginPath();
+      context.setStrokeStyle(hexToRgb(eachSeries.color, areaOption.opacity));
+      if (areaOption.gradient) {
+        var gradient = context.createLinearGradient(0, opts.area[0], 0, opts.height - opts.area[2]);
+        gradient.addColorStop('0', hexToRgb(eachSeries.color, areaOption.opacity));
+        gradient.addColorStop('1.0', hexToRgb("#FFFFFF", 0.1));
+        context.setFillStyle(gradient);
+      } else {
+        context.setFillStyle(hexToRgb(eachSeries.color, areaOption.opacity));
+      }
+      context.setLineWidth(areaOption.width * opts.pixelRatio);
+      if (_points2.length > 1) {
+        var firstPoint = _points2[0];
+        var lastPoint = _points2[_points2.length - 1];
+        context.moveTo(firstPoint.x, firstPoint.y);
+        var startPoint = 0;
+        if (areaOption.type === 'curve') {
+          for (var j = 0; j < _points2.length; j++) {
+            var item = _points2[j];
+            if (startPoint == 0 && item.x > leftSpace) {
+              context.moveTo(item.x, item.y);
+              startPoint = 1;
+            }
+            if (j > 0 && item.x > leftSpace && item.x < rightSpace) {
+              var ctrlPoint = createCurveControlPoints(_points2, j - 1);
+              context.bezierCurveTo(ctrlPoint.ctrA.x, ctrlPoint.ctrA.y, ctrlPoint.ctrB.x, ctrlPoint.ctrB.y, item.x, item.y);
+            }
+          };
+        } else {
+          for (var _j = 0; _j < _points2.length; _j++) {
+            var _item10 = _points2[_j];
+            if (startPoint == 0 && _item10.x > leftSpace) {
+              context.moveTo(_item10.x, _item10.y);
+              startPoint = 1;
+            }
+            if (_j > 0 && _item10.x > leftSpace && _item10.x < rightSpace) {
+              context.lineTo(_item10.x, _item10.y);
+            }
+          };
+        }
+
+        context.lineTo(lastPoint.x, endY);
+        context.lineTo(firstPoint.x, endY);
+        context.lineTo(firstPoint.x, firstPoint.y);
+      } else {
+        var _item11 = _points2[0];
+        context.moveTo(_item11.x - eachSpacing / 2, _item11.y);
+        context.lineTo(_item11.x + eachSpacing / 2, _item11.y);
+        context.lineTo(_item11.x + eachSpacing / 2, endY);
+        context.lineTo(_item11.x - eachSpacing / 2, endY);
+        context.moveTo(_item11.x - eachSpacing / 2, _item11.y);
+      }
+      context.closePath();
+      context.fill();
+
+      //画连线
+      if (areaOption.addLine) {
+        if (eachSeries.lineType == 'dash') {
+          var dashLength = eachSeries.dashLength ? eachSeries.dashLength : 8;
+          dashLength *= opts.pixelRatio;
+          context.setLineDash([dashLength, dashLength]);
+        }
+        context.beginPath();
+        context.setStrokeStyle(eachSeries.color);
+        context.setLineWidth(areaOption.width * opts.pixelRatio);
+        if (_points2.length === 1) {
+          context.moveTo(_points2[0].x, _points2[0].y);
+          context.arc(_points2[0].x, _points2[0].y, 1, 0, 2 * Math.PI);
+        } else {
+          context.moveTo(_points2[0].x, _points2[0].y);
+          var _startPoint = 0;
+          if (areaOption.type === 'curve') {
+            for (var _j2 = 0; _j2 < _points2.length; _j2++) {
+              var _item12 = _points2[_j2];
+              if (_startPoint == 0 && _item12.x > leftSpace) {
+                context.moveTo(_item12.x, _item12.y);
+                _startPoint = 1;
+              }
+              if (_j2 > 0 && _item12.x > leftSpace && _item12.x < rightSpace) {
+                var _ctrlPoint = createCurveControlPoints(_points2, _j2 - 1);
+                context.bezierCurveTo(_ctrlPoint.ctrA.x, _ctrlPoint.ctrA.y, _ctrlPoint.ctrB.x, _ctrlPoint.ctrB.y, _item12.x, _item12.y);
+              }
+            };
+          } else {
+            for (var _j3 = 0; _j3 < _points2.length; _j3++) {
+              var _item13 = _points2[_j3];
+              if (_startPoint == 0 && _item13.x > leftSpace) {
+                context.moveTo(_item13.x, _item13.y);
+                _startPoint = 1;
+              }
+              if (_j3 > 0 && _item13.x > leftSpace && _item13.x < rightSpace) {
+                context.lineTo(_item13.x, _item13.y);
+              }
+            };
+          }
+          context.moveTo(_points2[0].x, _points2[0].y);
+        }
+        context.stroke();
+        context.setLineDash([]);
+      }
+    }
+
+    //画点
+    if (opts.dataPointShape !== false) {
+      drawPointShape(points, eachSeries.color, eachSeries.pointShape, context, opts);
+    }
+
+  });
+
+  if (opts.dataLabel !== false && process === 1) {
+    series.forEach(function (eachSeries, seriesIndex) {
+      var ranges, minRange, maxRange;
+      ranges = [].concat(opts.chartData.yAxisData.ranges[eachSeries.index]);
+      minRange = ranges.pop();
+      maxRange = ranges.shift();
+      var data = eachSeries.data;
+      var points = getDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, process);
+      drawPointText(points, eachSeries, config, context);
+    });
+  }
+
+  context.restore();
+
+  return {
+    xAxisPoints: xAxisPoints,
+    calPoints: calPoints,
+    eachSpacing: eachSpacing };
+
+}
+
+function drawLineDataPoints(series, opts, config, context) {
+  var process = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+  var lineOption = assign({}, {
+    type: 'straight',
+    width: 2 },
+  opts.extra.line);
+  lineOption.width *= opts.pixelRatio;
+
+  var xAxisData = opts.chartData.xAxisData,
+  xAxisPoints = xAxisData.xAxisPoints,
+  eachSpacing = xAxisData.eachSpacing;
+  var calPoints = [];
+
+  context.save();
+  var leftSpace = 0;
+  var rightSpace = opts.width + eachSpacing;
+  if (opts._scrollDistance_ && opts._scrollDistance_ !== 0 && opts.enableScroll === true) {
+    context.translate(opts._scrollDistance_, 0);
+    leftSpace = -opts._scrollDistance_ - eachSpacing + opts.area[3];
+    rightSpace = leftSpace + (opts.xAxis.itemCount + 4) * eachSpacing;
+  }
+
+  series.forEach(function (eachSeries, seriesIndex) {
+    var ranges, minRange, maxRange;
+    ranges = [].concat(opts.chartData.yAxisData.ranges[eachSeries.index]);
+    minRange = ranges.pop();
+    maxRange = ranges.shift();
+    var data = eachSeries.data;
+    var points = getDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, process);
+    calPoints.push(points);
+    var splitPointList = splitPoints(points);
+
+    if (eachSeries.lineType == 'dash') {
+      var dashLength = eachSeries.dashLength ? eachSeries.dashLength : 8;
+      dashLength *= opts.pixelRatio;
+      context.setLineDash([dashLength, dashLength]);
+    }
+    context.beginPath();
+    context.setStrokeStyle(eachSeries.color);
+    context.setLineWidth(lineOption.width);
+
+    splitPointList.forEach(function (points, index) {
+
+      if (points.length === 1) {
+        context.moveTo(points[0].x, points[0].y);
+        context.arc(points[0].x, points[0].y, 1, 0, 2 * Math.PI);
+      } else {
+        context.moveTo(points[0].x, points[0].y);
+        var startPoint = 0;
+        if (lineOption.type === 'curve') {
+          for (var j = 0; j < points.length; j++) {
+            var item = points[j];
+            if (startPoint == 0 && item.x > leftSpace) {
+              context.moveTo(item.x, item.y);
+              startPoint = 1;
+            }
+            if (j > 0 && item.x > leftSpace && item.x < rightSpace) {
+              var ctrlPoint = createCurveControlPoints(points, j - 1);
+              context.bezierCurveTo(ctrlPoint.ctrA.x, ctrlPoint.ctrA.y, ctrlPoint.ctrB.x, ctrlPoint.ctrB.y, item.x, item.y);
+            }
+          };
+        } else {
+          for (var _j4 = 0; _j4 < points.length; _j4++) {
+            var _item14 = points[_j4];
+            if (startPoint == 0 && _item14.x > leftSpace) {
+              context.moveTo(_item14.x, _item14.y);
+              startPoint = 1;
+            }
+            if (_j4 > 0 && _item14.x > leftSpace && _item14.x < rightSpace) {
+              context.lineTo(_item14.x, _item14.y);
+            }
+          };
+        }
+        context.moveTo(points[0].x, points[0].y);
+      }
+
+    });
+
+    context.stroke();
+    context.setLineDash([]);
+
+    if (opts.dataPointShape !== false) {
+      drawPointShape(points, eachSeries.color, eachSeries.pointShape, context, opts);
+    }
+  });
+
+  if (opts.dataLabel !== false && process === 1) {
+    series.forEach(function (eachSeries, seriesIndex) {
+      var ranges, minRange, maxRange;
+      ranges = [].concat(opts.chartData.yAxisData.ranges[eachSeries.index]);
+      minRange = ranges.pop();
+      maxRange = ranges.shift();
+      var data = eachSeries.data;
+      var points = getDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, process);
+      drawPointText(points, eachSeries, config, context);
+    });
+  }
+
+  context.restore();
+
+  return {
+    xAxisPoints: xAxisPoints,
+    calPoints: calPoints,
+    eachSpacing: eachSpacing };
+
+}
+
+function drawMixDataPoints(series, opts, config, context) {
+  var process = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+
+  var xAxisData = opts.chartData.xAxisData,
+  xAxisPoints = xAxisData.xAxisPoints,
+  eachSpacing = xAxisData.eachSpacing;
+
+  var endY = opts.height - opts.area[2];
+  var calPoints = [];
+
+  var columnIndex = 0;
+  var columnLength = 0;
+  series.forEach(function (eachSeries, seriesIndex) {
+    if (eachSeries.type == 'column') {
+      columnLength += 1;
+    }
+  });
+  context.save();
+  var leftNum = -2;
+  var rightNum = xAxisPoints.length + 2;
+  var leftSpace = 0;
+  var rightSpace = opts.width + eachSpacing;
+  if (opts._scrollDistance_ && opts._scrollDistance_ !== 0 && opts.enableScroll === true) {
+    context.translate(opts._scrollDistance_, 0);
+    leftNum = Math.floor(-opts._scrollDistance_ / eachSpacing) - 2;
+    rightNum = leftNum + opts.xAxis.itemCount + 4;
+    leftSpace = -opts._scrollDistance_ - eachSpacing + opts.area[3];
+    rightSpace = leftSpace + (opts.xAxis.itemCount + 4) * eachSpacing;
+  }
+
+  series.forEach(function (eachSeries, seriesIndex) {
+    var ranges, minRange, maxRange;
+
+    ranges = [].concat(opts.chartData.yAxisData.ranges[eachSeries.index]);
+    minRange = ranges.pop();
+    maxRange = ranges.shift();
+
+    var data = eachSeries.data;
+    var points = getDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, process);
+    calPoints.push(points);
+
+    // 绘制柱状数据图
+    if (eachSeries.type == 'column') {
+      points = fixColumeData(points, eachSpacing, columnLength, columnIndex, config, opts);
+      for (var i = 0; i < points.length; i++) {
+        var item = points[i];
+        if (item !== null && i > leftNum && i < rightNum) {
+          context.beginPath();
+          context.setStrokeStyle(item.color || eachSeries.color);
+          context.setLineWidth(1);
+          context.setFillStyle(item.color || eachSeries.color);
+          var startX = item.x - item.width / 2;
+          var height = opts.height - item.y - opts.area[2];
+          context.moveTo(startX, item.y);
+          context.moveTo(startX - 1, item.y);
+          context.lineTo(startX + item.width - 2, item.y);
+          context.lineTo(startX + item.width - 2, opts.height - opts.area[2]);
+          context.lineTo(startX, opts.height - opts.area[2]);
+          context.lineTo(startX, item.y);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.closePath();
+          context.fill();
+        }
+      }
+      columnIndex += 1;
+    }
+
+    //绘制区域图数据
+
+    if (eachSeries.type == 'area') {
+      var _splitPointList = splitPoints(points);
+      for (var _i16 = 0; _i16 < _splitPointList.length; _i16++) {
+        var _points3 = _splitPointList[_i16];
+        // 绘制区域数据
+        context.beginPath();
+        context.setStrokeStyle(eachSeries.color);
+        context.setFillStyle(hexToRgb(eachSeries.color, 0.2));
+        context.setLineWidth(2 * opts.pixelRatio);
+        if (_points3.length > 1) {
+          var firstPoint = _points3[0];
+          var lastPoint = _points3[_points3.length - 1];
+          context.moveTo(firstPoint.x, firstPoint.y);
+          var startPoint = 0;
+          if (eachSeries.style === 'curve') {
+            for (var j = 0; j < _points3.length; j++) {
+              var _item15 = _points3[j];
+              if (startPoint == 0 && _item15.x > leftSpace) {
+                context.moveTo(_item15.x, _item15.y);
+                startPoint = 1;
+              }
+              if (j > 0 && _item15.x > leftSpace && _item15.x < rightSpace) {
+                var ctrlPoint = createCurveControlPoints(_points3, j - 1);
+                context.bezierCurveTo(ctrlPoint.ctrA.x, ctrlPoint.ctrA.y, ctrlPoint.ctrB.x, ctrlPoint.ctrB.y, _item15.x, _item15.y);
+              }
+            };
+          } else {
+            for (var _j5 = 0; _j5 < _points3.length; _j5++) {
+              var _item16 = _points3[_j5];
+              if (startPoint == 0 && _item16.x > leftSpace) {
+                context.moveTo(_item16.x, _item16.y);
+                startPoint = 1;
+              }
+              if (_j5 > 0 && _item16.x > leftSpace && _item16.x < rightSpace) {
+                context.lineTo(_item16.x, _item16.y);
+              }
+            };
+          }
+          context.lineTo(lastPoint.x, endY);
+          context.lineTo(firstPoint.x, endY);
+          context.lineTo(firstPoint.x, firstPoint.y);
+        } else {
+          var _item17 = _points3[0];
+          context.moveTo(_item17.x - eachSpacing / 2, _item17.y);
+          context.lineTo(_item17.x + eachSpacing / 2, _item17.y);
+          context.lineTo(_item17.x + eachSpacing / 2, endY);
+          context.lineTo(_item17.x - eachSpacing / 2, endY);
+          context.moveTo(_item17.x - eachSpacing / 2, _item17.y);
+        }
+        context.closePath();
+        context.fill();
+      }
+    }
+
+    // 绘制折线数据图
+    if (eachSeries.type == 'line') {
+      var splitPointList = splitPoints(points);
+      splitPointList.forEach(function (points, index) {
+        if (eachSeries.lineType == 'dash') {
+          var dashLength = eachSeries.dashLength ? eachSeries.dashLength : 8;
+          dashLength *= opts.pixelRatio;
+          context.setLineDash([dashLength, dashLength]);
+        }
+        context.beginPath();
+        context.setStrokeStyle(eachSeries.color);
+        context.setLineWidth(2 * opts.pixelRatio);
+        if (points.length === 1) {
+          context.moveTo(points[0].x, points[0].y);
+          context.arc(points[0].x, points[0].y, 1, 0, 2 * Math.PI);
+        } else {
+          context.moveTo(points[0].x, points[0].y);
+          var _startPoint2 = 0;
+          if (eachSeries.style == 'curve') {
+            for (var _j6 = 0; _j6 < points.length; _j6++) {
+              var _item18 = points[_j6];
+              if (_startPoint2 == 0 && _item18.x > leftSpace) {
+                context.moveTo(_item18.x, _item18.y);
+                _startPoint2 = 1;
+              }
+              if (_j6 > 0 && _item18.x > leftSpace && _item18.x < rightSpace) {
+                var ctrlPoint = createCurveControlPoints(points, _j6 - 1);
+                context.bezierCurveTo(ctrlPoint.ctrA.x, ctrlPoint.ctrA.y, ctrlPoint.ctrB.x, ctrlPoint.ctrB.y, _item18.x, _item18.y);
+              }
+            }
+          } else {
+            for (var _j7 = 0; _j7 < points.length; _j7++) {
+              var _item19 = points[_j7];
+              if (_startPoint2 == 0 && _item19.x > leftSpace) {
+                context.moveTo(_item19.x, _item19.y);
+                _startPoint2 = 1;
+              }
+              if (_j7 > 0 && _item19.x > leftSpace && _item19.x < rightSpace) {
+                context.lineTo(_item19.x, _item19.y);
+              }
+            }
+          }
+          context.moveTo(points[0].x, points[0].y);
+        }
+        context.stroke();
+        context.setLineDash([]);
+      });
+    }
+
+    // 绘制点数据图
+    if (eachSeries.type == 'point') {
+      eachSeries.addPoint = true;
+    }
+
+    if (eachSeries.addPoint == true && eachSeries.type !== 'column') {
+      drawPointShape(points, eachSeries.color, eachSeries.pointShape, context, opts);
+    }
+  });
+  if (opts.dataLabel !== false && process === 1) {
+    var columnIndex = 0;
+    series.forEach(function (eachSeries, seriesIndex) {
+      var ranges, minRange, maxRange;
+
+      ranges = [].concat(opts.chartData.yAxisData.ranges[eachSeries.index]);
+      minRange = ranges.pop();
+      maxRange = ranges.shift();
+
+      var data = eachSeries.data;
+      var points = getDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts, config, process);
+      if (eachSeries.type !== 'column') {
+        drawPointText(points, eachSeries, config, context);
+      } else {
+        points = fixColumeData(points, eachSpacing, columnLength, columnIndex, config, opts);
+        drawPointText(points, eachSeries, config, context);
+        columnIndex += 1;
+      }
+
+    });
+  }
+
+  context.restore();
+
+  return {
+    xAxisPoints: xAxisPoints,
+    calPoints: calPoints,
+    eachSpacing: eachSpacing };
+
+}
+
+function drawToolTipBridge(opts, config, context, process, eachSpacing, xAxisPoints) {
+  var toolTipOption = opts.extra.tooltip || {};
+  if (toolTipOption.horizentalLine && opts.tooltip && process === 1 && (opts.type == 'line' || opts.type == 'area' || opts.type == 'column' || opts.type == 'candle' || opts.type == 'mix')) {
+    drawToolTipHorizentalLine(opts, config, context, eachSpacing, xAxisPoints);
+  }
+  context.save();
+  if (opts._scrollDistance_ && opts._scrollDistance_ !== 0 && opts.enableScroll === true) {
+    context.translate(opts._scrollDistance_, 0);
+  }
+  if (opts.tooltip && opts.tooltip.textList && opts.tooltip.textList.length && process === 1) {
+    drawToolTip(opts.tooltip.textList, opts.tooltip.offset, opts, config, context, eachSpacing, xAxisPoints);
+  }
+  context.restore();
+
+}
+
+function drawXAxis(categories, opts, config, context) {
+
+  var xAxisData = opts.chartData.xAxisData,
+  xAxisPoints = xAxisData.xAxisPoints,
+  startX = xAxisData.startX,
+  endX = xAxisData.endX,
+  eachSpacing = xAxisData.eachSpacing;
+  var boundaryGap = 'center';
+  if (opts.type == 'line' || opts.type == 'area') {
+    boundaryGap = opts.xAxis.boundaryGap;
+  }
+  var startY = opts.height - opts.area[2];
+  var endY = opts.area[0];
+
+  //绘制滚动条
+  if (opts.enableScroll && opts.xAxis.scrollShow) {
+    var scrollY = opts.height - opts.area[2] + config.xAxisHeight;
+    var scrollScreenWidth = endX - startX;
+    var scrollTotalWidth = eachSpacing * (xAxisPoints.length - 1);
+    var scrollWidth = scrollScreenWidth * scrollScreenWidth / scrollTotalWidth;
+    var scrollLeft = 0;
+    if (opts._scrollDistance_) {
+      scrollLeft = -opts._scrollDistance_ * scrollScreenWidth / scrollTotalWidth;
+    }
+    context.beginPath();
+    context.setLineCap('round');
+    context.setLineWidth(6 * opts.pixelRatio);
+    context.setStrokeStyle(opts.xAxis.scrollBackgroundColor || "#EFEBEF");
+    context.moveTo(startX, scrollY);
+    context.lineTo(endX, scrollY);
+    context.stroke();
+    context.closePath();
+    context.beginPath();
+    context.setLineCap('round');
+    context.setLineWidth(6 * opts.pixelRatio);
+    context.setStrokeStyle(opts.xAxis.scrollColor || "#A6A6A6");
+    context.moveTo(startX + scrollLeft, scrollY);
+    context.lineTo(startX + scrollLeft + scrollWidth, scrollY);
+    context.stroke();
+    context.closePath();
+    context.setLineCap('butt');
+  }
+
+  context.save();
+
+  if (opts._scrollDistance_ && opts._scrollDistance_ !== 0) {
+    context.translate(opts._scrollDistance_, 0);
+  }
+
+  //绘制X轴刻度线
+  if (opts.xAxis.calibration === true) {
+    context.setStrokeStyle(opts.xAxis.gridColor || "#cccccc");
+    context.setLineCap('butt');
+    context.setLineWidth(1 * opts.pixelRatio);
+    xAxisPoints.forEach(function (item, index) {
+      if (index > 0) {
+        context.beginPath();
+        context.moveTo(item - eachSpacing / 2, startY);
+        context.lineTo(item - eachSpacing / 2, startY + 3 * opts.pixelRatio);
+        context.closePath();
+        context.stroke();
+      }
+    });
+  }
+  //绘制X轴网格
+  if (opts.xAxis.disableGrid !== true) {
+    context.setStrokeStyle(opts.xAxis.gridColor || "#cccccc");
+    context.setLineCap('butt');
+    context.setLineWidth(1 * opts.pixelRatio);
+    if (opts.xAxis.gridType == 'dash') {
+      context.setLineDash([opts.xAxis.dashLength, opts.xAxis.dashLength]);
+    }
+    opts.xAxis.gridEval = opts.xAxis.gridEval || 1;
+    xAxisPoints.forEach(function (item, index) {
+      if (index % opts.xAxis.gridEval == 0) {
+        context.beginPath();
+        context.moveTo(item, startY);
+        context.lineTo(item, endY);
+        context.stroke();
+      }
+    });
+    context.setLineDash([]);
+  }
+
+
+  //绘制X轴文案
+  if (opts.xAxis.disabled !== true) {
+    // 对X轴列表做抽稀处理
+    //默认全部显示X轴标签
+    var maxXAxisListLength = categories.length;
+    //如果设置了X轴单屏数量
+    if (opts.xAxis.labelCount) {
+      //如果设置X轴密度
+      if (opts.xAxis.itemCount) {
+        maxXAxisListLength = Math.ceil(categories.length / opts.xAxis.itemCount * opts.xAxis.labelCount);
+      } else {
+        maxXAxisListLength = opts.xAxis.labelCount;
+      }
+      maxXAxisListLength -= 1;
+    }
+
+    var ratio = Math.ceil(categories.length / maxXAxisListLength);
+
+    var newCategories = [];
+    var cgLength = categories.length;
+    for (var i = 0; i < cgLength; i++) {
+      if (i % ratio !== 0) {
+        newCategories.push("");
+      } else {
+        newCategories.push(categories[i]);
+      }
+    }
+    newCategories[cgLength - 1] = categories[cgLength - 1];
+
+    var xAxisFontSize = opts.xAxis.fontSize || config.fontSize;
+    if (config._xAxisTextAngle_ === 0) {
+      newCategories.forEach(function (item, index) {
+        var offset = -measureText(String(item), xAxisFontSize) / 2;
+        if (boundaryGap == 'center') {
+          offset += eachSpacing / 2;
+        }
+        var scrollHeight = 0;
+        if (opts.xAxis.scrollShow) {
+          scrollHeight = 6 * opts.pixelRatio;
+        }
+        context.beginPath();
+        context.setFontSize(xAxisFontSize);
+        context.setFillStyle(opts.xAxis.fontColor || '#666666');
+        context.fillText(String(item), xAxisPoints[index] + offset, startY + xAxisFontSize + (config.xAxisHeight - scrollHeight - xAxisFontSize) / 2);
+        context.closePath();
+        context.stroke();
+      });
+
+    } else {
+      newCategories.forEach(function (item, index) {
+        context.save();
+        context.beginPath();
+        context.setFontSize(xAxisFontSize);
+        context.setFillStyle(opts.xAxis.fontColor || '#666666');
+        var textWidth = measureText(String(item), xAxisFontSize);
+        var offset = -textWidth;
+        if (boundaryGap == 'center') {
+          offset += eachSpacing / 2;
+        }
+        var _calRotateTranslate = calRotateTranslate(xAxisPoints[index] + eachSpacing / 2, startY + xAxisFontSize / 2 + 5, opts.height),
+        transX = _calRotateTranslate.transX,
+        transY = _calRotateTranslate.transY;
+
+        context.rotate(-1 * config._xAxisTextAngle_);
+        context.translate(transX, transY);
+        context.fillText(String(item), xAxisPoints[index] + offset, startY + xAxisFontSize + 5);
+        context.closePath();
+        context.stroke();
+        context.restore();
+      });
+    }
+  }
+  context.restore();
+
+  //绘制X轴轴线
+  if (opts.xAxis.axisLine) {
+    context.beginPath();
+    context.setStrokeStyle(opts.xAxis.axisLineColor);
+    context.setLineWidth(1 * opts.pixelRatio);
+    context.moveTo(startX, opts.height - opts.area[2]);
+    context.lineTo(endX, opts.height - opts.area[2]);
+    context.stroke();
+  }
+}
+
+function drawYAxisGrid(categories, opts, config, context) {
+  if (opts.yAxis.disableGrid === true) {
+    return;
+  }
+  var spacingValid = opts.height - opts.area[0] - opts.area[2];
+  var eachSpacing = spacingValid / opts.yAxis.splitNumber;
+  var startX = opts.area[3];
+  var xAxisPoints = opts.chartData.xAxisData.xAxisPoints,
+  xAxiseachSpacing = opts.chartData.xAxisData.eachSpacing;
+  var TotalWidth = xAxiseachSpacing * (xAxisPoints.length - 1);
+  var endX = startX + TotalWidth;
+
+  var points = [];
+  for (var i = 0; i < opts.yAxis.splitNumber + 1; i++) {
+    points.push(opts.height - opts.area[2] - eachSpacing * i);
+  }
+
+  context.save();
+  if (opts._scrollDistance_ && opts._scrollDistance_ !== 0) {
+    context.translate(opts._scrollDistance_, 0);
+  }
+
+  if (opts.yAxis.gridType == 'dash') {
+    context.setLineDash([opts.yAxis.dashLength, opts.yAxis.dashLength]);
+  }
+  context.setStrokeStyle(opts.yAxis.gridColor);
+  context.setLineWidth(1 * opts.pixelRatio);
+  points.forEach(function (item, index) {
+    context.beginPath();
+    context.moveTo(startX, item);
+    context.lineTo(endX, item);
+    context.stroke();
+  });
+  context.setLineDash([]);
+
+  context.restore();
+}
+
+function drawYAxis(series, opts, config, context) {
+  if (opts.yAxis.disabled === true) {
+    return;
+  }
+  var spacingValid = opts.height - opts.area[0] - opts.area[2];
+  var eachSpacing = spacingValid / opts.yAxis.splitNumber;
+  var startX = opts.area[3];
+  var endX = opts.width - opts.area[1];
+  var endY = opts.height - opts.area[2];
+  var fillEndY = endY + config.xAxisHeight;
+  if (opts.xAxis.scrollShow) {
+    fillEndY -= 3 * opts.pixelRatio;
+  }
+  if (opts.xAxis.rotateLabel) {
+    fillEndY = opts.height - opts.area[2] + 3;
+  }
+  // set YAxis background
+  context.beginPath();
+  context.setFillStyle(opts.background || '#ffffff');
+  if (opts._scrollDistance_ < 0) {
+    context.fillRect(0, 0, startX, fillEndY);
+  }
+  if (opts.enableScroll == true) {
+    context.fillRect(endX, 0, opts.width, fillEndY);
+  }
+  context.closePath();
+  context.stroke();
+
+  var points = [];
+  for (var i = 0; i <= opts.yAxis.splitNumber; i++) {
+    points.push(opts.area[0] + eachSpacing * i);
+  }
+
+  var tStartLeft = opts.area[3];
+  var tStartRight = opts.width - opts.area[1];var _loop4 = function _loop4(
+
+  _i17) {
+    var yData = opts.yAxis.data[_i17];
+    if (yData.disabled !== true) {
+      var rangesFormat = opts.chartData.yAxisData.rangesFormat[_i17];
+      var yAxisFontSize = yData.fontSize || config.fontSize;
+      var yAxisWidth = opts.chartData.yAxisData.yAxisWidth[_i17];
+      //画Y轴刻度及文案
+      rangesFormat.forEach(function (item, index) {
+        var pos = points[index] ? points[index] : endY;
+        context.beginPath();
+        context.setFontSize(yAxisFontSize);
+        context.setLineWidth(1 * opts.pixelRatio);
+        context.setStrokeStyle(yData.axisLineColor || '#cccccc');
+        context.setFillStyle(yData.fontColor || '#666666');
+        if (yAxisWidth.position == 'left') {
+          context.fillText(String(item), tStartLeft - yAxisWidth.width, pos + yAxisFontSize / 2);
+          //画刻度线
+          if (yData.calibration == true) {
+            context.moveTo(tStartLeft, pos);
+            context.lineTo(tStartLeft - 3 * opts.pixelRatio, pos);
+          }
+        } else {
+          context.fillText(String(item), tStartRight + 4 * opts.pixelRatio, pos + yAxisFontSize / 2);
+          //画刻度线
+          if (yData.calibration == true) {
+            context.moveTo(tStartRight, pos);
+            context.lineTo(tStartRight + 3 * opts.pixelRatio, pos);
+          }
+        }
+        context.closePath();
+        context.stroke();
+      });
+      //画Y轴轴线
+      if (yData.axisLine !== false) {
+        context.beginPath();
+        context.setStrokeStyle(yData.axisLineColor || '#cccccc');
+        context.setLineWidth(1 * opts.pixelRatio);
+        if (yAxisWidth.position == 'left') {
+          context.moveTo(tStartLeft, opts.height - opts.area[2]);
+          context.lineTo(tStartLeft, opts.area[0]);
+        } else {
+          context.moveTo(tStartRight, opts.height - opts.area[2]);
+          context.lineTo(tStartRight, opts.area[0]);
+        }
+        context.stroke();
+      }
+
+      //画Y轴标题
+      if (opts.yAxis.showTitle) {
+
+        var titleFontSize = yData.titleFontSize || config.fontSize;
+        var title = yData.title;
+        context.beginPath();
+        context.setFontSize(titleFontSize);
+        context.setFillStyle(yData.titleFontColor || '#666666');
+        if (yAxisWidth.position == 'left') {
+          context.fillText(title, tStartLeft - measureText(title, titleFontSize) / 2, opts.area[0] - 10 * opts.pixelRatio);
+        } else {
+          context.fillText(title, tStartRight - measureText(title, titleFontSize) / 2, opts.area[0] - 10 * opts.pixelRatio);
+        }
+        context.closePath();
+        context.stroke();
+      }
+      if (yAxisWidth.position == 'left') {
+        tStartLeft -= yAxisWidth.width + opts.yAxis.padding;
+      } else {
+        tStartRight += yAxisWidth.width + opts.yAxis.padding;
+      }
+    }};for (var _i17 = 0; _i17 < opts.yAxis.data.length; _i17++) {_loop4(_i17);
+  }
+}
+
+function drawLegend(series, opts, config, context, chartData) {
+  if (opts.legend.show === false) {
+    return;
+  }
+  var legendData = chartData.legendData;
+  var legendList = legendData.points;
+  var legendArea = legendData.area;
+  var padding = opts.legend.padding;
+  var fontSize = opts.legend.fontSize;
+  var shapeWidth = 15 * opts.pixelRatio;
+  var shapeRight = 5 * opts.pixelRatio;
+  var itemGap = opts.legend.itemGap;
+  var lineHeight = Math.max(opts.legend.lineHeight * opts.pixelRatio, fontSize);
+
+  //画背景及边框
+  context.beginPath();
+  context.setLineWidth(opts.legend.borderWidth);
+  context.setStrokeStyle(opts.legend.borderColor);
+  context.setFillStyle(opts.legend.backgroundColor);
+  context.moveTo(legendArea.start.x, legendArea.start.y);
+  context.rect(legendArea.start.x, legendArea.start.y, legendArea.width, legendArea.height);
+  context.closePath();
+  context.fill();
+  context.stroke();
+
+  legendList.forEach(function (itemList, listIndex) {
+    var width = 0;
+    var height = 0;
+    width = legendData.widthArr[listIndex];
+    height = legendData.heightArr[listIndex];
+    var startX = 0;
+    var startY = 0;
+    if (opts.legend.position == 'top' || opts.legend.position == 'bottom') {
+      startX = legendArea.start.x + (legendArea.width - width) / 2;
+      startY = legendArea.start.y + padding + listIndex * lineHeight;
+    } else {
+      if (listIndex == 0) {
+        width = 0;
+      } else {
+        width = legendData.widthArr[listIndex - 1];
+      }
+      startX = legendArea.start.x + padding + width;
+      startY = legendArea.start.y + padding + (legendArea.height - height) / 2;
+    }
+
+    context.setFontSize(config.fontSize);
+    for (var i = 0; i < itemList.length; i++) {
+      var item = itemList[i];
+      item.area = [0, 0, 0, 0];
+      item.area[0] = startX;
+      item.area[1] = startY;
+      item.area[3] = startY + lineHeight;
+      context.beginPath();
+      context.setLineWidth(1 * opts.pixelRatio);
+      context.setStrokeStyle(item.show ? item.color : opts.legend.hiddenColor);
+      context.setFillStyle(item.show ? item.color : opts.legend.hiddenColor);
+      switch (item.legendShape) {
+        case 'line':
+          context.moveTo(startX, startY + 0.5 * lineHeight - 2 * opts.pixelRatio);
+          context.fillRect(startX, startY + 0.5 * lineHeight - 2 * opts.pixelRatio, 15 * opts.pixelRatio, 4 * opts.pixelRatio);
+          break;
+        case 'triangle':
+          context.moveTo(startX + 7.5 * opts.pixelRatio, startY + 0.5 * lineHeight - 5 * opts.pixelRatio);
+          context.lineTo(startX + 2.5 * opts.pixelRatio, startY + 0.5 * lineHeight + 5 * opts.pixelRatio);
+          context.lineTo(startX + 12.5 * opts.pixelRatio, startY + 0.5 * lineHeight + 5 * opts.pixelRatio);
+          context.lineTo(startX + 7.5 * opts.pixelRatio, startY + 0.5 * lineHeight - 5 * opts.pixelRatio);
+          break;
+        case 'diamond':
+          context.moveTo(startX + 7.5 * opts.pixelRatio, startY + 0.5 * lineHeight - 5 * opts.pixelRatio);
+          context.lineTo(startX + 2.5 * opts.pixelRatio, startY + 0.5 * lineHeight);
+          context.lineTo(startX + 7.5 * opts.pixelRatio, startY + 0.5 * lineHeight + 5 * opts.pixelRatio);
+          context.lineTo(startX + 12.5 * opts.pixelRatio, startY + 0.5 * lineHeight);
+          context.lineTo(startX + 7.5 * opts.pixelRatio, startY + 0.5 * lineHeight - 5 * opts.pixelRatio);
+          break;
+        case 'circle':
+          context.moveTo(startX + 7.5 * opts.pixelRatio, startY + 0.5 * lineHeight);
+          context.arc(startX + 7.5 * opts.pixelRatio, startY + 0.5 * lineHeight, 5 * opts.pixelRatio, 0, 2 * Math.PI);
+          break;
+        case 'rect':
+          context.moveTo(startX, startY + 0.5 * lineHeight - 5 * opts.pixelRatio);
+          context.fillRect(startX, startY + 0.5 * lineHeight - 5 * opts.pixelRatio, 15 * opts.pixelRatio, 10 * opts.pixelRatio);
+          break;
+        default:
+          context.moveTo(startX, startY + 0.5 * lineHeight - 5 * opts.pixelRatio);
+          context.fillRect(startX, startY + 0.5 * lineHeight - 5 * opts.pixelRatio, 15 * opts.pixelRatio, 10 * opts.pixelRatio);}
+
+      context.closePath();
+      context.fill();
+      context.stroke();
+
+      startX += shapeWidth + shapeRight;
+      var fontTrans = 0.5 * lineHeight + 0.5 * fontSize - 2;
+      context.beginPath();
+      context.setFontSize(fontSize);
+      context.setFillStyle(item.show ? opts.legend.fontColor : opts.legend.hiddenColor);
+      context.fillText(item.name, startX, startY + fontTrans);
+      context.closePath();
+      context.stroke();
+      if (opts.legend.position == 'top' || opts.legend.position == 'bottom') {
+        startX += measureText(item.name, fontSize) + itemGap;
+        item.area[2] = startX;
+      } else {
+        item.area[2] = startX + measureText(item.name, fontSize) + itemGap;;
+        startX -= shapeWidth + shapeRight;
+        startY += lineHeight;
+      }
+    }
+  });
+}
+
+function drawPieDataPoints(series, opts, config, context) {
+  var process = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+  var pieOption = assign({}, {
+    activeOpacity: 0.5,
+    activeRadius: 10 * opts.pixelRatio,
+    offsetAngle: 0,
+    labelWidth: 15 * opts.pixelRatio,
+    ringWidth: 0,
+    border: false,
+    borderWidth: 2,
+    borderColor: '#FFFFFF' },
+  opts.extra.pie);
+  var centerPosition = {
+    x: opts.area[3] + (opts.width - opts.area[1] - opts.area[3]) / 2,
+    y: opts.area[0] + (opts.height - opts.area[0] - opts.area[2]) / 2 };
+
+  if (config.pieChartLinePadding == 0) {
+    config.pieChartLinePadding = pieOption.activeRadius;
+  }
+
+  var radius = Math.min((opts.width - opts.area[1] - opts.area[3]) / 2 - config.pieChartLinePadding - config.pieChartTextPadding - config._pieTextMaxLength_, (opts.height - opts.area[0] - opts.area[2]) / 2 - config.pieChartLinePadding - config.pieChartTextPadding);
+
+  series = getPieDataPoints(series, radius, process);
+
+  var activeRadius = pieOption.activeRadius;
+
+  series = series.map(function (eachSeries) {
+    eachSeries._start_ += pieOption.offsetAngle * Math.PI / 180;
+    return eachSeries;
+  });
+  series.forEach(function (eachSeries, seriesIndex) {
+    if (opts.tooltip) {
+      if (opts.tooltip.index == seriesIndex) {
+        context.beginPath();
+        context.setFillStyle(hexToRgb(eachSeries.color, opts.extra.pie.activeOpacity || 0.5));
+        context.moveTo(centerPosition.x, centerPosition.y);
+        context.arc(centerPosition.x, centerPosition.y, eachSeries._radius_ + activeRadius, eachSeries._start_,
+        eachSeries._start_ + 2 *
+        eachSeries._proportion_ * Math.PI);
+        context.closePath();
+        context.fill();
+      }
+    }
+    context.beginPath();
+    context.setLineWidth(pieOption.borderWidth * opts.pixelRatio);
+    context.lineJoin = "round";
+    context.setStrokeStyle(pieOption.borderColor);
+    context.setFillStyle(eachSeries.color);
+    context.moveTo(centerPosition.x, centerPosition.y);
+    context.arc(centerPosition.x, centerPosition.y, eachSeries._radius_, eachSeries._start_, eachSeries._start_ + 2 * eachSeries._proportion_ * Math.PI);
+    context.closePath();
+    context.fill();
+    if (pieOption.border == true) {
+      context.stroke();
+    }
+  });
+
+  if (opts.type === 'ring') {
+    var innerPieWidth = radius * 0.6;
+    if (typeof opts.extra.pie.ringWidth === 'number' && opts.extra.pie.ringWidth > 0) {
+      innerPieWidth = Math.max(0, radius - opts.extra.pie.ringWidth);
+    }
+    context.beginPath();
+    context.setFillStyle(opts.background || '#ffffff');
+    context.moveTo(centerPosition.x, centerPosition.y);
+    context.arc(centerPosition.x, centerPosition.y, innerPieWidth, 0, 2 * Math.PI);
+    context.closePath();
+    context.fill();
+  }
+
+  if (opts.dataLabel !== false && process === 1) {
+    var valid = false;
+    for (var i = 0, len = series.length; i < len; i++) {
+      if (series[i].data > 0) {
+        valid = true;
+        break;
+      }
+    }
+
+    if (valid) {
+      drawPieText(series, opts, config, context, radius, centerPosition);
+    }
+  }
+
+  if (process === 1 && opts.type === 'ring') {
+    drawRingTitle(opts, config, context, centerPosition);
+  }
+
+  return {
+    center: centerPosition,
+    radius: radius,
+    series: series };
+
+}
+
+function drawRoseDataPoints(series, opts, config, context) {
+  var process = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+  var roseOption = assign({}, {
+    type: 'area',
+    activeOpacity: 0.5,
+    activeRadius: 10 * opts.pixelRatio,
+    offsetAngle: 0,
+    labelWidth: 15 * opts.pixelRatio,
+    border: false,
+    borderWidth: 2,
+    borderColor: '#FFFFFF' },
+  opts.extra.rose);
+  if (config.pieChartLinePadding == 0) {
+    config.pieChartLinePadding = roseOption.activeRadius;
+  }
+  var centerPosition = {
+    x: opts.area[3] + (opts.width - opts.area[1] - opts.area[3]) / 2,
+    y: opts.area[0] + (opts.height - opts.area[0] - opts.area[2]) / 2 };
+
+  var radius = Math.min((opts.width - opts.area[1] - opts.area[3]) / 2 - config.pieChartLinePadding - config.pieChartTextPadding - config._pieTextMaxLength_, (opts.height - opts.area[0] - opts.area[2]) / 2 - config.pieChartLinePadding - config.pieChartTextPadding);
+  var minRadius = roseOption.minRadius || radius * 0.5;
+
+  series = getRoseDataPoints(series, roseOption.type, minRadius, radius, process);
+
+  var activeRadius = roseOption.activeRadius;
+
+  series = series.map(function (eachSeries) {
+    eachSeries._start_ += (roseOption.offsetAngle || 0) * Math.PI / 180;
+    return eachSeries;
+  });
+
+  series.forEach(function (eachSeries, seriesIndex) {
+    if (opts.tooltip) {
+      if (opts.tooltip.index == seriesIndex) {
+        context.beginPath();
+        context.setFillStyle(hexToRgb(eachSeries.color, roseOption.activeOpacity || 0.5));
+        context.moveTo(centerPosition.x, centerPosition.y);
+        context.arc(centerPosition.x, centerPosition.y, activeRadius + eachSeries._radius_, eachSeries._start_,
+        eachSeries._start_ + 2 * eachSeries._rose_proportion_ * Math.PI);
+        context.closePath();
+        context.fill();
+      }
+    }
+    context.beginPath();
+    context.setLineWidth(roseOption.borderWidth * opts.pixelRatio);
+    context.lineJoin = "round";
+    context.setStrokeStyle(roseOption.borderColor);
+    context.setFillStyle(eachSeries.color);
+    context.moveTo(centerPosition.x, centerPosition.y);
+    context.arc(centerPosition.x, centerPosition.y, eachSeries._radius_, eachSeries._start_, eachSeries._start_ + 2 *
+    eachSeries._rose_proportion_ * Math.PI);
+    context.closePath();
+    context.fill();
+    if (roseOption.border == true) {
+      context.stroke();
+    }
+  });
+
+  if (opts.dataLabel !== false && process === 1) {
+    var valid = false;
+    for (var i = 0, len = series.length; i < len; i++) {
+      if (series[i].data > 0) {
+        valid = true;
+        break;
+      }
+    }
+
+    if (valid) {
+      drawPieText(series, opts, config, context, radius, centerPosition);
+    }
+  }
+
+  return {
+    center: centerPosition,
+    radius: radius,
+    series: series };
+
+}
+
+function drawArcbarDataPoints(series, opts, config, context) {
+  var process = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+  var arcbarOption = assign({}, {
+    startAngle: 0.75,
+    endAngle: 0.25,
+    type: 'default',
+    width: 12 * opts.pixelRatio,
+    gap: 2 * opts.pixelRatio },
+  opts.extra.arcbar);
+
+  series = getArcbarDataPoints(series, arcbarOption, process);
+
+  var centerPosition;
+  if (arcbarOption.center) {
+    centerPosition = arcbarOption.center;
+  } else {
+    centerPosition = {
+      x: opts.width / 2,
+      y: opts.height / 2 };
+
+  }
+
+  var radius;
+  if (arcbarOption.radius) {
+    radius = arcbarOption.radius;
+  } else {
+    radius = Math.min(centerPosition.x, centerPosition.y);
+    radius -= 5 * opts.pixelRatio;
+    radius -= arcbarOption.width / 2;
+  }
+
+  for (var i = 0; i < series.length; i++) {
+    var eachSeries = series[i];
+    //背景颜色
+    context.setLineWidth(arcbarOption.width);
+    context.setStrokeStyle(arcbarOption.backgroundColor || '#E9E9E9');
+    context.setLineCap('round');
+    context.beginPath();
+    if (arcbarOption.type == 'default') {
+      context.arc(centerPosition.x, centerPosition.y, radius - (arcbarOption.width + arcbarOption.gap) * i, arcbarOption.startAngle * Math.PI, arcbarOption.endAngle * Math.PI, false);
+    } else {
+      context.arc(centerPosition.x, centerPosition.y, radius - (arcbarOption.width + arcbarOption.gap) * i, 0, 2 * Math.PI, false);
+    }
+    context.stroke();
+    //进度条
+    context.setLineWidth(arcbarOption.width);
+    context.setStrokeStyle(eachSeries.color);
+    context.setLineCap('round');
+    context.beginPath();
+    context.arc(centerPosition.x, centerPosition.y, radius - (arcbarOption.width + arcbarOption.gap) * i, arcbarOption.startAngle * Math.PI, eachSeries._proportion_ * Math.PI, false);
+    context.stroke();
+  }
+
+  drawRingTitle(opts, config, context, centerPosition);
+
+  return {
+    center: centerPosition,
+    radius: radius,
+    series: series };
+
+}
+
+function drawGaugeDataPoints(categories, series, opts, config, context) {
+  var process = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 1;
+  var gaugeOption = assign({}, {
+    type: 'default',
+    startAngle: 0.75,
+    endAngle: 0.25,
+    width: 15,
+    splitLine: {
+      fixRadius: 0,
+      splitNumber: 10,
+      width: 15,
+      color: '#FFFFFF',
+      childNumber: 5,
+      childWidth: 5 },
+
+    pointer: {
+      width: 15,
+      color: 'auto' } },
+
+  opts.extra.gauge);
+
+  if (gaugeOption.oldAngle == undefined) {
+    gaugeOption.oldAngle = gaugeOption.startAngle;
+  }
+  if (gaugeOption.oldData == undefined) {
+    gaugeOption.oldData = 0;
+  }
+  categories = getGaugeAxisPoints(categories, gaugeOption.startAngle, gaugeOption.endAngle);
+
+  var centerPosition = {
+    x: opts.width / 2,
+    y: opts.height / 2 };
+
+  var radius = Math.min(centerPosition.x, centerPosition.y);
+  radius -= 5 * opts.pixelRatio;
+  radius -= gaugeOption.width / 2;
+  var innerRadius = radius - gaugeOption.width;
+  var totalAngle = 0;
+
+  //判断仪表盘的样式：default百度样式，progress新样式
+  if (gaugeOption.type == 'progress') {
+
+    //## 第一步画中心圆形背景和进度条背景
+    //中心圆形背景
+    var pieRadius = radius - gaugeOption.width * 3;
+    context.beginPath();
+    var gradient = context.createLinearGradient(centerPosition.x, centerPosition.y - pieRadius, centerPosition.x, centerPosition.y + pieRadius);
+    //配置渐变填充（起点：中心点向上减半径；结束点中心点向下加半径）
+    gradient.addColorStop('0', hexToRgb(series[0].color, 0.3));
+    gradient.addColorStop('1.0', hexToRgb("#FFFFFF", 0.1));
+    context.setFillStyle(gradient);
+    context.arc(centerPosition.x, centerPosition.y, pieRadius, 0, 2 * Math.PI, false);
+    context.fill();
+    //画进度条背景
+    context.setLineWidth(gaugeOption.width);
+    context.setStrokeStyle(hexToRgb(series[0].color, 0.3));
+    context.setLineCap('round');
+    context.beginPath();
+    context.arc(centerPosition.x, centerPosition.y, innerRadius, gaugeOption.startAngle * Math.PI, gaugeOption.endAngle * Math.PI, false);
+    context.stroke();
+
+    //## 第二步画刻度线
+    totalAngle = gaugeOption.startAngle - gaugeOption.endAngle + 1;
+    var splitAngle = totalAngle / gaugeOption.splitLine.splitNumber;
+    var childAngle = totalAngle / gaugeOption.splitLine.splitNumber / gaugeOption.splitLine.childNumber;
+    var startX = -radius - gaugeOption.width * 0.5 - gaugeOption.splitLine.fixRadius;
+    var endX = -radius - gaugeOption.width - gaugeOption.splitLine.fixRadius + gaugeOption.splitLine.width;
+    context.save();
+    context.translate(centerPosition.x, centerPosition.y);
+    context.rotate((gaugeOption.startAngle - 1) * Math.PI);
+    var len = gaugeOption.splitLine.splitNumber * gaugeOption.splitLine.childNumber + 1;
+    var proc = series[0].data * process;
+    for (var i = 0; i < len; i++) {
+      context.beginPath();
+      //刻度线随进度变色
+      if (proc > i / len) {
+        context.setStrokeStyle(hexToRgb(series[0].color, 1));
+      } else {
+        context.setStrokeStyle(hexToRgb(series[0].color, 0.3));
+      }
+      context.setLineWidth(3 * opts.pixelRatio);
+      context.moveTo(startX, 0);
+      context.lineTo(endX, 0);
+      context.stroke();
+      context.rotate(childAngle * Math.PI);
+    }
+    context.restore();
+
+    //## 第三步画进度条
+    series = getArcbarDataPoints(series, gaugeOption, process);
+    context.setLineWidth(gaugeOption.width);
+    context.setStrokeStyle(series[0].color);
+    context.setLineCap('round');
+    context.beginPath();
+    context.arc(centerPosition.x, centerPosition.y, innerRadius, gaugeOption.startAngle * Math.PI, series[0]._proportion_ * Math.PI, false);
+    context.stroke();
+
+    //## 第四步画指针
+    var pointerRadius = radius - gaugeOption.width * 2.5;
+    context.save();
+    context.translate(centerPosition.x, centerPosition.y);
+    context.rotate((series[0]._proportion_ - 1) * Math.PI);
+    context.beginPath();
+    context.setLineWidth(gaugeOption.width / 3);
+    var gradient3 = context.createLinearGradient(0, -pointerRadius * 0.6, 0, pointerRadius * 0.6);
+    gradient3.addColorStop('0', hexToRgb('#FFFFFF', 0));
+    gradient3.addColorStop('0.5', hexToRgb(series[0].color, 1));
+    gradient3.addColorStop('1.0', hexToRgb('#FFFFFF', 0));
+    context.setStrokeStyle(gradient3);
+    context.arc(0, 0, pointerRadius, 0.85 * Math.PI, 1.15 * Math.PI, false);
+    context.stroke();
+    context.beginPath();
+    context.setLineWidth(1);
+    context.setStrokeStyle(series[0].color);
+    context.setFillStyle(series[0].color);
+    context.moveTo(-pointerRadius - gaugeOption.width / 3 / 2, -4);
+    context.lineTo(-pointerRadius - gaugeOption.width / 3 / 2 - 4, 0);
+    context.lineTo(-pointerRadius - gaugeOption.width / 3 / 2, 4);
+    context.lineTo(-pointerRadius - gaugeOption.width / 3 / 2, -4);
+    context.stroke();
+    context.fill();
+    context.restore();
+
+    //default百度样式
+  } else {
+    //画背景
+    context.setLineWidth(gaugeOption.width);
+    context.setLineCap('butt');
+    for (var _i18 = 0; _i18 < categories.length; _i18++) {
+      var eachCategories = categories[_i18];
+      context.beginPath();
+      context.setStrokeStyle(eachCategories.color);
+      context.arc(centerPosition.x, centerPosition.y, radius, eachCategories._startAngle_ * Math.PI, eachCategories._endAngle_ * Math.PI, false);
+      context.stroke();
+    }
+    context.save();
+
+    //画刻度线
+    totalAngle = gaugeOption.startAngle - gaugeOption.endAngle + 1;
+    var _splitAngle = totalAngle / gaugeOption.splitLine.splitNumber;
+    var _childAngle = totalAngle / gaugeOption.splitLine.splitNumber / gaugeOption.splitLine.childNumber;
+    var _startX2 = -radius - gaugeOption.width * 0.5 - gaugeOption.splitLine.fixRadius;
+    var _endX = -radius - gaugeOption.width * 0.5 - gaugeOption.splitLine.fixRadius + gaugeOption.splitLine.width;
+    var childendX = -radius - gaugeOption.width * 0.5 - gaugeOption.splitLine.fixRadius + gaugeOption.splitLine.childWidth;
+
+    context.translate(centerPosition.x, centerPosition.y);
+    context.rotate((gaugeOption.startAngle - 1) * Math.PI);
+
+    for (var _i19 = 0; _i19 < gaugeOption.splitLine.splitNumber + 1; _i19++) {
+      context.beginPath();
+      context.setStrokeStyle(gaugeOption.splitLine.color);
+      context.setLineWidth(2 * opts.pixelRatio);
+      context.moveTo(_startX2, 0);
+      context.lineTo(_endX, 0);
+      context.stroke();
+      context.rotate(_splitAngle * Math.PI);
+    }
+    context.restore();
+
+    context.save();
+    context.translate(centerPosition.x, centerPosition.y);
+    context.rotate((gaugeOption.startAngle - 1) * Math.PI);
+
+    for (var _i20 = 0; _i20 < gaugeOption.splitLine.splitNumber * gaugeOption.splitLine.childNumber + 1; _i20++) {
+      context.beginPath();
+      context.setStrokeStyle(gaugeOption.splitLine.color);
+      context.setLineWidth(1 * opts.pixelRatio);
+      context.moveTo(_startX2, 0);
+      context.lineTo(childendX, 0);
+      context.stroke();
+      context.rotate(_childAngle * Math.PI);
+    }
+    context.restore();
+
+    //画指针
+    series = getGaugeDataPoints(series, categories, gaugeOption, process);
+
+    for (var _i21 = 0; _i21 < series.length; _i21++) {
+      var eachSeries = series[_i21];
+      context.save();
+      context.translate(centerPosition.x, centerPosition.y);
+      context.rotate((eachSeries._proportion_ - 1) * Math.PI);
+      context.beginPath();
+      context.setFillStyle(eachSeries.color);
+      context.moveTo(gaugeOption.pointer.width, 0);
+      context.lineTo(0, -gaugeOption.pointer.width / 2);
+      context.lineTo(-innerRadius, 0);
+      context.lineTo(0, gaugeOption.pointer.width / 2);
+      context.lineTo(gaugeOption.pointer.width, 0);
+      context.closePath();
+      context.fill();
+      context.beginPath();
+      context.setFillStyle('#FFFFFF');
+      context.arc(0, 0, gaugeOption.pointer.width / 6, 0, 2 * Math.PI, false);
+      context.fill();
+      context.restore();
+    }
+
+    if (opts.dataLabel !== false) {
+      drawGaugeLabel(gaugeOption, radius, centerPosition, opts, config, context);
+    }
+  }
+
+  //画仪表盘标题，副标题
+  drawRingTitle(opts, config, context, centerPosition);
+
+  if (process === 1 && opts.type === 'gauge') {
+    opts.extra.gauge.oldAngle = series[0]._proportion_;
+    opts.extra.gauge.oldData = series[0].data;
+  }
+  return {
+    center: centerPosition,
+    radius: radius,
+    innerRadius: innerRadius,
+    categories: categories,
+    totalAngle: totalAngle };
+
+}
+
+function drawRadarDataPoints(series, opts, config, context) {
+  var process = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+  var radarOption = assign({}, {
+    gridColor: '#cccccc',
+    labelColor: '#666666',
+    opacity: 0.2,
+    gridCount: 3 },
+  opts.extra.radar);
+
+  var coordinateAngle = getRadarCoordinateSeries(opts.categories.length);
+
+  var centerPosition = {
+    x: opts.area[3] + (opts.width - opts.area[1] - opts.area[3]) / 2,
+    y: opts.area[0] + (opts.height - opts.area[0] - opts.area[2]) / 2 };
+
+
+  var radius = Math.min(centerPosition.x - (getMaxTextListLength(opts.categories) + config.radarLabelTextMargin),
+  centerPosition.y - config.radarLabelTextMargin);
+  //TODO逻辑不对
+  radius -= opts.padding[1];
+
+  // draw grid
+  context.beginPath();
+  context.setLineWidth(1 * opts.pixelRatio);
+  context.setStrokeStyle(radarOption.gridColor);
+  coordinateAngle.forEach(function (angle) {
+    var pos = convertCoordinateOrigin(radius * Math.cos(angle), radius * Math.sin(angle), centerPosition);
+    context.moveTo(centerPosition.x, centerPosition.y);
+    context.lineTo(pos.x, pos.y);
+  });
+  context.stroke();
+  context.closePath();
+  // draw split line grid
+
+  var _loop = function _loop(i) {
+    var startPos = {};
+    context.beginPath();
+    context.setLineWidth(1 * opts.pixelRatio);
+    context.setStrokeStyle(radarOption.gridColor);
+    coordinateAngle.forEach(function (angle, index) {
+      var pos = convertCoordinateOrigin(radius / radarOption.gridCount * i * Math.cos(angle), radius / radarOption.gridCount * i * Math.sin(angle), centerPosition);
+      if (index === 0) {
+        startPos = pos;
+        context.moveTo(pos.x, pos.y);
+      } else {
+        context.lineTo(pos.x, pos.y);
+      }
+    });
+    context.lineTo(startPos.x, startPos.y);
+    context.stroke();
+    context.closePath();
+  };
+
+  for (var i = 1; i <= radarOption.gridCount; i++) {
+    _loop(i);
+  }
+
+  var radarDataPoints = getRadarDataPoints(coordinateAngle, centerPosition, radius, series, opts, process);
+
+  radarDataPoints.forEach(function (eachSeries, seriesIndex) {
+    // 绘制区域数据
+    context.beginPath();
+    context.setFillStyle(hexToRgb(eachSeries.color, radarOption.opacity));
+    eachSeries.data.forEach(function (item, index) {
+      if (index === 0) {
+        context.moveTo(item.position.x, item.position.y);
+      } else {
+        context.lineTo(item.position.x, item.position.y);
+      }
+    });
+    context.closePath();
+    context.fill();
+
+    if (opts.dataPointShape !== false) {
+      var points = eachSeries.data.map(function (item) {
+        return item.position;
+      });
+      drawPointShape(points, eachSeries.color, eachSeries.pointShape, context, opts);
+    }
+  });
+  // draw label text
+  drawRadarLabel(coordinateAngle, radius, centerPosition, opts, config, context);
+
+  return {
+    center: centerPosition,
+    radius: radius,
+    angleList: coordinateAngle };
+
+}
+
+function normalInt(min, max, iter) {
+  iter = iter == 0 ? 1 : iter;
+  var arr = [];
+  for (var i = 0; i < iter; i++) {
+    arr[i] = Math.random();
+  };
+  return Math.floor(arr.reduce(function (i, j) {return i + j;}) / iter * (max - min)) + min;
+};
+
+function collisionNew(area, points, width, height) {
+  var isIn = false;
+  for (var i = 0; i < points.length; i++) {
+    if (points[i].area) {
+      if (area[3] < points[i].area[1] || area[0] > points[i].area[2] || area[1] > points[i].area[3] || area[2] < points[i].area[0]) {
+        if (area[0] < 0 || area[1] < 0 || area[2] > width || area[3] > height) {
+          isIn = true;
+          break;
+        } else {
+          isIn = false;
+        }
+      } else {
+        isIn = true;
+        break;
+      }
+    }
+  }
+  return isIn;
+};
+
+function getBoundingBox(data) {
+  var bounds = {},coords;
+  bounds.xMin = 180;
+  bounds.xMax = 0;
+  bounds.yMin = 90;
+  bounds.yMax = 0;
+  for (var i = 0; i < data.length; i++) {
+    var coorda = data[i].geometry.coordinates;
+    for (var k = 0; k < coorda.length; k++) {
+      coords = coorda[k];
+      if (coords.length == 1) {
+        coords = coords[0];
+      }
+      for (var j = 0; j < coords.length; j++) {
+        var longitude = coords[j][0];
+        var latitude = coords[j][1];
+        var point = {
+          x: longitude,
+          y: latitude };
+
+        bounds.xMin = bounds.xMin < point.x ? bounds.xMin : point.x;
+        bounds.xMax = bounds.xMax > point.x ? bounds.xMax : point.x;
+        bounds.yMin = bounds.yMin < point.y ? bounds.yMin : point.y;
+        bounds.yMax = bounds.yMax > point.y ? bounds.yMax : point.y;
+      }
+    }
+  }
+  return bounds;
+}
+
+function coordinateToPoint(latitude, longitude, bounds, scale, xoffset, yoffset) {
+  return {
+    x: (longitude - bounds.xMin) * scale + xoffset,
+    y: (bounds.yMax - latitude) * scale + yoffset };
+
+}
+
+function pointToCoordinate(pointY, pointX, bounds, scale, xoffset, yoffset) {
+  return {
+    x: (pointX - xoffset) / scale + bounds.xMin,
+    y: bounds.yMax - (pointY - yoffset) / scale };
+
+}
+
+function isRayIntersectsSegment(poi, s_poi, e_poi) {
+  if (s_poi[1] == e_poi[1]) {return false;}
+  if (s_poi[1] > poi[1] && e_poi[1] > poi[1]) {return false;}
+  if (s_poi[1] < poi[1] && e_poi[1] < poi[1]) {return false;}
+  if (s_poi[1] == poi[1] && e_poi[1] > poi[1]) {return false;}
+  if (e_poi[1] == poi[1] && s_poi[1] > poi[1]) {return false;}
+  if (s_poi[0] < poi[0] && e_poi[1] < poi[1]) {return false;}
+  var xseg = e_poi[0] - (e_poi[0] - s_poi[0]) * (e_poi[1] - poi[1]) / (e_poi[1] - s_poi[1]);
+  if (xseg < poi[0]) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function isPoiWithinPoly(poi, poly) {
+  var sinsc = 0;
+  for (var i = 0; i < poly.length; i++) {
+    var epoly = poly[i][0];
+    if (poly.length == 1) {
+      epoly = poly[i][0];
+    }
+    for (var j = 0; j < epoly.length - 1; j++) {
+      var s_poi = epoly[j];
+      var e_poi = epoly[j + 1];
+      if (isRayIntersectsSegment(poi, s_poi, e_poi)) {
+        sinsc += 1;
+      }
+    }
+  }
+
+  if (sinsc % 2 == 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+function drawMapDataPoints(series, opts, config, context) {
+  var mapOption = assign({}, {
+    border: true,
+    borderWidth: 1,
+    borderColor: '#666666',
+    fillOpacity: 0.6,
+    activeBorderColor: '#f04864',
+    activeFillColor: '#facc14',
+    activeFillOpacity: 1 },
+  opts.extra.map);
+  var coords, point;
+  var data = series;
+  var bounds = getBoundingBox(data);
+  var xScale = opts.width / Math.abs(bounds.xMax - bounds.xMin);
+  var yScale = opts.height / Math.abs(bounds.yMax - bounds.yMin);
+  var scale = xScale < yScale ? xScale : yScale;
+  var xoffset = opts.width / 2 - Math.abs(bounds.xMax - bounds.xMin) / 2 * scale;
+  var yoffset = opts.height / 2 - Math.abs(bounds.yMax - bounds.yMin) / 2 * scale;
+  context.beginPath();
+  context.clearRect(0, 0, opts.width, opts.height);
+  context.setFillStyle(opts.background || '#FFFFFF');
+  context.rect(0, 0, opts.width, opts.height);
+  context.fill();
+  for (var i = 0; i < data.length; i++) {
+    context.beginPath();
+    context.setLineWidth(mapOption.borderWidth * opts.pixelRatio);
+    context.setStrokeStyle(mapOption.borderColor);
+    context.setFillStyle(hexToRgb(series[i].color, mapOption.fillOpacity));
+    if (opts.tooltip) {
+      if (opts.tooltip.index == i) {
+        context.setStrokeStyle(mapOption.activeBorderColor);
+        context.setFillStyle(hexToRgb(mapOption.activeFillColor, mapOption.activeFillOpacity));
+      }
+    }
+    var coorda = data[i].geometry.coordinates;
+    for (var k = 0; k < coorda.length; k++) {
+      coords = coorda[k];
+      if (coords.length == 1) {
+        coords = coords[0];
+      }
+      for (var j = 0; j < coords.length; j++) {
+        point = coordinateToPoint(coords[j][1], coords[j][0], bounds, scale, xoffset, yoffset);
+        if (j === 0) {
+          context.beginPath();
+          context.moveTo(point.x, point.y);
+        } else {
+          context.lineTo(point.x, point.y);
+        }
+      }
+      context.fill();
+      if (mapOption.border == true) {
+        context.stroke();
+      }
+    }
+    if (opts.dataLabel == true) {
+      var centerPoint = data[i].properties.centroid;
+      if (centerPoint) {
+        point = coordinateToPoint(centerPoint[1], centerPoint[0], bounds, scale, xoffset, yoffset);
+        var fontSize = data[i].textSize || config.fontSize;
+        var text = data[i].properties.name;
+        context.beginPath();
+        context.setFontSize(fontSize);
+        context.setFillStyle(data[i].textColor || '#666666');
+        context.fillText(text, point.x - measureText(text, fontSize) / 2, point.y + fontSize / 2);
+        context.closePath();
+        context.stroke();
+      }
+    }
+  }
+  opts.chartData.mapData = {
+    bounds: bounds,
+    scale: scale,
+    xoffset: xoffset,
+    yoffset: yoffset };
+
+  drawToolTipBridge(opts, config, context, 1);
+  context.draw();
+}
+
+function getWordCloudPoint(opts, type) {
+  var points = opts.series.sort(function (a, b) {return parseInt(b.textSize) - parseInt(a.textSize);});
+  switch (type) {
+    case 'normal':
+      for (var i = 0; i < points.length; i++) {
+        var text = points[i].name;
+        var tHeight = points[i].textSize;
+        var tWidth = measureText(text, tHeight);
+        var x = void 0,y = void 0;
+        var area = void 0;
+        var breaknum = 0;
+        while (true) {
+          breaknum++;
+          x = normalInt(-opts.width / 2, opts.width / 2, 5) - tWidth / 2;
+          y = normalInt(-opts.height / 2, opts.height / 2, 5) + tHeight / 2;
+          area = [x - 5 + opts.width / 2, y - 5 - tHeight + opts.height / 2, x + tWidth + 5 + opts.width / 2, y + 5 + opts.height / 2];
+          var isCollision = collisionNew(area, points, opts.width, opts.height);
+          if (!isCollision) break;
+          if (breaknum == 1000) {
+            area = [-100, -100, -100, -100];
+            break;
+          }
+        };
+        points[i].area = area;
+      }
+      break;
+    case 'vertical':var
+      Spin = function Spin() {
+        //获取均匀随机值，是否旋转，旋转的概率为（1-0.5）
+        if (Math.random() > 0.7) {
+          return true;
+        } else {return false;};
+      };;
+      for (var _i22 = 0; _i22 < points.length; _i22++) {
+        var _text = points[_i22].name;
+        var _tHeight = points[_i22].textSize;
+        var _tWidth = measureText(_text, _tHeight);
+        var isSpin = Spin();
+        var _x = void 0,_y = void 0,_area = void 0,areav = void 0;
+        var _breaknum = 0;
+        while (true) {
+          _breaknum++;
+          var _isCollision = void 0;
+          if (isSpin) {
+            _x = normalInt(-opts.width / 2, opts.width / 2, 5) - _tWidth / 2;
+            _y = normalInt(-opts.height / 2, opts.height / 2, 5) + _tHeight / 2;
+            _area = [_y - 5 - _tWidth + opts.width / 2, -_x - 5 + opts.height / 2, _y + 5 + opts.width / 2, -_x + _tHeight + 5 + opts.height / 2];
+            areav = [opts.width - (opts.width / 2 - opts.height / 2) - (-_x + _tHeight + 5 + opts.height / 2) - 5, opts.height / 2 - opts.width / 2 + (_y - 5 - _tWidth + opts.width / 2) - 5, opts.width - (opts.width / 2 - opts.height / 2) - (-_x + _tHeight + 5 + opts.height / 2) + _tHeight, opts.height / 2 - opts.width / 2 + (_y - 5 - _tWidth + opts.width / 2) + _tWidth + 5];
+            _isCollision = collisionNew(areav, points, opts.height, opts.width);
+          } else {
+            _x = normalInt(-opts.width / 2, opts.width / 2, 5) - _tWidth / 2;
+            _y = normalInt(-opts.height / 2, opts.height / 2, 5) + _tHeight / 2;
+            _area = [_x - 5 + opts.width / 2, _y - 5 - _tHeight + opts.height / 2, _x + _tWidth + 5 + opts.width / 2, _y + 5 + opts.height / 2];
+            _isCollision = collisionNew(_area, points, opts.width, opts.height);
+          }
+          if (!_isCollision) break;
+          if (_breaknum == 1000) {
+            _area = [-1000, -1000, -1000, -1000];
+            break;
+          }
+        };
+        if (isSpin) {
+          points[_i22].area = areav;
+          points[_i22].areav = _area;
+        } else {
+          points[_i22].area = _area;
+        }
+        points[_i22].rotate = isSpin;
+      };
+      break;}
+
+  return points;
+}
+
+
+function drawWordCloudDataPoints(series, opts, config, context) {
+  var process = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+  var wordOption = assign({}, {
+    type: 'normal',
+    autoColors: true },
+  opts.extra.word);
+
+  context.beginPath();
+  context.setFillStyle(opts.background || '#FFFFFF');
+  context.rect(0, 0, opts.width, opts.height);
+  context.fill();
+  context.save();
+  var points = opts.chartData.wordCloudData;
+  context.translate(opts.width / 2, opts.height / 2);
+
+  for (var i = 0; i < points.length; i++) {
+    context.save();
+    if (points[i].rotate) {
+      context.rotate(90 * Math.PI / 180);
+    }
+    var text = points[i].name;
+    var tHeight = points[i].textSize;
+    var tWidth = measureText(text, tHeight);
+    context.beginPath();
+    context.setStrokeStyle(points[i].color);
+    context.setFillStyle(points[i].color);
+    context.setFontSize(tHeight);
+    if (points[i].rotate) {
+      if (points[i].areav[0] > 0) {
+        if (opts.tooltip) {
+          if (opts.tooltip.index == i) {
+            context.strokeText(text, (points[i].areav[0] + 5 - opts.width / 2) * process - tWidth * (1 - process) / 2, (points[i].areav[1] + 5 + tHeight - opts.height / 2) * process);
+          } else {
+            context.fillText(text, (points[i].areav[0] + 5 - opts.width / 2) * process - tWidth * (1 - process) / 2, (points[i].areav[1] + 5 + tHeight - opts.height / 2) * process);
+          }
+        } else {
+          context.fillText(text, (points[i].areav[0] + 5 - opts.width / 2) * process - tWidth * (1 - process) / 2, (points[i].areav[1] + 5 + tHeight - opts.height / 2) * process);
+        }
+      }
+    } else {
+      if (points[i].area[0] > 0) {
+        if (opts.tooltip) {
+          if (opts.tooltip.index == i) {
+            context.strokeText(text, (points[i].area[0] + 5 - opts.width / 2) * process - tWidth * (1 - process) / 2, (points[i].area[1] + 5 + tHeight - opts.height / 2) * process);
+          } else {
+            context.fillText(text, (points[i].area[0] + 5 - opts.width / 2) * process - tWidth * (1 - process) / 2, (points[i].area[1] + 5 + tHeight - opts.height / 2) * process);
+          }
+        } else {
+          context.fillText(text, (points[i].area[0] + 5 - opts.width / 2) * process - tWidth * (1 - process) / 2, (points[i].area[1] + 5 + tHeight - opts.height / 2) * process);
+        }
+
+      }
+    }
+
+    context.stroke();
+    context.restore();
+  }
+  context.restore();
+}
+
+function drawFunnelDataPoints(series, opts, config, context) {
+  var process = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+  var funnelOption = assign({}, {
+    activeWidth: 10,
+    activeOpacity: 0.3,
+    border: false,
+    borderWidth: 2,
+    borderColor: '#FFFFFF',
+    fillOpacity: 1,
+    labelAlign: 'right' },
+  opts.extra.funnel);
+  var eachSpacing = (opts.height - opts.area[0] - opts.area[2]) / series.length;
+  var centerPosition = {
+    x: opts.area[3] + (opts.width - opts.area[1] - opts.area[3]) / 2,
+    y: opts.height - opts.area[2] };
+
+  var activeWidth = funnelOption.activeWidth;
+  var radius = Math.min((opts.width - opts.area[1] - opts.area[3]) / 2 - activeWidth, (opts.height - opts.area[0] - opts.area[2]) / 2 - activeWidth);
+  series = getFunnelDataPoints(series, radius, process);
+  context.save();
+  context.translate(centerPosition.x, centerPosition.y);
+  for (var i = 0; i < series.length; i++) {
+    if (i == 0) {
+      if (opts.tooltip) {
+        if (opts.tooltip.index == i) {
+          context.beginPath();
+          context.setFillStyle(hexToRgb(series[i].color, funnelOption.activeOpacity));
+          context.moveTo(-activeWidth, 0);
+          context.lineTo(-series[i].radius - activeWidth, -eachSpacing);
+          context.lineTo(series[i].radius + activeWidth, -eachSpacing);
+          context.lineTo(activeWidth, 0);
+          context.lineTo(-activeWidth, 0);
+          context.closePath();
+          context.fill();
+        }
+      }
+      series[i].funnelArea = [centerPosition.x - series[i].radius, centerPosition.y - eachSpacing, centerPosition.x + series[i].radius, centerPosition.y];
+      context.beginPath();
+      context.setLineWidth(funnelOption.borderWidth * opts.pixelRatio);
+      context.setStrokeStyle(funnelOption.borderColor);
+      context.setFillStyle(hexToRgb(series[i].color, funnelOption.fillOpacity));
+      context.moveTo(0, 0);
+      context.lineTo(-series[i].radius, -eachSpacing);
+      context.lineTo(series[i].radius, -eachSpacing);
+      context.lineTo(0, 0);
+      context.closePath();
+      context.fill();
+      if (funnelOption.border == true) {
+        context.stroke();
+      }
+    } else {
+      if (opts.tooltip) {
+        if (opts.tooltip.index == i) {
+          context.beginPath();
+          context.setFillStyle(hexToRgb(series[i].color, funnelOption.activeOpacity));
+          context.moveTo(0, 0);
+          context.lineTo(-series[i - 1].radius - activeWidth, 0);
+          context.lineTo(-series[i].radius - activeWidth, -eachSpacing);
+          context.lineTo(series[i].radius + activeWidth, -eachSpacing);
+          context.lineTo(series[i - 1].radius + activeWidth, 0);
+          context.lineTo(0, 0);
+          context.closePath();
+          context.fill();
+        }
+      }
+      series[i].funnelArea = [centerPosition.x - series[i].radius, centerPosition.y - eachSpacing * (i + 1), centerPosition.x + series[i].radius, centerPosition.y - eachSpacing * i];
+      context.beginPath();
+      context.setLineWidth(funnelOption.borderWidth * opts.pixelRatio);
+      context.setStrokeStyle(funnelOption.borderColor);
+      context.setFillStyle(hexToRgb(series[i].color, funnelOption.fillOpacity));
+      context.moveTo(0, 0);
+      context.lineTo(-series[i - 1].radius, 0);
+      context.lineTo(-series[i].radius, -eachSpacing);
+      context.lineTo(series[i].radius, -eachSpacing);
+      context.lineTo(series[i - 1].radius, 0);
+      context.lineTo(0, 0);
+      context.closePath();
+      context.fill();
+      if (funnelOption.border == true) {
+        context.stroke();
+      }
+    }
+    context.translate(0, -eachSpacing);
+  }
+  context.restore();
+
+  if (opts.dataLabel !== false && process === 1) {
+    drawFunnelText(series, opts, context, eachSpacing, funnelOption.labelAlign, activeWidth, centerPosition);
+  }
+
+  return {
+    center: centerPosition,
+    radius: radius,
+    series: series };
+
+}
+
+function drawFunnelText(series, opts, context, eachSpacing, labelAlign, activeWidth, centerPosition) {
+  for (var i = 0; i < series.length; i++) {
+    var item = series[i];
+    var startX = void 0,endX = void 0,startY = void 0,fontSize = void 0;
+    var text = item.format ? item.format(+item._proportion_.toFixed(2)) : util.toFixed(item._proportion_ * 100) + '%';
+    if (labelAlign == 'right') {
+      if (i == 0) {
+        startX = (item.funnelArea[2] + centerPosition.x) / 2;
+      } else {
+        startX = (item.funnelArea[2] + series[i - 1].funnelArea[2]) / 2;
+      }
+      endX = startX + activeWidth * 2;
+      startY = item.funnelArea[1] + eachSpacing / 2;
+      fontSize = item.textSize || opts.fontSize;
+      context.setLineWidth(1 * opts.pixelRatio);
+      context.setStrokeStyle(item.color);
+      context.setFillStyle(item.color);
+      context.beginPath();
+      context.moveTo(startX, startY);
+      context.lineTo(endX, startY);
+      context.stroke();
+      context.closePath();
+      context.beginPath();
+      context.moveTo(endX, startY);
+      context.arc(endX, startY, 2, 0, 2 * Math.PI);
+      context.closePath();
+      context.fill();
+      context.beginPath();
+      context.setFontSize(fontSize);
+      context.setFillStyle(item.textColor || '#666666');
+      context.fillText(text, endX + 5, startY + fontSize / 2 - 2);
+      context.closePath();
+      context.stroke();
+      context.closePath();
+    } else {
+      if (i == 0) {
+        startX = (item.funnelArea[0] + centerPosition.x) / 2;
+      } else {
+        startX = (item.funnelArea[0] + series[i - 1].funnelArea[0]) / 2;
+      }
+      endX = startX - activeWidth * 2;
+      startY = item.funnelArea[1] + eachSpacing / 2;
+      fontSize = item.textSize || opts.fontSize;
+      context.setLineWidth(1 * opts.pixelRatio);
+      context.setStrokeStyle(item.color);
+      context.setFillStyle(item.color);
+      context.beginPath();
+      context.moveTo(startX, startY);
+      context.lineTo(endX, startY);
+      context.stroke();
+      context.closePath();
+      context.beginPath();
+      context.moveTo(endX, startY);
+      context.arc(endX, startY, 2, 0, 2 * Math.PI);
+      context.closePath();
+      context.fill();
+      context.beginPath();
+      context.setFontSize(fontSize);
+      context.setFillStyle(item.textColor || '#666666');
+      context.fillText(text, endX - 5 - measureText(text), startY + fontSize / 2 - 2);
+      context.closePath();
+      context.stroke();
+      context.closePath();
+    }
+
+  }
+}
+
+
+function drawCanvas(opts, context) {
+  context.draw();
+}
+
+var Timing = {
+  easeIn: function easeIn(pos) {
+    return Math.pow(pos, 3);
+  },
+  easeOut: function easeOut(pos) {
+    return Math.pow(pos - 1, 3) + 1;
+  },
+  easeInOut: function easeInOut(pos) {
+    if ((pos /= 0.5) < 1) {
+      return 0.5 * Math.pow(pos, 3);
+    } else {
+      return 0.5 * (Math.pow(pos - 2, 3) + 2);
+    }
+  },
+  linear: function linear(pos) {
+    return pos;
+  } };
+
+
+function Animation(opts) {
+  this.isStop = false;
+  opts.duration = typeof opts.duration === 'undefined' ? 1000 : opts.duration;
+  opts.timing = opts.timing || 'linear';
+  var delay = 17;
+
+  function createAnimationFrame() {
+    if (typeof setTimeout !== 'undefined') {
+      return function (step, delay) {
+        setTimeout(function () {
+          var timeStamp = +new Date();
+          step(timeStamp);
+        }, delay);
+      };
+    } else if (typeof requestAnimationFrame !== 'undefined') {
+      return requestAnimationFrame;
+    } else {
+      return function (step) {
+        step(null);
+      };
+    }
+  };
+  var animationFrame = createAnimationFrame();
+  var startTimeStamp = null;
+  var _step = function step(timestamp) {
+    if (timestamp === null || this.isStop === true) {
+      opts.onProcess && opts.onProcess(1);
+      opts.onAnimationFinish && opts.onAnimationFinish();
+      return;
+    }
+    if (startTimeStamp === null) {
+      startTimeStamp = timestamp;
+    }
+    if (timestamp - startTimeStamp < opts.duration) {
+      var process = (timestamp - startTimeStamp) / opts.duration;
+      var timingFunction = Timing[opts.timing];
+      process = timingFunction(process);
+
+      opts.onProcess && opts.onProcess(process);
+      animationFrame(_step, delay);
+    } else {
+      opts.onProcess && opts.onProcess(1);
+      opts.onAnimationFinish && opts.onAnimationFinish();
+    }
+  };
+  _step = _step.bind(this);
+  animationFrame(_step, delay);
+}
+
+// stop animation immediately
+// and tigger onAnimationFinish
+Animation.prototype.stop = function () {
+  this.isStop = true;
+};
+
+function drawCharts(type, opts, config, context) {
+  var _this = this;
+  var series = opts.series;
+  var categories = opts.categories;
+  series = fillSeries(series, opts, config);
+  var duration = opts.animation ? opts.duration : 0;
+  _this.animationInstance && _this.animationInstance.stop();
+  var seriesMA = null;
+  if (type == 'candle') {
+    var average = assign({}, opts.extra.candle.average);
+    if (average.show) {
+      seriesMA = calCandleMA(average.day, average.name, average.color, series[0].data);
+      seriesMA = fillSeries(seriesMA, opts, config);
+      opts.seriesMA = seriesMA;
+    } else if (opts.seriesMA) {
+      seriesMA = opts.seriesMA = fillSeries(opts.seriesMA, opts, config);
+    } else {
+      seriesMA = series;
+    }
+  } else {
+    seriesMA = series;
+  }
+
+  /* 过滤掉show=false的series */
+  opts._series_ = series = filterSeries(series);
+
+  //重新计算图表区域
+
+  opts.area = new Array(4);
+  //复位绘图区域
+  for (var j = 0; j < 4; j++) {
+    opts.area[j] = opts.padding[j];
+  }
+
+  //通过计算三大区域：图例、X轴、Y轴的大小，确定绘图区域
+  var _calLegendData = calLegendData(seriesMA, opts, config, opts.chartData),
+  legendHeight = _calLegendData.area.wholeHeight,
+  legendWidth = _calLegendData.area.wholeWidth;
+
+  switch (opts.legend.position) {
+    case 'top':
+      opts.area[0] += legendHeight;
+      break;
+    case 'bottom':
+      opts.area[2] += legendHeight;
+      break;
+    case 'left':
+      opts.area[3] += legendWidth;
+      break;
+    case 'right':
+      opts.area[1] += legendWidth;
+      break;}
+
+
+  var _calYAxisData = {},yAxisWidth = 0;
+  if (opts.type === 'line' || opts.type === 'column' || opts.type === 'area' || opts.type === 'mix' || opts.type === 'candle') {
+    _calYAxisData = calYAxisData(series, opts, config);
+    yAxisWidth = _calYAxisData.yAxisWidth;
+    //如果显示Y轴标题
+    if (opts.yAxis.showTitle) {
+      var maxTitleHeight = 0;
+      for (var i = 0; i < opts.yAxis.data.length; i++) {
+        maxTitleHeight = Math.max(maxTitleHeight, opts.yAxis.data[i].titleFontSize ? opts.yAxis.data[i].titleFontSize : config.fontSize);
+      }
+      opts.area[0] += (maxTitleHeight + 6) * opts.pixelRatio;
+    }
+    var rightIndex = 0,leftIndex = 0;
+    //计算主绘图区域左右位置
+    for (var _i23 = 0; _i23 < yAxisWidth.length; _i23++) {
+      if (yAxisWidth[_i23].position == 'left') {
+        if (leftIndex > 0) {
+          opts.area[3] += yAxisWidth[_i23].width + opts.yAxis.padding;
+        } else {
+          opts.area[3] += yAxisWidth[_i23].width;
+        }
+        leftIndex += 1;
+      } else {
+        if (rightIndex > 0) {
+          opts.area[1] += yAxisWidth[_i23].width + opts.yAxis.padding;
+        } else {
+          opts.area[1] += yAxisWidth[_i23].width;
+        }
+        rightIndex += 1;
+      }
+    }
+  } else {
+    config.yAxisWidth = yAxisWidth;
+  }
+  opts.chartData.yAxisData = _calYAxisData;
+
+  if (opts.categories && opts.categories.length) {
+    opts.chartData.xAxisData = getXAxisPoints(opts.categories, opts, config);
+    var _calCategoriesData = calCategoriesData(opts.categories, opts, config, opts.chartData.xAxisData.eachSpacing),
+    xAxisHeight = _calCategoriesData.xAxisHeight,
+    angle = _calCategoriesData.angle;
+    config.xAxisHeight = xAxisHeight;
+    config._xAxisTextAngle_ = angle;
+    opts.area[2] += xAxisHeight;
+    opts.chartData.categoriesData = _calCategoriesData;
+  } else {
+    if (opts.type === 'line' || opts.type === 'area' || opts.type === 'points') {
+      opts.chartData.xAxisData = calXAxisData(series, opts, config);
+      categories = opts.chartData.xAxisData.rangesFormat;
+      var _calCategoriesData2 = calCategoriesData(categories, opts, config, opts.chartData.xAxisData.eachSpacing),
+      _xAxisHeight = _calCategoriesData2.xAxisHeight,
+      _angle = _calCategoriesData2.angle;
+      config.xAxisHeight = _xAxisHeight;
+      config._xAxisTextAngle_ = _angle;
+      opts.area[2] += _xAxisHeight;
+      opts.chartData.categoriesData = _calCategoriesData2;
+    } else {
+      opts.chartData.xAxisData = {
+        xAxisPoints: [] };
+
+    }
+  }
+  //计算右对齐偏移距离
+  if (opts.enableScroll && opts.xAxis.scrollAlign == 'right' && opts._scrollDistance_ === undefined) {
+    var offsetLeft = 0,
+    xAxisPoints = opts.chartData.xAxisData.xAxisPoints,
+    startX = opts.chartData.xAxisData.startX,
+    endX = opts.chartData.xAxisData.endX,
+    eachSpacing = opts.chartData.xAxisData.eachSpacing;
+    var totalWidth = eachSpacing * (xAxisPoints.length - 1);
+    var screenWidth = endX - startX;
+    offsetLeft = screenWidth - totalWidth;
+    _this.scrollOption = {
+      currentOffset: offsetLeft,
+      startTouchX: offsetLeft,
+      distance: 0,
+      lastMoveTime: 0 };
+
+    opts._scrollDistance_ = offsetLeft;
+  }
+
+  if (type === 'pie' || type === 'ring' || type === 'rose') {
+    config._pieTextMaxLength_ = opts.dataLabel === false ? 0 : getPieTextMaxLength(seriesMA);
+  }
+
+  switch (type) {
+    case 'word':
+      var wordOption = assign({}, {
+        type: 'normal',
+        autoColors: true },
+      opts.extra.word);
+      if (opts.updateData == true || opts.updateData == undefined) {
+        opts.chartData.wordCloudData = getWordCloudPoint(opts, wordOption.type);
+      }
+      this.animationInstance = new Animation({
+        timing: 'easeInOut',
+        duration: duration,
+        onProcess: function onProcess(process) {
+          context.clearRect(0, 0, opts.width, opts.height);
+          if (opts.rotate) {
+            contextRotate(context, opts);
+          }
+          drawWordCloudDataPoints(series, opts, config, context, process);
+          drawCanvas(opts, context);
+        },
+        onAnimationFinish: function onAnimationFinish() {
+          _this.event.trigger('renderComplete');
+        } });
+
+      break;
+    case 'map':
+      context.clearRect(0, 0, opts.width, opts.height);
+      drawMapDataPoints(series, opts, config, context);
+      break;
+    case 'funnel':
+      this.animationInstance = new Animation({
+        timing: 'easeInOut',
+        duration: duration,
+        onProcess: function onProcess(process) {
+          context.clearRect(0, 0, opts.width, opts.height);
+          if (opts.rotate) {
+            contextRotate(context, opts);
+          }
+          opts.chartData.funnelData = drawFunnelDataPoints(series, opts, config, context, process);
+          drawLegend(opts.series, opts, config, context, opts.chartData);
+          drawToolTipBridge(opts, config, context, process);
+          drawCanvas(opts, context);
+        },
+        onAnimationFinish: function onAnimationFinish() {
+          _this.event.trigger('renderComplete');
+        } });
+
+      break;
+    case 'line':
+      this.animationInstance = new Animation({
+        timing: 'easeIn',
+        duration: duration,
+        onProcess: function onProcess(process) {
+          context.clearRect(0, 0, opts.width, opts.height);
+          if (opts.rotate) {
+            contextRotate(context, opts);
+          }
+          drawYAxisGrid(categories, opts, config, context);
+          drawXAxis(categories, opts, config, context);
+          var _drawLineDataPoints = drawLineDataPoints(series, opts, config, context, process),
+          xAxisPoints = _drawLineDataPoints.xAxisPoints,
+          calPoints = _drawLineDataPoints.calPoints,
+          eachSpacing = _drawLineDataPoints.eachSpacing;
+          opts.chartData.xAxisPoints = xAxisPoints;
+          opts.chartData.calPoints = calPoints;
+          opts.chartData.eachSpacing = eachSpacing;
+          drawYAxis(series, opts, config, context);
+          if (opts.enableMarkLine !== false && process === 1) {
+            drawMarkLine(opts, config, context);
+          }
+          drawLegend(opts.series, opts, config, context, opts.chartData);
+          drawToolTipBridge(opts, config, context, process, eachSpacing, xAxisPoints);
+          drawCanvas(opts, context);
+
+        },
+        onAnimationFinish: function onAnimationFinish() {
+          _this.event.trigger('renderComplete');
+        } });
+
+      break;
+    case 'mix':
+      this.animationInstance = new Animation({
+        timing: 'easeIn',
+        duration: duration,
+        onProcess: function onProcess(process) {
+          context.clearRect(0, 0, opts.width, opts.height);
+          if (opts.rotate) {
+            contextRotate(context, opts);
+          }
+          drawYAxisGrid(categories, opts, config, context);
+          drawXAxis(categories, opts, config, context);
+          var _drawMixDataPoints = drawMixDataPoints(series, opts, config, context, process),
+          xAxisPoints = _drawMixDataPoints.xAxisPoints,
+          calPoints = _drawMixDataPoints.calPoints,
+          eachSpacing = _drawMixDataPoints.eachSpacing;
+          opts.chartData.xAxisPoints = xAxisPoints;
+          opts.chartData.calPoints = calPoints;
+          opts.chartData.eachSpacing = eachSpacing;
+          drawYAxis(series, opts, config, context);
+          if (opts.enableMarkLine !== false && process === 1) {
+            drawMarkLine(opts, config, context);
+          }
+          drawLegend(opts.series, opts, config, context, opts.chartData);
+          drawToolTipBridge(opts, config, context, process, eachSpacing, xAxisPoints);
+          drawCanvas(opts, context);
+        },
+        onAnimationFinish: function onAnimationFinish() {
+          _this.event.trigger('renderComplete');
+        } });
+
+      break;
+    case 'column':
+      this.animationInstance = new Animation({
+        timing: 'easeIn',
+        duration: duration,
+        onProcess: function onProcess(process) {
+          context.clearRect(0, 0, opts.width, opts.height);
+          if (opts.rotate) {
+            contextRotate(context, opts);
+          }
+          drawYAxisGrid(categories, opts, config, context);
+          drawXAxis(categories, opts, config, context);
+          var _drawColumnDataPoints = drawColumnDataPoints(series, opts, config, context, process),
+          xAxisPoints = _drawColumnDataPoints.xAxisPoints,
+          calPoints = _drawColumnDataPoints.calPoints,
+          eachSpacing = _drawColumnDataPoints.eachSpacing;
+          opts.chartData.xAxisPoints = xAxisPoints;
+          opts.chartData.calPoints = calPoints;
+          opts.chartData.eachSpacing = eachSpacing;
+          drawYAxis(series, opts, config, context);
+          if (opts.enableMarkLine !== false && process === 1) {
+            drawMarkLine(opts, config, context);
+          }
+          drawLegend(opts.series, opts, config, context, opts.chartData);
+          drawToolTipBridge(opts, config, context, process, eachSpacing, xAxisPoints);
+          drawCanvas(opts, context);
+        },
+        onAnimationFinish: function onAnimationFinish() {
+          _this.event.trigger('renderComplete');
+        } });
+
+      break;
+    case 'area':
+      this.animationInstance = new Animation({
+        timing: 'easeIn',
+        duration: duration,
+        onProcess: function onProcess(process) {
+          context.clearRect(0, 0, opts.width, opts.height);
+          if (opts.rotate) {
+            contextRotate(context, opts);
+          }
+          drawYAxisGrid(categories, opts, config, context);
+          drawXAxis(categories, opts, config, context);
+          var _drawAreaDataPoints = drawAreaDataPoints(series, opts, config, context, process),
+          xAxisPoints = _drawAreaDataPoints.xAxisPoints,
+          calPoints = _drawAreaDataPoints.calPoints,
+          eachSpacing = _drawAreaDataPoints.eachSpacing;
+          opts.chartData.xAxisPoints = xAxisPoints;
+          opts.chartData.calPoints = calPoints;
+          opts.chartData.eachSpacing = eachSpacing;
+          drawYAxis(series, opts, config, context);
+          if (opts.enableMarkLine !== false && process === 1) {
+            drawMarkLine(opts, config, context);
+          }
+          drawLegend(opts.series, opts, config, context, opts.chartData);
+          drawToolTipBridge(opts, config, context, process, eachSpacing, xAxisPoints);
+          drawCanvas(opts, context);
+        },
+        onAnimationFinish: function onAnimationFinish() {
+          _this.event.trigger('renderComplete');
+        } });
+
+      break;
+    case 'ring':
+    case 'pie':
+      this.animationInstance = new Animation({
+        timing: 'easeInOut',
+        duration: duration,
+        onProcess: function onProcess(process) {
+          context.clearRect(0, 0, opts.width, opts.height);
+          if (opts.rotate) {
+            contextRotate(context, opts);
+          }
+          opts.chartData.pieData = drawPieDataPoints(series, opts, config, context, process);
+          drawLegend(opts.series, opts, config, context, opts.chartData);
+          drawToolTipBridge(opts, config, context, process);
+          drawCanvas(opts, context);
+        },
+        onAnimationFinish: function onAnimationFinish() {
+          _this.event.trigger('renderComplete');
+        } });
+
+      break;
+    case 'rose':
+      this.animationInstance = new Animation({
+        timing: 'easeInOut',
+        duration: duration,
+        onProcess: function onProcess(process) {
+          context.clearRect(0, 0, opts.width, opts.height);
+          if (opts.rotate) {
+            contextRotate(context, opts);
+          }
+          opts.chartData.pieData = drawRoseDataPoints(series, opts, config, context, process);
+          drawLegend(opts.series, opts, config, context, opts.chartData);
+          drawToolTipBridge(opts, config, context, process);
+          drawCanvas(opts, context);
+        },
+        onAnimationFinish: function onAnimationFinish() {
+          _this.event.trigger('renderComplete');
+        } });
+
+      break;
+    case 'radar':
+      this.animationInstance = new Animation({
+        timing: 'easeInOut',
+        duration: duration,
+        onProcess: function onProcess(process) {
+          context.clearRect(0, 0, opts.width, opts.height);
+          if (opts.rotate) {
+            contextRotate(context, opts);
+          }
+          opts.chartData.radarData = drawRadarDataPoints(series, opts, config, context, process);
+          drawLegend(opts.series, opts, config, context, opts.chartData);
+          drawToolTipBridge(opts, config, context, process);
+          drawCanvas(opts, context);
+        },
+        onAnimationFinish: function onAnimationFinish() {
+          _this.event.trigger('renderComplete');
+        } });
+
+      break;
+    case 'arcbar':
+      this.animationInstance = new Animation({
+        timing: 'easeInOut',
+        duration: duration,
+        onProcess: function onProcess(process) {
+          context.clearRect(0, 0, opts.width, opts.height);
+          if (opts.rotate) {
+            contextRotate(context, opts);
+          }
+          opts.chartData.arcbarData = drawArcbarDataPoints(series, opts, config, context, process);
+          drawCanvas(opts, context);
+        },
+        onAnimationFinish: function onAnimationFinish() {
+          _this.event.trigger('renderComplete');
+        } });
+
+      break;
+    case 'gauge':
+      this.animationInstance = new Animation({
+        timing: 'easeInOut',
+        duration: duration,
+        onProcess: function onProcess(process) {
+          context.clearRect(0, 0, opts.width, opts.height);
+          if (opts.rotate) {
+            contextRotate(context, opts);
+          }
+          opts.chartData.gaugeData = drawGaugeDataPoints(categories, series, opts, config, context, process);
+          drawCanvas(opts, context);
+        },
+        onAnimationFinish: function onAnimationFinish() {
+          _this.event.trigger('renderComplete');
+        } });
+
+      break;
+    case 'candle':
+      this.animationInstance = new Animation({
+        timing: 'easeIn',
+        duration: duration,
+        onProcess: function onProcess(process) {
+          context.clearRect(0, 0, opts.width, opts.height);
+          if (opts.rotate) {
+            contextRotate(context, opts);
+          }
+          drawYAxisGrid(categories, opts, config, context);
+          drawXAxis(categories, opts, config, context);
+          var _drawCandleDataPoints = drawCandleDataPoints(series, seriesMA, opts, config, context, process),
+          xAxisPoints = _drawCandleDataPoints.xAxisPoints,
+          calPoints = _drawCandleDataPoints.calPoints,
+          eachSpacing = _drawCandleDataPoints.eachSpacing;
+          opts.chartData.xAxisPoints = xAxisPoints;
+          opts.chartData.calPoints = calPoints;
+          opts.chartData.eachSpacing = eachSpacing;
+          drawYAxis(series, opts, config, context);
+          if (opts.enableMarkLine !== false && process === 1) {
+            drawMarkLine(opts, config, context);
+          }
+          if (seriesMA) {
+            drawLegend(seriesMA, opts, config, context, opts.chartData);
+          } else {
+            drawLegend(opts.series, opts, config, context, opts.chartData);
+          }
+          drawToolTipBridge(opts, config, context, process, eachSpacing, xAxisPoints);
+          drawCanvas(opts, context);
+        },
+        onAnimationFinish: function onAnimationFinish() {
+          _this.event.trigger('renderComplete');
+        } });
+
+      break;}
+
+}
+
+// simple event implement
+
+function Event() {
+  this.events = {};
+}
+
+Event.prototype.addEventListener = function (type, listener) {
+  this.events[type] = this.events[type] || [];
+  this.events[type].push(listener);
+};
+
+Event.prototype.trigger = function () {
+  for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+
+  var type = args[0];
+  var params = args.slice(1);
+  if (!!this.events[type]) {
+    this.events[type].forEach(function (listener) {
+      try {
+        listener.apply(null, params);
+      } catch (e) {
+        console.error(e);
+      }
+    });
+  }
+};
+
+var Charts = function Charts(opts) {
+  opts.pixelRatio = opts.pixelRatio ? opts.pixelRatio : 1;
+  opts.fontSize = opts.fontSize ? opts.fontSize * opts.pixelRatio : 13 * opts.pixelRatio;
+  opts.title = assign({}, opts.title);
+  opts.subtitle = assign({}, opts.subtitle);
+  opts.duration = opts.duration ? opts.duration : 1000;
+  opts.yAxis = assign({}, {
+    data: [],
+    showTitle: false,
+    disabled: false,
+    disableGrid: false,
+    splitNumber: 5,
+    gridType: 'solid',
+    dashLength: 4 * opts.pixelRatio,
+    gridColor: '#cccccc',
+    padding: 10,
+    fontColor: '#666666' },
+  opts.yAxis);
+  opts.yAxis.dashLength *= opts.pixelRatio;
+  opts.yAxis.padding *= opts.pixelRatio;
+  opts.xAxis = assign({}, {
+    rotateLabel: false,
+    type: 'calibration',
+    gridType: 'solid',
+    dashLength: 4,
+    scrollAlign: 'left',
+    boundaryGap: 'center',
+    axisLine: true,
+    axisLineColor: '#cccccc' },
+  opts.xAxis);
+  opts.xAxis.dashLength *= opts.pixelRatio;
+  opts.legend = assign({}, {
+    show: true,
+    position: 'bottom',
+    float: 'center',
+    backgroundColor: 'rgba(0,0,0,0)',
+    borderColor: 'rgba(0,0,0,0)',
+    borderWidth: 0,
+    padding: 5,
+    margin: 5,
+    itemGap: 10,
+    fontSize: opts.fontSize,
+    lineHeight: opts.fontSize,
+    fontColor: '#333333',
+    format: {},
+    hiddenColor: '#CECECE' },
+  opts.legend);
+  opts.legend.borderWidth = opts.legend.borderWidth * opts.pixelRatio;
+  opts.legend.itemGap = opts.legend.itemGap * opts.pixelRatio;
+  opts.legend.padding = opts.legend.padding * opts.pixelRatio;
+  opts.legend.margin = opts.legend.margin * opts.pixelRatio;
+  opts.extra = assign({}, opts.extra);
+  opts.rotate = opts.rotate ? true : false;
+  opts.animation = opts.animation ? true : false;
+  opts.rotate = opts.rotate ? true : false;
+
+  var config$$1 = JSON.parse(JSON.stringify(config));
+  config$$1.colors = opts.colors ? opts.colors : config$$1.colors;
+  config$$1.yAxisTitleWidth = opts.yAxis.disabled !== true && opts.yAxis.title ? config$$1.yAxisTitleWidth : 0;
+  if (opts.type == 'pie' || opts.type == 'ring') {
+    config$$1.pieChartLinePadding = opts.dataLabel === false ? 0 : opts.extra.pie.labelWidth * opts.pixelRatio || config$$1.pieChartLinePadding * opts.pixelRatio;
+  }
+  if (opts.type == 'rose') {
+    config$$1.pieChartLinePadding = opts.dataLabel === false ? 0 : opts.extra.rose.labelWidth * opts.pixelRatio || config$$1.pieChartLinePadding * opts.pixelRatio;
+  }
+  config$$1.pieChartTextPadding = opts.dataLabel === false ? 0 : config$$1.pieChartTextPadding * opts.pixelRatio;
+  config$$1.yAxisSplit = opts.yAxis.splitNumber ? opts.yAxis.splitNumber : config.yAxisSplit;
+
+  //屏幕旋转
+  config$$1.rotate = opts.rotate;
+  if (opts.rotate) {
+    var tempWidth = opts.width;
+    var tempHeight = opts.height;
+    opts.width = tempHeight;
+    opts.height = tempWidth;
+  }
+
+  //适配高分屏
+  opts.padding = opts.padding ? opts.padding : config$$1.padding;
+  for (var i = 0; i < 4; i++) {
+    opts.padding[i] *= opts.pixelRatio;
+  }
+  config$$1.yAxisWidth = config.yAxisWidth * opts.pixelRatio;
+  config$$1.xAxisHeight = config.xAxisHeight * opts.pixelRatio;
+  if (opts.enableScroll && opts.xAxis.scrollShow) {
+    config$$1.xAxisHeight += 6 * opts.pixelRatio;
+  }
+  config$$1.xAxisLineHeight = config.xAxisLineHeight * opts.pixelRatio;
+  config$$1.fontSize = opts.fontSize;
+  config$$1.titleFontSize = config.titleFontSize * opts.pixelRatio;
+  config$$1.subtitleFontSize = config.subtitleFontSize * opts.pixelRatio;
+  config$$1.toolTipPadding = config.toolTipPadding * opts.pixelRatio;
+  config$$1.toolTipLineHeight = config.toolTipLineHeight * opts.pixelRatio;
+  config$$1.columePadding = config.columePadding * opts.pixelRatio;
+  opts.$this = opts.$this ? opts.$this : this;
+
+  this.context = uni.createCanvasContext(opts.canvasId, opts.$this);
+  /* 兼容原生H5
+                                                                     this.context = document.getElementById(opts.canvasId).getContext("2d");
+                                                                     this.context.setStrokeStyle = function(e){ return this.strokeStyle=e; }
+                                                                     this.context.setLineWidth = function(e){ return this.lineWidth=e; }
+                                                                     this.context.setLineCap = function(e){ return this.lineCap=e; }
+                                                                     this.context.setFontSize = function(e){ return this.font=e+"px sans-serif"; }
+                                                                     this.context.setFillStyle = function(e){ return this.fillStyle=e; }
+                                                                     this.context.draw = function(){ }
+                                                                     */
+
+  opts.chartData = {};
+  this.event = new Event();
+  this.scrollOption = {
+    currentOffset: 0,
+    startTouchX: 0,
+    distance: 0,
+    lastMoveTime: 0 };
+
+
+  this.opts = opts;
+  this.config = config$$1;
+
+  drawCharts.call(this, opts.type, opts, config$$1, this.context);
+};
+
+Charts.prototype.updateData = function () {
+  var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  this.opts = assign({}, this.opts, data);
+  this.opts.updateData = true;
+  var scrollPosition = data.scrollPosition || 'current';
+  switch (scrollPosition) {
+    case 'current':
+      this.opts._scrollDistance_ = this.scrollOption.currentOffset;
+      break;
+    case 'left':
+      this.opts._scrollDistance_ = 0;
+      this.scrollOption = {
+        currentOffset: 0,
+        startTouchX: 0,
+        distance: 0,
+        lastMoveTime: 0 };
+
+      break;
+    case 'right':
+      var _calYAxisData = calYAxisData(this.opts.series, this.opts, this.config),
+      yAxisWidth = _calYAxisData.yAxisWidth;
+      this.config.yAxisWidth = yAxisWidth;
+      var offsetLeft = 0;
+      var _getXAxisPoints0 = getXAxisPoints(this.opts.categories, this.opts, this.config),
+      xAxisPoints = _getXAxisPoints0.xAxisPoints,
+      startX = _getXAxisPoints0.startX,
+      endX = _getXAxisPoints0.endX,
+      eachSpacing = _getXAxisPoints0.eachSpacing;
+      var totalWidth = eachSpacing * (xAxisPoints.length - 1);
+      var screenWidth = endX - startX;
+      offsetLeft = screenWidth - totalWidth;
+      this.scrollOption = {
+        currentOffset: offsetLeft,
+        startTouchX: offsetLeft,
+        distance: 0,
+        lastMoveTime: 0 };
+
+      this.opts._scrollDistance_ = offsetLeft;
+      break;}
+
+  drawCharts.call(this, this.opts.type, this.opts, this.config, this.context);
+};
+
+Charts.prototype.zoom = function () {
+  var val = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.opts.xAxis.itemCount;
+  if (this.opts.enableScroll !== true) {
+    console.log('请启用滚动条后使用！');
+    return;
+  }
+  //当前屏幕中间点
+  var centerPoint = Math.round(Math.abs(this.scrollOption.currentOffset) / this.opts.chartData.eachSpacing) + Math.round(
+  this.opts.xAxis.itemCount / 2);
+  this.opts.animation = false;
+  this.opts.xAxis.itemCount = val.itemCount;
+  //重新计算x轴偏移距离
+  var _calYAxisData = calYAxisData(this.opts.series, this.opts, this.config),
+  yAxisWidth = _calYAxisData.yAxisWidth;
+  this.config.yAxisWidth = yAxisWidth;
+  var offsetLeft = 0;
+  var _getXAxisPoints0 = getXAxisPoints(this.opts.categories, this.opts, this.config),
+  xAxisPoints = _getXAxisPoints0.xAxisPoints,
+  startX = _getXAxisPoints0.startX,
+  endX = _getXAxisPoints0.endX,
+  eachSpacing = _getXAxisPoints0.eachSpacing;
+  var centerLeft = eachSpacing * centerPoint;
+  var screenWidth = endX - startX;
+  var MaxLeft = screenWidth - eachSpacing * (xAxisPoints.length - 1);
+  offsetLeft = screenWidth / 2 - centerLeft;
+  if (offsetLeft > 0) {
+    offsetLeft = 0;
+  }
+  if (offsetLeft < MaxLeft) {
+    offsetLeft = MaxLeft;
+  }
+  this.scrollOption = {
+    currentOffset: offsetLeft,
+    startTouchX: offsetLeft,
+    distance: 0,
+    lastMoveTime: 0 };
+
+  this.opts._scrollDistance_ = offsetLeft;
+  drawCharts.call(this, this.opts.type, this.opts, this.config, this.context);
+};
+
+Charts.prototype.stopAnimation = function () {
+  this.animationInstance && this.animationInstance.stop();
+};
+
+Charts.prototype.addEventListener = function (type, listener) {
+  this.event.addEventListener(type, listener);
+};
+
+Charts.prototype.getCurrentDataIndex = function (e) {
+  var touches = null;
+  if (e.changedTouches) {
+    touches = e.changedTouches[0];
+  } else {
+    touches = e.mp.changedTouches[0];
+  }
+  if (touches) {
+    var _touches$ = getTouches(touches, this.opts, e);
+    if (this.opts.type === 'pie' || this.opts.type === 'ring' || this.opts.type === 'rose') {
+      return findPieChartCurrentIndex({
+        x: _touches$.x,
+        y: _touches$.y },
+      this.opts.chartData.pieData);
+    } else if (this.opts.type === 'radar') {
+      return findRadarChartCurrentIndex({
+        x: _touches$.x,
+        y: _touches$.y },
+      this.opts.chartData.radarData, this.opts.categories.length);
+    } else if (this.opts.type === 'funnel') {
+      return findFunnelChartCurrentIndex({
+        x: _touches$.x,
+        y: _touches$.y },
+      this.opts.chartData.funnelData);
+    } else if (this.opts.type === 'map') {
+      return findMapChartCurrentIndex({
+        x: _touches$.x,
+        y: _touches$.y },
+      this.opts);
+    } else if (this.opts.type === 'word') {
+      return findWordChartCurrentIndex({
+        x: _touches$.x,
+        y: _touches$.y },
+      this.opts.chartData.wordCloudData);
+    } else {
+      return findCurrentIndex({
+        x: _touches$.x,
+        y: _touches$.y },
+      this.opts.chartData.calPoints, this.opts, this.config, Math.abs(this.scrollOption.currentOffset));
+    }
+  }
+  return -1;
+};
+
+Charts.prototype.getLegendDataIndex = function (e) {
+  var touches = null;
+  if (e.changedTouches) {
+    touches = e.changedTouches[0];
+  } else {
+    touches = e.mp.changedTouches[0];
+  }
+  if (touches) {
+    var _touches$ = getTouches(touches, this.opts, e);
+    return findLegendIndex({
+      x: _touches$.x,
+      y: _touches$.y },
+    this.opts.chartData.legendData);
+  }
+  return -1;
+};
+
+Charts.prototype.touchLegend = function (e) {
+  var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var touches = null;
+  if (e.changedTouches) {
+    touches = e.changedTouches[0];
+  } else {
+    touches = e.mp.changedTouches[0];
+  }
+  if (touches) {
+    var _touches$ = getTouches(touches, this.opts, e);
+    var index = this.getLegendDataIndex(e);
+    if (index >= 0) {
+      this.opts.series[index].show = !this.opts.series[index].show;
+      this.opts.animation = option.animation ? true : false;
+      this.opts._scrollDistance_ = this.scrollOption.currentOffset;
+      drawCharts.call(this, this.opts.type, this.opts, this.config, this.context);
+    }
+  }
+
+};
+
+Charts.prototype.showToolTip = function (e) {
+  var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var touches = null;
+  if (e.changedTouches) {
+    touches = e.changedTouches[0];
+  } else {
+    touches = e.mp.changedTouches[0];
+  }
+  if (!touches) {
+    console.log("touchError");
+  }
+  var _touches$ = getTouches(touches, this.opts, e);
+  var currentOffset = this.scrollOption.currentOffset;
+  var opts = assign({}, this.opts, {
+    _scrollDistance_: currentOffset,
+    animation: false });
+
+  if (this.opts.type === 'line' || this.opts.type === 'area' || this.opts.type === 'column') {
+    var index = this.getCurrentDataIndex(e);
+    if (index > -1) {
+      var seriesData = getSeriesDataItem(this.opts.series, index);
+      if (seriesData.length !== 0) {
+        var _getToolTipData = getToolTipData(seriesData, this.opts.chartData.calPoints, index, this.opts.categories, option),
+        textList = _getToolTipData.textList,
+        offset = _getToolTipData.offset;
+        offset.y = _touches$.y;
+        opts.tooltip = {
+          textList: textList,
+          offset: offset,
+          option: option,
+          index: index };
+
+      }
+    }
+    drawCharts.call(this, opts.type, opts, this.config, this.context);
+  }
+  if (this.opts.type === 'mix') {
+    var index = this.getCurrentDataIndex(e);
+    if (index > -1) {
+      var currentOffset = this.scrollOption.currentOffset;
+      var opts = assign({}, this.opts, {
+        _scrollDistance_: currentOffset,
+        animation: false });
+
+      var seriesData = getSeriesDataItem(this.opts.series, index);
+      if (seriesData.length !== 0) {
+        var _getMixToolTipData = getMixToolTipData(seriesData, this.opts.chartData.calPoints, index, this.opts.categories, option),
+        textList = _getMixToolTipData.textList,
+        offset = _getMixToolTipData.offset;
+        offset.y = _touches$.y;
+        opts.tooltip = {
+          textList: textList,
+          offset: offset,
+          option: option,
+          index: index };
+
+      }
+    }
+    drawCharts.call(this, opts.type, opts, this.config, this.context);
+  }
+  if (this.opts.type === 'candle') {
+    var index = this.getCurrentDataIndex(e);
+    if (index > -1) {
+      var currentOffset = this.scrollOption.currentOffset;
+      var opts = assign({}, this.opts, {
+        _scrollDistance_: currentOffset,
+        animation: false });
+
+      var seriesData = getSeriesDataItem(this.opts.series, index);
+      if (seriesData.length !== 0) {
+        var _getToolTipData = getCandleToolTipData(this.opts.series[0].data, seriesData, this.opts.chartData.calPoints,
+        index, this.opts.categories, this.opts.extra.candle, option),
+        textList = _getToolTipData.textList,
+        offset = _getToolTipData.offset;
+        offset.y = _touches$.y;
+        opts.tooltip = {
+          textList: textList,
+          offset: offset,
+          option: option,
+          index: index };
+
+      }
+    }
+    drawCharts.call(this, opts.type, opts, this.config, this.context);
+  }
+  if (this.opts.type === 'pie' || this.opts.type === 'ring' || this.opts.type === 'rose' || this.opts.type === 'funnel') {
+    var index = this.getCurrentDataIndex(e);
+    if (index > -1) {
+      var currentOffset = this.scrollOption.currentOffset;
+      var opts = assign({}, this.opts, {
+        _scrollDistance_: currentOffset,
+        animation: false });
+
+      var seriesData = this.opts._series_[index];
+      var textList = [{
+        text: option.format ? option.format(seriesData) : seriesData.name + ': ' + seriesData.data,
+        color: seriesData.color }];
+
+      var offset = {
+        x: _touches$.x,
+        y: _touches$.y };
+
+      opts.tooltip = {
+        textList: textList,
+        offset: offset,
+        option: option,
+        index: index };
+
+    }
+    drawCharts.call(this, opts.type, opts, this.config, this.context);
+  }
+  if (this.opts.type === 'map' || this.opts.type === 'word') {
+    var index = this.getCurrentDataIndex(e);
+    if (index > -1) {
+      var currentOffset = this.scrollOption.currentOffset;
+      var opts = assign({}, this.opts, {
+        _scrollDistance_: currentOffset,
+        animation: false });
+
+      var seriesData = this.opts._series_[index];
+      var textList = [{
+        text: option.format ? option.format(seriesData) : seriesData.properties.name,
+        color: seriesData.color }];
+
+      var offset = {
+        x: _touches$.x,
+        y: _touches$.y };
+
+      opts.tooltip = {
+        textList: textList,
+        offset: offset,
+        option: option,
+        index: index };
+
+    }
+    opts.updateData = false;
+    drawCharts.call(this, opts.type, opts, this.config, this.context);
+  }
+  if (this.opts.type === 'radar') {
+    var index = this.getCurrentDataIndex(e);
+    if (index > -1) {
+      var currentOffset = this.scrollOption.currentOffset;
+      var opts = assign({}, this.opts, {
+        _scrollDistance_: currentOffset,
+        animation: false });
+
+      var seriesData = getSeriesDataItem(this.opts.series, index);
+      if (seriesData.length !== 0) {
+        var textList = seriesData.map(function (item) {
+          return {
+            text: option.format ? option.format(item) : item.name + ': ' + item.data,
+            color: item.color };
+
+        });
+        var offset = {
+          x: _touches$.x,
+          y: _touches$.y };
+
+        opts.tooltip = {
+          textList: textList,
+          offset: offset,
+          option: option,
+          index: index };
+
+      }
+    }
+    drawCharts.call(this, opts.type, opts, this.config, this.context);
+  }
+};
+
+Charts.prototype.translate = function (distance) {
+  this.scrollOption = {
+    currentOffset: distance,
+    startTouchX: distance,
+    distance: 0,
+    lastMoveTime: 0 };
+
+  var opts = assign({}, this.opts, {
+    _scrollDistance_: distance,
+    animation: false });
+
+  drawCharts.call(this, this.opts.type, opts, this.config, this.context);
+};
+
+Charts.prototype.scrollStart = function (e) {
+  var touches = null;
+  if (e.changedTouches) {
+    touches = e.changedTouches[0];
+  } else {
+    touches = e.mp.changedTouches[0];
+  }
+  var _touches$ = getTouches(touches, this.opts, e);
+  if (touches && this.opts.enableScroll === true) {
+    this.scrollOption.startTouchX = _touches$.x;
+  }
+};
+
+Charts.prototype.scroll = function (e) {
+  if (this.scrollOption.lastMoveTime === 0) {
+    this.scrollOption.lastMoveTime = Date.now();
+  }
+  var Limit = this.opts.extra.touchMoveLimit || 20;
+  var currMoveTime = Date.now();
+  var duration = currMoveTime - this.scrollOption.lastMoveTime;
+  if (duration < Math.floor(1000 / Limit)) return;
+  this.scrollOption.lastMoveTime = currMoveTime;
+  var touches = null;
+  if (e.changedTouches) {
+    touches = e.changedTouches[0];
+  } else {
+    touches = e.mp.changedTouches[0];
+  }
+  if (touches && this.opts.enableScroll === true) {
+    var _touches$ = getTouches(touches, this.opts, e);
+    var _distance;
+    _distance = _touches$.x - this.scrollOption.startTouchX;
+    var currentOffset = this.scrollOption.currentOffset;
+    var validDistance = calValidDistance(this, currentOffset + _distance, this.opts.chartData, this.config, this.opts);
+    this.scrollOption.distance = _distance = validDistance - currentOffset;
+    var opts = assign({}, this.opts, {
+      _scrollDistance_: currentOffset + _distance,
+      animation: false });
+
+    drawCharts.call(this, opts.type, opts, this.config, this.context);
+    return currentOffset + _distance;
+  }
+};
+
+Charts.prototype.scrollEnd = function (e) {
+  if (this.opts.enableScroll === true) {
+    var _scrollOption = this.scrollOption,
+    currentOffset = _scrollOption.currentOffset,
+    distance = _scrollOption.distance;
+    this.scrollOption.currentOffset = currentOffset + distance;
+    this.scrollOption.distance = 0;
+  }
+};
+if ( true && typeof module.exports === "object") {
+  module.exports = Charts;
+  //export default Charts;//建议使用nodejs的module导出方式，如报错请使用export方式导出
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 49:
+/*!********************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/medal.png ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
 
 /***/ }),
 
@@ -9754,6 +15304,83 @@ main();
 
 /***/ }),
 
+/***/ 50:
+/*!*********************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/notice.png ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAkCAYAAACe0YppAAAELklEQVRYR+2Xf2hbVRTHv+c1bdO1na4rjm6MKvtB3YauCv4YiEWluuYHY5LXVpuX+GuIUMNQOnSimQ4HXZ0/UCeyP5Zk65Y82JhJW5WhDhHnD6RqV/9YocJYVcZsa9fVpck98vLeStqmy2vTgX/0/HnvOd/PPeeed9+9hNkZ1ds9bgY/A/BGgJhA3YL4IzUabJ+NFJl1rqmpsdxUUnkU4EczxRDo8K2xWxQ//MKMpmlwvcOzi5lf1UX5ZwaOEiQi8OMMrDfGX47EQnvmDeyt8Vovl4i/ACwm0Fdg0cwslXGeIAvRYFLgPQD3MzCEorFlqqrGs8FNZeyyK3cR8J0hlgSQN0V4YoyBu9VY8PucwbLd6wDEBwBWZhMz5rVt2JYNfs2MZYfyOjO/QiDDj/4mcAeDvwZwnogYwApmvg8gG4ClegtgnEC+cEdg/0yLnRFcb/PsZuKdRuBlgPYUxsXboc9Do5nEHA7HoiIu84F5JwjFKR8iXyQa0PZ/mmUEyw7vFrA4poUCOEcktoSjh34yU+pGp3JbQvAnBKoEkGTiWjUa+mJq7DSwu9ZdfKWQzoJRAeZhtohN6onDvWagV33q65S1LPFpgJaA8fuIuFDV1dV1JV1jGli2eV4AcVuqUiBPOBYIzgY6Abe5G5joiL7laFZjwfevCXbZlR4C1jPwixoLbtTj5mQk25UfANwJoDsSC1bPCN76cFOFJV8a0LNFSzgW3DsnpBHksis+At5JZS2kCrXz4J9X9SaV2lXX9AhJUpfhWK12HuzOCbz5iXWUlzyja7AtEgt1ZgTLNqUJhJA2OZ6P8uPHgxdzATudT5ZaReIfnQtvpCMYyJyxw/0UMR1I+RWNWVRV1Y7CnEy2KwntiGWm59S0A2VyqRfAC6WeQ5stNNf/4zveWvdYZZ5keYOABwEsvx4HCAFnmHDCIhJt7R3tg9TgVKqF4C8BuiG9d+b75ErTHiDmh8hlV04amSYZ6CLCkOYUjgYUQupOlZPJdk8AxBJYS4w3A7AAOKn9My8B2h2JWiOxwI6cKFmCXTbPbtLvcXGSbUo/CDeD+FO2lrpU9UNtIfNuqStVgXQEYAeAAZLtnpcAftMgaX+jSXejeVxBYdpDwE9++KVeW38bk2gmkFb/62kJEPazdWz7xG+x0dm4THD+HYJhnUoeXVm8/EL1khZtfHHfpQNlvUM96T7DVTdWDa4teVYbW/rr8Ful/SPnpmpIhH/H46L72GeH/tDmTL2d1vW8VhAfWXQeQDlApwpKR2t7N+zSH2Y/bstflVjdqX0iAC6ivGhF35rns26XKbCmv/rb1u0A7zMy+Y1A7QKsPcwbAN5gZOE7e++OjC+HqRUwDQaD1pxufZfBzdOaQH9D7eu7p+VFsw1iHmworvpm7wPIE08T8+36kNQNxsd9m1pOmYVqfv8B/LkFhZxI10sAAAAASUVORK5CYII="
+
+/***/ }),
+
+/***/ 51:
+/*!************************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/item-img1.png ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ 52:
+/*!************************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/item-img2.png ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAE0UlEQVR4Xu3cTYwTZRgH8P87ZY2sUWMQTfyM7IQLKIkh0CFBo4SDuppI2JqIcFEvfiYi7eLFetFtV038wIt4ATFhm2Ciqx6MH1FCu4YLflzI7BpBTRCJEeKauHYeM7t02t2dMlNn5pnp9OmVd95n3t/895m3TFsFebEIKJYqUgQCzRQCgRZoJgGmMpJogWYSYCojiY4TOje4g5jqp7LM2Pi+RQF2TbRAB7v+Ah3Mz/fRAu2bKthAgQ7m5/togfZNFWxgGNAnCagFO410HK2ALIDr3VYTGJqASmV8Xy4dVMFWMTS4Y0wBQwIdzNHzaIH2JApnACu0Xi311DtI0yg4b/AEOpzAus4i0BHitk4t0ALNJMBURhIt0EwCTGXSmOhTgHoBoLeYDH2VSR00kbVlcsPu9/Vq6SCAxLzlTxe0Uu+a2fx2O2L6Vy8uR1/mewBX+YpcxIPSA0349Z+6tfrExt1/NMz0WmkrCJWIDX1Nnw5opcgCBqey+Y8XrjopLSQd0MA7plF4xC1aSWkhKYBWP0FN32Jmi2dt6JVfFK+0lvYXzWz+iWYLeXkrqB5rC+l2aLIy2Dy1rvCZg1otHwDoQWgqZ67PO7hxt5DuhlZqz7zkVkfuBdQHs+hEp3Gxtcq89bnTSdiFdDP05Ll+bc2pNbv+siFXHB25XJvRfgDo2mavVhXTyDt7ab0WXwvpSmgCrExf5vbja5893GwZpbcBLL4hJqSFxAd9pOz6cNLPppQy6szk+l2fN8au+OaVTVr9308Bl28hBGgh9gVVCk/CUrPtJ8jL3NC8X7A+YQly0q3HXn1s9JJLp63vANzUfk6qmMZws4XYF1nRmNc5EPD6pFF42mtcp//eldAD1dJrCnjKc7GLWsjIGKAu9Ff147l+7ebGPcBz/g4GsELrAVqHsyaNlhPhDQVonuvsrIWQlVmyeWrdTmfbODAxeqeq0zLPOm0GxNY64nkK7ruF7DWNwqMNs5UT5Y11i770dUHbQffcU3DPFqJ+sfqsVVNrh/+0zc7fA44BGPi/abaPi2/XEdfnOjxbCN1nGsMftmwb9wB4LAhyb0LPirVrIeo908hva24bS5u0Oty3jR3K916iG0Ckcq03KL1WflP7e7p4/I7i7/YQvVa8DNT/LUA3dmjqOrx3oYHfMFNfbd42938hC196tbQXwMNhIPdw63BiPe+NjNMyauW7NWAcRKF9xa+XEz3nuqCF3PD1S1dctESznzVeE1aaJdFzkvNaiF4r7wfRQ2EiC7SjObcLGZgYvV9Z1qGwkQW6VVThcRCej+rjCdKjo4ivy5wCLdBMAkxlJNECzSTAVEYSLdBMAkxlYks00/oSWYb1mWEiBZhOSqDTAA1Afkbi/IWM9GckmMLS9WUC/15H1wswLUCgBZpJgKmMJFqgmQSYyvhOdLvzeeCe7UOklOtHZRVR7uBH+2P9Mk/YjmGut6NH8WEWDhslivnCXK9AX+AKCXQU8XWZU6AFWm6G7TIQXo8GXgVRun63VKksAc+44XW6ywoNmumvOTFlBJrpUgi0QDMJMJWRRAs0kwBTmUgTveWubdf1aZrBtJZEl5mxrOqhTw787PckO9re+Z1Uxi0WEGimVAi0QDMJMJWRRAs0kwBTGUm0QDMJMJX5D1G5bJdlLcDCAAAAAElFTkSuQmCC"
+
+/***/ }),
+
+/***/ 53:
+/*!********************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/heart.png ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ 54:
+/*!************************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/item-img4.png ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAADgElEQVR4Xu2cv2tTURTHz0lSxYS6dBCrEgg6qItLsToFRBAaKSpJiz8i4uriorg5dnLVSWoEscmWphbsYDb9Hyw4ZNLFoakUbXvlJalEmrS5591337vpN/P93nPu530597z73gsTflYIsJUoCEIAbckEAA3QlghYCqPl6EKuqCzlFekwiqhSqZUKOkkCtA6tzliAFkCTSABaQk2gAWgBNIkEoCXUBJowQTcU0RdBzpGWMFG+V4KhgZYEjjThTnL92lnJeo20d5LAAL0HAZNXGKAB+h8Bk8ZC6bBkLIB2CTQRob3bZ9Mx4mgXNjaTOUq6LIAWXAGAFkCTSABaQk2gAWgBNIkEoCXUBJrAQXfnlM8Vy/1Ot8q1ktYmK1hrIJKZqXt5xVzuNTkrVVhYeluRBhYDAWg95ADdxQuO1jOPeDRAi9HpCQFaj5d4NECL0ekJAVqPl3g0QIvR6QkBWo+XeLRzoMUr7Qglt7h+Y3p6gDZBcYA5AHoASCaGHDjQa+lU4+vdtJ1XzJhfrE4+bcU6cKB/nj1K326eMmHS/edQXFi9/KR1KgfQ++OSj3AZtNc17Ky8mU5NbibjWvZcP5GkHxfH5PB0lC6D7j74P/15rkzEPV9/1eER2FiADgzt/xMDNEC3CAz6KAulo22YwB9lATRAtwm4XKPR3u3eXwIpHX63MdwZdhHcazMEaDh6NwGXazQcDUfD0d0EsBkOuBniUMlS6QBogB6uGg1Hw9FwtN/eW6x3+YbF+95jZ+GNa8cf/0klLumA+D06QusnkzoS+ViXQctX3Vaijx6wjwZoS5shQAP0cHUdcDQcPVyORntnydG4BQfo4SodcDQcDUf7bQnFepfPOlA6QigdYqeFIHTuGxb81Y8lR8dinHtffbMUginFIbPZbOLYaPqVUuphr0ki+Z9KSinFMf6gFP0Sr9yykInPEKkL/cJGErRlRlbChQZ65vqdiW0VX2YiS9+pWeHZL8injVhiulp9vSbNQvx+tBcwP/3gHG9trRDRuDSB6Ot4Mdnkwnx9fsNPrr5Ae4FvTd3OxDi+wsQZP4lEUctE7743M/fr9eebfvPzDdpLYPbq7Lg6fOijIjrvN6Go6Jnp5cJi6RERbZvIyQhoL5EbV4pjI0d4mUhNmEgszDkU0VylVnpmMgdjoE0mNYxzAbSlqwrQAG2JgKUwcLQl0H8BupUylz9wcgEAAAAASUVORK5CYII="
+
+/***/ }),
+
+/***/ 55:
+/*!************************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/item-img5.png ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAGS0lEQVR4Xu3cf0xVZRgH8C8QUdoVu1wFEzH5g5nWVmRD7IeslbPSTbeW0rRGzCjTXLlpKtOJpshayw3nCouFpM3WcgsXM2uwGWma64eu+kMFdQkpCINbEFxo762z3S733PO+7znve9737tx/AO/znvc9n/Pc57zv8ZybNDIyMgLvJVwgyYMWbhzuQDvo9qsd2PvOPqxaW4YJEwNylBzoRStogrx1w050dd4II2/ZuUEbbG2gI5GNBNMJWwvoWMi6YSsPHQ9ZJ2yloWmQdcFWFpoFWQdsJaF5kFXHVg7aDrLK2EpB0yCnpKTg8ScfxdEjX2F4eNh0KaHa1E8ZaFrkNeteRsGcB/BN8wlUv/2uNthKQLMiG2msE7br0LzIumG7Cm0XWSds16DDyBsr0XW9y/SERk58Rk22uoCmehlxBdppZB0yWzq0KGTVsaVCi0ZWGVsatCxkVbGlQMtGVhFbOLRbyKphC4V2G1klbGHQqiCrgi0EWjVkFbAdh1YV2W1sR6FVR3YT2zFoXZDdwnYEWjdkN7BtQ+uKLBvbFrTuyDKxuaETBVkWNhc0Qa7YWIlOhy7aW13Ul/W+yP88YIZOVGTjYNa+V4/Gz7+Me2ynz8jD1l2bmI4/E3SiI59sOYXdVXsRCoVMEf0Zt4fvy86alCkG2kMGeJHJEaHKaJHI54IdaO6+gCsDPSDPLWXfko6543Nx99gspoyxEywyk41xWUKLQm7rv4HNF4+ipactplHBuBxUTJuH3Fv9dgwt28pAtsxoUcg/9l1F6a+foGeoPy6ELyUN+6Y/jXzfZEswngBZyHGhRSF3Dv6JhT/V4tpgkMrGnzoGDfeUYMLNY6niaYNkIptCi0ImHW5rPYa69jO0HuG44sx7w2XEqZds5JjQIpEHR0IoOF2N3tAAk9mY5FR8N2s10pJvYmoXK9gNZOnQZ4PtWPxzHRfWoZnLcJ/vDq62RiO3kKWXjqYb57Hit0+5sPbkLcI8fx5XW9LITWTpJ8PTvVdQfO4AF1bdXUtQmD6Vq63byNKnd91Df2H299UIMX6hQhKS0HL/SgRS2WceKiBbQpMAp0+OJb8cwvGeVqbMJIuX+hlLmdqoUC4iB2y5MnQamyxWnjlbj2HQfU1IEoADM5/FLF82EzRVJgf82LLjDeYLRGQgSxY+H3M8j80vwopXSka9RwXtNHbN7ydRdamZCu61KQ9j5eRCqliW2UX6+HGoqCrnQhYK3dvbh22bKtF28XLcnX6utBhPLZpvCXOw4wfsaPsa/cNDMWPJnHl9ThGWZ+VbbisygCaTSbxZ5tF2JiSjCfL28l1ovXAp7jiWv7AUCxY/QTtWdPzdh/r2M2jqPo/LAz3hdtlp/169W5aZj0lpPupt0dZkY4PKQYtCZhKkCKbNZCWhExVZqdKRyMjKQFMjlxZjAcWJj+KTzxXCWi4iO3G9RicSsj/gN32O0VXoREMmi5E1L65jWljQfrRsTe/eenM3Tp2If1H+oaJCrF77Eu14HI+jKRcZAT82/7fiYwWhHTDrdv+3Mrz2x/Xw98qRn2av5ORkrHq9DA/OnU07plFxRw43IjAxI/x1ECwvGmRSLiKX1awgtONh3e6oJbho7IbPvsD+Dz4Gy3PetIuRaGTSjhVEGjTpSBS2gWzsDC02TyYbfSgNLQI7GpkW2w6y8hltIDiV2WbIVth2kbWBdiKzGw43Yv/7By1LX3QZcQI5HrTlgDgDbF2P5s1sWuTozCZ/W93VGTmFi2diVqM5HS2b2YLmyWyrcmE2YpLZ5BXv1llaZO0ymrVmz3mkAMebvrU8+jwBLMjaQtNmthXg1GlT0NcbjPtoRqxtsCJrDW0X+87cHJRvX49gX9DyOZhIbB5k7aF5sQ1kn++2sCHNrQwkjheZtK3ZU2v1AeN6/1hjU8x2tk+GsbZKMxsx2kUjG/9uhW0HmUuQshHripP6dgOz/mmwzZCtsFVFjleShGQ0zWzECtkMW2Vk16DNajYtcjQ2+du4nkz5SZYeJr10RO5hZBlhRY7EJr+zPscnW9pVaCOzP6z5CGWvlsKYXchGkNGf69AydlKFPjxoSUfBg/agJQlI6sbLaA9akoCkbryM9qAlCUjqxstoD1qSgKRuvIz2oCUJKNqN7Qv/iu6XcsP6B9D0Y1whXGGpAAAAAElFTkSuQmCC"
+
+/***/ }),
+
+/***/ 56:
+/*!************************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/item-img6.png ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
 /***/ 6:
 /*!******************************************************!*\
   !*** ./node_modules/@dcloudio/uni-stat/package.json ***!
@@ -9773,40 +15400,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/management/management": { "navigationBarTitleText": "客户管理" }, "pages/workbench/workbench": { "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" }, "pages/notice/notice": {}, "pages/personal/personal": { "navigationBarTitleText": "个人信息", "navigationBarBackgroundColor": "#FFFFFF" }, "pages/video/video": { "navigationBarTitleText": "视频监控", "navigationBarBackgroundColor": "#FFFFFF" }, "pages/blood-status/blood-status": { "navigationBarTitleText": "血压 血氧 血糖" }, "pages/electrocardiogram/electrocardiogram": { "navigationBarTitleText": "心电图", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" }, "pages/heart-rate/heart-rate": { "navigationBarTitleText": "实时心率", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" }, "pages/warning/warning": { "navigationBarTitleText": "报警" }, "pages/login/login": {}, "pages/index/index": { "navigationBarTitleText": "" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
-
-/***/ }),
-
-/***/ 70:
-/*!*******************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/more.png ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAQCAYAAAAMJL+VAAAA0ElEQVQ4T7WUQQqDMBAAs+TW4gdyl4X27ndqX1b7He8tBO9+ILQ32bLSiEqsG5LmKsmYGbJgrb0RUa3+sACggb7vD865lojOORkA8CiKogI+tOu60zAMrVLqmAny0lpXZVk+RwAva+2FiJocAACoEfHOZ02ALyS5B3tHxKv/0QUgtYf3box5BwGJPSbvc82LG6T0mHvfBcT2WHsXAaQ9Qt5FAGGPoHcxYO99bHmPAmz1+OU9GrDusec9GrDqofyckYyV4DvY2sjzir/5OSMBfABokYz3uo6VUQAAAABJRU5ErkJggg=="
-
-/***/ }),
-
-/***/ 71:
-/*!*************************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/back-green.png ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAUCAYAAAC58NwRAAABoklEQVQ4T42TT0sbURTFz30xn8RJP0EDE92KBUtsaGsVQQQRoRV0IZMECoVCoXnTgkIoRUTElWsRFfwDbpqZduHCZZzoBxChlJKaQHPKJJk0qZOkb3cv58e799x7Bf/xHri5qRpV0rsrz0o/fezrh2nWatsABijY6QkYrp4hsSVABIKqEjXVFRh09CyAzboYqELUC8+0dkMBo2DPUbghgAJQATjhJbJ7fvn3AMOx5wGuoyG+kxqfXw5n94NeO4CYqxcIfAYbYoJPS4nsYbsxLcBw7JcAPzV//QWRlGemj/51sQ4Yrr0IMu+LKShHIupJMW6dhFkuMUcvEViri8EyKeNXQ5nTbvMRw9EfAaw0BTe/RY1cm9ZFV6BeUiH3HiLZpugWURn1HqbPQ0sKkoabewvKGz8m8T0SxaNiPPMttOkgOejo1wK8a8T8wQE1Voqnv4Ta2oIK2hIlGqTv4E9AJb2EdRY6uCAZc+1lkqsN51BWgtSlmTkOXY2/PelXAPLB1JXIs6KZPui93p17VYGoyb4H1L7mfQ+o1VMhN01Rj/0T/QPgXpdgCI5T3AAAAABJRU5ErkJggg=="
-
-/***/ }),
-
-/***/ 72:
-/*!***********************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/go-green.png ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAUCAYAAAC58NwRAAABpUlEQVQ4T4XTTWsTURTG8f+Tin1BRBA/gCbN0oULncSNoBZsKcWlKxERKVLQhTMRBEUQkgwuXFhBRCiF0hcq1aKgCK5sRuInMJNP0uYemUmiVifp3Z77u9xz73PE18eHCmMTSzm57Z9eZZUDlvJRbUXGNWBPudz11rn7K8OMit/Dq87cKsZhg47EjdgLlgchJYVCFM5hbh26CLjZLgVLWSgFKWpUZ0EbwKiBk+lWXPbf/It+g6Qw+a06Y9ImYhRwoNtxyX/9N9oHkkK+Ub0i9BYYQzjBfMsLXvXRf6DbU30Ksy1gHDDQnbjkv0xqmSApFJvhpU7HvZMxkSJpIfb8FwNBgk7t1C5K9l4oRYK7Q8HJKDw9Yu4LcKLXw7OBoPCjfoZd+wwcTzebVeNy5UEmKDZrZzu7fJI4lm6WPYm9yqPMpvPN+nntuY+go+nB8LBdCp5mPmuhEV4Atw0cQTJzFrTLQZj5cZNR7bIztkT3GSXda3n+88xoFKP6tDPb7P8usBB7wWJm+HpJXUtCNyg/+67UH6CDYv2n6d6IytyHVrkydNoS9AsRtZz4vUtlWQAAAABJRU5ErkJggg=="
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/management/management": { "navigationBarTitleText": "客户管理" }, "pages/warning/warning": { "navigationBarTitleText": "报警" }, "pages/heart-rate/heart-rate": { "navigationBarTitleText": "实时心率", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" }, "pages/workbench/workbench": { "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" }, "pages/personal/personal": { "navigationBarTitleText": "个人信息", "navigationBarBackgroundColor": "#FFFFFF" }, "pages/notice/notice": { "navigationBarTitleText": "公告信息" }, "pages/video/video": { "navigationBarTitleText": "视频监控", "navigationBarBackgroundColor": "#FFFFFF" }, "pages/blood-status/blood-status": { "navigationBarTitleText": "血压 血氧 血糖" }, "pages/electrocardiogram/electrocardiogram": { "navigationBarTitleText": "心电图", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" }, "pages/login/login": {}, "pages/index/index": { "navigationBarTitleText": "" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 
@@ -9822,25 +15416,25 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 81:
-/*!********************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/back2.png ***!
-  \********************************************************************/
+/***/ 89:
+/*!*************************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/back-green.png ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAkCAYAAACNBsqdAAACXElEQVRIS63X3YtNURjH8e8vIpH3vOQl5KWElAulXJgrUyQUMdEkSqZG4oIwypSa0jQXiiIkIcwkSd4vuFAu/R9cECUzflq1znTOnrXP2fucWZdnn+fT2ns9z7OfLcZh2Z4FPAZ6JH0OpFp1bc8F3gIbgZ/ADkkfW4JtzwfeAeuqNvgL2NU0bHsR8B5Yk7jroaZg20sjujKBPgP2l4Ztr4josgQaDrBD0nAp2PYq4AOwOIHeBzoljZTKCttr40EtTKC3gWOS/lWuFdqx7Q0xpeYl0OtAlyRXX2sI294EvAbmJNABSadStVAXtr0ZeAXMTAT3STqbV2C5sO2twAtgeiL4sqRL9ao2CdtuA54DUxPB5yVdadQKxsC2twNDwJRMcDicM5L6G6Fj0s32TuAJMDmBdku6VgStgW3vBR4AkzLBITePS7pZFB2FbR8A7gETM8Ghio5ICtdKLdnuBG4BEzKRw8AhSY9KifHPAQ7PrSsR/A1ok/S1KTgE2b4KnE4A34F2SV/K4qPpZrsXuJAAfsTXzacyeE0e2w4lGpI/m9+/gd2S3hTFUwXSDQwk8D/APkmhIhuuvJI+CtxIZMpf4HCRTKnXhDqAuzm5HZr6ndJNqBJgew/wMKcaT9Yr8SKNvh0YzGlK5yT1pXbeEI55vi220WkJpFdST/b3QnDEtwAvgRkJvF9STYEVhiNe7/0XsuhE5aVaCo54mNPCELggsfPQBUM3HCkNR3x1nDGWJPCnwMGm4Igvj3gYubJrsGk44qmJs7UxtqqIwowcnvn6cRu8q/DZ8VPhYuVT4T+W8cn9slNPQgAAAABJRU5ErkJggg=="
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAUCAYAAAC58NwRAAABoklEQVQ4T42TT0sbURTFz30xn8RJP0EDE92KBUtsaGsVQQQRoRV0IZMECoVCoXnTgkIoRUTElWsRFfwDbpqZduHCZZzoBxChlJKaQHPKJJk0qZOkb3cv58e799x7Bf/xHri5qRpV0rsrz0o/fezrh2nWatsABijY6QkYrp4hsSVABIKqEjXVFRh09CyAzboYqELUC8+0dkMBo2DPUbghgAJQATjhJbJ7fvn3AMOx5wGuoyG+kxqfXw5n94NeO4CYqxcIfAYbYoJPS4nsYbsxLcBw7JcAPzV//QWRlGemj/51sQ4Yrr0IMu+LKShHIupJMW6dhFkuMUcvEViri8EyKeNXQ5nTbvMRw9EfAaw0BTe/RY1cm9ZFV6BeUiH3HiLZpugWURn1HqbPQ0sKkoabewvKGz8m8T0SxaNiPPMttOkgOejo1wK8a8T8wQE1Voqnv4Ta2oIK2hIlGqTv4E9AJb2EdRY6uCAZc+1lkqsN51BWgtSlmTkOXY2/PelXAPLB1JXIs6KZPui93p17VYGoyb4H1L7mfQ+o1VMhN01Rj/0T/QPgXpdgCI5T3AAAAABJRU5ErkJggg=="
 
 /***/ }),
 
-/***/ 98:
-/*!******************************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/static/images/glu.png ***!
-  \******************************************************************/
+/***/ 90:
+/*!***********************************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/static/images/go-green.png ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAET0lEQVRoQ+2ZX2hbVRzHv797ky11OB0yh4W2SjJB9GFYp10FmQ9qa9K8JZnTpdVhfRVhrRWEMlBMJ1P0ZXbS2gRskz4M1xtLB7oqmw3YKYLbZCYiVhF0wpzOqDHnJze9N8vKzb1pk9QEc55yOH9+v8/5/Tnn/kKo80Z1rj/yAH5PkP8LGGJ+LBqPTK1VdgNgrSenr6uWBY6Ccbpc5YzWSyCbIH67ugCMvlg8PFENAJ/Pt4HSTX81ALQTMA7iGrGAr/vJrZCzLpuEKz9e/u7c/Pz8Pyu9oiYBfN4nXMT0JpgeBiBpSv8C8EhMiRwCkE/5pgDOhZGQROyoWCwwjuw4vJgyiwGfd78LIpMg4KYicsdiSnh/Pob0H9dcZJoLuRKhS2DcUCkABj969+EzH5gB+N29J0D8kKlM5q5YPDKnzjG1wHoD7PE+1ZwVme8JlNOLgRMSxABJcpsQHAGwWVP63agSfrySAGpa3GhlKSsL7PH07RYQJ/V9ZJLumJx55yu173cHj4DwjDZ2JqaE76kIABPiBETBCJcL4PP2dZEQs/o+G+28LXIs8lMOwNMbAnhAs8zZaSV8VyUAfpXYfueFzud+cC2E3gfQbQZhZYF1B2BI/aldB46qSt92+tU2WcqeBbCpGERNATBwKtUx+ADoak52fRIaAuHlugAQEnZ+c9/gYqGy2+YObbp+szgPoMUIonYsQLSU7BhoNVJyeyI0wowDtQ0AfJ3cNXi7kZLOROggMV6sdQCGTbQndw59fo2ii/12V8b5GYBcilvZaseFljU7zyy8qc6hpNq59eSww+ZoegPA03URxNqF8gdAcxL4MgO7AbTV1T1gdfPWugutVn/UWgw0AHKPsYLC1rq/hVZrgoYLreE5PQbGdas96WLzSdArO17/9FyxT8qKu1ClFC/cx6ywVTkAUALAt9UAALMEgl/fuzpBXBXNjTf93wAEPPueZ6bcRz0TLkwr4UdyaVg/l4AnqH7TGrwgcwWme/UBBs9LoLT2FtoOwKWNXSHg46vz0AFgi9ZfIuBLo/0FcWh6JvKROmYWA0UTg5W3+L3BByHwoT5PkuXWqffGl9S+3xM8COTf/smYElaBcs3fEzwFxv25UyIajc5M6CWRoiIbAEZHU/cW6G/vt6db07ovw3nMeXEYw8LKhfa6926RN8h2dZ49a0+PHR/7zcpdq+JCZkJXxEAqpoT1gLbS1XA80BPsZkY+mXBWvnl6dvxns83K+p844N73LBO9pgn4U6ZMy+TM5MU1ab9c/3wBhJe09eLGZodjdHQ0UzUAn7u3nYgLa0NJhlorpfx/YCXDMDcDCICQczsACzEl3Gm1viwLLKfL3lkwd1kJWuU4SxL1TB2fiFutKxvA1+3bSnKTWlFutxJW4rgAeCimREZKmV82gCpEzVSXbvm7jyG8BLQwYCtFeOEcCfgdRF+ApbeiyrhaWyqpVQSgJElVmlT3AP8CJDy5bbGniKoAAAAASUVORK5CYII="
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAUCAYAAAC58NwRAAABpUlEQVQ4T4XTTWsTURTG8f+Tin1BRBA/gCbN0oULncSNoBZsKcWlKxERKVLQhTMRBEUQkgwuXFhBRCiF0hcq1aKgCK5sRuInMJNP0uYemUmiVifp3Z77u9xz73PE18eHCmMTSzm57Z9eZZUDlvJRbUXGNWBPudz11rn7K8OMit/Dq87cKsZhg47EjdgLlgchJYVCFM5hbh26CLjZLgVLWSgFKWpUZ0EbwKiBk+lWXPbf/It+g6Qw+a06Y9ImYhRwoNtxyX/9N9oHkkK+Ub0i9BYYQzjBfMsLXvXRf6DbU30Ksy1gHDDQnbjkv0xqmSApFJvhpU7HvZMxkSJpIfb8FwNBgk7t1C5K9l4oRYK7Q8HJKDw9Yu4LcKLXw7OBoPCjfoZd+wwcTzebVeNy5UEmKDZrZzu7fJI4lm6WPYm9yqPMpvPN+nntuY+go+nB8LBdCp5mPmuhEV4Atw0cQTJzFrTLQZj5cZNR7bIztkT3GSXda3n+88xoFKP6tDPb7P8usBB7wWJm+HpJXUtCNyg/+67UH6CDYv2n6d6IytyHVrkydNoS9AsRtZz4vUtlWQAAAABJRU5ErkJggg=="
 
 /***/ })
 

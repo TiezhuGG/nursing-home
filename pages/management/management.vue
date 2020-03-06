@@ -2,7 +2,7 @@
 	<view>
 		<view class="input">
 			<img src="../../static/images/search.png" @click="onFocus">
-			<input placeholder="搜索客户姓名" :value="inputName" @input="bindKeyInput" @blur="bindBlur" :focus="focus" />
+			<input placeholder="搜索客户姓名" v-model="inputName" @input="search" @blur="bindBlur" :focus="focus" />
 		</view>
 
 		<scroll-view class="container-inner">
@@ -34,7 +34,6 @@
 </template>
 
 <script>
-	import city from '../../common/city.js';
 	import {
 		initial
 	} from "@/common/chineseConversion.js"
@@ -45,10 +44,11 @@
 				searchLetter: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'W', 'X',
 					'Y', 'Z'
 				],
+				inputName: '',
 				focus: false,
 				list: [],
+				dataSource: [],
 				scrollTopId: '',
-				inputName: '',
 				completeList: [],
 				winHeight: 0,
 				showLetter: '',
@@ -74,13 +74,22 @@
 					tempArr.push(temp);
 				}
 			);
-			
+
 			this.winHeight = winHeight;
 			this.itemH = itemH;
 			this.searchLetter = tempArr;
-			console.log(this.searchLetter)
 		},
 		methods: {
+			// 监听input事件
+			search(e) {
+				let val = e.detail.value
+				for (let i = 0; i < this.dataSource.length; i++) {
+					if (this.dataSource[i].name.indexOf(val) !== -1) {
+						let letter = initial(val)
+						this.scrollTopId = letter;
+					}
+				}
+			},
 			// 点击搜索图标获取input焦点
 			onFocus() {
 				this.focus = !this.focus
@@ -92,7 +101,9 @@
 					success: res => {
 						let letterList = []
 						for (let item of res.data.data) {
+							// 获取姓名首字母大写形式
 							let letter = initial(item.name)
+							// console.log(letter)
 							let index = letterList.indexOf(letter)
 							if (index === -1) {
 								letterList.push(letter)
@@ -103,19 +114,19 @@
 								obj.letter = letter
 								obj.data.push(item)
 								this.list.push(obj)
+								this.dataSource.push(item)
 							} else {
 								this.list[index].data.push(item)
 							}
 						}
 						this.sortLetter(this.list)
-						console.log(this.list)
 					}
 				})
 			},
 			// 跳转个人详情页
 			toPatientDetail(id) {
 				uni.navigateTo({
-					url: `../personal/personal?id=${id}`				
+					url: `../personal/personal?id=${id}`
 				})
 			},
 			// 按字母a-z排序
@@ -141,89 +152,11 @@
 					self.isShowLetter = false;
 				}, 500);
 			},
-			bindScroll(e) {
-				console.log(e.detail);
-			},
+			// 失去焦点 输入框内容清空
 			bindBlur(e) {
 				this.inputName = '';
 			},
-			bindKeyInput(e) {
-				console.log(e)
-				this.inputName = e.mp.detail.value;
-				// 空搜索框时 取消匹配显示
-				if (this.inputName.length < 1) {
-					this.completeList = [];
-				}
-				this.scrollTopId = 'completelist';
-				this.auto();
-			},
-			auto() {
-				let inputSd = this.inputName.trim();
-				let sd = inputSd.toLowerCase();
-				let num = sd.length;
-				const cityList = city.cityObjs;
-				let finalCityList = [];
-
-				let temp = cityList.filter(
-					item => {
-						let text = item.short.slice(0, num).toLowerCase();
-						// eslint-disable-next-line
-						return (text && text == sd);
-					}
-				);
-
-				// 在城市数据中，添加简拼到“shorter”属性，就可以实现简拼搜索
-				let tempShorter = cityList.filter(
-					itemShorter => {
-						if (itemShorter.shorter) {
-							let textShorter = itemShorter.shorter.slice(0, num).toLowerCase();
-							// eslint-disable-next-line
-							return (textShorter && textShorter == sd);
-						}
-					}
-				);
-
-				let tempChinese = cityList.filter(
-					itemChinese => {
-						let textChinese = itemChinese.city.slice(0, num);
-						// eslint-disable-next-line
-						return (textChinese && textChinese == sd);
-					}
-				);
-
-				if (temp[0]) {
-					temp.map(
-						item => {
-							let testObj = {};
-							testObj.city = item.city;
-							testObj.code = item.code;
-							finalCityList.push(testObj);
-						}
-					);
-					this.completeList = finalCityList;
-				} else if (tempShorter[0]) {
-					tempShorter.map(
-						item => {
-							let testObj = {};
-							testObj.city = item.city;
-							testObj.code = item.code;
-							finalCityList.push(testObj);
-						}
-					);
-					this.completeList = finalCityList;
-				} else if (tempChinese[0]) {
-					tempChinese.map(
-						item => {
-							let testObj = {};
-							testObj.city = item.city;
-							testObj.code = item.code;
-							finalCityList.push(testObj);
-						}
-					);
-					this.completeList = finalCityList;
-				}
-			}
-		}
+		},
 	};
 </script>
 
@@ -244,6 +177,7 @@
 		display: flex;
 		align-items: center;
 		height: 104upx;
+
 		input {
 			width: 628upx;
 			height: 64upx;
@@ -251,7 +185,7 @@
 			background-color: #F4F4F4;
 			border-radius: 2upx;
 		}
-		
+
 		img {
 			width: 32upx;
 			height: 32upx;
@@ -290,7 +224,7 @@
 		width: 100%;
 		height: 144upx;
 		align-items: center;
-		
+
 		.item_avatar {
 			width: 84upx;
 			height: 84upx;
@@ -304,6 +238,7 @@
 			justify-content: space-between;
 			height: 84upx;
 			margin-left: 20upx;
+
 			.item_name {
 				color: #333;
 				font-size: 30upx;
@@ -315,12 +250,12 @@
 			}
 		}
 	}
-	
+
 	.selection:not(:nth-last-child(1)) {
-			border-bottom: 1upx solid #DDD;
-			border-bottom-width: 100%;
-		}
-	
+		border-bottom: 1upx solid #DDD;
+		border-bottom-width: 100%;
+	}
+
 	.item_letter {
 		background-color: #F7F7F7;
 		height: 88upx;
@@ -329,6 +264,7 @@
 		font-size: 32upx;
 		color: #BEBEBE;
 		margin-right: 52upx;
+
 		&:nth-child(1) {
 			width: 100%;
 		}

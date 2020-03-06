@@ -7,6 +7,20 @@
 			}
 		},
 		{
+			"path": "pages/warning/warning",
+			"style": {
+				"navigationBarTitleText": "报警"
+			}
+		},
+		{
+			"path": "pages/heart-rate/heart-rate",
+			"style": {
+				"navigationBarTitleText": "实时心率",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#24C789"
+			}
+		},
+		{
 			"path": "pages/workbench/workbench",
 			"style": {
 				"navigationBarTextStyle": "white",
@@ -14,16 +28,16 @@
 			}
 		},
 		{
-			"path": "pages/notice/notice",
-			"style": {
-
-			}
-		},
-		{
 			"path": "pages/personal/personal",
 			"style": {
 				"navigationBarTitleText": "个人信息",
 				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+			"path": "pages/notice/notice",
+			"style": {
+				"navigationBarTitleText": "公告信息"
 			}
 		},
 		{
@@ -48,20 +62,6 @@
 			}
 		},
 		{
-			"path": "pages/heart-rate/heart-rate",
-			"style": {
-				"navigationBarTitleText": "实时心率",
-				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#24C789"
-			}
-		},
-		{
-			"path": "pages/warning/warning",
-			"style": {
-				"navigationBarTitleText": "报警"
-			}
-		},
-		{
 			"path": "pages/login/login",
 			"style": {}
 		},
@@ -71,6 +71,7 @@
 				"navigationBarTitleText": ""
 			}
 		}
+
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
