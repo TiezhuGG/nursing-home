@@ -19,13 +19,8 @@
 				</view>
 				<text class="total">最后30次测量</text>
 			</view>
-			<!-- <canvas canvas-id="canvasColumn" id="canvasColumn" class="charts"> -->
-			<!-- <view class="chart" style="margin-top: 200upx;">图表,找插件。</view> -->
 			<!-- 图表 -->
 			<view class="qiun-columns">
-				<!-- 				<view class="qiun-bg-white qiun-title-bar qiun-common-mt">
-					<view class="qiun-title-dot-light">基本折线图</view>
-				</view> -->
 				<view class="qiun-charts">
 					<canvas canvas-id="myChart" id="myChart" class="charts" @touchstart="touchLineA"></canvas>
 				</view>
@@ -111,9 +106,10 @@
 							categories: [],
 							series: []
 						};
-						//这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
+						//这里后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
 						LineA.categories = res.data.data.LineA.categories;
 						// LineA.series = res.data.data.LineA.series;
+						// 只筛选了最后一条数据进行可视化
 						LineA.series = res.data.data.LineA.series;
 						LineA.series = [LineA.series.pop()];
 						_self.showLineA("myChart", LineA);
@@ -124,6 +120,7 @@
 				});
 			},
 			showLineA(canvasId, chartData) {
+				// 图表实例和配置
 				canvaLineA = new uCharts({
 					$this: _self,
 					canvasId: canvasId,
@@ -165,6 +162,11 @@
 					extra: {
 						line: {
 							type: 'straight'
+						},
+						tooltip:{
+							gridType:'dash',
+							dashLength: 5,
+							gridColor: '#24C789'
 						}
 					}
 				});
@@ -185,14 +187,11 @@
 	/*样式的width和height一定要与定义的cWidth和cHeight相对应*/
 	.qiun-charts {
 		width: 750upx;
-		// height: 500upx;
-		// background-color: #24C789;
 	}
 
 	.charts {
 		width: 750upx;
 		height: 430upx;
-		// background-color: #24C789;
 	}
 
 	.heart-rate {

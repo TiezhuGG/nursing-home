@@ -1,14 +1,14 @@
 {
   "pages": [
+    "pages/blood-status/blood-status",
+    "pages/electrocardiogram/electrocardiogram",
+    "pages/heart-rate/heart-rate",
     "pages/management/management",
     "pages/warning/warning",
-    "pages/heart-rate/heart-rate",
     "pages/workbench/workbench",
     "pages/personal/personal",
     "pages/notice/notice",
     "pages/video/video",
-    "pages/blood-status/blood-status",
-    "pages/electrocardiogram/electrocardiogram",
     "pages/login/login",
     "pages/index/index"
   ],
@@ -44,6 +44,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap22.json"
+  "usingComponents": {}
 }

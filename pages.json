@@ -1,6 +1,28 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/blood-status/blood-status",
+			"style": {
+				"navigationBarTitleText": "血压 血氧 血糖"
+			}
+		},
+		{
+			"path": "pages/electrocardiogram/electrocardiogram",
+			"style": {
+				"navigationBarTitleText": "心电图",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#24C789"
+			}
+		},
+		{
+			"path": "pages/heart-rate/heart-rate",
+			"style": {
+				"navigationBarTitleText": "实时心率",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#24C789"
+			}
+		},
+		{
 			"path": "pages/management/management",
 			"style": {
 				"navigationBarTitleText": "客户管理"
@@ -12,14 +34,7 @@
 				"navigationBarTitleText": "报警"
 			}
 		},
-		{
-			"path": "pages/heart-rate/heart-rate",
-			"style": {
-				"navigationBarTitleText": "实时心率",
-				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#24C789"
-			}
-		},
+
 		{
 			"path": "pages/workbench/workbench",
 			"style": {
@@ -47,20 +62,8 @@
 				"navigationBarBackgroundColor": "#FFFFFF"
 			}
 		},
-		{
-			"path": "pages/blood-status/blood-status",
-			"style": {
-				"navigationBarTitleText": "血压 血氧 血糖"
-			}
-		},
-		{
-			"path": "pages/electrocardiogram/electrocardiogram",
-			"style": {
-				"navigationBarTitleText": "心电图",
-				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#24C789"
-			}
-		},
+
+
 		{
 			"path": "pages/login/login",
 			"style": {}

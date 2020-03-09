@@ -141,7 +141,7 @@
 			},
 			// 点击右侧索引字母
 			clickLetter(e) {
-				console.log(e)
+				// console.log(e)
 				const showLetter = e.currentTarget.dataset.letter;
 				this.toastShowLetter = showLetter;
 				this.isShowLetter = true;
