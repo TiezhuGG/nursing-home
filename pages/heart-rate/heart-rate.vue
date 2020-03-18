@@ -4,13 +4,16 @@
 			<view class="patient_infos">
 				<img class="avatar" src="../../static/images/test.jpg">
 				<view class="info">
-					<text class="name">你好</text>
+					<text class="name">{{patient.name}}</text>
 					<view class="other">
-						<text class="age">年龄: 101</text>
-						<text class="gender">性别: 女</text>
+						<text class="age">年龄: {{patient.age}}</text>
+						<text class="gender">性别: {{patient.id}}</text>
 					</view>
 				</view>
-				<img class="more" src="../../static/images/more.png">
+				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name">
+					<view><img class="more" src="../../static/images/more.png"></view>
+				</picker>
+				<!-- <img class="more" src="../../static/images/more.png"> -->
 			</view>
 			<view class="date-module">
 				<view class="date">
@@ -87,7 +90,9 @@
 				cWidth: '',
 				cHeight: '',
 				pixelRatio: 1,
-				client: null
+				client: null,
+				patientList: [],
+				patient: null
 			};
 		},
 		onLoad() {
@@ -96,7 +101,7 @@
 			// console.log(_self.cWidth)
 			_self.cHeight = uni.upx2px(500);
 			_self.getServerData();
-
+			_self.fetchPatientList()
 			// 创建socket连接
 			let client = mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', {
 				clientId: 'adfas',
@@ -104,10 +109,29 @@
 				password: 'admin'
 			})
 			_self.client = client
-			_self.getSocket()
+			// _self.getSocket()
 		},
 		methods: {
-			
+			bindPickerChange(e){
+				console.log(e)
+				for(let item of this.patientList) {
+					if (item.id === Number(e.detail.value) + 1) {
+						this.patient = item
+						console.log(this.patient)
+					}
+				}
+				
+			},
+			// 获取患者列表
+			fetchPatientList() {
+				uni.request({
+					url: 'https://ciai.le-cx.com/api/patient/patientList',
+					success: res => {
+						this.patientList = res.data.data
+						console.log(this.patientList)
+					}
+				})
+			},
 			getSocket() {
 				this.client.on('connect', () => {
 					console.log('mqtt连接成功')
@@ -122,26 +146,26 @@
 					console.log(error)
 				})
 				// 监听接收消息事件
-				// this.client.on('message', (topic, message) => {
-				// 	// console.log('收到消息：' + message.toString())
-				// 	// console.log(message.toString())
-				// 	let data = message.toString()
-				// 	setTimeout(function() {
-				// 		console.log(data)
-				// 	}, 2000)
-				// 	let dataArr = JSON.parse(data)
-				// 	setTimeout(function() {
-				// 		console.log(dataArr)
-				// 	}, 3000)
-				// 	if (dataArr.length > 1) {
-				// 		setTimeout(function() {
-				// 			console.log(dataArr.length)
-				// 			console.log('收到消息' + dataArr)
-				// 		}, 2000)
-				// 		// console.log(dataArr.length)
-				// 		// console.log('收到消息' + dataArr)
-				// 	}
-				// })
+				this.client.on('message', (topic, message) => {
+					// console.log('收到消息：' + message.toString())
+					// console.log(message.toString())
+					let data = message.toString()
+					setTimeout(function() {
+						console.log(data)
+					}, 2000)
+					let dataArr = JSON.parse(data)
+					setTimeout(function() {
+						console.log(dataArr)
+					}, 3000)
+					if (dataArr.length > 1) {
+						setTimeout(function() {
+							console.log(dataArr.length)
+							console.log('收到消息' + dataArr)
+						}, 2000)
+						// console.log(dataArr.length)
+						// console.log('收到消息' + dataArr)
+					}
+				})
 			},
 
 			getServerData() {

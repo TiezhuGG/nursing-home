@@ -228,6 +228,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 var _uCharts = _interopRequireDefault(__webpack_require__(/*! ../../components/u-charts/u-charts.js */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -294,32 +297,53 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! ../../components/u
 //
 //
 //
-var _self;var canvaLineA = null;var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 25);var _default = { data: function data() {return { time_range: ['08:25', '09:45', '10:22', '12:12', '13:25', '16:25', '18:25'], dateList: [{ date: '2020年2月19日', time: ['09:55:16', '10:25:26', '09:55:16'] }, { date: '2020年2月20日', time: ['09:55:16', '10:25:26', '09:55:16', '09:55:16'] }], bpm: '86BPM', cWidth: '', cHeight: '', pixelRatio: 1, client: null };}, onLoad: function onLoad() {_self = this;_self.cWidth = uni.upx2px(750); // console.log(_self.cWidth)
-    _self.cHeight = uni.upx2px(500);_self.getServerData(); // 创建socket连接
-    var client = mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', { clientId: 'adfas', username: 'admin', password: 'admin' });_self.client = client;_self.getSocket();}, methods: { getSocket: function getSocket() {var _this = this;this.client.on('connect', function () {console.log('mqtt连接成功');_this.client.subscribe('/statues', function (err) {if (!err) {console.log('订阅成功');}});}); // 客户端连接错误事件
-      this.client.on('error', function (error) {console.log(error);}); // 监听接收消息事件
-      // this.client.on('message', (topic, message) => {
-      // 	// console.log('收到消息：' + message.toString())
-      // 	// console.log(message.toString())
-      // 	let data = message.toString()
-      // 	setTimeout(function() {
-      // 		console.log(data)
-      // 	}, 2000)
-      // 	let dataArr = JSON.parse(data)
-      // 	setTimeout(function() {
-      // 		console.log(dataArr)
-      // 	}, 3000)
-      // 	if (dataArr.length > 1) {
-      // 		setTimeout(function() {
-      // 			console.log(dataArr.length)
-      // 			console.log('收到消息' + dataArr)
-      // 		}, 2000)
-      // 		// console.log(dataArr.length)
-      // 		// console.log('收到消息' + dataArr)
-      // 	}
-      // })
-    }, getServerData: function getServerData() {uni.request({ url: 'https://www.ucharts.cn/data.json', data: {}, success: function success(res) {console.log(res.data.data);var LineA = { categories: [], series: [] }; //这里后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-          LineA.categories = res.data.data.LineA.categories; // LineA.series = res.data.data.LineA.series;
+//
+//
+//
+var _self;var canvaLineA = null;var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 25);var _default = { data: function data() {return { time_range: ['08:25', '09:45', '10:22', '12:12', '13:25', '16:25', '18:25'], dateList: [{ date: '2020年2月19日', time: ['09:55:16', '10:25:26', '09:55:16'] }, { date: '2020年2月20日', time: ['09:55:16', '10:25:26', '09:55:16', '09:55:16'] }], bpm: '86BPM', cWidth: '', cHeight: '', pixelRatio: 1, client: null, patientList: [], patient: null };}, onLoad: function onLoad() {_self = this;_self.cWidth = uni.upx2px(750); // console.log(_self.cWidth)
+    _self.cHeight = uni.upx2px(500);_self.getServerData();_self.fetchPatientList(); // 创建socket连接
+    var client = mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', { clientId: 'adfas', username: 'admin', password: 'admin' });_self.client = client; // _self.getSocket()
+  }, methods: { bindPickerChange: function bindPickerChange(e) {console.log(e);var _iteratorNormalCompletion = true;var _didIteratorError = false;var _iteratorError = undefined;try {for (var _iterator = this.patientList[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {var item = _step.value;if (item.id === Number(e.detail.value) + 1) {this.patient = item;console.log(this.patient);}}} catch (err) {_didIteratorError = true;_iteratorError = err;} finally {try {if (!_iteratorNormalCompletion && _iterator.return != null) {_iterator.return();}} finally {if (_didIteratorError) {throw _iteratorError;}}}}, // 获取患者列表
+    fetchPatientList: function fetchPatientList() {var _this = this;uni.request({ url: 'https://ciai.le-cx.com/api/patient/patientList', success: function success(res) {_this.patientList = res.data.data;console.log(_this.patientList);} });}, getSocket: function getSocket() {var _this2 = this;this.client.on('connect', function () {console.log('mqtt连接成功');_this2.client.subscribe('/statues', function (err) {if (!err) {console.log('订阅成功');}});}); // 客户端连接错误事件
+      this.client.on('error', function (error) {
+        console.log(error);
+      });
+      // 监听接收消息事件
+      this.client.on('message', function (topic, message) {
+        // console.log('收到消息：' + message.toString())
+        // console.log(message.toString())
+        var data = message.toString();
+        setTimeout(function () {
+          console.log(data);
+        }, 2000);
+        var dataArr = JSON.parse(data);
+        setTimeout(function () {
+          console.log(dataArr);
+        }, 3000);
+        if (dataArr.length > 1) {
+          setTimeout(function () {
+            console.log(dataArr.length);
+            console.log('收到消息' + dataArr);
+          }, 2000);
+          // console.log(dataArr.length)
+          // console.log('收到消息' + dataArr)
+        }
+      });
+    },
+
+    getServerData: function getServerData() {
+      uni.request({
+        url: 'https://www.ucharts.cn/data.json',
+        data: {},
+        success: function success(res) {
+          console.log(res.data.data);
+          var LineA = {
+            categories: [],
+            series: [] };
+
+          //这里后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
+          LineA.categories = res.data.data.LineA.categories;
+          // LineA.series = res.data.data.LineA.series;
           // 只筛选了最后一条数据进行可视化
           LineA.series = res.data.data.LineA.series;
           LineA.series = [LineA.series.pop()];
