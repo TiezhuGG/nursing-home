@@ -1,9 +1,11 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/blood-status/blood-status",
+			"path": "pages/heart-rate/heart-rate",
 			"style": {
-				"navigationBarTitleText": "血压 血氧 血糖"
+				"navigationBarTitleText": "实时心率",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#24C789"
 			}
 		},
 		{
@@ -15,13 +17,12 @@
 			}
 		},
 		{
-			"path": "pages/heart-rate/heart-rate",
+			"path": "pages/blood-status/blood-status",
 			"style": {
-				"navigationBarTitleText": "实时心率",
-				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#24C789"
+				"navigationBarTitleText": "血压 血氧 血糖"
 			}
 		},
+
 		{
 			"path": "pages/management/management",
 			"style": {

@@ -36,7 +36,7 @@
 <script>
 	import {
 		initial
-	} from "@/common/chineseConversion.js"
+	} from "@/common/js/chineseConversion.js"
 	export default {
 		data() {
 			return {

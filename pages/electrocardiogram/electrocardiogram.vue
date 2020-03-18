@@ -49,6 +49,7 @@
 	import uCharts from '../../components/u-charts/u-charts.js'
 	var _self;
 	var canvaLineA = null;
+	var mqtt = require('../../common/js/mqtt.min.js')
 	export default {
 		data() {
 			return {
@@ -67,50 +68,50 @@
 				cWidth: '',
 				cHeight: '',
 				pixelRatio: 1,
-				socketTask: null,
-				is_open_socket: false
+				client: null
 			};
 		},
+		
 		onLoad() {
 			_self = this;
 			_self.cWidth = uni.upx2px(750);
 			// console.log(_self.cWidth)
 			_self.cHeight = uni.upx2px(200);
 			_self.getServerData();
-			_self.getSocketData()
+			// _self.getSocketData()
+			
+			// 创建socket连接
+			let client = mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', {
+			  clientId: 'adfas',
+			  username: 'admin',
+			  password: 'admin'
+			})
+			_self.client = client
+			
+			_self.getSocket()
 		},
+		
 		methods: {
-			//创建websocket链接
-			getSocketData() {
-				// 创建一个this.socketTask对象【发送、接收、关闭socket都由这个对象操作】
-				this.socketTask = uni.connectSocket({
-					// url: 'ws://eztbs.oicp.net:9001',
-					url: 'ws://121.40.165.18:8800',
-					success: res => {
-						console.log('连接成功', res)
-					}
+			getSocket() {
+				this.client.on('connect', _ => {
+				  console.log('mqtt连接成功')
+				  this.client.subscribe('/statues', (err) => {
+				    if (!err) {
+				      console.log('订阅成功')
+				    }
+				  })
 				})
-				// 消息的发送和接收必须在正常连接打开中,才能发送或接收【否则会失败】
-				this.socketTask.onOpen(res => {
-					console.log("WebSocket连接正常打开中...！")
-					this.is_open_socket = true;
-					// 只有连接正常打开中 ，才能正常成功发送消息
-					this.socketTask.send({
-						data: "uni-app发送一条消息",
-						async success() {
-							console.log("消息发送成功");
-						},
-					});
-					// 只有连接正常打开中 ，才能正常收到消息
-					this.socketTask.onMessage((res) => {
-						console.log("收到服务器内容：" + res.data);
-					});
+				// 客户端连接错误事件
+				this.client.on('error', error => {
+				  console.log(error)
 				})
-
-				// 监听WebSocket错误
-				this.socketTask.onSocketError((res) => {
-					console.log('WebSocket连接打开失败，请检查！');
-				});
+				// 监听接收消息事件
+				this.client.on('message', (topic, message) => {
+				  console.log('收到消息：' + message.toString())
+				})
+				// this.client.publish('hello', 'hello EMQ', error=> {
+				// 	console.log(error || '消息发布成功')
+				// })
 			},
 
 			getServerData() {
@@ -206,7 +207,7 @@
 						return category + ' ' + item.name + ':' + item.data
 					}
 				});
-			}
+			},
 		},
 	}
 </script>

@@ -25,7 +25,7 @@
 		</view>
 
 		<!-- 血压 -->
-		<view class="infos" v-if="currentIndex === 0">
+		<view class="infos" v-show="currentIndex === 0">
 			<!-- 日期 -->
 			<view class="date">
 				<view class="last-week">
@@ -69,7 +69,7 @@
 
 
 		<!-- 血氧 -->
-		<view class="infos" v-if="currentIndex === 1">
+		<view class="infos" v-show="currentIndex === 1">
 			<!-- 日期 -->
 			<view class="date">
 				<view class="last-week">
@@ -113,7 +113,7 @@
 
 
 		<!-- 血糖 -->
-		<view class="infos" v-if="currentIndex === 2">
+		<view class="infos" v-show="currentIndex === 2">
 			<!-- 日期 -->
 			<view class="date">
 				<view class="last-week">
@@ -155,7 +155,6 @@
 			</view>
 		</view>
 
-
 	</view>
 </template>
 
@@ -171,7 +170,7 @@
 				cWidth: '',
 				cHeight: '',
 				pixelRatio: 1,
-				
+
 				this_week: '6月7日-6月13日',
 				avg_val_blood: '135/80',
 				avg_val_time: 65,
@@ -205,7 +204,10 @@
 						// LineA.series = res.data.data.LineA.series;
 						// LineA.series = [LineA.series.pop()];
 						// console.log(LineA.series)
-						LineA.series = [{data:[30, 130, 70, 20, 100, 50], name: 'aa'}]
+						LineA.series = [{
+							data: [0, 100, 70, 20, 100, 50],
+							name: 'aa'
+						}]
 						_self.showLineA(canvasId, LineA);
 					},
 					fail: () => {
@@ -234,11 +236,9 @@
 						disableGrid: true
 					},
 					yAxis: {
-						data: [
-							{
-								axisLine: false,
-							}
-						],
+						data: [{
+							axisLine: false,
+						}],
 						gridType: 'dash',
 						gridColor: '#CCC',
 						dashLength: 2,
@@ -264,236 +264,10 @@
 					}
 				});
 			}
-		}
+		},
 	}
 </script>
 
 <style lang="scss">
-	.qiun-columns, .qiun-charts, {
-		width: 750upx;
-		height: 430upx;
-	}
-	.charts {
-		width: 750upx;
-		height: 430upx;
-		display: block !important;
-	}
-
-
-	.blood-status {
-		background-color: #F7F7F7;
-
-		// 用户信息
-		.top {
-			width: 750upx;
-			height: 220upx;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			background-color: #fff;
-
-			.patient_infos {
-				display: flex;
-				align-items: center;
-				width: 690upx;
-				height: 140upx;
-				background-color: #F7F7F7;
-				border-radius: 77px;
-
-				.avatar {
-					width: 92upx;
-					height: 92upx;
-					margin-left: 24upx;
-				}
-
-				.info {
-					height: 92upx;
-					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
-					margin-left: 24upx;
-
-					.name {
-						font-size: 32upx;
-						font-weight: 500;
-						color: #333;
-					}
-
-					.other {
-						font-size: 24upx;
-						color: #999;
-
-						.gender {
-							margin-left: 28upx;
-							margin-bottom: 10upx;
-						}
-					}
-				}
-
-				.more {
-					width: 24upx;
-					height: 16upx;
-					margin-left: 242upx;
-				}
-			}
-		}
-
-		// 导航
-		.nav {
-			height: 96upx;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			margin-top: 20upx;
-			background-color: #fff;
-			box-shadow: 0upx 1upx 0upx 0upx #DDDDDD;
-
-			.nav-item {
-				padding: 28upx 0;
-				font-size: 28upx;
-				color: #999;
-			}
-
-			.active {
-				color: #333;
-				border-bottom: 6upx solid #24C789;
-			}
-
-			.nav-item:nth-child(1) {
-				margin-left: 98upx;
-			}
-
-			.nav-item:nth-child(3) {
-				margin-right: 98upx;
-			}
-		}
-
-		.infos {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 2upx;
-			background-color: #fff;
-
-			// 日期
-			.date {
-				width: 750upx;
-				height: 140upx;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				background-color: #fff;
-
-				.last-week,
-				.next-week {
-					width: 152upx;
-					height: 60upx;
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
-					border-radius: 34px;
-					border: 2upx solid #24C789;
-
-					img {
-						width: 12upx;
-						height: 20upx;
-					}
-
-					.txt {
-						margin-bottom: 5upx;
-						font-size: 24upx;
-						color: #24C789;
-					}
-				}
-
-				.this-week {
-					font-size: 26upx;
-					color: #333;
-				}
-
-				.last-week {
-					margin-left: 30upx;
-
-					img {
-						margin-left: 28upx;
-					}
-
-					.txt {
-						margin-right: 28upx;
-					}
-				}
-
-				.next-week {
-					margin-right: 30upx;
-
-					img {
-						margin-right: 28upx;
-					}
-
-					.txt {
-						margin-left: 28upx;
-					}
-				}
-			}
-
-			// 平均值
-			.wrap {
-				width: 750upx;
-				background-color: #fff;
-
-				.avg-info {
-					width: 690upx;
-					height: 204upx;
-					display: flex;
-					justify-content: space-around;
-					margin-left: 30upx;
-					background-color: #F7F7F7;
-
-					.avg-info-item {
-						display: flex;
-						flex-direction: column;
-						justify-content: space-between;
-						align-items: center;
-
-						.txt-top,
-						.txt-bottom {
-							font-size: 24upx;
-							color: #999;
-						}
-
-						.txt-top {
-							margin-top: 30upx;
-						}
-
-						.txt-bottom {
-							margin-bottom: 30upx;
-						}
-
-						.val {
-							font-size: 48upx;
-							font-weight: bold;
-							color: #333;
-						}
-					}
-				}
-			}
-
-			// 按钮
-			.btn {
-				margin-top: 62upx;
-				margin-bottom: 16upx;
-
-				.get-msg {
-					width: 690upx;
-					height: 88upx;
-					line-height: 88upx;
-					text-align: center;
-					background-color: #24C789;
-					border-radius: 10upx;
-					font-size: 32upx;
-					color: #fff;
-				}
-			}
-		}
-	}
+	@import '../../common/css/blood-status'
 </style>

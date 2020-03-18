@@ -68,6 +68,7 @@
 	import uCharts from '../../components/u-charts/u-charts.js'
 	var _self;
 	var canvaLineA = null;
+	var mqtt = require('../../common/js/mqtt.min.js')
 	export default {
 		data() {
 			return {
@@ -86,16 +87,63 @@
 				cWidth: '',
 				cHeight: '',
 				pixelRatio: 1,
+				client: null
 			};
 		},
 		onLoad() {
 			_self = this;
 			_self.cWidth = uni.upx2px(750);
-			console.log(_self.cWidth)
+			// console.log(_self.cWidth)
 			_self.cHeight = uni.upx2px(500);
 			_self.getServerData();
+
+			// 创建socket连接
+			let client = mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', {
+				clientId: 'adfas',
+				username: 'admin',
+				password: 'admin'
+			})
+			_self.client = client
+			_self.getSocket()
 		},
 		methods: {
+			
+			getSocket() {
+				this.client.on('connect', () => {
+					console.log('mqtt连接成功')
+					this.client.subscribe('/statues', (err) => {
+						if (!err) {
+							console.log('订阅成功')
+						}
+					})
+				})
+				// 客户端连接错误事件
+				this.client.on('error', error => {
+					console.log(error)
+				})
+				// 监听接收消息事件
+				// this.client.on('message', (topic, message) => {
+				// 	// console.log('收到消息：' + message.toString())
+				// 	// console.log(message.toString())
+				// 	let data = message.toString()
+				// 	setTimeout(function() {
+				// 		console.log(data)
+				// 	}, 2000)
+				// 	let dataArr = JSON.parse(data)
+				// 	setTimeout(function() {
+				// 		console.log(dataArr)
+				// 	}, 3000)
+				// 	if (dataArr.length > 1) {
+				// 		setTimeout(function() {
+				// 			console.log(dataArr.length)
+				// 			console.log('收到消息' + dataArr)
+				// 		}, 2000)
+				// 		// console.log(dataArr.length)
+				// 		// console.log('收到消息' + dataArr)
+				// 	}
+				// })
+			},
+
 			getServerData() {
 				uni.request({
 					url: 'https://www.ucharts.cn/data.json',
@@ -119,6 +167,7 @@
 					},
 				});
 			},
+
 			showLineA(canvasId, chartData) {
 				// 图表实例和配置
 				canvaLineA = new uCharts({
@@ -163,8 +212,8 @@
 						line: {
 							type: 'straight'
 						},
-						tooltip:{
-							gridType:'dash',
+						tooltip: {
+							gridType: 'dash',
 							dashLength: 5,
 							gridColor: '#24C789'
 						}
@@ -172,6 +221,7 @@
 				});
 
 			},
+
 			touchLineA(e) {
 				canvaLineA.showToolTip(e, {
 					format: function(item, category) {
