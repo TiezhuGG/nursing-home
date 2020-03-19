@@ -2,19 +2,20 @@
 	<view class="heart-rate">
 		<view class="top">
 			<view class="patient_infos">
-				<img class="avatar" src="../../static/images/test.jpg">
-				<view class="info">
+				<img class="avatar" :src="patient.avatar">
+				<view class="info" v-if="patient">
 					<text class="name">{{patient.name}}</text>
 					<view class="other">
 						<text class="age">年龄: {{patient.age}}</text>
-						<text class="gender">性别: {{patient.id}}</text>
+						<text class="gender">性别: {{patient.gender === 0 ? '男' : '女'}}</text>
 					</view>
 				</view>
-				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name">
+				<view class="no-info" v-if="!patient">请选择患者</view>
+				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name" >
 					<view><img class="more" src="../../static/images/more.png"></view>
 				</picker>
-				<!-- <img class="more" src="../../static/images/more.png"> -->
 			</view>
+			
 			<view class="date-module">
 				<view class="date">
 					<img class="back" src="../../static/images/back2.png">
@@ -97,11 +98,11 @@
 		},
 		onLoad() {
 			_self = this;
-			_self.cWidth = uni.upx2px(750);
-			// console.log(_self.cWidth)
-			_self.cHeight = uni.upx2px(500);
-			_self.getServerData();
 			_self.fetchPatientList()
+			_self.getServerData();
+			_self.cWidth = uni.upx2px(750);
+			_self.cHeight = uni.upx2px(500);
+			
 			// 创建socket连接
 			let client = mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', {
 				clientId: 'adfas',
@@ -109,29 +110,10 @@
 				password: 'admin'
 			})
 			_self.client = client
-			// _self.getSocket()
+			_self.getSocket()
 		},
 		methods: {
-			bindPickerChange(e){
-				console.log(e)
-				for(let item of this.patientList) {
-					if (item.id === Number(e.detail.value) + 1) {
-						this.patient = item
-						console.log(this.patient)
-					}
-				}
-				
-			},
-			// 获取患者列表
-			fetchPatientList() {
-				uni.request({
-					url: 'https://ciai.le-cx.com/api/patient/patientList',
-					success: res => {
-						this.patientList = res.data.data
-						console.log(this.patientList)
-					}
-				})
-			},
+			// 获取socket数据
 			getSocket() {
 				this.client.on('connect', () => {
 					console.log('mqtt连接成功')
@@ -165,6 +147,33 @@
 						// console.log(dataArr.length)
 						// console.log('收到消息' + dataArr)
 					}
+				})
+			},
+			
+			bindPickerChange(e){
+				// console.log(e)
+				for(let item of this.patientList) {
+					if (item.id === Number(e.detail.value) + 1) {
+						this.fetchPatientInfo(item.id)
+					}
+				}
+			},
+			// 获取患者列表(ID)
+			async fetchPatientList() {
+				await uni.request({
+					url: 'https://ciai.le-cx.com/api/patient/patientList',
+					success: res => {
+						this.patientList = res.data.data
+					}
+				})
+			},
+			// 获取患者信息
+			async fetchPatientInfo(id) {
+				await uni.request({
+					url: `https://ciai.le-cx.com/api/patient/info?id=${id}`,
+					success: res => {
+						this.patient = res.data.data
+					},
 				})
 			},
 
@@ -320,9 +329,17 @@
 				}
 
 				.more {
-					width: 24upx;
-					height: 16upx;
-					margin-left: 242upx;
+					width: 36upx;
+					height: 24upx;
+					position: absolute;
+					margin-top: -5upx;
+					right: 100upx;
+				}
+				
+				.no-info {
+					color: #999;
+					margin-left: 300upx;
+					margin-top: 5upx;
 				}
 			}
 

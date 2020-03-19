@@ -67,6 +67,7 @@
         width: 92rpx;
         height: 92rpx;
         margin-left: 24rpx;
+        border-radius: 50%;
 }
 .blood-status .top .patient_infos .info {
         height: 92rpx;
@@ -96,9 +97,16 @@
             margin-bottom: 10rpx;
 }
 .blood-status .top .patient_infos .more {
-        width: 24rpx;
-        height: 16rpx;
-        margin-left: 242rpx;
+        width: 36rpx;
+        height: 24rpx;
+        position: absolute;
+        margin-top: -5rpx;
+        right: 100rpx;
+}
+.blood-status .top .patient_infos .no-info {
+        color: #999;
+        margin-left: 300rpx;
+        margin-top: 5rpx;
 }
 .blood-status .nav {
     height: 96rpx;

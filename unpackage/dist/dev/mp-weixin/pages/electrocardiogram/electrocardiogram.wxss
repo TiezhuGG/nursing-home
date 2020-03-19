@@ -73,6 +73,7 @@
         width: 92rpx;
         height: 92rpx;
         margin-left: 24rpx;
+        border-radius: 50%;
 }
 .heart-rate .top .patient_infos .info {
         height: 92rpx;
@@ -102,9 +103,16 @@
             margin-bottom: 10rpx;
 }
 .heart-rate .top .patient_infos .more {
-        width: 24rpx;
-        height: 16rpx;
-        margin-left: 242rpx;
+        width: 36rpx;
+        height: 24rpx;
+        position: absolute;
+        margin-top: -5rpx;
+        right: 100rpx;
+}
+.heart-rate .top .patient_infos .no-info {
+        color: #999;
+        margin-left: 300rpx;
+        margin-top: 5rpx;
 }
 .heart-rate .top .date-module {
       width: 224rpx;

@@ -36,6 +36,7 @@
 				width: 92upx;
 				height: 92upx;
 				margin-left: 24upx;
+				border-radius: 50%;
 			}
 
 			.info {
@@ -63,9 +64,17 @@
 			}
 
 			.more {
-				width: 24upx;
-				height: 16upx;
-				margin-left: 242upx;
+				width: 36upx;
+				height: 24upx;
+				position: absolute;
+				margin-top: -5upx;
+				right: 100upx;
+			}
+
+			.no-info {
+				color: #999;
+				margin-left: 300upx;
+				margin-top: 5upx;
 			}
 		}
 	}

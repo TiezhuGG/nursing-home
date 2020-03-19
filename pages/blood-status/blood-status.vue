@@ -3,15 +3,18 @@
 		<!-- 用户信息 -->
 		<view class="top">
 			<view class="patient_infos">
-				<img class="avatar" src="../../static/images/heart.png">
-				<view class="info">
-					<text class="name">王浩洋</text>
+				<img class="avatar" :src="patient.avatar">
+				<view class="info" v-if="patient">
+					<text class="name">{{patient.name}}</text>
 					<view class="other">
-						<text class="age">年龄: 74</text>
-						<text class="gender">性别: 男</text>
+						<text class="age">年龄: {{patient.age}}</text>
+						<text class="gender">性别: {{patient.gender === 0 ? '男' : '女'}}</text>
 					</view>
 				</view>
-				<img class="more" src="../../static/images/more.png">
+				<view class="no-info" v-if="!patient">请选择患者</view>
+				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name" >
+					<view><img class="more" src="../../static/images/more.png"></view>
+				</picker>
 			</view>
 		</view>
 
@@ -170,6 +173,8 @@
 				cWidth: '',
 				cHeight: '',
 				pixelRatio: 1,
+				patientList: [],
+				patient: null,
 
 				this_week: '6月7日-6月13日',
 				avg_val_blood: '135/80',
@@ -178,16 +183,45 @@
 		},
 		onLoad() {
 			_self = this;
-			this.cWidth = uni.upx2px(750);
-			this.cHeight = uni.upx2px(500);
+			_self.fetchPatientList()
 			// 加载页面渲染血压的图表信息
 			this.getServerData(1);
+			this.cWidth = uni.upx2px(750);
+			this.cHeight = uni.upx2px(500);
 		},
 		methods: {
+			bindPickerChange(e){
+				// console.log(e)
+				for(let item of this.patientList) {
+					if (item.id === Number(e.detail.value) + 1) {
+						this.fetchPatientInfo(item.id)
+					}
+				}
+			},
+			// 获取患者列表(ID)
+			async fetchPatientList() {
+				await uni.request({
+					url: 'https://ciai.le-cx.com/api/patient/patientList',
+					success: res => {
+						this.patientList = res.data.data
+					}
+				})
+			},
+			// 获取患者信息
+			async fetchPatientInfo(id) {
+				await uni.request({
+					url: `https://ciai.le-cx.com/api/patient/info?id=${id}`,
+					success: res => {
+						this.patient = res.data.data
+					},
+				})
+			},
+			// 切换导航tab
 			switchTab(index) {
 				this.currentIndex = index
 				this.getServerData(this.currentIndex + 1)
 			},
+			
 			getServerData(canvasId) {
 				uni.request({
 					url: 'https://www.ucharts.cn/data.json',

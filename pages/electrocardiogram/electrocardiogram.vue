@@ -2,15 +2,18 @@
 	<view class="heart-rate">
 		<view class="top">
 			<view class="patient_infos">
-				<img class="avatar" src="../../static/images/heart.png">
-				<view class="info">
-					<text class="name">王浩洋</text>
+				<img class="avatar" :src="patient.avatar">
+				<view class="info" v-if="patient">
+					<text class="name">{{patient.name}}</text>
 					<view class="other">
-						<text class="age">年龄: 74</text>
-						<text class="gender">性别: 男</text>
+						<text class="age">年龄: {{patient.age}}</text>
+						<text class="gender">性别: {{patient.gender === 0 ? '男' : '女'}}</text>
 					</view>
 				</view>
-				<img class="more" src="../../static/images/more.png">
+				<view class="no-info" v-if="!patient">请选择患者</view>
+				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name">
+					<view><img class="more" src="../../static/images/more.png"></view>
+				</picker>
 			</view>
 			<view class="date-module">
 				<view class="date">
@@ -27,7 +30,6 @@
 					<canvas canvas-id="myChart" id="myChart" class="charts" @touchstart="touchLineA"></canvas>
 				</view>
 			</view>
-			<!-- <view class="chart" style="margin-top: 200upx;">图表,找插件。</view> -->
 		</view>
 
 		<view class="bottom">
@@ -68,46 +70,73 @@
 				cWidth: '',
 				cHeight: '',
 				pixelRatio: 1,
-				client: null
+				client: null,
+				patientList: [],
+				patient: null,
 			};
 		},
-		
+
 		onLoad() {
 			_self = this;
-			_self.cWidth = uni.upx2px(750);
-			// console.log(_self.cWidth)
-			_self.cHeight = uni.upx2px(200);
+			_self.fetchPatientList()
 			_self.getServerData();
-			// _self.getSocketData()
-			
+			_self.cWidth = uni.upx2px(750);
+			_self.cHeight = uni.upx2px(200);
+
 			// 创建socket连接
 			let client = mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', {
-			  clientId: 'adfas',
-			  username: 'admin',
-			  password: 'admin'
+				clientId: 'adfas',
+				username: 'admin',
+				password: 'admin'
 			})
 			_self.client = client
-			
 			_self.getSocket()
 		},
-		
+
 		methods: {
+			bindPickerChange(e) {
+				// console.log(e)
+				for (let item of this.patientList) {
+					if (item.id === Number(e.detail.value) + 1) {
+						this.fetchPatientInfo(item.id)
+					}
+				}
+			},
+			// 获取患者列表(ID)
+			async fetchPatientList() {
+				await uni.request({
+					url: 'https://ciai.le-cx.com/api/patient/patientList',
+					success: res => {
+						this.patientList = res.data.data
+					}
+				})
+			},
+			// 获取患者信息
+			async fetchPatientInfo(id) {
+				await uni.request({
+					url: `https://ciai.le-cx.com/api/patient/info?id=${id}`,
+					success: res => {
+						this.patient = res.data.data
+					},
+				})
+			},
+
 			getSocket() {
 				this.client.on('connect', _ => {
-				  console.log('mqtt连接成功')
-				  this.client.subscribe('/statues', (err) => {
-				    if (!err) {
-				      console.log('订阅成功')
-				    }
-				  })
+					console.log('mqtt连接成功')
+					this.client.subscribe('/statues', (err) => {
+						if (!err) {
+							console.log('订阅成功')
+						}
+					})
 				})
 				// 客户端连接错误事件
 				this.client.on('error', error => {
-				  console.log(error)
+					console.log(error)
 				})
 				// 监听接收消息事件
 				this.client.on('message', (topic, message) => {
-				  console.log('收到消息：' + message.toString())
+					console.log('收到消息：' + message.toString())
 				})
 				// this.client.publish('hello', 'hello EMQ', error=> {
 				// 	console.log(error || '消息发布成功')
@@ -254,6 +283,7 @@
 					width: 92upx;
 					height: 92upx;
 					margin-left: 24upx;
+					border-radius: 50%;
 				}
 
 				.info {
@@ -281,9 +311,17 @@
 				}
 
 				.more {
-					width: 24upx;
-					height: 16upx;
-					margin-left: 242upx;
+					width: 36upx;
+					height: 24upx;
+					position: absolute;
+					margin-top: -5upx;
+					right: 100upx;
+				}
+
+				.no-info {
+					color: #999;
+					margin-left: 300upx;
+					margin-top: 5upx;
 				}
 			}
 

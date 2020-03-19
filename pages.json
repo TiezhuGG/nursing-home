@@ -1,9 +1,8 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/heart-rate/heart-rate",
+			"path": "pages/workbench/workbench",
 			"style": {
-				"navigationBarTitleText": "实时心率",
 				"navigationBarTextStyle": "white",
 				"navigationBarBackgroundColor": "#24C789"
 			}
@@ -22,7 +21,14 @@
 				"navigationBarTitleText": "血压 血氧 血糖"
 			}
 		},
-
+		{
+			"path": "pages/heart-rate/heart-rate",
+			"style": {
+				"navigationBarTitleText": "实时心率",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#24C789"
+			}
+		},
 		{
 			"path": "pages/management/management",
 			"style": {
@@ -36,13 +42,7 @@
 			}
 		},
 
-		{
-			"path": "pages/workbench/workbench",
-			"style": {
-				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#24C789"
-			}
-		},
+
 		{
 			"path": "pages/personal/personal",
 			"style": {
