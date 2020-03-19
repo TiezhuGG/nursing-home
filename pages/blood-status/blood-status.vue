@@ -8,7 +8,7 @@
 					<text class="name">{{patient.name}}</text>
 					<view class="other">
 						<text class="age">年龄: {{patient.age}}</text>
-						<text class="gender">性别: {{patient.gender === 0 ? '男' : '女'}}</text>
+						<text class="gender">性别: {{patient.gender === 1 ? '男' : '女'}}</text>
 					</view>
 				</view>
 				<view class="no-info" v-if="!patient">请选择患者</view>

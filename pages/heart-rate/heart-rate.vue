@@ -7,7 +7,7 @@
 					<text class="name">{{patient.name}}</text>
 					<view class="other">
 						<text class="age">年龄: {{patient.age}}</text>
-						<text class="gender">性别: {{patient.gender === 0 ? '男' : '女'}}</text>
+						<text class="gender">性别: {{patient.gender === 1 ? '男' : '女'}}</text>
 					</view>
 				</view>
 				<view class="no-info" v-if="!patient">请选择患者</view>
@@ -93,13 +93,14 @@
 				pixelRatio: 1,
 				client: null,
 				patientList: [],
-				patient: null
+				patient: null,
+				heart_rate_list: []
 			};
 		},
 		onLoad() {
 			_self = this;
 			_self.fetchPatientList()
-			_self.getServerData();
+			// _self.getServerData();
 			_self.cWidth = uni.upx2px(750);
 			_self.cHeight = uni.upx2px(500);
 			
@@ -112,6 +113,7 @@
 			_self.client = client
 			_self.getSocket()
 		},
+
 		methods: {
 			// 获取socket数据
 			getSocket() {
@@ -130,22 +132,31 @@
 				// 监听接收消息事件
 				this.client.on('message', (topic, message) => {
 					// console.log('收到消息：' + message.toString())
-					// console.log(message.toString())
-					let data = message.toString()
-					setTimeout(function() {
-						console.log(data)
-					}, 2000)
-					let dataArr = JSON.parse(data)
-					setTimeout(function() {
-						console.log(dataArr)
-					}, 3000)
+					var data = message.toString()
+					var dataArr = JSON.parse(data)
 					if (dataArr.length > 1) {
-						setTimeout(function() {
-							console.log(dataArr.length)
-							console.log('收到消息' + dataArr)
-						}, 2000)
 						// console.log(dataArr.length)
 						// console.log('收到消息' + dataArr)
+						for(let item of dataArr) {
+							// console.log(item)
+							if(this.patient && item.mac == this.patient.mac) {
+								let heart_rate = parseInt(item.rawData.slice(14, 15), 16)
+								console.log(heart_rate)
+								this.heart_rate_list.push(heart_rate)
+								if (this.heart_rate_list.length > 7) {
+									this.heart_rate_list.shift()
+								}
+								console.log(this.heart_rate_list)
+								let LineA = {
+									categories: [],
+									series: []
+								};
+								LineA.categories = ['1', '2','3','4','5','6']
+								// LineA.series = [{name:'xixi',data:[35, 8, 25, 37, 4, 20]}]
+								LineA.series = this.heart_rate_list
+								_self.showLineA("myChart", LineA);
+							}
+						}
 					}
 				})
 			},
@@ -202,6 +213,9 @@
 			},
 
 			showLineA(canvasId, chartData) {
+				canvaLineA.updateData({
+					series: _self.heart_rate_list
+				})
 				// 图表实例和配置
 				canvaLineA = new uCharts({
 					$this: _self,
@@ -214,7 +228,13 @@
 					background: '#24C789',
 					pixelRatio: _self.pixelRatio,
 					categories: chartData.categories,
-					series: chartData.series,
+					// series: chartData.series,
+					series: [
+						{
+						name: '实时心率',
+						data: ''
+						}
+					],
 					animation: true,
 					xAxis: {
 						gridColor: '#FFF',
@@ -252,7 +272,6 @@
 						}
 					}
 				});
-
 			},
 
 			touchLineA(e) {
