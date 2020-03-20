@@ -11,11 +11,11 @@
 					</view>
 				</view>
 				<view class="no-info" v-if="!patient">请选择患者</view>
-				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name" >
+				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name">
 					<view><img class="more" src="../../static/images/more.png"></view>
 				</picker>
 			</view>
-			
+
 			<view class="date-module">
 				<view class="date">
 					<img class="back" src="../../static/images/back2.png">
@@ -94,24 +94,25 @@
 				client: null,
 				patientList: [],
 				patient: null,
-				heart_rate_list: []
+				heart_rate_list: [],
+				categories: []
 			};
 		},
 		onLoad() {
 			_self = this;
-			_self.fetchPatientList()
+			// console.log(this.getNowTime())
+			this.fetchPatientList()
 			// _self.getServerData();
-			_self.cWidth = uni.upx2px(750);
-			_self.cHeight = uni.upx2px(500);
-			
+			this.cWidth = uni.upx2px(750);
+			this.cHeight = uni.upx2px(500);
 			// 创建socket连接
 			let client = mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', {
 				clientId: 'adfas',
 				username: 'admin',
 				password: 'admin'
 			})
-			_self.client = client
-			_self.getSocket()
+			this.client = client
+			this.getSocket()
 		},
 
 		methods: {
@@ -132,90 +133,40 @@
 				// 监听接收消息事件
 				this.client.on('message', (topic, message) => {
 					// console.log('收到消息：' + message.toString())
-					var data = message.toString()
-					var dataArr = JSON.parse(data)
+					let data = message.toString()
+					console.log('收到消息', data)
+					let dataArr = JSON.parse(data)
 					if (dataArr.length > 1) {
-						// console.log(dataArr.length)
-						// console.log('收到消息' + dataArr)
-						for(let item of dataArr) {
-							// console.log(item)
-							if(this.patient && item.mac == this.patient.mac) {
+						for (let item of dataArr) {
+							if (this.patient && item.mac == this.patient.mac) {
+								// console.log(item)
 								let heart_rate = parseInt(item.rawData.slice(14, 15), 16)
-								console.log(heart_rate)
+								let timer = item.timestamp.slice(12, 19)
 								this.heart_rate_list.push(heart_rate)
-								if (this.heart_rate_list.length > 7) {
+								// let randomData = Math.random() * 100
+								// this.heart_rate_list.push(randomData)
+								this.categories.push(timer)
+								if (this.heart_rate_list.length > 6) {
 									this.heart_rate_list.shift()
+									this.categories.shift()
 								}
-								console.log(this.heart_rate_list)
-								let LineA = {
-									categories: [],
-									series: []
-								};
-								LineA.categories = ['1', '2','3','4','5','6']
-								// LineA.series = [{name:'xixi',data:[35, 8, 25, 37, 4, 20]}]
-								LineA.series = this.heart_rate_list
-								_self.showLineA("myChart", LineA);
+								// 初始化图表实例
+								_self.showLineA("myChart")
+								// updateData更新图表
+								canvaLineA.updateData({
+									categories: this.categories,
+									series: [{
+										name: '实时心率',
+										data: _self.heart_rate_list
+									}],
+								})
 							}
 						}
 					}
 				})
 			},
-			
-			bindPickerChange(e){
-				// console.log(e)
-				for(let item of this.patientList) {
-					if (item.id === Number(e.detail.value) + 1) {
-						this.fetchPatientInfo(item.id)
-					}
-				}
-			},
-			// 获取患者列表(ID)
-			async fetchPatientList() {
-				await uni.request({
-					url: 'https://ciai.le-cx.com/api/patient/patientList',
-					success: res => {
-						this.patientList = res.data.data
-					}
-				})
-			},
-			// 获取患者信息
-			async fetchPatientInfo(id) {
-				await uni.request({
-					url: `https://ciai.le-cx.com/api/patient/info?id=${id}`,
-					success: res => {
-						this.patient = res.data.data
-					},
-				})
-			},
 
-			getServerData() {
-				uni.request({
-					url: 'https://www.ucharts.cn/data.json',
-					data: {},
-					success: function(res) {
-						console.log(res.data.data)
-						let LineA = {
-							categories: [],
-							series: []
-						};
-						//这里后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-						LineA.categories = res.data.data.LineA.categories;
-						// LineA.series = res.data.data.LineA.series;
-						// 只筛选了最后一条数据进行可视化
-						LineA.series = res.data.data.LineA.series;
-						LineA.series = [LineA.series.pop()];
-						_self.showLineA("myChart", LineA);
-					},
-					fail: () => {
-						_self.tips = "网络错误，小程序端请检查合法域名";
-					},
-				});
-			},
-
-			showLineA(canvasId, chartData) {
-				canvaLineA.updateData({
-					series: _self.heart_rate_list
-				})
+			showLineA(canvasId) {
 				// 图表实例和配置
 				canvaLineA = new uCharts({
 					$this: _self,
@@ -227,21 +178,19 @@
 					dataPointShape: true,
 					background: '#24C789',
 					pixelRatio: _self.pixelRatio,
-					categories: chartData.categories,
-					// series: chartData.series,
-					series: [
-						{
+					categories: '',
+					series: [{
 						name: '实时心率',
 						data: ''
-						}
-					],
-					animation: true,
+					}],
+					animation: false,
 					xAxis: {
 						gridColor: '#FFF',
 						gridType: 'dash',
 						disableGrid: true,
 						axisLine: false,
 						fontColor: '#FFF',
+						// boundaryGap: 'justify'
 					},
 					yAxis: {
 						data: [{
@@ -250,9 +199,6 @@
 							axisLineColor: '#24C789',
 							min: 0,
 							max: 300,
-							format: (val) => {
-								return val.toFixed(0)
-							}
 						}],
 						gridType: 'dash',
 						gridColor: '#FFF',
@@ -280,7 +226,73 @@
 						return category + ' ' + item.name + ':' + item.data
 					}
 				});
-			}
+			},
+
+			// picker @change事件
+			bindPickerChange(e) {
+				// console.log(e)
+				for (let item of this.patientList) {
+					if (item.id === Number(e.detail.value) + 1) {
+						this.fetchPatientInfo(item.id)
+					}
+				}
+			},
+			// 获取患者列表(ID)
+			async fetchPatientList() {
+				await uni.request({
+					url: 'https://ciai.le-cx.com/api/patient/patientList',
+					success: res => {
+						this.patientList = res.data.data
+					}
+				})
+			},
+			// 获取患者信息
+			async fetchPatientInfo(id) {
+				await uni.request({
+					url: `https://ciai.le-cx.com/api/patient/info?id=${id}`,
+					success: res => {
+						this.patient = res.data.data
+					},
+				})
+			},
+
+			// 获取当前时间
+			getNowTime() {
+				let now = new Date()
+				let hour = now.getHours()
+				let minute = now.getMinutes()
+				let second = now.getSeconds()
+				hour = hour < 10 ? '0' + hour : hour
+				minute = minute < 10 ? '0' + minute : minute
+				second = second < 10 ? '0' + second : second
+				let now_time = `${hour}:${minute}:${second}`
+				return now_time
+			},
+
+			getServerData() {
+				uni.request({
+					url: 'https://www.ucharts.cn/data.json',
+					data: {},
+					success: function(res) {
+						console.log(res.data.data)
+						let LineA = {
+							categories: [],
+							series: []
+						};
+						//这里后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
+						LineA.categories = res.data.data.LineA.categories;
+						// LineA.series = res.data.data.LineA.series;
+						// 只筛选了最后一条数据进行可视化
+						LineA.series = res.data.data.LineA.series;
+						LineA.series = [LineA.series.pop()];
+						_self.showLineA("myChart", LineA);
+					},
+					fail: () => {
+						_self.tips = "网络错误，小程序端请检查合法域名";
+					},
+				});
+			},
+
 		},
 	}
 </script>
@@ -354,7 +366,7 @@
 					margin-top: -5upx;
 					right: 100upx;
 				}
-				
+
 				.no-info {
 					color: #999;
 					margin-left: 300upx;

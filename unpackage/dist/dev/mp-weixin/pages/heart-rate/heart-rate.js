@@ -242,24 +242,25 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
       client: null,
       patientList: [],
       patient: null,
-      heart_rate_list: [] };
+      heart_rate_list: [],
+      categories: [] };
 
   },
   onLoad: function onLoad() {
     _self = this;
-    _self.fetchPatientList();
+    // console.log(this.getNowTime())
+    this.fetchPatientList();
     // _self.getServerData();
-    _self.cWidth = uni.upx2px(750);
-    _self.cHeight = uni.upx2px(500);
-
+    this.cWidth = uni.upx2px(750);
+    this.cHeight = uni.upx2px(500);
     // 创建socket连接
     var client = mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', {
       clientId: 'adfas',
       username: 'admin',
       password: 'admin' });
 
-    _self.client = client;
-    _self.getSocket();
+    this.client = client;
+    this.getSocket();
   },
 
   methods: {
@@ -281,34 +282,101 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
       this.client.on('message', function (topic, message) {
         // console.log('收到消息：' + message.toString())
         var data = message.toString();
+        console.log('收到消息', data);
         var dataArr = JSON.parse(data);
-        if (dataArr.length > 1) {
-          // console.log(dataArr.length)
-          // console.log('收到消息' + dataArr)
-          var _iteratorNormalCompletion = true;var _didIteratorError = false;var _iteratorError = undefined;try {for (var _iterator = dataArr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {var item = _step.value;
-              // console.log(item)
+        if (dataArr.length > 1) {var _iteratorNormalCompletion = true;var _didIteratorError = false;var _iteratorError = undefined;try {
+            for (var _iterator = dataArr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {var item = _step.value;
               if (_this.patient && item.mac == _this.patient.mac) {
+                // console.log(item)
                 var heart_rate = parseInt(item.rawData.slice(14, 15), 16);
-                console.log(heart_rate);
+                var timer = item.timestamp.slice(12, 19);
                 _this.heart_rate_list.push(heart_rate);
-                if (_this.heart_rate_list.length > 7) {
+                // let randomData = Math.random() * 100
+                // this.heart_rate_list.push(randomData)
+                _this.categories.push(timer);
+                if (_this.heart_rate_list.length > 6) {
                   _this.heart_rate_list.shift();
+                  _this.categories.shift();
                 }
-                console.log(_this.heart_rate_list);
-                var LineA = {
-                  categories: [],
-                  series: [] };
+                // 初始化图表实例
+                _self.showLineA("myChart");
+                // updateData更新图表
+                canvaLineA.updateData({
+                  categories: _this.categories,
+                  series: [{
+                    name: '实时心率',
+                    data: _self.heart_rate_list }] });
 
-                LineA.categories = ['1', '2', '3', '4', '5', '6'];
-                // LineA.series = [{name:'xixi',data:[35, 8, 25, 37, 4, 20]}]
-                LineA.series = _this.heart_rate_list;
-                _self.showLineA("myChart", LineA);
+
               }
             }} catch (err) {_didIteratorError = true;_iteratorError = err;} finally {try {if (!_iteratorNormalCompletion && _iterator.return != null) {_iterator.return();}} finally {if (_didIteratorError) {throw _iteratorError;}}}
         }
       });
     },
 
+    showLineA: function showLineA(canvasId) {
+      // 图表实例和配置
+      canvaLineA = new _uCharts.default({
+        $this: _self,
+        canvasId: canvasId,
+        colors: ['#FFFFFF'],
+        type: 'line',
+        fontSize: 12,
+        dataLabel: false,
+        dataPointShape: true,
+        background: '#24C789',
+        pixelRatio: _self.pixelRatio,
+        categories: '',
+        series: [{
+          name: '实时心率',
+          data: '' }],
+
+        animation: false,
+        xAxis: {
+          gridColor: '#FFF',
+          gridType: 'dash',
+          disableGrid: true,
+          axisLine: false,
+          fontColor: '#FFF'
+          // boundaryGap: 'justify'
+        },
+        yAxis: {
+          data: [{
+            position: 'right',
+            fontColor: '#FFF',
+            axisLineColor: '#24C789',
+            min: 0,
+            max: 300 }],
+
+          gridType: 'dash',
+          gridColor: '#FFF',
+          splitNumber: 6,
+          dashLength: 2 },
+
+        width: _self.cWidth * _self.pixelRatio,
+        height: _self.cHeight * _self.pixelRatio,
+        extra: {
+          line: {
+            type: 'straight' },
+
+          tooltip: {
+            gridType: 'dash',
+            dashLength: 5,
+            gridColor: '#24C789' } } });
+
+
+
+    },
+
+    touchLineA: function touchLineA(e) {
+      canvaLineA.showToolTip(e, {
+        format: function format(item, category) {
+          return category + ' ' + item.name + ':' + item.data;
+        } });
+
+    },
+
+    // picker @change事件
     bindPickerChange: function bindPickerChange(e) {
       // console.log(e)
       var _iteratorNormalCompletion2 = true;var _didIteratorError2 = false;var _iteratorError2 = undefined;try {for (var _iterator2 = this.patientList[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {var item = _step2.value;
@@ -336,6 +404,19 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
 
 
 
+    // 获取当前时间
+    getNowTime: function getNowTime() {
+      var now = new Date();
+      var hour = now.getHours();
+      var minute = now.getMinutes();
+      var second = now.getSeconds();
+      hour = hour < 10 ? '0' + hour : hour;
+      minute = minute < 10 ? '0' + minute : minute;
+      second = second < 10 ? '0' + second : second;
+      var now_time = "".concat(hour, ":").concat(minute, ":").concat(second);
+      return now_time;
+    },
+
     getServerData: function getServerData() {
       uni.request({
         url: 'https://www.ucharts.cn/data.json',
@@ -356,76 +437,6 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
         },
         fail: function fail() {
           _self.tips = "网络错误，小程序端请检查合法域名";
-        } });
-
-    },
-
-    showLineA: function showLineA(canvasId, chartData) {
-      canvaLineA.updateData({
-        series: _self.heart_rate_list });
-
-      // 图表实例和配置
-      canvaLineA = new _uCharts.default({
-        $this: _self,
-        canvasId: canvasId,
-        colors: ['#FFFFFF'],
-        type: 'line',
-        fontSize: 12,
-        dataLabel: false,
-        dataPointShape: true,
-        background: '#24C789',
-        pixelRatio: _self.pixelRatio,
-        categories: chartData.categories,
-        // series: chartData.series,
-        series: [
-        {
-          name: '实时心率',
-          data: '' }],
-
-
-        animation: true,
-        xAxis: {
-          gridColor: '#FFF',
-          gridType: 'dash',
-          disableGrid: true,
-          axisLine: false,
-          fontColor: '#FFF' },
-
-        yAxis: {
-          data: [{
-            position: 'right',
-            fontColor: '#FFF',
-            axisLineColor: '#24C789',
-            min: 0,
-            max: 300,
-            format: function format(val) {
-              return val.toFixed(0);
-            } }],
-
-          gridType: 'dash',
-          gridColor: '#FFF',
-          splitNumber: 6,
-          dashLength: 2 },
-
-        width: _self.cWidth * _self.pixelRatio,
-        height: _self.cHeight * _self.pixelRatio,
-        extra: {
-          line: {
-            type: 'straight' },
-
-          tooltip: {
-            gridType: 'dash',
-            dashLength: 5,
-            gridColor: '#24C789' } } });
-
-
-
-    },
-
-    touchLineA: function touchLineA(e) {
-      canvaLineA.showToolTip(e, {
-        format: function format(item, category) {
-          return category + ' ' + item.name + ':' + item.data;
         } });
 
     } } };exports.default = _default;
