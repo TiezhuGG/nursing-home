@@ -63,20 +63,147 @@
 		data() {
 			return {
 				nurseInfo: {},
-				noticeList: []
+				noticeList: [],
+				isOpenBle: false,
+				bluetoothList: [],
+				deviceId: "55:EB:A6:66:1C:41"
 			}
 		},
 		onLoad() {
 			this.nurseInfo = uni.getStorageSync('userInfo')
 			this.fetchNoticeList()
+			//在页面加载时初始化蓝牙适配器
+			this.initBluetoothAdapter()
 		},
+
 		methods: {
+			// 初始化蓝牙适配器
+			initBluetoothAdapter() {
+				uni.openBluetoothAdapter({
+					success: e => {
+						if (e.errMsg === 'openBluetoothAdapter:ok') {
+							console.log('初始化蓝牙成功')
+							this.isOpenBle = true;
+							// 初始化完毕后搜索附近蓝牙设备
+							this.searchBluetoothDevice()
+						}
+					},
+					fail: e => {
+						console.log(`初始化蓝牙失败，错误码: (${e.errCode} || ${e.errMsg})`);
+					}
+				});
+			},
+			
+			// 搜索附近蓝牙设备
+			searchBluetoothDevice() {
+				// 在页面显示的时候判断是否已经初始化完成蓝牙适配器，若成功，则开始查找设备
+				let self = this;
+				setTimeout(function() {
+					if (self.isOpenBle) {
+						console.log("开始搜索附近蓝牙智能设备");
+						uni.startBluetoothDevicesDiscovery({
+							success: res => {
+								self.findBluetoothDevice();
+							},
+							fail: res => {
+								console.log("查找设备失败!");
+								uni.showToast({
+									icon: "none",
+									title: "查找设备失败！",
+									duration: 3000
+								})
+							}
+						});
+					} else {
+						console.log(`未初始化蓝牙适配器, self.isOpenBle:${self.isOpenBle}`);
+					}
+				}, 1000);
+			},
+			
+			// 发现蓝牙设备
+			findBluetoothDevice() {
+				console.log("监听寻找新设备");
+				uni.onBluetoothDeviceFound(devices => {
+					console.log('开始监听寻找到新设备的事件');
+					this.getBleDevices();
+				});
+			},
+			
+			// 获取在蓝牙模块生效期间所有已发现的蓝牙设备。包括已经和本机处于连接状态的设备。
+			getBleDevices() {
+				console.log("获取蓝牙设备");
+				uni.getBluetoothDevices({
+					success: res => {
+						if(res.errMsg === 'getBluetoothDevices:ok') {
+							console.log(res)
+							console.log(`获取蓝牙设备成功: ${res.errMsg}`);
+							this.bluetoothList = res.devices
+							for(let item of this.bluetoothList) {
+								// this.deviceId = item.deviceId
+								// console.log('item.deviceId == this.deviceId',item.deviceId == this.deviceId)
+								if(item.deviceId == this.deviceId) {
+									setTimeout(() => {
+										this.getConnectBle()
+									}, 1000)
+								}
+								// console.log({
+								// 	'index': this.bluetoothList.indexOf(item), 
+								// 	'bluetooth': item,
+								// 	'deviceId': this.deviceId
+								// })
+							}
+						}
+					},
+					fail: res => {
+						console.log(`获取蓝牙设备失败: ${res.errMsg}`)
+					}
+				});
+			},
+			
+			getConnectBle() {
+				console.log(`${this.deviceId}蓝牙设备连接中`)
+				uni.createBLEConnection({
+					deviceId: this.deviceId,
+					success: res => {
+						console.log(`${this.deviceId}蓝牙设备连接成功`)
+						console.log(res)
+						if(res.errMsg === 'createBLEConnection:ok') {
+							// 成功连接蓝牙设备后停止搜索
+							this.stopDiscovery()
+						}
+					},
+					fail: res => {
+						console.log(`蓝牙设备连接失败`, res)
+						uni.closeBLEConnection({
+							deviceId: this.deviceId,
+							complete: res => {
+								console.log('蓝牙设备连接断开, 正在重新连接')
+								this.getConnectBle()
+							}
+						})
+					}
+				})
+			},
+			
+			// 停止搜索蓝牙设备(连接设备后调用)
+			stopDiscovery() {
+				uni.stopBluetoothDevicesDiscovery({
+					success: e => {
+						console.log(`停止搜索蓝牙设备: ${e.errMsg}`);
+					},
+					fail: e => {
+						console.log(`停止搜索蓝牙设备失败，错误码: ${e.errCode}`);
+					}
+				});
+			},
+			
 			// 跳转公告信息页
 			toNotice(notice_id) {
 				uni.navigateTo({
 					url: `../notice/notice?id=${notice_id}`
 				})
 			},
+			
 			// 获取公告列表
 			fetchNoticeList() {
 				uni.request({
@@ -87,7 +214,7 @@
 					}
 				})
 			}
-		}
+		},
 	}
 </script>
 

@@ -248,71 +248,123 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
   },
   onLoad: function onLoad() {
     _self = this;
-    // console.log(this.getNowTime())
     this.fetchPatientList();
     // _self.getServerData();
     this.cWidth = uni.upx2px(750);
     this.cHeight = uni.upx2px(500);
-    // 创建socket连接
-    var client = mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', {
-      clientId: 'adfas',
-      username: 'admin',
-      password: 'admin' });
-
-    this.client = client;
-    this.getSocket();
   },
+  watch: {
+    patient: function patient(newVal, oldVal) {
+      // console.log(newVal)
+      // console.log(oldVal)
+      // 切换病人时清空图表数据（重新渲染图表）
+      this.heart_rate_list = [];
+      this.categories = [];
+      if (oldVal != null) {
+        canvaLineA.updateData({
+          categories: this.categories,
+          series: [{
+            name: '实时心率',
+            data: this.heart_rate_list }] });
+
+
+      }
+    },
+    deep: true },
+
 
   methods: {
-    // 获取socket数据
-    getSocket: function getSocket() {var _this = this;
-      this.client.on('connect', function () {
-        console.log('mqtt连接成功');
-        _this.client.subscribe('/statues', function (err) {
-          if (!err) {
-            console.log('订阅成功');
+    // picker @change事件
+    bindPickerChange: function bindPickerChange(e) {
+      // console.log(e)
+      var _iteratorNormalCompletion = true;var _didIteratorError = false;var _iteratorError = undefined;try {for (var _iterator = this.patientList[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {var item = _step.value;
+          if (item.id === Number(e.detail.value) + 1) {
+            this.fetchPatientInfo(item.id);
+            this.getSocket();
           }
-        });
-      });
-      // 客户端连接错误事件
-      this.client.on('error', function (error) {
-        console.log(error);
-      });
-      // 监听接收消息事件
-      this.client.on('message', function (topic, message) {
-        // console.log('收到消息：' + message.toString())
-        var data = message.toString();
-        console.log('收到消息', data);
-        var dataArr = JSON.parse(data);
-        if (dataArr.length > 1) {var _iteratorNormalCompletion = true;var _didIteratorError = false;var _iteratorError = undefined;try {
-            for (var _iterator = dataArr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {var item = _step.value;
-              if (_this.patient && item.mac == _this.patient.mac) {
-                // console.log(item)
-                var heart_rate = parseInt(item.rawData.slice(14, 15), 16);
-                var timer = item.timestamp.slice(12, 19);
-                _this.heart_rate_list.push(heart_rate);
-                // let randomData = Math.random() * 100
-                // this.heart_rate_list.push(randomData)
-                _this.categories.push(timer);
-                if (_this.heart_rate_list.length > 6) {
-                  _this.heart_rate_list.shift();
-                  _this.categories.shift();
-                }
-                // 初始化图表实例
-                _self.showLineA("myChart");
-                // updateData更新图表
-                canvaLineA.updateData({
-                  categories: _this.categories,
-                  series: [{
-                    name: '实时心率',
-                    data: _self.heart_rate_list }] });
-
-
-              }
-            }} catch (err) {_didIteratorError = true;_iteratorError = err;} finally {try {if (!_iteratorNormalCompletion && _iterator.return != null) {_iterator.return();}} finally {if (_didIteratorError) {throw _iteratorError;}}}
-        }
-      });
+        }} catch (err) {_didIteratorError = true;_iteratorError = err;} finally {try {if (!_iteratorNormalCompletion && _iterator.return != null) {_iterator.return();}} finally {if (_didIteratorError) {throw _iteratorError;}}}
     },
+    // 获取患者列表(ID)
+    fetchPatientList: function () {var _fetchPatientList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this = this;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  uni.request({
+                    url: 'https://ciai.le-cx.com/api/patient/patientList',
+                    success: function success(res) {
+                      _this.patientList = res.data.data;
+                    } }));case 2:case "end":return _context.stop();}}}, _callee, this);}));function fetchPatientList() {return _fetchPatientList.apply(this, arguments);}return fetchPatientList;}(),
+
+
+    // 获取患者信息
+    fetchPatientInfo: function () {var _fetchPatientInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {var _this2 = this;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+                  uni.request({
+                    url: "https://ciai.le-cx.com/api/patient/info?id=".concat(id),
+                    success: function success(res) {
+                      _this2.patient = res.data.data;
+                    } }));case 2:case "end":return _context2.stop();}}}, _callee2, this);}));function fetchPatientInfo(_x) {return _fetchPatientInfo.apply(this, arguments);}return fetchPatientInfo;}(),
+
+
+    // 获取socket数据
+    getSocket: function () {var _getSocket = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var _this3 = this;var client;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+                  mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', {
+                    clientId: 'adfas',
+                    username: 'admin',
+                    password: 'admin' }));case 2:client = _context3.sent;
+
+                client.on('connect', function () {
+                  console.log('mqtt连接成功');
+                  client.subscribe('/statues', function (err) {
+                    if (!err) {
+                      console.log('订阅成功');
+                    } else {
+                      console.log('订阅失败');
+                    }
+                  });
+                });
+                // 客户端连接错误事件
+                client.on('error', function (error) {
+                  console.log(error);
+                });
+                // 监听接收消息事件
+                client.on('message', function (topic, message) {
+                  // console.log('收到消息：' + message.toString())
+                  var data = message.toString();
+                  // console.log(data)
+                  var dataArr = JSON.parse(data);
+                  if (dataArr.length > 1) {var _iteratorNormalCompletion2 = true;var _didIteratorError2 = false;var _iteratorError2 = undefined;try {
+                      for (var _iterator2 = dataArr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {var item = _step2.value;
+                        if (_this3.patient && item.mac == _this3.patient.mac) {
+                          console.log(item);
+                          // 心率
+                          var heart_rate = parseInt(item.rawData.slice(14, 15), 16);
+                          // 步数
+                          var steps = parseInt(item.rawData.slice(15, 17), 16);
+                          // 电池电量
+                          var power = parseInt(item.rawData.slice(17, 18), 16);
+                          // x轴时间
+                          var timer = item.timestamp.slice(12, 19);
+                          // this.heart_rate_list.push(heart_rate)
+                          var randomData = Math.random() * 300;
+                          _this3.heart_rate_list.push(randomData);
+                          _this3.categories.push(timer);
+                          // console.log(this.heart_rate_list)
+                          if (_this3.heart_rate_list.length > 8) {
+                            _this3.heart_rate_list.shift();
+                            _this3.categories.shift();
+                          }
+                          // 初始化图表实例
+                          _self.showLineA("myChart");
+                          // updateData更新图表
+                          canvaLineA.updateData({
+                            categories: _this3.categories,
+                            series: [{
+                              name: '实时心率',
+                              data: _self.heart_rate_list }] });
+
+
+                        }
+                      }} catch (err) {_didIteratorError2 = true;_iteratorError2 = err;} finally {try {if (!_iteratorNormalCompletion2 && _iterator2.return != null) {_iterator2.return();}} finally {if (_didIteratorError2) {throw _iteratorError2;}}}
+                  }
+                });case 6:case "end":return _context3.stop();}}}, _callee3, this);}));function getSocket() {return _getSocket.apply(this, arguments);}return getSocket;}(),
+
 
     showLineA: function showLineA(canvasId) {
       // 图表实例和配置
@@ -376,70 +428,40 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
 
     },
 
-    // picker @change事件
-    bindPickerChange: function bindPickerChange(e) {
-      // console.log(e)
-      var _iteratorNormalCompletion2 = true;var _didIteratorError2 = false;var _iteratorError2 = undefined;try {for (var _iterator2 = this.patientList[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {var item = _step2.value;
-          if (item.id === Number(e.detail.value) + 1) {
-            this.fetchPatientInfo(item.id);
-          }
-        }} catch (err) {_didIteratorError2 = true;_iteratorError2 = err;} finally {try {if (!_iteratorNormalCompletion2 && _iterator2.return != null) {_iterator2.return();}} finally {if (_didIteratorError2) {throw _iteratorError2;}}}
-    },
-    // 获取患者列表(ID)
-    fetchPatientList: function () {var _fetchPatientList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this2 = this;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  uni.request({
-                    url: 'https://ciai.le-cx.com/api/patient/patientList',
-                    success: function success(res) {
-                      _this2.patientList = res.data.data;
-                    } }));case 2:case "end":return _context.stop();}}}, _callee, this);}));function fetchPatientList() {return _fetchPatientList.apply(this, arguments);}return fetchPatientList;}(),
-
-
-    // 获取患者信息
-    fetchPatientInfo: function () {var _fetchPatientInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {var _this3 = this;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
-                  uni.request({
-                    url: "https://ciai.le-cx.com/api/patient/info?id=".concat(id),
-                    success: function success(res) {
-                      _this3.patient = res.data.data;
-                    } }));case 2:case "end":return _context2.stop();}}}, _callee2, this);}));function fetchPatientInfo(_x) {return _fetchPatientInfo.apply(this, arguments);}return fetchPatientInfo;}(),
-
-
-
     // 获取当前时间
-    getNowTime: function getNowTime() {
-      var now = new Date();
-      var hour = now.getHours();
-      var minute = now.getMinutes();
-      var second = now.getSeconds();
-      hour = hour < 10 ? '0' + hour : hour;
-      minute = minute < 10 ? '0' + minute : minute;
-      second = second < 10 ? '0' + second : second;
-      var now_time = "".concat(hour, ":").concat(minute, ":").concat(second);
-      return now_time;
-    },
+    // getNowTime() {
+    // 	let now = new Date()
+    // 	let hour = now.getHours()
+    // 	let minute = now.getMinutes()
+    // 	let second = now.getSeconds()
+    // 	hour = hour < 10 ? '0' + hour : hour
+    // 	minute = minute < 10 ? '0' + minute : minute
+    // 	second = second < 10 ? '0' + second : second
+    // 	let now_time = `${hour}:${minute}:${second}`
+    // 	return now_time
+    // },
 
-    getServerData: function getServerData() {
-      uni.request({
-        url: 'https://www.ucharts.cn/data.json',
-        data: {},
-        success: function success(res) {
-          console.log(res.data.data);
-          var LineA = {
-            categories: [],
-            series: [] };
+    getServerData: function () {var _getServerData = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.next = 2;return (
+                  uni.request({
+                    url: 'https://www.ucharts.cn/data.json',
+                    data: {},
+                    success: function success(res) {
+                      console.log(res.data.data);
+                      var LineA = {
+                        categories: [],
+                        series: [] };
 
-          //这里后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-          LineA.categories = res.data.data.LineA.categories;
-          // LineA.series = res.data.data.LineA.series;
-          // 只筛选了最后一条数据进行可视化
-          LineA.series = res.data.data.LineA.series;
-          LineA.series = [LineA.series.pop()];
-          _self.showLineA("myChart", LineA);
-        },
-        fail: function fail() {
-          _self.tips = "网络错误，小程序端请检查合法域名";
-        } });
-
-    } } };exports.default = _default;
+                      //这里后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
+                      LineA.categories = res.data.data.LineA.categories;
+                      // LineA.series = res.data.data.LineA.series;
+                      // 只筛选了最后一条数据进行可视化
+                      LineA.series = res.data.data.LineA.series;
+                      LineA.series = [LineA.series.pop()];
+                      _self.showLineA("myChart", LineA);
+                    },
+                    fail: function fail() {
+                      _self.tips = "网络错误，小程序端请检查合法域名";
+                    } }));case 2:case "end":return _context4.stop();}}}, _callee4, this);}));function getServerData() {return _getServerData.apply(this, arguments);}return getServerData;}() } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

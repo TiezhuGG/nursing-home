@@ -100,53 +100,105 @@
 		},
 		onLoad() {
 			_self = this;
-			// console.log(this.getNowTime())
 			this.fetchPatientList()
 			// _self.getServerData();
 			this.cWidth = uni.upx2px(750);
 			this.cHeight = uni.upx2px(500);
-			// 创建socket连接
-			let client = mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', {
-				clientId: 'adfas',
-				username: 'admin',
-				password: 'admin'
-			})
-			this.client = client
-			this.getSocket()
+		},
+		watch: {
+			patient(newVal, oldVal) {
+				// console.log(newVal)
+				// console.log(oldVal)
+				// 切换病人时清空图表数据（重新渲染图表）
+				this.heart_rate_list = []
+				this.categories = []
+				if(oldVal != null) {
+					canvaLineA.updateData({
+						categories: this.categories,
+						series: [{
+							name: '实时心率',
+							data: this.heart_rate_list
+						}],
+					})
+				}
+			},
+			deep: true
 		},
 
 		methods: {
+			// picker @change事件
+			bindPickerChange(e) {
+				// console.log(e)
+				for (let item of this.patientList) {
+					if (item.id === Number(e.detail.value) + 1) {
+						this.fetchPatientInfo(item.id)
+						this.getSocket()
+					}
+				}
+			},
+			// 获取患者列表(ID)
+			async fetchPatientList() {
+				await uni.request({
+					url: 'https://ciai.le-cx.com/api/patient/patientList',
+					success: res => {
+						this.patientList = res.data.data
+					}
+				})
+			},
+			// 获取患者信息
+			async fetchPatientInfo(id) {
+				await uni.request({
+					url: `https://ciai.le-cx.com/api/patient/info?id=${id}`,
+					success: res => {
+						this.patient = res.data.data
+					},
+				})
+			},
 			// 获取socket数据
-			getSocket() {
-				this.client.on('connect', () => {
+			async getSocket() {
+				let client = await mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', {
+					clientId: 'adfas',
+					username: 'admin',
+					password: 'admin'
+				})
+				client.on('connect', () => {
 					console.log('mqtt连接成功')
-					this.client.subscribe('/statues', (err) => {
+					client.subscribe('/statues', (err) => {
 						if (!err) {
 							console.log('订阅成功')
+						} else {
+							console.log('订阅失败')
 						}
 					})
 				})
 				// 客户端连接错误事件
-				this.client.on('error', error => {
+				client.on('error', error => {
 					console.log(error)
 				})
 				// 监听接收消息事件
-				this.client.on('message', (topic, message) => {
+				client.on('message', (topic, message) => {
 					// console.log('收到消息：' + message.toString())
 					let data = message.toString()
-					console.log('收到消息', data)
+					// console.log(data)
 					let dataArr = JSON.parse(data)
 					if (dataArr.length > 1) {
 						for (let item of dataArr) {
 							if (this.patient && item.mac == this.patient.mac) {
-								// console.log(item)
+								console.log(item)
+								// 心率
 								let heart_rate = parseInt(item.rawData.slice(14, 15), 16)
+								// 步数
+								let steps = parseInt(item.rawData.slice(15, 17), 16)
+								// 电池电量
+								let power = parseInt(item.rawData.slice(17, 18), 16)
+								// x轴时间
 								let timer = item.timestamp.slice(12, 19)
-								this.heart_rate_list.push(heart_rate)
-								// let randomData = Math.random() * 100
-								// this.heart_rate_list.push(randomData)
+								// this.heart_rate_list.push(heart_rate)
+								let randomData = Math.random() * 300
+								this.heart_rate_list.push(randomData)
 								this.categories.push(timer)
-								if (this.heart_rate_list.length > 6) {
+								// console.log(this.heart_rate_list)
+								if (this.heart_rate_list.length > 8) {
 									this.heart_rate_list.shift()
 									this.categories.shift()
 								}
@@ -228,49 +280,21 @@
 				});
 			},
 
-			// picker @change事件
-			bindPickerChange(e) {
-				// console.log(e)
-				for (let item of this.patientList) {
-					if (item.id === Number(e.detail.value) + 1) {
-						this.fetchPatientInfo(item.id)
-					}
-				}
-			},
-			// 获取患者列表(ID)
-			async fetchPatientList() {
-				await uni.request({
-					url: 'https://ciai.le-cx.com/api/patient/patientList',
-					success: res => {
-						this.patientList = res.data.data
-					}
-				})
-			},
-			// 获取患者信息
-			async fetchPatientInfo(id) {
-				await uni.request({
-					url: `https://ciai.le-cx.com/api/patient/info?id=${id}`,
-					success: res => {
-						this.patient = res.data.data
-					},
-				})
-			},
-
 			// 获取当前时间
-			getNowTime() {
-				let now = new Date()
-				let hour = now.getHours()
-				let minute = now.getMinutes()
-				let second = now.getSeconds()
-				hour = hour < 10 ? '0' + hour : hour
-				minute = minute < 10 ? '0' + minute : minute
-				second = second < 10 ? '0' + second : second
-				let now_time = `${hour}:${minute}:${second}`
-				return now_time
-			},
+			// getNowTime() {
+			// 	let now = new Date()
+			// 	let hour = now.getHours()
+			// 	let minute = now.getMinutes()
+			// 	let second = now.getSeconds()
+			// 	hour = hour < 10 ? '0' + hour : hour
+			// 	minute = minute < 10 ? '0' + minute : minute
+			// 	second = second < 10 ? '0' + second : second
+			// 	let now_time = `${hour}:${minute}:${second}`
+			// 	return now_time
+			// },
 
-			getServerData() {
-				uni.request({
+			async getServerData() {
+				await uni.request({
 					url: 'https://www.ucharts.cn/data.json',
 					data: {},
 					success: function(res) {

@@ -246,27 +246,154 @@ var _default =
   data: function data() {
     return {
       nurseInfo: {},
-      noticeList: [] };
+      noticeList: [],
+      isOpenBle: false,
+      bluetoothList: [],
+      deviceId: "55:EB:A6:66:1C:41" };
 
   },
   onLoad: function onLoad() {
     this.nurseInfo = uni.getStorageSync('userInfo');
     this.fetchNoticeList();
+    //在页面加载时初始化蓝牙适配器
+    this.initBluetoothAdapter();
   },
+
   methods: {
+    // 初始化蓝牙适配器
+    initBluetoothAdapter: function initBluetoothAdapter() {var _this = this;
+      uni.openBluetoothAdapter({
+        success: function success(e) {
+          if (e.errMsg === 'openBluetoothAdapter:ok') {
+            console.log('初始化蓝牙成功');
+            _this.isOpenBle = true;
+            // 初始化完毕后搜索附近蓝牙设备
+            _this.searchBluetoothDevice();
+          }
+        },
+        fail: function fail(e) {
+          console.log("\u521D\u59CB\u5316\u84DD\u7259\u5931\u8D25\uFF0C\u9519\u8BEF\u7801: (".concat(e.errCode, " || ").concat(e.errMsg, ")"));
+        } });
+
+    },
+
+    // 搜索附近蓝牙设备
+    searchBluetoothDevice: function searchBluetoothDevice() {
+      // 在页面显示的时候判断是否已经初始化完成蓝牙适配器，若成功，则开始查找设备
+      var self = this;
+      setTimeout(function () {
+        if (self.isOpenBle) {
+          console.log("开始搜索附近蓝牙智能设备");
+          uni.startBluetoothDevicesDiscovery({
+            success: function success(res) {
+              self.findBluetoothDevice();
+            },
+            fail: function fail(res) {
+              console.log("查找设备失败!");
+              uni.showToast({
+                icon: "none",
+                title: "查找设备失败！",
+                duration: 3000 });
+
+            } });
+
+        } else {
+          console.log("\u672A\u521D\u59CB\u5316\u84DD\u7259\u9002\u914D\u5668, self.isOpenBle:".concat(self.isOpenBle));
+        }
+      }, 1000);
+    },
+
+    // 发现蓝牙设备
+    findBluetoothDevice: function findBluetoothDevice() {var _this2 = this;
+      console.log("监听寻找新设备");
+      uni.onBluetoothDeviceFound(function (devices) {
+        console.log('开始监听寻找到新设备的事件');
+        _this2.getBleDevices();
+      });
+    },
+
+    // 获取在蓝牙模块生效期间所有已发现的蓝牙设备。包括已经和本机处于连接状态的设备。
+    getBleDevices: function getBleDevices() {var _this3 = this;
+      console.log("获取蓝牙设备");
+      uni.getBluetoothDevices({
+        success: function success(res) {
+          if (res.errMsg === 'getBluetoothDevices:ok') {
+            console.log(res);
+            console.log("\u83B7\u53D6\u84DD\u7259\u8BBE\u5907\u6210\u529F: ".concat(res.errMsg));
+            _this3.bluetoothList = res.devices;var _iteratorNormalCompletion = true;var _didIteratorError = false;var _iteratorError = undefined;try {
+              for (var _iterator = _this3.bluetoothList[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {var item = _step.value;
+                // this.deviceId = item.deviceId
+                // console.log('item.deviceId == this.deviceId',item.deviceId == this.deviceId)
+                if (item.deviceId == _this3.deviceId) {
+                  setTimeout(function () {
+                    _this3.getConnectBle();
+                  }, 1000);
+                }
+                // console.log({
+                // 	'index': this.bluetoothList.indexOf(item), 
+                // 	'bluetooth': item,
+                // 	'deviceId': this.deviceId
+                // })
+              }} catch (err) {_didIteratorError = true;_iteratorError = err;} finally {try {if (!_iteratorNormalCompletion && _iterator.return != null) {_iterator.return();}} finally {if (_didIteratorError) {throw _iteratorError;}}}
+          }
+        },
+        fail: function fail(res) {
+          console.log("\u83B7\u53D6\u84DD\u7259\u8BBE\u5907\u5931\u8D25: ".concat(res.errMsg));
+        } });
+
+    },
+
+    getConnectBle: function getConnectBle() {var _this4 = this;
+      console.log("".concat(this.deviceId, "\u84DD\u7259\u8BBE\u5907\u8FDE\u63A5\u4E2D"));
+      uni.createBLEConnection({
+        deviceId: this.deviceId,
+        success: function success(res) {
+          console.log("".concat(_this4.deviceId, "\u84DD\u7259\u8BBE\u5907\u8FDE\u63A5\u6210\u529F"));
+          console.log(res);
+          if (res.errMsg === 'createBLEConnection:ok') {
+            // 成功连接蓝牙设备后停止搜索
+            _this4.stopDiscovery();
+          }
+        },
+        fail: function fail(res) {
+          console.log("\u84DD\u7259\u8BBE\u5907\u8FDE\u63A5\u5931\u8D25", res);
+          uni.closeBLEConnection({
+            deviceId: _this4.deviceId,
+            complete: function complete(res) {
+              console.log('蓝牙设备连接断开, 正在重新连接');
+              _this4.getConnectBle();
+            } });
+
+        } });
+
+    },
+
+    // 停止搜索蓝牙设备(连接设备后调用)
+    stopDiscovery: function stopDiscovery() {
+      uni.stopBluetoothDevicesDiscovery({
+        success: function success(e) {
+          console.log("\u505C\u6B62\u641C\u7D22\u84DD\u7259\u8BBE\u5907: ".concat(e.errMsg));
+        },
+        fail: function fail(e) {
+          console.log("\u505C\u6B62\u641C\u7D22\u84DD\u7259\u8BBE\u5907\u5931\u8D25\uFF0C\u9519\u8BEF\u7801: ".concat(e.errCode));
+        } });
+
+    },
+
     // 跳转公告信息页
     toNotice: function toNotice(notice_id) {
       uni.navigateTo({
         url: "../notice/notice?id=".concat(notice_id) });
 
     },
+
     // 获取公告列表
-    fetchNoticeList: function fetchNoticeList() {var _this = this;
+    fetchNoticeList: function fetchNoticeList() {var _this5 = this;
       uni.request({
         url: 'https://ciai.le-cx.com/api/notice/noticeList',
         success: function success(res) {
           // console.log(res)
-          _this.noticeList = res.data.data;
+          _this5.noticeList = res.data.data;
         } });
 
     } } };exports.default = _default;
