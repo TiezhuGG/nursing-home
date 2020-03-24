@@ -274,6 +274,29 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
 
 
   methods: {
+    test: function test() {var _this = this;
+      setInterval(function () {
+        var randomData = Math.random() * 300;
+        var timer = Math.random() * 300;
+        _this.heart_rate_list.push(randomData);
+        _this.categories.push(timer);
+        // console.log(this.heart_rate_list)
+        if (_this.heart_rate_list.length > 8) {
+          _this.heart_rate_list.shift();
+          _this.categories.shift();
+        }
+        // 初始化图表实例
+        _self.showLineA("myChart");
+        // updateData更新图表
+        canvaLineA.updateData({
+          categories: _this.categories,
+          series: [{
+            name: '实时心率',
+            data: _self.heart_rate_list }] });
+
+
+      }, 1500);
+    },
     // picker @change事件
     bindPickerChange: function bindPickerChange(e) {
       // console.log(e)
@@ -281,30 +304,31 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
           if (item.id === Number(e.detail.value) + 1) {
             this.fetchPatientInfo(item.id);
             this.getSocket();
+            // this.test()
           }
         }} catch (err) {_didIteratorError = true;_iteratorError = err;} finally {try {if (!_iteratorNormalCompletion && _iterator.return != null) {_iterator.return();}} finally {if (_didIteratorError) {throw _iteratorError;}}}
     },
     // 获取患者列表(ID)
-    fetchPatientList: function () {var _fetchPatientList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this = this;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+    fetchPatientList: function () {var _fetchPatientList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this2 = this;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   uni.request({
                     url: 'https://ciai.le-cx.com/api/patient/patientList',
                     success: function success(res) {
-                      _this.patientList = res.data.data;
+                      _this2.patientList = res.data.data;
                     } }));case 2:case "end":return _context.stop();}}}, _callee, this);}));function fetchPatientList() {return _fetchPatientList.apply(this, arguments);}return fetchPatientList;}(),
 
 
     // 获取患者信息
-    fetchPatientInfo: function () {var _fetchPatientInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {var _this2 = this;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+    fetchPatientInfo: function () {var _fetchPatientInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {var _this3 = this;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
                   uni.request({
                     url: "https://ciai.le-cx.com/api/patient/info?id=".concat(id),
                     success: function success(res) {
-                      _this2.patient = res.data.data;
+                      _this3.patient = res.data.data;
                     } }));case 2:case "end":return _context2.stop();}}}, _callee2, this);}));function fetchPatientInfo(_x) {return _fetchPatientInfo.apply(this, arguments);}return fetchPatientInfo;}(),
 
 
     // 获取socket数据
-    getSocket: function () {var _getSocket = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var _this3 = this;var client;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
-                  mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', {
+    getSocket: function () {var _getSocket = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var _this4 = this;var client;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+                  mqtt.connect('wxs://59.60.183.104:8888/mqtt', {
                     clientId: 'adfas',
                     username: 'admin',
                     password: 'admin' }));case 2:client = _context3.sent;
@@ -331,7 +355,7 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
                   var dataArr = JSON.parse(data);
                   if (dataArr.length > 1) {var _iteratorNormalCompletion2 = true;var _didIteratorError2 = false;var _iteratorError2 = undefined;try {
                       for (var _iterator2 = dataArr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {var item = _step2.value;
-                        if (_this3.patient && item.mac == _this3.patient.mac) {
+                        if (_this4.patient && item.mac == _this4.patient.mac) {
                           console.log(item);
                           // 心率
                           var heart_rate = parseInt(item.rawData.slice(14, 15), 16);
@@ -343,18 +367,18 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
                           var timer = item.timestamp.slice(12, 19);
                           // this.heart_rate_list.push(heart_rate)
                           var randomData = Math.random() * 300;
-                          _this3.heart_rate_list.push(randomData);
-                          _this3.categories.push(timer);
+                          _this4.heart_rate_list.push(randomData);
+                          _this4.categories.push(timer);
                           // console.log(this.heart_rate_list)
-                          if (_this3.heart_rate_list.length > 8) {
-                            _this3.heart_rate_list.shift();
-                            _this3.categories.shift();
+                          if (_this4.heart_rate_list.length > 8) {
+                            _this4.heart_rate_list.shift();
+                            _this4.categories.shift();
                           }
                           // 初始化图表实例
                           _self.showLineA("myChart");
                           // updateData更新图表
                           canvaLineA.updateData({
-                            categories: _this3.categories,
+                            categories: _this4.categories,
                             series: [{
                               name: '实时心率',
                               data: _self.heart_rate_list }] });

@@ -126,6 +126,29 @@
 		},
 
 		methods: {
+			test() {
+				setInterval(() => {
+					let randomData = Math.random() * 300
+					let timer = Math.random() * 300
+					this.heart_rate_list.push(randomData)
+					this.categories.push(timer)
+					// console.log(this.heart_rate_list)
+					if (this.heart_rate_list.length > 8) {
+						this.heart_rate_list.shift()
+						this.categories.shift()
+					}
+					// 初始化图表实例
+					_self.showLineA("myChart")
+					// updateData更新图表
+					canvaLineA.updateData({
+						categories: this.categories,
+						series: [{
+							name: '实时心率',
+							data: _self.heart_rate_list
+						}],
+					})
+				}, 1500)
+			},
 			// picker @change事件
 			bindPickerChange(e) {
 				// console.log(e)
@@ -133,6 +156,7 @@
 					if (item.id === Number(e.detail.value) + 1) {
 						this.fetchPatientInfo(item.id)
 						this.getSocket()
+						// this.test()
 					}
 				}
 			},
@@ -156,7 +180,7 @@
 			},
 			// 获取socket数据
 			async getSocket() {
-				let client = await mqtt.connect('wxs://eztbs.oicp.net:8888/mqtt', {
+				let client = await mqtt.connect('wxs://59.60.183.104:8888/mqtt', {
 					clientId: 'adfas',
 					username: 'admin',
 					password: 'admin'
