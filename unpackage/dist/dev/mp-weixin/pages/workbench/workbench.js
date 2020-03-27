@@ -400,7 +400,6 @@ var _default =
           console.log('device services:', res.services);
         } });
 
-
     },
 
     // 获取指定服务的特征值
