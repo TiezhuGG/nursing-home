@@ -86,7 +86,7 @@
 			// 获取已处理列表
 			fetchHandledList() {
 				uni.request({
-					url: 'https://ciai.le-cx.com/api/Alarm/recordList',
+					url: 'https://ciai.le-cx.com/index.php/api/Alarm/recordList',
 					data: {
 						status: 1
 					},
@@ -100,7 +100,7 @@
 			// 获取未处理列表
 			fetchUnhandledList() {
 				uni.request({
-					url: 'https://ciai.le-cx.com/api/Alarm/recordList',
+					url: 'https://ciai.le-cx.com/index.php/api/Alarm/recordList',
 					data: {
 						status: -1
 					},
@@ -114,7 +114,7 @@
 			// 立即处理报警
 			handWaring(id) {
 				uni.request({
-					url: `https://ciai.le-cx.com/api/Alarm/handleAlarm?id=${id}`,
+					url: `https://ciai.le-cx.com/index.php/api/Alarm/handleAlarm?id=${id}`,
 					success: res => {
 						uni.showToast({
 							icon: 'success',

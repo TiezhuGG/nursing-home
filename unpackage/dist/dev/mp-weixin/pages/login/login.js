@@ -222,7 +222,7 @@ var _default =
         return;
       }
       uni.request({
-        url: 'https://ciai.le-cx.com/api/nurse/login',
+        url: 'https://ciai.le-cx.com/index.php/api/nurse/login',
         data: {
           account: this.user_phone,
           password: this.user_pwd },

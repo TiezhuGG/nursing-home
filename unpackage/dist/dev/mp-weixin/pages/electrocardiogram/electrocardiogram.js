@@ -253,7 +253,7 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
     // 获取患者列表(ID)
     fetchPatientList: function () {var _fetchPatientList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this = this;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   uni.request({
-                    url: 'https://ciai.le-cx.com/api/patient/patientList',
+                    url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
                     success: function success(res) {
                       _this.patientList = res.data.data;
                     } }));case 2:case "end":return _context.stop();}}}, _callee, this);}));function fetchPatientList() {return _fetchPatientList.apply(this, arguments);}return fetchPatientList;}(),
@@ -262,7 +262,7 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
     // 获取患者信息
     fetchPatientInfo: function () {var _fetchPatientInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {var _this2 = this;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
                   uni.request({
-                    url: "https://ciai.le-cx.com/api/patient/info?id=".concat(id),
+                    url: "https://ciai.le-cx.com/index.php/api/patient/info?id=".concat(id),
                     success: function success(res) {
                       _this2.patient = res.data.data;
                     } }));case 2:case "end":return _context2.stop();}}}, _callee2, this);}));function fetchPatientInfo(_x) {return _fetchPatientInfo.apply(this, arguments);}return fetchPatientInfo;}(),

@@ -105,7 +105,7 @@
 			// 获取患者列表(ID)
 			async fetchPatientList() {
 				await uni.request({
-					url: 'https://ciai.le-cx.com/api/patient/patientList',
+					url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
 					success: res => {
 						this.patientList = res.data.data
 					}
@@ -114,7 +114,7 @@
 			// 获取患者信息
 			async fetchPatientInfo(id) {
 				await uni.request({
-					url: `https://ciai.le-cx.com/api/patient/info?id=${id}`,
+					url: `https://ciai.le-cx.com/index.php/api/patient/info?id=${id}`,
 					success: res => {
 						this.patient = res.data.data
 					},

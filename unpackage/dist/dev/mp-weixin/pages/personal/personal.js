@@ -252,7 +252,7 @@ var _default =
     // 获取患者信息
     fetchPatientInfo: function fetchPatientInfo(id) {var _this = this;
       uni.request({
-        url: "https://ciai.le-cx.com/api/patient/info?id=".concat(this.patient_id),
+        url: "https://ciai.le-cx.com/index.php/api/patient/info?id=".concat(this.patient_id),
         success: function success(res) {
           _this.patient_info = res.data.data;
         } });

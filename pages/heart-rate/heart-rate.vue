@@ -155,15 +155,15 @@
 				for (let item of this.patientList) {
 					if (item.id === Number(e.detail.value) + 1) {
 						this.fetchPatientInfo(item.id)
-						this.getSocket()
-						// this.test()
+						// this.getSocket()
+						this.test()
 					}
 				}
 			},
 			// 获取患者列表(ID)
 			async fetchPatientList() {
 				await uni.request({
-					url: 'https://ciai.le-cx.com/api/patient/patientList',
+					url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
 					success: res => {
 						this.patientList = res.data.data
 					}
@@ -172,7 +172,7 @@
 			// 获取患者信息
 			async fetchPatientInfo(id) {
 				await uni.request({
-					url: `https://ciai.le-cx.com/api/patient/info?id=${id}`,
+					url: `https://ciai.le-cx.com/index.php/api/patient/info?id=${id}`,
 					success: res => {
 						this.patient = res.data.data
 					},
@@ -217,9 +217,9 @@
 								let power = parseInt(item.rawData.slice(17, 18), 16)
 								// x轴时间
 								let timer = item.timestamp.slice(12, 19)
-								// this.heart_rate_list.push(heart_rate)
-								let randomData = Math.random() * 300
-								this.heart_rate_list.push(randomData)
+								this.heart_rate_list.push(heart_rate)
+								// let randomData = Math.random() * 300
+								// this.heart_rate_list.push(randomData)
 								this.categories.push(timer)
 								// console.log(this.heart_rate_list)
 								if (this.heart_rate_list.length > 8) {

@@ -262,7 +262,7 @@ var _default =
     this.nurseInfo = uni.getStorageSync('userInfo');
     this.fetchNoticeList();
     //在页面加载时初始化蓝牙适配器
-    this.initBluetoothAdapter();
+    // this.initBluetoothAdapter()
   },
 
   methods: {
@@ -500,7 +500,7 @@ var _default =
     // 获取公告列表
     fetchNoticeList: function fetchNoticeList() {var _this10 = this;
       uni.request({
-        url: 'https://ciai.le-cx.com/api/notice/noticeList',
+        url: 'https://ciai.le-cx.com/index.php/api/notice/noticeList',
         success: function success(res) {
           // console.log(res)
           _this10.noticeList = res.data.data;

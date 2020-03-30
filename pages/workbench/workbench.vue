@@ -79,7 +79,7 @@
 			this.nurseInfo = uni.getStorageSync('userInfo')
 			this.fetchNoticeList()
 			//在页面加载时初始化蓝牙适配器
-			this.initBluetoothAdapter()
+			// this.initBluetoothAdapter()
 		},
 
 		methods: {
@@ -317,7 +317,7 @@
 			// 获取公告列表
 			fetchNoticeList() {
 				uni.request({
-					url: 'https://ciai.le-cx.com/api/notice/noticeList',
+					url: 'https://ciai.le-cx.com/index.php/api/notice/noticeList',
 					success: res => {
 						// console.log(res)
 						this.noticeList = res.data.data

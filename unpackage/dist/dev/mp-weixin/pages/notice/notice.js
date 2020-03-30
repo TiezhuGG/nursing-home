@@ -170,7 +170,7 @@ var _default =
   methods: {
     fetchNoticeDetail: function fetchNoticeDetail() {var _this = this;
       uni.request({
-        url: "https://ciai.le-cx.com/api/notice/info?id=".concat(this.id),
+        url: "https://ciai.le-cx.com/index.php/api/notice/info?id=".concat(this.id),
         success: function success(res) {
           _this.noticeInfo = res.data.data;
         } });

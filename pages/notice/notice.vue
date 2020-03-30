@@ -35,7 +35,7 @@
 		methods: {
 			fetchNoticeDetail() {
 				uni.request({
-					url: `https://ciai.le-cx.com/api/notice/info?id=${this.id}`,
+					url: `https://ciai.le-cx.com/index.php/api/notice/info?id=${this.id}`,
 					success: res => {
 						this.noticeInfo = res.data.data
 					}

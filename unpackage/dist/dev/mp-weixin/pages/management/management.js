@@ -214,7 +214,7 @@ var _chineseConversion = __webpack_require__(/*! @/common/js/chineseConversion.j
 //
 //
 //
-var _default = { data: function data() {return { url: 'https://ciai.le-cx.com/api/patient/info?id=', searchLetter: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'W', 'X', 'Y', 'Z'], inputName: '', focus: false, list: [], dataSource: [], scrollTopId: '', completeList: [], winHeight: 0, showLetter: '', isShowLetter: false, toastShowLetter: '' };}, onLoad: function onLoad() {this.fetchPatientList();var searchLetter = this.searchLetter;var sysInfo = uni.getSystemInfoSync(); // console.log(sysInfo);
+var _default = { data: function data() {return { url: 'https://ciai.le-cx.com/index.php/api/patient/info?id=', searchLetter: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'W', 'X', 'Y', 'Z'], inputName: '', focus: false, list: [], dataSource: [], scrollTopId: '', completeList: [], winHeight: 0, showLetter: '', isShowLetter: false, toastShowLetter: '' };}, onLoad: function onLoad() {this.fetchPatientList();var searchLetter = this.searchLetter;var sysInfo = uni.getSystemInfoSync(); // console.log(sysInfo);
     var winHeight = sysInfo.windowHeight;var itemH = winHeight / searchLetter.length;var tempArr = [];searchLetter.map(function (item, index) {var temp = {};temp.name = item;temp.tHeight = index * itemH;temp.bHeight = (index + 1) * itemH;
       tempArr.push(temp);
     });
@@ -242,7 +242,7 @@ var _default = { data: function data() {return { url: 'https://ciai.le-cx.com/ap
     // 获取患者列表
     fetchPatientList: function fetchPatientList() {var _this = this;
       uni.request({
-        url: 'https://ciai.le-cx.com/api/patient/patientList',
+        url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
         success: function success(res) {
           var letterList = [];var _iteratorNormalCompletion = true;var _didIteratorError = false;var _iteratorError = undefined;try {
             for (var _iterator = res.data.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {var item = _step.value;

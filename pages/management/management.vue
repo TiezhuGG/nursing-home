@@ -40,7 +40,7 @@
 	export default {
 		data() {
 			return {
-				url: 'https://ciai.le-cx.com/api/patient/info?id=',
+				url: 'https://ciai.le-cx.com/index.php/api/patient/info?id=',
 				searchLetter: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'W', 'X',
 					'Y', 'Z'
 				],
@@ -97,7 +97,7 @@
 			// 获取患者列表
 			fetchPatientList() {
 				uni.request({
-					url: 'https://ciai.le-cx.com/api/patient/patientList',
+					url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
 					success: res => {
 						let letterList = []
 						for (let item of res.data.data) {

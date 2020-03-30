@@ -252,7 +252,7 @@ var _default =
     // 获取已处理列表
     fetchHandledList: function fetchHandledList() {var _this = this;
       uni.request({
-        url: 'https://ciai.le-cx.com/api/Alarm/recordList',
+        url: 'https://ciai.le-cx.com/index.php/api/Alarm/recordList',
         data: {
           status: 1 },
 
@@ -266,7 +266,7 @@ var _default =
     // 获取未处理列表
     fetchUnhandledList: function fetchUnhandledList() {var _this2 = this;
       uni.request({
-        url: 'https://ciai.le-cx.com/api/Alarm/recordList',
+        url: 'https://ciai.le-cx.com/index.php/api/Alarm/recordList',
         data: {
           status: -1 },
 
@@ -280,7 +280,7 @@ var _default =
     // 立即处理报警
     handWaring: function handWaring(id) {var _this3 = this;
       uni.request({
-        url: "https://ciai.le-cx.com/api/Alarm/handleAlarm?id=".concat(id),
+        url: "https://ciai.le-cx.com/index.php/api/Alarm/handleAlarm?id=".concat(id),
         success: function success(res) {
           uni.showToast({
             icon: 'success',

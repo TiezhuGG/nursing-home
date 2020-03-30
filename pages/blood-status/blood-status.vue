@@ -12,7 +12,7 @@
 					</view>
 				</view>
 				<view class="no-info" v-if="!patient">请选择患者</view>
-				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name" >
+				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name">
 					<view><img class="more" src="../../static/images/more.png"></view>
 				</picker>
 			</view>
@@ -67,6 +67,7 @@
 			<!-- 按钮 -->
 			<view class="btn">
 				<button class="get-msg" @click="getServerData(currentIndex + 1)">获取血压信息</button>
+				<!-- <button class="get-msg" @click="bp_openBluetoothAdapter">获取血压信息</button> -->
 			</view>
 		</view>
 
@@ -175,6 +176,22 @@
 				pixelRatio: 1,
 				patientList: [],
 				patient: null,
+				// 血压
+				bp_devices: [],
+				bp_connected: false,
+				bp_chs: [],
+				bp_discoveryStarted: false,
+				bp_canWrite: false,
+				bp_deviceId: '',
+				bp_serviceId: '',
+				bp_characteristicId: '',
+				bp_list: [],
+				bp_categories: [],
+				// 血氧
+				bo_devices: [],
+				bo_connected: false,
+				bo_chs: [],
+				bo_discoveryStarted: false,
 
 				this_week: '6月7日-6月13日',
 				avg_val_blood: '135/80',
@@ -189,19 +206,70 @@
 			this.cWidth = uni.upx2px(750);
 			this.cHeight = uni.upx2px(500);
 		},
+
+		// watch: {
+		// 	patient(newVal, oldVal) {
+		// 		// console.log(newVal)
+		// 		// console.log(oldVal)
+		// 		// 切换病人时清空图表数据（重新渲染图表）
+		// 		this.bp_list = []
+		// 		this.bp_categories = []
+		// 		if (oldVal != null) {
+		// 			canvaLineA.updateData({
+		// 				categories: this.bp_categories,
+		// 				series: [{
+		// 					name: '实时心率',
+		// 					data: this.bp_list
+		// 				}],
+		// 			})
+		// 		}
+		// 	},
+		// 	deep: true
+		// },
+
 		methods: {
-			bindPickerChange(e){
+			// test() {
+			// 	console.log('test')
+			// 	setInterval(() => {
+			// 		let randomData = Math.random() * 300
+			// 		let timer = Math.random() * 300
+			// 		this.bp_list.push(randomData)
+			// 		this.bp_categories.push(timer)
+			// 		console.log('randomData',randomData)
+			// 		console.log('timer',timer)
+			// 		console.log('bp_list', this.bp_list)
+			// 		console.log('bp_categories',this.bp_categories)
+			// 		// console.log(this.bp_list)
+			// 		if (this.bp_list.length > 7) {
+			// 			this.bp_list.shift()
+			// 			this.bp_categories.shift()
+			// 		}
+			// 		// 初始化图表实例
+			// 		_self.showLineA("mycharts")
+			// 		// updateData更新图表
+			// 		canvaLineA.updateData({
+			// 			categories: this.bp_categories,
+			// 			series: [{
+			// 				name: '实时心率',
+			// 				data: _self.bp_list
+			// 			}],
+			// 		})
+			// 	}, 1500)
+			// },
+
+			bindPickerChange(e) {
 				// console.log(e)
-				for(let item of this.patientList) {
+				for (let item of this.patientList) {
 					if (item.id === Number(e.detail.value) + 1) {
 						this.fetchPatientInfo(item.id)
+						// this.test()
 					}
 				}
 			},
 			// 获取患者列表(ID)
 			async fetchPatientList() {
 				await uni.request({
-					url: 'https://ciai.le-cx.com/api/patient/patientList',
+					url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
 					success: res => {
 						this.patientList = res.data.data
 					}
@@ -210,7 +278,7 @@
 			// 获取患者信息
 			async fetchPatientInfo(id) {
 				await uni.request({
-					url: `https://ciai.le-cx.com/api/patient/info?id=${id}`,
+					url: `https://ciai.le-cx.com/index.php/api/patient/info?id=${id}`,
 					success: res => {
 						this.patient = res.data.data
 					},
@@ -221,7 +289,7 @@
 				this.currentIndex = index
 				this.getServerData(this.currentIndex + 1)
 			},
-			
+
 			getServerData(canvasId) {
 				uni.request({
 					url: 'https://www.ucharts.cn/data.json',
@@ -249,7 +317,8 @@
 					},
 				});
 			},
-			showLineA(canvasId, chartData) {
+			
+			showLineA(canvasId,lineA) {
 				canvaLineA = new uCharts({
 					$this: _self,
 					canvasId: canvasId,
@@ -263,9 +332,9 @@
 					dataPointShape: true,
 					background: '#FFFFFF',
 					pixelRatio: _self.pixelRatio,
-					categories: chartData.categories,
-					series: chartData.series,
-					animation: true,
+					categories: lineA.categories,
+					series: lineA.series,
+					animation: false,
 					xAxis: {
 						disableGrid: true
 					},
@@ -291,13 +360,262 @@
 					}
 				});
 			},
+			
 			touchLineA(e) {
 				canvaLineA.showToolTip(e, {
 					format: function(item, category) {
 						return category + ' ' + item.name + ':' + item.data
 					}
 				});
-			}
+			},
+			inArray(arr, key, val) {
+				for (let i = 0; i < arr.length; i++) {
+					if (arr[i][key] === val) {
+						return i;
+					}
+				}
+				return -1;
+			},
+
+			// ArrayBuffer转16进度字符串示例
+			ab2hex(buffer) {
+				var hexArr = Array.prototype.map.call(
+					new Uint8Array(buffer),
+					function(bit) {
+						return ('00' + bit.toString(16)).slice(-2)
+					}
+				)
+				return hexArr.join('');
+			},
+
+			bp_openBluetoothAdapter() {
+				console.log('获取血压信息')
+				uni.openBluetoothAdapter({
+					success: (res) => {
+						console.log('openBluetoothAdapter success', res)
+						this.bp_startBluetoothDevicesDiscovery()
+					},
+					fail: (res) => {
+						if (res.errCode === 10001) {
+							uni.onBluetoothAdapterStateChange((res) => {
+								// console.log('onBluetoothAdapterStateChange', res)
+								if (res.available) {
+									this.bp_startBluetoothDevicesDiscovery()
+								}
+							})
+						}
+					}
+				})
+			},
+			bp_startBluetoothDevicesDiscovery() {
+				if (this.bp_discoveryStarted) {
+					return
+				}
+				this.bp_discoveryStarted = true
+				uni.startBluetoothDevicesDiscovery({
+					allowDuplicatesKey: true,
+					success: (res) => {
+						console.log('startBluetoothDevicesDiscovery success', res)
+						this.bp_onBluetoothDeviceFound()
+					},
+				})
+			},
+			bp_getBluetoothAdapterState() {
+				console.log('getBluetoothAdapterState')
+				uni.getBluetoothAdapterState({
+					success: (res) => {
+						console.log('getBluetoothAdapterState', res)
+						if (res.discovering) {
+							this.bp_onBluetoothDeviceFound()
+						} else if (res.available) {
+							this.bp_startBluetoothDevicesDiscovery()
+						}
+					}
+				})
+			},
+			bp_onBluetoothDeviceFound() {
+				uni.onBluetoothDeviceFound((res) => {
+					var devices = res.devices
+					console.log('devices', devices)
+					if (devices[0].name == 'FSRKB_BT_001') {
+						let e = devices[0]
+						this.bp_createBLEConnection(e)
+					}
+				})
+			},
+			bp_stopBluetoothDevicesDiscovery() {
+				uni.stopBluetoothDevicesDiscovery()
+			},
+
+			bp_createBLEConnection(e) {
+				// const ds = e.currentTarget.dataset
+				const deviceId = e.deviceId
+				const name = e.name
+				uni.createBLEConnection({
+					deviceId,
+					success: (res) => {
+						this.bp_connected = true
+						// this.setData({
+						// 	connected: true,
+						// 	name,
+						// 	deviceId,
+						// })
+						this.bp_getBLEDeviceServices(deviceId)
+					}
+				})
+				this.bp_stopBluetoothDevicesDiscovery()
+			},
+			bp_closeBLEConnection() {
+				uni.closeBLEConnection({
+					deviceId: this.data.deviceId
+				})
+				this.setData({
+					connected: false,
+					chs: [],
+					canWrite: false,
+				})
+			},
+			bp_getBLEDeviceServices(deviceId) {
+				uni.getBLEDeviceServices({
+					deviceId,
+					success: (res) => {
+						for (let i = 0; i < res.services.length; i++) {
+							if (res.services[i].uuid == '0000FFF0-0000-1000-8000-00805F9B34FB') {
+								this.bp_getBLEDeviceCharacteristics(deviceId, res.services[i].uuid)
+								return
+							}
+						}
+					}
+				})
+			},
+			bp_getBLEDeviceCharacteristics(deviceId, serviceId) {
+				uni.getBLEDeviceCharacteristics({
+					deviceId,
+					serviceId,
+					success: (res) => {
+						// console.log('getBLEDeviceCharacteristics success', res.characteristics)
+						for (let i = 0; i < res.characteristics.length; i++) {
+							let item = res.characteristics[i]
+							if (item.uuid == '0000FFF6-0000-1000-8000-00805F9B34FB') {
+								// this.setData({
+								// 	bp_canWrite: true
+								// })
+								this.bp_canWrite = true
+								this.bp_deviceId = deviceId
+								this.bp_serviceId = serviceId
+								this.bp_characteristicId = item.uuid
+								this.bp_writeBLECharacteristicValue()
+
+								uni.notifyBLECharacteristicValueChange({
+									deviceId,
+									serviceId,
+									characteristicId: item.uuid,
+									state: true,
+								})
+							}
+						}
+					},
+					fail(res) {
+						console.error('getBLEDeviceCharacteristics', res)
+					}
+				})
+				// 操作之前先监听，保证第一时间获取数据
+				uni.onBLECharacteristicValueChange((characteristic) => {
+					let vale = ab2hex(characteristic.value)
+					if (vale.substr(6, 2) == 'cc') { //判断是否测量结束，结束则进入
+						if (vale.substr(10, 2) == '00') { //判断是否错误，错误则进入
+							switch (parseInt(vale.substr(8, 2), 16)) {
+								case 1:
+									console.log('传感器异常！')
+									break
+
+								case 2:
+									console.log('不足以检测心跳或血压！')
+									break
+
+								case 3:
+									console.log('异常测量结果！')
+									break
+
+								case 4:
+									console.log('袖口太松或泄漏（10秒压力小于30毫米）')
+									break
+
+								case 5:
+									console.log('气管堵塞')
+									break
+
+								case 6:
+									console.log('压力波动过大')
+									break
+
+								case 7:
+									console.log('压力超过上限')
+									break
+
+								case 8:
+									console.log('请查看标准数据是否异常')
+									break
+							}
+						} else { //输出测量结果
+							console.log('高压：', parseInt(vale.substr(8, 2), 16), '低压：', parseInt(vale.substr(10, 2), 16), '心率',
+								parseInt(
+									vale.substr(12, 2), 16))
+						}
+					} else { //输出当前压力值
+						console.log('当前压力：', parseInt(vale.substr(10, 2), 16))
+					// 	let bp_value = parseInt(vale.substr(10, 2), 16)
+					// 	let timer = this.getNowTime()
+					// 	this.bp_list.push(bp_value)
+					// 	this.bp_categories.push(timer)
+					// 	if (this.bp_list.length > 8) {
+					// 		this.bp_list.shift()
+					// 		this.bp_categories.shift()
+					// 	}
+					// 	_self.showLineA("charts")
+					// 	// updateData更新图表
+					// 	canvaLineA.updateData({
+					// 		categories: this.bp_categories,
+					// 		series: [{
+					// 			name: '血压/血氧/血糖',
+					// 			data: _self.bp_list
+					// 		}],
+					// 	})
+					}
+				})
+			},
+			bp_writeBLECharacteristicValue() {
+				let sz = [0xBE, 0xB0, 0x01, 0xc0, 0x36]
+				let buffer = new ArrayBuffer(5)
+				let dataView = new DataView(buffer)
+
+				for (let i = 0; i < 5; i++) {
+					dataView.setUint8(i, sz[i])
+				}
+				console.log(buffer)
+				uni.writeBLECharacteristicValue({
+					deviceId: this.bp_deviceId,
+					serviceId: this.bp_serviceId,
+					characteristicId: this.bp_characteristicId,
+					value: buffer,
+				})
+			},
+			bp_closeBluetoothAdapter() {
+				uni.closeBluetoothAdapter()
+				this.bp_discoveryStarted = false
+			},
+			// 获取当前时间
+			getNowTime() {
+				let now = new Date()
+				let hour = now.getHours()
+				let minute = now.getMinutes()
+				let second = now.getSeconds()
+				hour = hour < 10 ? '0' + hour : hour
+				minute = minute < 10 ? '0' + minute : minute
+				second = second < 10 ? '0' + second : second
+				let now_time = `${hour}:${minute}:${second}`
+				return now_time
+			},
 		},
 	}
 </script>

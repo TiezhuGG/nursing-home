@@ -303,15 +303,15 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
       var _iteratorNormalCompletion = true;var _didIteratorError = false;var _iteratorError = undefined;try {for (var _iterator = this.patientList[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {var item = _step.value;
           if (item.id === Number(e.detail.value) + 1) {
             this.fetchPatientInfo(item.id);
-            this.getSocket();
-            // this.test()
+            // this.getSocket()
+            this.test();
           }
         }} catch (err) {_didIteratorError = true;_iteratorError = err;} finally {try {if (!_iteratorNormalCompletion && _iterator.return != null) {_iterator.return();}} finally {if (_didIteratorError) {throw _iteratorError;}}}
     },
     // 获取患者列表(ID)
     fetchPatientList: function () {var _fetchPatientList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this2 = this;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   uni.request({
-                    url: 'https://ciai.le-cx.com/api/patient/patientList',
+                    url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
                     success: function success(res) {
                       _this2.patientList = res.data.data;
                     } }));case 2:case "end":return _context.stop();}}}, _callee, this);}));function fetchPatientList() {return _fetchPatientList.apply(this, arguments);}return fetchPatientList;}(),
@@ -320,7 +320,7 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
     // 获取患者信息
     fetchPatientInfo: function () {var _fetchPatientInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {var _this3 = this;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
                   uni.request({
-                    url: "https://ciai.le-cx.com/api/patient/info?id=".concat(id),
+                    url: "https://ciai.le-cx.com/index.php/api/patient/info?id=".concat(id),
                     success: function success(res) {
                       _this3.patient = res.data.data;
                     } }));case 2:case "end":return _context2.stop();}}}, _callee2, this);}));function fetchPatientInfo(_x) {return _fetchPatientInfo.apply(this, arguments);}return fetchPatientInfo;}(),
@@ -365,9 +365,9 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 43);var _defau
                           var power = parseInt(item.rawData.slice(17, 18), 16);
                           // x轴时间
                           var timer = item.timestamp.slice(12, 19);
-                          // this.heart_rate_list.push(heart_rate)
-                          var randomData = Math.random() * 300;
-                          _this4.heart_rate_list.push(randomData);
+                          _this4.heart_rate_list.push(heart_rate);
+                          // let randomData = Math.random() * 300
+                          // this.heart_rate_list.push(randomData)
                           _this4.categories.push(timer);
                           // console.log(this.heart_rate_list)
                           if (_this4.heart_rate_list.length > 8) {

@@ -117,7 +117,7 @@
 			// 获取患者信息
 			fetchPatientInfo(id) {
 				uni.request({
-					url: `https://ciai.le-cx.com/api/patient/info?id=${this.patient_id}`,
+					url: `https://ciai.le-cx.com/index.php/api/patient/info?id=${this.patient_id}`,
 					success: res => {
 						this.patient_info = res.data.data
 					}
