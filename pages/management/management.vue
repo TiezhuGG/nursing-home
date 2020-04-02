@@ -18,12 +18,14 @@
 					<block v-for="(item, idx) in list" :key="idx">
 						<view class="item_letter" :id="item.letter">{{ item.letter }}</view>
 						<block v-for="(user, index) in item.data" :key="index">
-							<view class="selection" @click="toPatientDetail(user.id)">
-								<img class="item_avatar" :src="user.avatar" />
+							<view class="selection">
+								<img class="item_avatar" :src="user.avatar" @click="toPatientDetail(user.id)"/>
 								<view>
 									<text class="item_name">{{ user.name }}</text>
 									<text class="item_age">年龄: {{ user.age }}</text>
 								</view>
+								<view class="watch-data" @click="toBloodStatus(user.id)">查看数据</view>
+								<view class="collect-data" @click="toCollectData(user.id)">采集数据</view>
 							</view>
 						</block>
 					</block>
@@ -80,6 +82,16 @@
 			this.searchLetter = tempArr;
 		},
 		methods: {
+			toCollectData(pid){
+				uni.navigateTo({
+					url: `../collect-data/collect-data?pid=${pid}`
+				})
+			},
+			toBloodStatus(pid) {
+				uni.navigateTo({
+					url: `../blood-status/blood-status?pid=${pid}`
+				})
+			},
 			// 监听input事件
 			search(e) {
 				let val = e.detail.value
@@ -248,6 +260,28 @@
 				color: #B4B4B4;
 				font-size: 26upx;
 			}
+		}
+
+		.watch-data {
+			position: absolute;
+			left: 415upx;
+		}
+		
+		.collect-data {
+			position: absolute;
+			left: 550upx;
+		}
+		
+		.watch-data,
+		.collect-data {
+			width: 120upx;
+			height: 40upx;
+			line-height: 40upx;
+			text-align: center;
+			font-size: 26upx;
+			color: #24C789;
+			border: 1upx solid #24C789;
+			border-radius: 10upx;
 		}
 	}
 

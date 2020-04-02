@@ -110,9 +110,9 @@
 	}
 
 	.infos {
-		// display: flex;
-		// flex-direction: column;
-		// align-items: center;
+		/* display: flex; */
+		/* flex-direction: column; */
+		/* align-items: center; */
 		margin-top: 2upx;
 		background-color: #fff;
 
@@ -125,7 +125,7 @@
 			align-items: center;
 			background-color: #fff;
 
-			.last-week,
+/* 			.last-week,
 			.next-week {
 				width: 152upx;
 				height: 60upx;
@@ -145,14 +145,14 @@
 					font-size: 24upx;
 					color: #24C789;
 				}
-			}
+			} */
 
 			.this-week {
 				font-size: 26upx;
 				color: #333;
 			}
 
-			.last-week {
+/* 			.last-week {
 				margin-left: 30upx;
 
 				img {
@@ -174,7 +174,7 @@
 				.txt {
 					margin-left: 28upx;
 				}
-			}
+			} */
 		}
 
 		// 平均值

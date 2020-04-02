@@ -48,6 +48,9 @@
 				change_type: 'password'
 			};
 		},
+		onShow() {
+			uni.hideHomeButton()
+		},
 		methods: {
 			clearAccount() {
 				this.user_phone = ''

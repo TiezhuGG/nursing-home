@@ -11,7 +11,7 @@
 					uni.reLaunch({
 						url: 'pages/login/login'
 					})
-					uni.hideHomeButton()
+					// uni.hideHomeButton()
 				}
 			}
 		},

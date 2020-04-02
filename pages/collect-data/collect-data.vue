@@ -29,22 +29,8 @@
 
 		<!-- 血压 -->
 		<view class="infos" v-show="currentIndex === 0">
-			<!-- 日期 -->
-			<view class="date">
-				<view class="last-week">
-<!-- 					<img src="../../static/images/back-green.png">
-					<text class="txt">上一周</text> -->
-				</view>
-				<view class="this-week">
-					选择时间:{{this_week}}
-				</view>
-				<view class="next-week">
-					<!-- <text class="txt">下一周</text> -->
-					<!-- <img src="../../static/images/go-green.png"> -->
-				</view>
-			</view>
 			<!-- 平均值 -->
-			<view class="wrap">
+			<view class="wrap" style="padding-top: 20upx;">
 				<view class="avg-info">
 					<view class="avg-info-item">
 						<text class="txt-top">平均血压值</text>
@@ -59,37 +45,23 @@
 				</view>
 			</view>
 			<!-- 图表 -->
-			<view class="qiun-columns">
+			<!-- 			<view class="qiun-columns">
 				<view class="qiun-charts">
 					<canvas canvas-id="1" id="canvasLineA" class="charts" @touchstart="touchLineA"></canvas>
 				</view>
-			</view>
+			</view> -->
 			<!-- 按钮 -->
-			<view class="btn">
-				<button class="get-msg" @click="getServerData(currentIndex + 1)">获取血压信息</button>
-				<!-- <button class="get-msg" @click="bp_openBluetoothAdapter">获取血压信息</button> -->
+			<view class="btn-two">
+				<button class="get-bluetooth" @click="bp_openBluetoothAdapter">连接蓝牙</button>
+				<button class="collect-data">采集血压数据</button>
 			</view>
 		</view>
 
 
 		<!-- 血氧 -->
 		<view class="infos" v-show="currentIndex === 1">
-			<!-- 日期 -->
-			<view class="date">
-				<view class="last-week">
-					<!-- <img src="../../static/images/back-green.png"> -->
-					<!-- <text class="txt">上一周</text> -->
-				</view>
-				<view class="this-week">
-					选择时间:{{this_week}}
-				</view>
-				<view class="next-week">
-					<!-- <text class="txt">下一周</text> -->
-					<!-- <img src="../../static/images/go-green.png"> -->
-				</view>
-			</view>
 			<!-- 平均值 -->
-			<view class="wrap">
+			<view class="wrap" style="padding-top: 20upx;">
 				<view class="avg-info">
 					<view class="avg-info-item">
 						<text class="txt-top">平均血氧值</text>
@@ -104,36 +76,23 @@
 				</view>
 			</view>
 			<!-- 图表 -->
-			<view class="qiun-columns">
+			<!-- 			<view class="qiun-columns">
 				<view class="qiun-charts">
 					<canvas canvas-id="2" id="canvasLineA" class="charts" @touchstart="touchLineA"></canvas>
 				</view>
-			</view>
+			</view> -->
 			<!-- 按钮 -->
-			<view class="btn">
-				<button class="get-msg" @click="getServerData(currentIndex + 1)">获取血氧信息</button>
+			<view class="btn-two">
+				<button class="get-bluetooth" @click="bp_openBluetoothAdapter">连接蓝牙</button>
+				<button class="collect-data">采集血氧数据</button>
 			</view>
 		</view>
 
 
 		<!-- 血糖 -->
 		<view class="infos" v-show="currentIndex === 2">
-			<!-- 日期 -->
-			<view class="date">
-				<view class="last-week">
-					<!-- <img src="../../static/images/back-green.png"> -->
-					<!-- <text class="txt">上一周</text> -->
-				</view>
-				<view class="this-week">
-					选择时间:{{this_week}}
-				</view>
-				<view class="next-week">
-					<!-- <text class="txt">下一周</text> -->
-					<!-- <img src="../../static/images/go-green.png"> -->
-				</view>
-			</view>
 			<!-- 平均值 -->
-			<view class="wrap">
+			<view class="wrap" style="padding-top: 20upx;">
 				<view class="avg-info">
 					<view class="avg-info-item">
 						<text class="txt-top">平均血糖值</text>
@@ -148,14 +107,15 @@
 				</view>
 			</view>
 			<!-- 图表 -->
-			<view class="qiun-columns">
+			<!-- 			<view class="qiun-columns">
 				<view class="qiun-charts">
 					<canvas canvas-id="3" id="canvasLineA" class="charts" @touchstart="touchLineA"></canvas>
 				</view>
-			</view>
+			</view> -->
 			<!-- 按钮 -->
-			<view class="btn">
-				<button class="get-msg" @click="getServerData(currentIndex + 1)">获取血糖信息</button>
+			<view class="btn-two">
+				<button class="get-bluetooth" @click="bp_openBluetoothAdapter">连接蓝牙</button>
+				<button class="collect-data">采集血糖数据</button>
 			</view>
 		</view>
 
@@ -164,8 +124,7 @@
 
 <script>
 	import uCharts from '@/components/u-charts/u-charts.js';
-	var _self;
-	var canvaLineA = null;
+
 	export default {
 		data() {
 			return {
@@ -202,73 +161,19 @@
 		onLoad(options) {
 			// console.log('options',options)
 			// 从客户管理界面进来会传入pid
-			if(options.pid) {
+			if (options.pid) {
 				this.fetchPatientInfo(options.pid)
 			}
-			_self = this;
-			_self.fetchPatientList()
-			// 加载页面渲染血压的图表信息
-			this.getServerData(1);
-			this.cWidth = uni.upx2px(750);
-			this.cHeight = uni.upx2px(500);
+			this.fetchPatientList()
 		},
 
-		// watch: {
-		// 	patient(newVal, oldVal) {
-		// 		// console.log(newVal)
-		// 		// console.log(oldVal)
-		// 		// 切换病人时清空图表数据（重新渲染图表）
-		// 		this.bp_list = []
-		// 		this.bp_categories = []
-		// 		if (oldVal != null) {
-		// 			canvaLineA.updateData({
-		// 				categories: this.bp_categories,
-		// 				series: [{
-		// 					name: '实时心率',
-		// 					data: this.bp_list
-		// 				}],
-		// 			})
-		// 		}
-		// 	},
-		// 	deep: true
-		// },
-
 		methods: {
-			// test() {
-			// 	console.log('test')
-			// 	setInterval(() => {
-			// 		let randomData = Math.random() * 300
-			// 		let timer = Math.random() * 300
-			// 		this.bp_list.push(randomData)
-			// 		this.bp_categories.push(timer)
-			// 		console.log('randomData',randomData)
-			// 		console.log('timer',timer)
-			// 		console.log('bp_list', this.bp_list)
-			// 		console.log('bp_categories',this.bp_categories)
-			// 		// console.log(this.bp_list)
-			// 		if (this.bp_list.length > 7) {
-			// 			this.bp_list.shift()
-			// 			this.bp_categories.shift()
-			// 		}
-			// 		// 初始化图表实例
-			// 		_self.showLineA("mycharts")
-			// 		// updateData更新图表
-			// 		canvaLineA.updateData({
-			// 			categories: this.bp_categories,
-			// 			series: [{
-			// 				name: '实时心率',
-			// 				data: _self.bp_list
-			// 			}],
-			// 		})
-			// 	}, 1500)
-			// },
-
+			// 选择患者
 			bindPickerChange(e) {
 				// console.log(e)
 				for (let item of this.patientList) {
 					if (item.id === Number(e.detail.value) + 1) {
 						this.fetchPatientInfo(item.id)
-						// this.test()
 					}
 				}
 			},
@@ -293,87 +198,8 @@
 			// 切换导航tab
 			switchTab(index) {
 				this.currentIndex = index
-				this.getServerData(this.currentIndex + 1)
 			},
 
-			getServerData(canvasId) {
-				uni.request({
-					url: 'https://www.ucharts.cn/data.json',
-					data: {},
-					success: function(res) {
-						// console.log(res.data.data)
-						let LineA = {
-							categories: [],
-							series: []
-						};
-						//这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-						LineA.categories = res.data.data.LineA.categories;
-						// LineA.series = res.data.data.LineA.series;
-						// LineA.series = res.data.data.LineA.series;
-						// LineA.series = [LineA.series.pop()];
-						// console.log(LineA.series)
-						LineA.series = [{
-							data: [0, 100, 70, 20, 100, 50],
-							name: 'aa'
-						}]
-						_self.showLineA(canvasId, LineA);
-					},
-					fail: () => {
-						_self.tips = "网络错误，小程序端请检查合法域名";
-					},
-				});
-			},
-			
-			showLineA(canvasId,lineA) {
-				canvaLineA = new uCharts({
-					$this: _self,
-					canvasId: canvasId,
-					type: 'line',
-					fontSize: 11,
-					colors: ['#24C789'],
-					legend: {
-						show: true
-					},
-					dataLabel: false,
-					dataPointShape: true,
-					background: '#FFFFFF',
-					pixelRatio: _self.pixelRatio,
-					categories: lineA.categories,
-					series: lineA.series,
-					animation: false,
-					xAxis: {
-						disableGrid: true
-					},
-					yAxis: {
-						data: [{
-							axisLine: false,
-						}],
-						gridType: 'dash',
-						gridColor: '#CCC',
-						dashLength: 2,
-						min: 0.00,
-						max: 150.00,
-						format: (val) => {
-							return val.toFixed(0.00)
-						}
-					},
-					width: _self.cWidth * _self.pixelRatio,
-					height: _self.cHeight * _self.pixelRatio,
-					extra: {
-						line: {
-							type: 'curve'
-						}
-					}
-				});
-			},
-			
-			touchLineA(e) {
-				canvaLineA.showToolTip(e, {
-					format: function(item, category) {
-						return category + ' ' + item.name + ':' + item.data
-					}
-				});
-			},
 			inArray(arr, key, val) {
 				for (let i = 0; i < arr.length; i++) {
 					if (arr[i][key] === val) {
@@ -395,7 +221,7 @@
 			},
 
 			bp_openBluetoothAdapter() {
-				console.log('获取血压信息')
+				console.log('初始化蓝牙')
 				uni.openBluetoothAdapter({
 					success: (res) => {
 						console.log('openBluetoothAdapter success', res)
@@ -570,23 +396,6 @@
 						}
 					} else { //输出当前压力值
 						console.log('当前压力：', parseInt(vale.substr(10, 2), 16))
-					// 	let bp_value = parseInt(vale.substr(10, 2), 16)
-					// 	let timer = this.getNowTime()
-					// 	this.bp_list.push(bp_value)
-					// 	this.bp_categories.push(timer)
-					// 	if (this.bp_list.length > 8) {
-					// 		this.bp_list.shift()
-					// 		this.bp_categories.shift()
-					// 	}
-					// 	_self.showLineA("charts")
-					// 	// updateData更新图表
-					// 	canvaLineA.updateData({
-					// 		categories: this.bp_categories,
-					// 		series: [{
-					// 			name: '血压/血氧/血糖',
-					// 			data: _self.bp_list
-					// 		}],
-					// 	})
 					}
 				})
 			},
@@ -627,5 +436,30 @@
 </script>
 
 <style lang="scss">
-	@import '../../common/css/blood-status'
+	@import '../../common/css/blood-status';
+
+	.btn-two {
+		display: flex;
+		margin-top: 100upx;
+
+		.get-bluetooth {
+			position: fixed;
+			width: 300upx;
+			top: 90%;
+			left: 50upx;
+			color: #24C789;
+			background-color: #fff;
+			border: 1upx solid #24C789;
+		}
+
+		.collect-data {
+			position: fixed;
+			width: 300upx;
+			top: 90%;
+			left: 400upx;
+			background-color: #24C789;
+			color: #fff;
+			border: none;
+		}
+	}
 </style>

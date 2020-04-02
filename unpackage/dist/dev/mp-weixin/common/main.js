@@ -107,7 +107,7 @@ __webpack_require__.r(__webpack_exports__);
         uni.reLaunch({
           url: 'pages/login/login' });
 
-        uni.hideHomeButton();
+        // uni.hideHomeButton()
       }
     } },
 

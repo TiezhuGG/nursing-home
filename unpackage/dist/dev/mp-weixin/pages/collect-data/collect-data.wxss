@@ -267,4 +267,28 @@
         font-size: 32rpx;
         color: #fff;
 }
+.btn-two {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 100rpx;
+}
+.btn-two .get-bluetooth {
+    position: fixed;
+    width: 300rpx;
+    top: 90%;
+    left: 50rpx;
+    color: #24C789;
+    background-color: #fff;
+    border: 1rpx solid #24C789;
+}
+.btn-two .collect-data {
+    position: fixed;
+    width: 300rpx;
+    top: 90%;
+    left: 400rpx;
+    background-color: #24C789;
+    color: #fff;
+    border: none;
+}
 

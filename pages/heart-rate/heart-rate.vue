@@ -112,7 +112,7 @@
 				// 切换病人时清空图表数据（重新渲染图表）
 				this.heart_rate_list = []
 				this.categories = []
-				if(oldVal != null) {
+				if (oldVal != null) {
 					canvaLineA.updateData({
 						categories: this.categories,
 						series: [{
@@ -156,7 +156,7 @@
 					if (item.id === Number(e.detail.value) + 1) {
 						this.fetchPatientInfo(item.id)
 						// this.getSocket()
-						this.test()
+						// this.test()
 					}
 				}
 			},

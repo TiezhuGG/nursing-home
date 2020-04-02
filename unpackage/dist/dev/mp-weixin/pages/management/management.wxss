@@ -134,6 +134,25 @@
       color: #B4B4B4;
       font-size: 26rpx;
 }
+.selection .watch-data {
+    position: absolute;
+    left: 415rpx;
+}
+.selection .collect-data {
+    position: absolute;
+    left: 550rpx;
+}
+.selection .watch-data,
+  .selection .collect-data {
+    width: 120rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #24C789;
+    border: 1rpx solid #24C789;
+    border-radius: 10rpx;
+}
 .selection:not(:nth-last-child(1)) {
   border-bottom: 1rpx solid #DDD;
   border-bottom-width: 100%;
