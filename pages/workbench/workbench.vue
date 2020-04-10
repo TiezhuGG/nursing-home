@@ -30,10 +30,14 @@
 
 		<!-- 内容 -->
 		<view class="main">
-			<navigator class="item" url="../heart-rate/heart-rate">
+<!-- 			<navigator class="item" url="../heart-rate/heart-rate">
 				<img class="item-img" src="../../static/images/item-img1.png">
 				<text class="item-txt">实时心率</text>
-			</navigator>
+			</navigator> -->
+			<view class="item" @click="toHeartRate">
+				<img class="item-img" src="../../static/images/item-img1.png">
+				<text class="item-txt">实时心率</text>
+			</view>
 			<navigator class="item" url="../heart-rate/heart-rate">
 				<img class="item-img" src="../../static/images/item-img2.png">
 				<text class="item-txt">心率回放</text>
@@ -42,10 +46,14 @@
 				<img class="item-img" src="../../static/images/heart.png">
 				<text class="item-txt">心电图</text>
 			</navigator>
-			<navigator class="item" url="../blood-status/blood-status">
+<!-- 			<navigator class="item" url="../blood-status/blood-status">
 				<img class="item-img" src="../../static/images/item-img4.png">
 				<text class="item-txt">血压 血氧 血糖</text>
-			</navigator>
+			</navigator> -->
+			<view class="item" @click="toBloodStatus">
+				<img class="item-img" src="../../static/images/item-img4.png">
+				<text class="item-txt">血压 血氧 血糖</text>
+			</view>
 			<navigator class="item" url="../video/video">
 				<img class="item-img" src="../../static/images/item-img5.png">
 				<text class="item-txt">视频监控</text>
@@ -72,17 +80,40 @@
 				characteristicId: {
 					writeId: '',
 					notifyId: ''
-				}
+				},
+				pid: '',
+				bpid: '',
 			}
 		},
 		onLoad() {
+			// 加载页面时清除pid和bpid
+			uni.removeStorageSync('pid')
+			uni.removeStorageSync('bpid')
 			this.nurseInfo = uni.getStorageSync('userInfo')
 			this.fetchNoticeList()
 			//在页面加载时初始化蓝牙适配器
 			// this.initBluetoothAdapter()
 		},
+		onShow() {
+			// 心率页面患者id 默认首次为1
+			this.pid = uni.getStorageSync('pid') ? uni.getStorageSync('pid') : 1
+			// 血状态页面患者id 默认首次为1
+			this.bpid = uni.getStorageSync('bpid') ? uni.getStorageSync('bpid') : 1
+		},
 
 		methods: {
+			// 跳转心率页面传pid
+			toHeartRate() {
+				uni.navigateTo({
+					url: `../heart-rate/heart-rate?pid=${this.pid}`
+				})
+			},
+			// 跳转血状态页面传bpid
+			toBloodStatus() {
+				uni.navigateTo({
+					url: `../blood-status/blood-status?bpid=${this.bpid}`
+				})
+			},
 			// 初始化蓝牙适配器
 			initBluetoothAdapter() {
 				uni.openBluetoothAdapter({

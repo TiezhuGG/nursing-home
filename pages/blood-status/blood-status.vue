@@ -176,7 +176,9 @@
 				pixelRatio: 1,
 				patientList: [],
 				patient: null,
-				pid: '',
+				chart: 1,
+				// heart_rate_list: [],
+				// categories: [],
 				// 血压
 				bp_devices: [],
 				bp_connected: false,
@@ -193,6 +195,12 @@
 				bo_connected: false,
 				bo_chs: [],
 				bo_discoveryStarted: false,
+				bo_canWrite: false,
+				bo_deviceId: '',
+				bo_serviceId: '',
+				bo_characteristicId: '',
+				bo_list: [],
+				bo_categories: [],
 
 				this_week: '6月7日-6月13日',
 				avg_val_blood: '135/80',
@@ -200,75 +208,131 @@
 			};
 		},
 		onLoad(options) {
-			// console.log('options',options)
-			// 从客户管理界面进来会传入pid
-			if(options.pid) {
-				this.fetchPatientInfo(options.pid)
+			// console.log('bpid',options.bpid)
+			// 从工作台进页面有患者id就执行
+			if(options.bpid) {
+				console.log('从工作台进来',options.bpid)
+				this.test(options.bpid)
+			}
+			// 从客户管理界面进来会传入patient_id
+			if(options.patient_id) {
+				console.log('从客户管理界面进来',options.patient_id)
+				this.fetchPatientInfo(options.patient_id)
+				this.test(options.patient_id)
 			}
 			_self = this;
 			_self.fetchPatientList()
 			// 加载页面渲染血压的图表信息
-			this.getServerData(1);
+			// this.getServerData(1);
 			this.cWidth = uni.upx2px(750);
 			this.cHeight = uni.upx2px(500);
 		},
 
-		// watch: {
-		// 	patient(newVal, oldVal) {
-		// 		// console.log(newVal)
-		// 		// console.log(oldVal)
-		// 		// 切换病人时清空图表数据（重新渲染图表）
-		// 		this.bp_list = []
-		// 		this.bp_categories = []
-		// 		if (oldVal != null) {
-		// 			canvaLineA.updateData({
-		// 				categories: this.bp_categories,
-		// 				series: [{
-		// 					name: '实时心率',
-		// 					data: this.bp_list
-		// 				}],
-		// 			})
-		// 		}
-		// 	},
-		// 	deep: true
-		// },
+		watch: {
+			patient(newVal, oldVal) {
+				// console.log(newVal)
+				// console.log(oldVal)
+				// 切换病人时清空图表数据（重新渲染图表）
+				this.bp_list = []
+				this.bp_categories = []
+				if (oldVal != null) {
+					canvaLineA.updateData({
+						categories: this.bp_categories,
+						series: [{
+							name: '实时心率',
+							data: this.bp_list
+						}],
+					})
+				}
+			},
+			deep: true
+		},
 
 		methods: {
-			// test() {
-			// 	console.log('test')
-			// 	setInterval(() => {
-			// 		let randomData = Math.random() * 300
-			// 		let timer = Math.random() * 300
-			// 		this.bp_list.push(randomData)
-			// 		this.bp_categories.push(timer)
-			// 		console.log('randomData',randomData)
-			// 		console.log('timer',timer)
-			// 		console.log('bp_list', this.bp_list)
-			// 		console.log('bp_categories',this.bp_categories)
-			// 		// console.log(this.bp_list)
-			// 		if (this.bp_list.length > 7) {
-			// 			this.bp_list.shift()
-			// 			this.bp_categories.shift()
-			// 		}
-			// 		// 初始化图表实例
-			// 		_self.showLineA("mycharts")
-			// 		// updateData更新图表
-			// 		canvaLineA.updateData({
-			// 			categories: this.bp_categories,
-			// 			series: [{
-			// 				name: '实时心率',
-			// 				data: _self.bp_list
-			// 			}],
-			// 		})
-			// 	}, 1500)
-			// },
+			test(bpid) {
+				this.fetchPatientInfo(bpid)
+				setInterval(() => {
+					let randomData = Math.random() * 300
+					let timer = Math.random() * 300
+					this.bp_list.push(randomData)
+					this.bp_categories.push(timer)
+					// console.log(this.bp_list)
+					if (this.bp_list.length > 8) {
+						this.bp_list.shift()
+						this.bp_categories.shift()
+					}
+
+					// 初始化图表实例
+					_self.showLineA(this.chart)
+					// updateData更新图表
+					canvaLineA.updateData({
+						categories: this.bp_categories,
+						series: [{
+							name: '血压 ',
+							data: _self.bp_list
+						}],
+					})
+				}, 1500)
+
+			},
+			
+			showLineA(canvasId) {
+				canvaLineA = new uCharts({
+					$this: _self,
+					canvasId: canvasId,
+					type: 'line',
+					fontSize: 11,
+					colors: ['#24C789'],
+					legend: {
+						show: true
+					},
+					dataLabel: false,
+					dataPointShape: true,
+					background: '#FFFFFF',
+					pixelRatio: _self.pixelRatio,
+					categories: '',
+					series: [{
+						name: '实时心率',
+						data: ''
+					}],
+					animation: false,
+					xAxis: {
+						disableGrid: true
+					},
+					yAxis: {
+						data: [{
+							axisLine: false,
+						}],
+						gridType: 'dash',
+						gridColor: '#CCC',
+						dashLength: 2,
+						min: 0.00,
+						max: 150.00,
+						format: (val) => {
+							return val.toFixed(0.00)
+						}
+					},
+					width: _self.cWidth * _self.pixelRatio,
+					height: _self.cHeight * _self.pixelRatio,
+					extra: {
+						line: {
+							type: 'curve'
+						}
+					}
+				});
+			},
 
 			bindPickerChange(e) {
 				// console.log(e)
 				for (let item of this.patientList) {
 					if (item.id === Number(e.detail.value) + 1) {
-						this.fetchPatientInfo(item.id)
-						// this.test()
+						// this.fetchPatientInfo(item.id)
+						// 把患者id缓存到本地
+						uni.setStorage({
+							key: 'bpid',
+							data: item.id
+						})
+						this.test(item.id)
 					}
 				}
 			},
@@ -293,7 +357,9 @@
 			// 切换导航tab
 			switchTab(index) {
 				this.currentIndex = index
-				this.getServerData(this.currentIndex + 1)
+				// 切换导航改变对应的图表canvas-id
+				this.chart = index + 1
+				// this.getServerData(this.currentIndex + 1)
 			},
 
 			getServerData(canvasId) {
@@ -324,49 +390,6 @@
 				});
 			},
 			
-			showLineA(canvasId,lineA) {
-				canvaLineA = new uCharts({
-					$this: _self,
-					canvasId: canvasId,
-					type: 'line',
-					fontSize: 11,
-					colors: ['#24C789'],
-					legend: {
-						show: true
-					},
-					dataLabel: false,
-					dataPointShape: true,
-					background: '#FFFFFF',
-					pixelRatio: _self.pixelRatio,
-					categories: lineA.categories,
-					series: lineA.series,
-					animation: false,
-					xAxis: {
-						disableGrid: true
-					},
-					yAxis: {
-						data: [{
-							axisLine: false,
-						}],
-						gridType: 'dash',
-						gridColor: '#CCC',
-						dashLength: 2,
-						min: 0.00,
-						max: 150.00,
-						format: (val) => {
-							return val.toFixed(0.00)
-						}
-					},
-					width: _self.cWidth * _self.pixelRatio,
-					height: _self.cHeight * _self.pixelRatio,
-					extra: {
-						line: {
-							type: 'curve'
-						}
-					}
-				});
-			},
-			
 			touchLineA(e) {
 				canvaLineA.showToolTip(e, {
 					format: function(item, category) {
@@ -374,6 +397,7 @@
 					}
 				});
 			},
+			
 			inArray(arr, key, val) {
 				for (let i = 0; i < arr.length; i++) {
 					if (arr[i][key] === val) {

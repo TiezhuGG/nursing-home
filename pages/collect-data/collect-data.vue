@@ -83,7 +83,7 @@
 			</view> -->
 			<!-- 按钮 -->
 			<view class="btn-two">
-				<button class="get-bluetooth" @click="bp_openBluetoothAdapter">连接蓝牙</button>
+				<button class="get-bluetooth" @click="bo_openBluetoothAdapter">连接蓝牙</button>
 				<button class="collect-data">采集血氧数据</button>
 			</view>
 		</view>
@@ -152,6 +152,12 @@
 				bo_connected: false,
 				bo_chs: [],
 				bo_discoveryStarted: false,
+				bo_canWrite: false,
+				bo_deviceId: '',
+				bo_serviceId: '',
+				bo_characteristicId: '',
+				bo_list: [],
+				bo_categories: [],
 
 				this_week: '6月7日-6月13日',
 				avg_val_blood: '135/80',
@@ -161,8 +167,8 @@
 		onLoad(options) {
 			// console.log('options',options)
 			// 从客户管理界面进来会传入pid
-			if (options.pid) {
-				this.fetchPatientInfo(options.pid)
+			if (options.patient_id) {
+				this.fetchPatientInfo(options.patient_id)
 			}
 			this.fetchPatientList()
 		},
@@ -200,6 +206,19 @@
 				this.currentIndex = index
 			},
 
+			// 获取当前时间
+			getNowTime() {
+				let now = new Date()
+				let hour = now.getHours()
+				let minute = now.getMinutes()
+				let second = now.getSeconds()
+				hour = hour < 10 ? '0' + hour : hour
+				minute = minute < 10 ? '0' + minute : minute
+				second = second < 10 ? '0' + second : second
+				let now_time = `${hour}:${minute}:${second}`
+				return now_time
+			},
+
 			inArray(arr, key, val) {
 				for (let i = 0; i < arr.length; i++) {
 					if (arr[i][key] === val) {
@@ -220,8 +239,9 @@
 				return hexArr.join('');
 			},
 
+			// 血压计
 			bp_openBluetoothAdapter() {
-				console.log('初始化蓝牙')
+				console.log('初始化血压计蓝牙')
 				uni.openBluetoothAdapter({
 					success: (res) => {
 						console.log('openBluetoothAdapter success', res)
@@ -230,7 +250,7 @@
 					fail: (res) => {
 						if (res.errCode === 10001) {
 							uni.onBluetoothAdapterStateChange((res) => {
-								// console.log('onBluetoothAdapterStateChange', res)
+								console.log('onBluetoothAdapterStateChange', res)
 								if (res.available) {
 									this.bp_startBluetoothDevicesDiscovery()
 								}
@@ -266,10 +286,11 @@
 				})
 			},
 			bp_onBluetoothDeviceFound() {
+				console.log('开始查找蓝牙设备')
 				uni.onBluetoothDeviceFound((res) => {
 					var devices = res.devices
-					console.log('devices', devices)
-					if (devices[0].name == 'FSRKB_BT_001') {
+					console.log('devices', devices[0].name)
+					if (devices[0].name == 'FSRKB_BT-001') {
 						let e = devices[0]
 						this.bp_createBLEConnection(e)
 					}
@@ -286,6 +307,7 @@
 				uni.createBLEConnection({
 					deviceId,
 					success: (res) => {
+						console.log('连接血压计成功')
 						this.bp_connected = true
 						// this.setData({
 						// 	connected: true,
@@ -297,16 +319,20 @@
 				})
 				this.bp_stopBluetoothDevicesDiscovery()
 			},
-			bp_closeBLEConnection() {
-				uni.closeBLEConnection({
-					deviceId: this.data.deviceId
-				})
-				this.setData({
-					connected: false,
-					chs: [],
-					canWrite: false,
-				})
-			},
+			// bp_closeBLEConnection() {
+			// 	uni.closeBLEConnection({
+			// 		deviceId: this.data.deviceId
+			// 	})
+			// 	// this.setData({
+			// 	// 	connected: false,
+			// 	// 	chs: [],
+			// 	// 	canWrite: false,
+			// 	// })
+			// 	this.bp_connected = false
+			// 	this.bp_chs: []
+			// 	this.canWrite = false
+			// },
+
 			bp_getBLEDeviceServices(deviceId) {
 				uni.getBLEDeviceServices({
 					deviceId,
@@ -353,46 +379,37 @@
 				})
 				// 操作之前先监听，保证第一时间获取数据
 				uni.onBLECharacteristicValueChange((characteristic) => {
-					let vale = ab2hex(characteristic.value)
+					let vale = this.ab2hex(characteristic.value)
 					if (vale.substr(6, 2) == 'cc') { //判断是否测量结束，结束则进入
 						if (vale.substr(10, 2) == '00') { //判断是否错误，错误则进入
 							switch (parseInt(vale.substr(8, 2), 16)) {
 								case 1:
 									console.log('传感器异常！')
 									break
-
 								case 2:
 									console.log('不足以检测心跳或血压！')
 									break
-
 								case 3:
 									console.log('异常测量结果！')
 									break
-
 								case 4:
 									console.log('袖口太松或泄漏（10秒压力小于30毫米）')
 									break
-
 								case 5:
 									console.log('气管堵塞')
 									break
-
 								case 6:
 									console.log('压力波动过大')
 									break
-
 								case 7:
 									console.log('压力超过上限')
 									break
-
 								case 8:
 									console.log('请查看标准数据是否异常')
 									break
 							}
 						} else { //输出测量结果
-							console.log('高压：', parseInt(vale.substr(8, 2), 16), '低压：', parseInt(vale.substr(10, 2), 16), '心率',
-								parseInt(
-									vale.substr(12, 2), 16))
+							console.log('高压：', parseInt(vale.substr(8, 2), 16), '低压：', parseInt(vale.substr(10, 2), 16), '心率', parseInt(vale.substr(12, 2), 16))
 						}
 					} else { //输出当前压力值
 						console.log('当前压力：', parseInt(vale.substr(10, 2), 16))
@@ -419,17 +436,161 @@
 				uni.closeBluetoothAdapter()
 				this.bp_discoveryStarted = false
 			},
-			// 获取当前时间
-			getNowTime() {
-				let now = new Date()
-				let hour = now.getHours()
-				let minute = now.getMinutes()
-				let second = now.getSeconds()
-				hour = hour < 10 ? '0' + hour : hour
-				minute = minute < 10 ? '0' + minute : minute
-				second = second < 10 ? '0' + second : second
-				let now_time = `${hour}:${minute}:${second}`
-				return now_time
+
+			// 血氧仪
+			// 初始化蓝牙模块
+			bo_openBluetoothAdapter() {
+				console.log('初始化蓝牙模块，进行血氧仪连接')
+				uni.openBluetoothAdapter({
+					success: (res) => {
+						console.log('openBluetoothAdapter success', res)
+						this.bo_startBluetoothDevicesDiscovery()
+					},
+					fail: (res) => {
+						if (res.errCode === 10001) {
+							console.log('用户蓝牙未开启或者手机不支持蓝牙功能')
+							// 监听手机蓝牙状态
+							uni.onBluetoothAdapterStateChange(function(res) {
+								console.log('onBluetoothAdapterStateChange监听手机蓝牙状态', res)
+								if (res.available) {
+									this.bo_startBluetoothDevicesDiscovery()
+								}
+							})
+						}
+					}
+				})
+			},
+
+			// 开始搜寻附近的蓝牙设备
+			bo_startBluetoothDevicesDiscovery() {
+				// 通过bo_discoveryStarted判断是否开启蓝牙设备搜索
+				if (this.bo_discoveryStarted) {
+					return
+				}
+				this.bo_discoveryStarted = true
+				uni.startBluetoothDevicesDiscovery({
+					// 允许重复上报同一设备
+					allowDuplicatesKey: true,
+					success: (res) => {
+						console.log('startBluetoothDevicesDiscovery success', res)
+						this.bo_onBluetoothDeviceFound()
+					},
+				})
+			},
+
+			// 监听寻找到新设备的事件
+			bo_onBluetoothDeviceFound() {
+				uni.onBluetoothDeviceFound((res) => {
+					console.log('onBluetoothDeviceFound success', res)
+					var bo_devices = res.devices
+					if (bo_devices[0].name == 'Samo4 pulse oximeter') {
+						let e = bo_devices[0]
+						this.bo_createBLEConnection(e)
+					}
+				})
+			},
+
+			// 连接低功耗蓝牙设备
+			bo_createBLEConnection(e) {
+				console.log('开始连接蓝牙~~~')
+				const deviceId = e.deviceId
+				const name = e.name
+				uni.createBLEConnection({
+					deviceId,
+					success: (res) => {
+						// this.setData({
+						// 	connected: true,
+						// 	name,
+						// 	deviceId,
+						// })
+						console.log('连接蓝牙成功')
+						this.bo_connected = true
+						this.bo_getBLEDeviceServices(deviceId)
+					}
+				})
+				this.bo_stopBluetoothDevicesDiscovery()
+			},
+
+			// 停止搜索附近的蓝牙设备
+			bo_stopBluetoothDevicesDiscovery() {
+				console.log('停止搜索蓝牙设备')
+				uni.stopBluetoothDevicesDiscovery()
+			},
+
+			// 获取蓝牙设备所有服务
+			bo_getBLEDeviceServices(deviceId) {
+				console.log('获取血氧仪的所有服务')
+				uni.getBLEDeviceServices({
+					deviceId,
+					success: (res) => {
+						for (let i = 0; i < res.services.length; i++) {
+							console.log('血氧仪的所有服务', res.services[i])
+							if (res.services[i].uuid == '0000FFF0-0000-1000-8000-00805F9B34FB') {
+								this.bo_getBLEDeviceCharacteristics(deviceId, res.services[i].uuid)
+								return
+							}
+						}
+					}
+				})
+			},
+
+			// 获取蓝牙设备某个服务中所有特征值
+			bo_getBLEDeviceCharacteristics(deviceId, serviceId) {
+				console.log('获取血氧仪的特征值')
+				uni.getBLEDeviceCharacteristics({
+					deviceId,
+					serviceId,
+					success: (res) => {
+						for (let i = 0; i < res.characteristics.length; i++) {
+							let item = res.characteristics[i]
+							console.log('血氧仪某个服务的特征值', item)
+							if (item.uuid == '0000FFF4-0000-1000-8000-00805F9B34FB') {
+								this.bo_canWrite = true
+								this.bo_deviceId = deviceId
+								this.bo_serviceId = serviceId
+								this.bo_characteristicId = item.uuid
+								this.bo_writeBLECharacteristicValue()
+								// 启用低功耗蓝牙设备特征值变化时的 notify 功能，订阅特征值
+								uni.notifyBLECharacteristicValueChange({
+									deviceId,
+									serviceId,
+									characteristicId: item.uuid,
+									state: true,
+								})
+							}
+						}
+					},
+					fail(res) {
+						console.error('getBLEDeviceCharacteristics', res)
+					}
+				})
+
+				// 监听低功耗蓝牙设备的特征值变化事件，(操作之前先监听，保证第一时间获取数据)
+				uni.onBLECharacteristicValueChange((characteristic) => {
+					let vale = this.ab2hex(characteristic.value)
+					if (vale.substr(20, 2) == 1) { //判断是否戴好
+						console.log('未戴好！')
+					} else {
+						console.log('当前血氧含量为：', parseInt(vale.substr(16, 2), 16), '脉率值:', parseInt(vale.substr(18, 2), 16)) //输出当前血氧饱和度,脉率值
+					}
+				})
+			},
+
+			bo_writeBLECharacteristicValue() {
+				let buffer = new ArrayBuffer(1)
+				let dataView = new DataView(buffer)
+				dataView.setUint8(0, 0)
+				uni.writeBLECharacteristicValue({
+					deviceId: this.bo_deviceId,
+					serviceId: this.bo_serviceId,
+					characteristicId: this.bo_characteristicId,
+					value: buffer,
+				})
+			},
+
+			bo_closeBluetoothAdapter() {
+				uni.closeBluetoothAdapter()
+				this.bo_discoveryStarted = false
 			},
 		},
 	}

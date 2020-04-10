@@ -98,7 +98,13 @@
 				categories: []
 			};
 		},
-		onLoad() {
+		onLoad(options) {
+			console.log('pid',options.pid)
+			// 进页面有患者id就执行
+			if(options.pid) {
+				this.test(options.pid)
+			}
+			
 			_self = this;
 			this.fetchPatientList()
 			// _self.getServerData();
@@ -107,8 +113,8 @@
 		},
 		watch: {
 			patient(newVal, oldVal) {
-				// console.log(newVal)
-				// console.log(oldVal)
+				console.log(newVal)
+				console.log(oldVal)
 				// 切换病人时清空图表数据（重新渲染图表）
 				this.heart_rate_list = []
 				this.categories = []
@@ -124,9 +130,10 @@
 			},
 			deep: true
 		},
-
+		
 		methods: {
-			test() {
+			test(pid) {
+				this.fetchPatientInfo(pid)
 				setInterval(() => {
 					let randomData = Math.random() * 300
 					let timer = Math.random() * 300
@@ -137,6 +144,7 @@
 						this.heart_rate_list.shift()
 						this.categories.shift()
 					}
+
 					// 初始化图表实例
 					_self.showLineA("myChart")
 					// updateData更新图表
@@ -148,15 +156,22 @@
 						}],
 					})
 				}, 1500)
+
 			},
 			// picker @change事件
 			bindPickerChange(e) {
 				// console.log(e)
 				for (let item of this.patientList) {
 					if (item.id === Number(e.detail.value) + 1) {
-						this.fetchPatientInfo(item.id)
+						// this.fetchPatientInfo(item.id)
 						// this.getSocket()
-						// this.test()
+						
+						// 把患者id缓存到本地
+						uni.setStorage({
+							key: 'pid',
+							data: item.id
+						})
+						this.test(item.id)
 					}
 				}
 			},

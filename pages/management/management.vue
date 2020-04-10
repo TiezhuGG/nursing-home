@@ -84,12 +84,12 @@
 		methods: {
 			toCollectData(pid){
 				uni.navigateTo({
-					url: `../collect-data/collect-data?pid=${pid}`
+					url: `../collect-data/collect-data?patient_id=${pid}`
 				})
 			},
 			toBloodStatus(pid) {
 				uni.navigateTo({
-					url: `../blood-status/blood-status?pid=${pid}`
+					url: `../blood-status/blood-status?patient_id=${pid}`
 				})
 			},
 			// 监听input事件
