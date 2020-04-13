@@ -268,6 +268,7 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
       pixelRatio: 1,
       patientList: [],
       patient: null,
+      // 当前患者id
       pid: '',
       // 血压
       bp_devices: [],
@@ -282,7 +283,8 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
       bp_categories: [],
       // 血氧
       bo_devices: [],
-      bo_connected: false,
+      // 0: 未连接, 1: 已连接, 2: 已断开, 重新连接
+      bo_connected: 0,
       bo_chs: [],
       bo_discoveryStarted: false,
       bo_canWrite: false,
@@ -291,6 +293,9 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
       bo_characteristicId: '',
       bo_list: [],
       bo_categories: [],
+      blood_oxygen: null,
+      pulse_rate: null,
+      bo_weared: null,
 
       this_week: '6月7日-6月13日',
       avg_val_blood: '135/80',
@@ -299,12 +304,23 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
   },
   onLoad: function onLoad(options) {
     // console.log('options',options)
-    // 从客户管理界面进来会传入pid
+    // 从客户管理界面进来会传入patient_id
     if (options.patient_id) {
+      this.pid = options.patient_id;
       this.fetchPatientInfo(options.patient_id);
     }
     this.fetchPatientList();
   },
+
+  watch: {
+    patient: function patient(newVal, oldVal) {
+      // 每次切换病人时关闭蓝牙模块并清空数据列表bo_list, 之后再重新连接蓝牙进行采集数据
+      if (oldVal != null) {
+        this.bo_closeBluetoothAdapter();
+      }
+      // console.log(`newVal ${JSON.stringify(newVal)}, oldVal ${oldVal}`)
+    } },
+
 
   methods: {
     // 选择患者
@@ -312,6 +328,7 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
       // console.log(e)
       var _iterator = _createForOfIteratorHelper(this.patientList),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
           if (item.id === Number(e.detail.value) + 1) {
+            this.pid = item.id;
             this.fetchPatientInfo(item.id);
           }
         }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
@@ -350,6 +367,20 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
       second = second < 10 ? '0' + second : second;
       var now_time = "".concat(hour, ":").concat(minute, ":").concat(second);
       return now_time;
+    },
+
+    // 获取当前时间戳
+    getTimestamp: function getTimestamp() {
+      var timestamp = new Date().getTime();
+      return timestamp;
+    },
+
+    // 数据存储
+    saveData: function saveData() {
+      if (this.bo_weared == false) {
+        console.log('患者摘下指夹式血氧仪');
+
+      }
     },
 
     inArray: function inArray(arr, key, val) {
@@ -454,16 +485,11 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
     },
     // bp_closeBLEConnection() {
     // 	uni.closeBLEConnection({
-    // 		deviceId: this.data.deviceId
+    // 		deviceId: this.bp_deviceId
     // 	})
-    // 	// this.setData({
-    // 	// 	connected: false,
-    // 	// 	chs: [],
-    // 	// 	canWrite: false,
-    // 	// })
     // 	this.bp_connected = false
     // 	this.bp_chs: []
-    // 	this.canWrite = false
+    // 	this.bp_canWrite = false
     // },
 
     bp_getBLEDeviceServices: function bp_getBLEDeviceServices(deviceId) {var _this8 = this;
@@ -542,7 +568,8 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
                 break;}
 
           } else {//输出测量结果
-            console.log('高压：', parseInt(vale.substr(8, 2), 16), '低压：', parseInt(vale.substr(10, 2), 16), '心率', parseInt(vale.substr(12, 2), 16));
+            console.log('高压：', parseInt(vale.substr(8, 2), 16), '低压：', parseInt(vale.substr(10, 2), 16), '心率', parseInt(
+            vale.substr(12, 2), 16));
           }
         } else {//输出当前压力值
           console.log('当前压力：', parseInt(vale.substr(10, 2), 16));
@@ -631,13 +658,8 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
       uni.createBLEConnection({
         deviceId: deviceId,
         success: function success(res) {
-          // this.setData({
-          // 	connected: true,
-          // 	name,
-          // 	deviceId,
-          // })
           console.log('连接蓝牙成功');
-          _this13.bo_connected = true;
+          _this13.bo_connected = 1;
           _this13.bo_getBLEDeviceServices(deviceId);
         } });
 
@@ -703,15 +725,31 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
         var vale = _this15.ab2hex(characteristic.value);
         if (vale.substr(20, 2) == 1) {//判断是否戴好
           console.log('未戴好！');
+          _this15.bo_weared = false;
         } else {
-          console.log('当前血氧含量为：', parseInt(vale.substr(16, 2), 16), '脉率值:', parseInt(vale.substr(18, 2), 16)); //输出当前血氧饱和度,脉率值
+          // bo_weared判断患者是否戴上血氧仪
+          if (_this15.bo_weared != true) {
+            _this15.bo_weared = true;
+          }
+          _this15.blood_oxygen = parseInt(vale.substr(16, 2), 16);
+          _this15.pulse_rate = parseInt(vale.substr(18, 2), 16);
+          var bo = {
+            'blood_oxygen': _this15.blood_oxygen,
+            'pulse_rate': _this15.pulse_rate,
+            'timestamp': _this15.getTimestamp() };
+
+          _this15.bo_list.push(JSON.stringify(bo));
+          console.log("\u5F53\u524D\u8840\u6C27\u9971\u548C\u5EA6: ".concat(_this15.blood_oxygen, ",  \u8109\u7387\u503C").concat(_this15.pulse_rate, ", \u6570\u636E\u5217\u8868").concat(_this15.bo_list));
+          // console.log('当前血氧含量为：', parseInt(vale.substr(16, 2), 16), '脉率值:', parseInt(vale.substr(18, 2), 16)) //输出当前血氧饱和度,脉率值
         }
       });
     },
 
+    // 发送二进制数据
     bo_writeBLECharacteristicValue: function bo_writeBLECharacteristicValue() {
       var buffer = new ArrayBuffer(1);
       var dataView = new DataView(buffer);
+      console.log("buffer\u662F".concat(this.buffer, ", dataView\u662F").concat(this.dataView));
       dataView.setUint8(0, 0);
       uni.writeBLECharacteristicValue({
         deviceId: this.bo_deviceId,
@@ -721,9 +759,15 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
 
     },
 
+    // 关闭蓝牙模块
     bo_closeBluetoothAdapter: function bo_closeBluetoothAdapter() {
-      uni.closeBluetoothAdapter();
-      this.bo_discoveryStarted = false;
+      uni.closeBluetoothAdapter({
+        success: function success() {
+          this.bo_discoveryStarted = false;
+          this.bo_connected = 2;
+          this.bo_list = [];
+        } });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

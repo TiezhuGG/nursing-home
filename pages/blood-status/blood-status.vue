@@ -32,12 +32,14 @@
 			<!-- 日期 -->
 			<view class="date">
 				<view class="last-week">
-<!-- 					<img src="../../static/images/back-green.png">
+					<!-- 					<img src="../../static/images/back-green.png">
 					<text class="txt">上一周</text> -->
 				</view>
-				<view class="this-week">
-					选择时间:{{this_week}}
-				</view>
+				<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+					<view class="this-week">
+						选择时间: {{date}}
+					</view>
+				</picker>
 				<view class="next-week">
 					<!-- <text class="txt">下一周</text> -->
 					<!-- <img src="../../static/images/go-green.png"> -->
@@ -60,13 +62,13 @@
 			</view>
 			<!-- 图表 -->
 			<view class="qiun-columns">
-				<view class="qiun-charts">
+				<view class="qiun-charts" v-show="showCharts">
 					<canvas canvas-id="1" id="canvasLineA" class="charts" @touchstart="touchLineA"></canvas>
 				</view>
 			</view>
 			<!-- 按钮 -->
 			<view class="btn">
-				<button class="get-msg" @click="getServerData(currentIndex + 1)">获取血压信息</button>
+				<button class="get-msg" @click="test(pid)">获取血压信息</button>
 				<!-- <button class="get-msg" @click="bp_openBluetoothAdapter">获取血压信息</button> -->
 			</view>
 		</view>
@@ -80,9 +82,11 @@
 					<!-- <img src="../../static/images/back-green.png"> -->
 					<!-- <text class="txt">上一周</text> -->
 				</view>
-				<view class="this-week">
-					选择时间:{{this_week}}
-				</view>
+				<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+					<view class="this-week">
+						选择时间: {{date}}
+					</view>
+				</picker>
 				<view class="next-week">
 					<!-- <text class="txt">下一周</text> -->
 					<!-- <img src="../../static/images/go-green.png"> -->
@@ -105,7 +109,7 @@
 			</view>
 			<!-- 图表 -->
 			<view class="qiun-columns">
-				<view class="qiun-charts">
+				<view class="qiun-charts" v-show="showCharts">
 					<canvas canvas-id="2" id="canvasLineA" class="charts" @touchstart="touchLineA"></canvas>
 				</view>
 			</view>
@@ -124,9 +128,11 @@
 					<!-- <img src="../../static/images/back-green.png"> -->
 					<!-- <text class="txt">上一周</text> -->
 				</view>
-				<view class="this-week">
-					选择时间:{{this_week}}
-				</view>
+				<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+					<view class="this-week">
+						选择时间: {{date}}
+					</view>
+				</picker>
 				<view class="next-week">
 					<!-- <text class="txt">下一周</text> -->
 					<!-- <img src="../../static/images/go-green.png"> -->
@@ -149,7 +155,7 @@
 			</view>
 			<!-- 图表 -->
 			<view class="qiun-columns">
-				<view class="qiun-charts">
+				<view class="qiun-charts" v-show="showCharts">
 					<canvas canvas-id="3" id="canvasLineA" class="charts" @touchstart="touchLineA"></canvas>
 				</view>
 			</view>
@@ -168,6 +174,9 @@
 	var canvaLineA = null;
 	export default {
 		data() {
+			const currentDate = this.getDate({
+				format: true
+			})
 			return {
 				navTitles: ['血压', '血氧', '血糖'],
 				currentIndex: 0,
@@ -177,6 +186,10 @@
 				patientList: [],
 				patient: null,
 				chart: 1,
+				// 当前患者id
+				pid: '',
+				showCharts: false,
+				date: currentDate,
 				// heart_rate_list: [],
 				// categories: [],
 				// 血压
@@ -207,18 +220,22 @@
 				avg_val_time: 65,
 			};
 		},
+
 		onLoad(options) {
 			// console.log('bpid',options.bpid)
 			// 从工作台进页面有患者id就执行
-			if(options.bpid) {
-				console.log('从工作台进来',options.bpid)
-				this.test(options.bpid)
+			if (options.bpid) {
+				console.log('从工作台进来', options.bpid)
+				this.fetchPatientInfo(options.bpid)
+				this.pid = options.bpid
+				// this.test(options.bpid)
 			}
 			// 从客户管理界面进来会传入patient_id
-			if(options.patient_id) {
-				console.log('从客户管理界面进来',options.patient_id)
+			if (options.patient_id) {
+				console.log('从客户管理界面进来', options.patient_id)
 				this.fetchPatientInfo(options.patient_id)
-				this.test(options.patient_id)
+				this.pid = options.patient_id
+				// this.test(options.patient_id)
 			}
 			_self = this;
 			_self.fetchPatientList()
@@ -228,28 +245,33 @@
 			this.cHeight = uni.upx2px(500);
 		},
 
+		onHide() {
+			this.showCharts = false
+			this.bp_list = []
+			this.bp_categories = []
+		},
+
+		computed: {
+			startDate() {
+				return this.getDate('start');
+			},
+			endDate() {
+				return this.getDate('end');
+			}
+		},
+
 		watch: {
 			patient(newVal, oldVal) {
-				// console.log(newVal)
-				// console.log(oldVal)
 				// 切换病人时清空图表数据（重新渲染图表）
 				this.bp_list = []
 				this.bp_categories = []
-				if (oldVal != null) {
-					canvaLineA.updateData({
-						categories: this.bp_categories,
-						series: [{
-							name: '实时心率',
-							data: this.bp_list
-						}],
-					})
-				}
 			},
 			deep: true
 		},
 
 		methods: {
 			test(bpid) {
+				this.showCharts = true
 				this.fetchPatientInfo(bpid)
 				setInterval(() => {
 					let randomData = Math.random() * 300
@@ -266,62 +288,16 @@
 					_self.showLineA(this.chart)
 					// updateData更新图表
 					canvaLineA.updateData({
-						categories: this.bp_categories,
+						categories: _self.bp_categories,
 						series: [{
-							name: '血压 ',
+							name: '血压',
 							data: _self.bp_list
 						}],
 					})
-				}, 1500)
+				}, 1000)
 
 			},
-			
-			showLineA(canvasId) {
-				canvaLineA = new uCharts({
-					$this: _self,
-					canvasId: canvasId,
-					type: 'line',
-					fontSize: 11,
-					colors: ['#24C789'],
-					legend: {
-						show: true
-					},
-					dataLabel: false,
-					dataPointShape: true,
-					background: '#FFFFFF',
-					pixelRatio: _self.pixelRatio,
-					categories: '',
-					series: [{
-						name: '实时心率',
-						data: ''
-					}],
-					animation: false,
-					xAxis: {
-						disableGrid: true
-					},
-					yAxis: {
-						data: [{
-							axisLine: false,
-						}],
-						gridType: 'dash',
-						gridColor: '#CCC',
-						dashLength: 2,
-						min: 0.00,
-						max: 150.00,
-						format: (val) => {
-							return val.toFixed(0.00)
-						}
-					},
-					width: _self.cWidth * _self.pixelRatio,
-					height: _self.cHeight * _self.pixelRatio,
-					extra: {
-						line: {
-							type: 'curve'
-						}
-					}
-				});
-			},
-
+			// 选择患者
 			bindPickerChange(e) {
 				// console.log(e)
 				for (let item of this.patientList) {
@@ -359,37 +335,55 @@
 				this.currentIndex = index
 				// 切换导航改变对应的图表canvas-id
 				this.chart = index + 1
-				// this.getServerData(this.currentIndex + 1)
 			},
 
-			getServerData(canvasId) {
-				uni.request({
-					url: 'https://www.ucharts.cn/data.json',
-					data: {},
-					success: function(res) {
-						// console.log(res.data.data)
-						let LineA = {
-							categories: [],
-							series: []
-						};
-						//这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-						LineA.categories = res.data.data.LineA.categories;
-						// LineA.series = res.data.data.LineA.series;
-						// LineA.series = res.data.data.LineA.series;
-						// LineA.series = [LineA.series.pop()];
-						// console.log(LineA.series)
-						LineA.series = [{
-							data: [0, 100, 70, 20, 100, 50],
-							name: 'aa'
-						}]
-						_self.showLineA(canvasId, LineA);
+			// 图表配置
+			showLineA(canvasId) {
+				canvaLineA = new uCharts({
+					$this: _self,
+					canvasId: canvasId,
+					type: 'line',
+					fontSize: 11,
+					colors: ['#24C789'],
+					legend: {
+						show: true
 					},
-					fail: () => {
-						_self.tips = "网络错误，小程序端请检查合法域名";
+					dataLabel: false,
+					dataPointShape: true,
+					background: '#FFFFFF',
+					pixelRatio: _self.pixelRatio,
+					categories: '',
+					series: [{
+						name: '血压 血氧 血糖',
+						data: ''
+					}],
+					animation: false,
+					xAxis: {
+						disableGrid: true
 					},
+					yAxis: {
+						data: [{
+							axisLine: false,
+						}],
+						gridType: 'dash',
+						gridColor: '#CCC',
+						dashLength: 2,
+						min: 0.00,
+						max: 150.00,
+						// format: (val) => {
+						// 	return val.toFixed(0.00)
+						// }
+					},
+					width: _self.cWidth * _self.pixelRatio,
+					height: _self.cHeight * _self.pixelRatio,
+					extra: {
+						line: {
+							type: 'curve'
+						}
+					}
 				});
 			},
-			
+
 			touchLineA(e) {
 				canvaLineA.showToolTip(e, {
 					format: function(item, category) {
@@ -397,243 +391,7 @@
 					}
 				});
 			},
-			
-			inArray(arr, key, val) {
-				for (let i = 0; i < arr.length; i++) {
-					if (arr[i][key] === val) {
-						return i;
-					}
-				}
-				return -1;
-			},
 
-			// ArrayBuffer转16进度字符串示例
-			ab2hex(buffer) {
-				var hexArr = Array.prototype.map.call(
-					new Uint8Array(buffer),
-					function(bit) {
-						return ('00' + bit.toString(16)).slice(-2)
-					}
-				)
-				return hexArr.join('');
-			},
-
-			bp_openBluetoothAdapter() {
-				console.log('获取血压信息')
-				uni.openBluetoothAdapter({
-					success: (res) => {
-						console.log('openBluetoothAdapter success', res)
-						this.bp_startBluetoothDevicesDiscovery()
-					},
-					fail: (res) => {
-						if (res.errCode === 10001) {
-							uni.onBluetoothAdapterStateChange((res) => {
-								// console.log('onBluetoothAdapterStateChange', res)
-								if (res.available) {
-									this.bp_startBluetoothDevicesDiscovery()
-								}
-							})
-						}
-					}
-				})
-			},
-			bp_startBluetoothDevicesDiscovery() {
-				if (this.bp_discoveryStarted) {
-					return
-				}
-				this.bp_discoveryStarted = true
-				uni.startBluetoothDevicesDiscovery({
-					allowDuplicatesKey: true,
-					success: (res) => {
-						console.log('startBluetoothDevicesDiscovery success', res)
-						this.bp_onBluetoothDeviceFound()
-					},
-				})
-			},
-			bp_getBluetoothAdapterState() {
-				console.log('getBluetoothAdapterState')
-				uni.getBluetoothAdapterState({
-					success: (res) => {
-						console.log('getBluetoothAdapterState', res)
-						if (res.discovering) {
-							this.bp_onBluetoothDeviceFound()
-						} else if (res.available) {
-							this.bp_startBluetoothDevicesDiscovery()
-						}
-					}
-				})
-			},
-			bp_onBluetoothDeviceFound() {
-				uni.onBluetoothDeviceFound((res) => {
-					var devices = res.devices
-					console.log('devices', devices)
-					if (devices[0].name == 'FSRKB_BT_001') {
-						let e = devices[0]
-						this.bp_createBLEConnection(e)
-					}
-				})
-			},
-			bp_stopBluetoothDevicesDiscovery() {
-				uni.stopBluetoothDevicesDiscovery()
-			},
-
-			bp_createBLEConnection(e) {
-				// const ds = e.currentTarget.dataset
-				const deviceId = e.deviceId
-				const name = e.name
-				uni.createBLEConnection({
-					deviceId,
-					success: (res) => {
-						this.bp_connected = true
-						// this.setData({
-						// 	connected: true,
-						// 	name,
-						// 	deviceId,
-						// })
-						this.bp_getBLEDeviceServices(deviceId)
-					}
-				})
-				this.bp_stopBluetoothDevicesDiscovery()
-			},
-			bp_closeBLEConnection() {
-				uni.closeBLEConnection({
-					deviceId: this.data.deviceId
-				})
-				this.setData({
-					connected: false,
-					chs: [],
-					canWrite: false,
-				})
-			},
-			bp_getBLEDeviceServices(deviceId) {
-				uni.getBLEDeviceServices({
-					deviceId,
-					success: (res) => {
-						for (let i = 0; i < res.services.length; i++) {
-							if (res.services[i].uuid == '0000FFF0-0000-1000-8000-00805F9B34FB') {
-								this.bp_getBLEDeviceCharacteristics(deviceId, res.services[i].uuid)
-								return
-							}
-						}
-					}
-				})
-			},
-			bp_getBLEDeviceCharacteristics(deviceId, serviceId) {
-				uni.getBLEDeviceCharacteristics({
-					deviceId,
-					serviceId,
-					success: (res) => {
-						// console.log('getBLEDeviceCharacteristics success', res.characteristics)
-						for (let i = 0; i < res.characteristics.length; i++) {
-							let item = res.characteristics[i]
-							if (item.uuid == '0000FFF6-0000-1000-8000-00805F9B34FB') {
-								// this.setData({
-								// 	bp_canWrite: true
-								// })
-								this.bp_canWrite = true
-								this.bp_deviceId = deviceId
-								this.bp_serviceId = serviceId
-								this.bp_characteristicId = item.uuid
-								this.bp_writeBLECharacteristicValue()
-
-								uni.notifyBLECharacteristicValueChange({
-									deviceId,
-									serviceId,
-									characteristicId: item.uuid,
-									state: true,
-								})
-							}
-						}
-					},
-					fail(res) {
-						console.error('getBLEDeviceCharacteristics', res)
-					}
-				})
-				// 操作之前先监听，保证第一时间获取数据
-				uni.onBLECharacteristicValueChange((characteristic) => {
-					let vale = ab2hex(characteristic.value)
-					if (vale.substr(6, 2) == 'cc') { //判断是否测量结束，结束则进入
-						if (vale.substr(10, 2) == '00') { //判断是否错误，错误则进入
-							switch (parseInt(vale.substr(8, 2), 16)) {
-								case 1:
-									console.log('传感器异常！')
-									break
-
-								case 2:
-									console.log('不足以检测心跳或血压！')
-									break
-
-								case 3:
-									console.log('异常测量结果！')
-									break
-
-								case 4:
-									console.log('袖口太松或泄漏（10秒压力小于30毫米）')
-									break
-
-								case 5:
-									console.log('气管堵塞')
-									break
-
-								case 6:
-									console.log('压力波动过大')
-									break
-
-								case 7:
-									console.log('压力超过上限')
-									break
-
-								case 8:
-									console.log('请查看标准数据是否异常')
-									break
-							}
-						} else { //输出测量结果
-							console.log('高压：', parseInt(vale.substr(8, 2), 16), '低压：', parseInt(vale.substr(10, 2), 16), '心率',
-								parseInt(
-									vale.substr(12, 2), 16))
-						}
-					} else { //输出当前压力值
-						console.log('当前压力：', parseInt(vale.substr(10, 2), 16))
-					// 	let bp_value = parseInt(vale.substr(10, 2), 16)
-					// 	let timer = this.getNowTime()
-					// 	this.bp_list.push(bp_value)
-					// 	this.bp_categories.push(timer)
-					// 	if (this.bp_list.length > 8) {
-					// 		this.bp_list.shift()
-					// 		this.bp_categories.shift()
-					// 	}
-					// 	_self.showLineA("charts")
-					// 	// updateData更新图表
-					// 	canvaLineA.updateData({
-					// 		categories: this.bp_categories,
-					// 		series: [{
-					// 			name: '血压/血氧/血糖',
-					// 			data: _self.bp_list
-					// 		}],
-					// 	})
-					}
-				})
-			},
-			bp_writeBLECharacteristicValue() {
-				let sz = [0xBE, 0xB0, 0x01, 0xc0, 0x36]
-				let buffer = new ArrayBuffer(5)
-				let dataView = new DataView(buffer)
-
-				for (let i = 0; i < 5; i++) {
-					dataView.setUint8(i, sz[i])
-				}
-				console.log(buffer)
-				uni.writeBLECharacteristicValue({
-					deviceId: this.bp_deviceId,
-					serviceId: this.bp_serviceId,
-					characteristicId: this.bp_characteristicId,
-					value: buffer,
-				})
-			},
-			bp_closeBluetoothAdapter() {
-				uni.closeBluetoothAdapter()
-				this.bp_discoveryStarted = false
-			},
 			// 获取当前时间
 			getNowTime() {
 				let now = new Date()
@@ -645,6 +403,38 @@
 				second = second < 10 ? '0' + second : second
 				let now_time = `${hour}:${minute}:${second}`
 				return now_time
+			},
+
+			// 时间戳转普通日期时间格式
+			timestampToTime(timestamp) {
+				var date = new Date(timestamp); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+				var Y = date.getFullYear() + '-';
+				var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+				var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
+				var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+				var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+				var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+				return Y + M + D + h + m + s;
+			},
+			
+			// 日期选择器
+			bindDateChange(e) {
+				this.date = e.target.value
+			},
+			getDate(type) {
+				const date = new Date();
+				let year = date.getFullYear();
+				let month = date.getMonth() + 1;
+				let day = date.getDate();
+			
+				if (type === 'start') {
+					year = year - 60;
+				} else if (type === 'end') {
+					year = year + 2;
+				}
+				month = month > 9 ? month : '0' + month;;
+				day = day > 9 ? day : '0' + day;
+				return `${year}-${month}-${day}`;
 			},
 		},
 	}

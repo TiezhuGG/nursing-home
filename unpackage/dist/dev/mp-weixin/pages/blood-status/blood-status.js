@@ -296,11 +296,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
 var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-charts/u-charts.js */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _createForOfIteratorHelper(o) {if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var it,normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
 var _self;
 var canvaLineA = null;var _default =
 {
   data: function data() {
+    var currentDate = this.getDate({
+      format: true });
+
     return {
       navTitles: ['血压', '血氧', '血糖'],
       currentIndex: 0,
@@ -310,6 +319,10 @@ var canvaLineA = null;var _default =
       patientList: [],
       patient: null,
       chart: 1,
+      // 当前患者id
+      pid: '',
+      showCharts: false,
+      date: currentDate,
       // heart_rate_list: [],
       // categories: [],
       // 血压
@@ -340,18 +353,22 @@ var canvaLineA = null;var _default =
       avg_val_time: 65 };
 
   },
+
   onLoad: function onLoad(options) {
     // console.log('bpid',options.bpid)
     // 从工作台进页面有患者id就执行
     if (options.bpid) {
       console.log('从工作台进来', options.bpid);
-      this.test(options.bpid);
+      this.fetchPatientInfo(options.bpid);
+      this.pid = options.bpid;
+      // this.test(options.bpid)
     }
     // 从客户管理界面进来会传入patient_id
     if (options.patient_id) {
       console.log('从客户管理界面进来', options.patient_id);
       this.fetchPatientInfo(options.patient_id);
-      this.test(options.patient_id);
+      this.pid = options.patient_id;
+      // this.test(options.patient_id)
     }
     _self = this;
     _self.fetchPatientList();
@@ -361,28 +378,33 @@ var canvaLineA = null;var _default =
     this.cHeight = uni.upx2px(500);
   },
 
+  onHide: function onHide() {
+    this.showCharts = false;
+    this.bp_list = [];
+    this.bp_categories = [];
+  },
+
+  computed: {
+    startDate: function startDate() {
+      return this.getDate('start');
+    },
+    endDate: function endDate() {
+      return this.getDate('end');
+    } },
+
+
   watch: {
     patient: function patient(newVal, oldVal) {
-      // console.log(newVal)
-      // console.log(oldVal)
       // 切换病人时清空图表数据（重新渲染图表）
       this.bp_list = [];
       this.bp_categories = [];
-      if (oldVal != null) {
-        canvaLineA.updateData({
-          categories: this.bp_categories,
-          series: [{
-            name: '实时心率',
-            data: this.bp_list }] });
-
-
-      }
     },
     deep: true },
 
 
   methods: {
     test: function test(bpid) {var _this = this;
+      this.showCharts = true;
       this.fetchPatientInfo(bpid);
       setInterval(function () {
         var randomData = Math.random() * 300;
@@ -399,62 +421,16 @@ var canvaLineA = null;var _default =
         _self.showLineA(_this.chart);
         // updateData更新图表
         canvaLineA.updateData({
-          categories: _this.bp_categories,
+          categories: _self.bp_categories,
           series: [{
-            name: '血压 ',
+            name: '血压',
             data: _self.bp_list }] });
 
 
-      }, 1500);
+      }, 1000);
 
     },
-
-    showLineA: function showLineA(canvasId) {
-      canvaLineA = new _uCharts.default({
-        $this: _self,
-        canvasId: canvasId,
-        type: 'line',
-        fontSize: 11,
-        colors: ['#24C789'],
-        legend: {
-          show: true },
-
-        dataLabel: false,
-        dataPointShape: true,
-        background: '#FFFFFF',
-        pixelRatio: _self.pixelRatio,
-        categories: '',
-        series: [{
-          name: '实时心率',
-          data: '' }],
-
-        animation: false,
-        xAxis: {
-          disableGrid: true },
-
-        yAxis: {
-          data: [{
-            axisLine: false }],
-
-          gridType: 'dash',
-          gridColor: '#CCC',
-          dashLength: 2,
-          min: 0.00,
-          max: 150.00,
-          format: function format(val) {
-            return val.toFixed(0.00);
-          } },
-
-        width: _self.cWidth * _self.pixelRatio,
-        height: _self.cHeight * _self.pixelRatio,
-        extra: {
-          line: {
-            type: 'curve' } } });
-
-
-
-    },
-
+    // 选择患者
     bindPickerChange: function bindPickerChange(e) {
       // console.log(e)
       var _iterator = _createForOfIteratorHelper(this.patientList),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
@@ -492,34 +468,52 @@ var canvaLineA = null;var _default =
       this.currentIndex = index;
       // 切换导航改变对应的图表canvas-id
       this.chart = index + 1;
-      // this.getServerData(this.currentIndex + 1)
     },
 
-    getServerData: function getServerData(canvasId) {
-      uni.request({
-        url: 'https://www.ucharts.cn/data.json',
-        data: {},
-        success: function success(res) {
-          // console.log(res.data.data)
-          var LineA = {
-            categories: [],
-            series: [] };
+    // 图表配置
+    showLineA: function showLineA(canvasId) {
+      canvaLineA = new _uCharts.default({
+        $this: _self,
+        canvasId: canvasId,
+        type: 'line',
+        fontSize: 11,
+        colors: ['#24C789'],
+        legend: {
+          show: true },
 
-          //这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-          LineA.categories = res.data.data.LineA.categories;
-          // LineA.series = res.data.data.LineA.series;
-          // LineA.series = res.data.data.LineA.series;
-          // LineA.series = [LineA.series.pop()];
-          // console.log(LineA.series)
-          LineA.series = [{
-            data: [0, 100, 70, 20, 100, 50],
-            name: 'aa' }];
+        dataLabel: false,
+        dataPointShape: true,
+        background: '#FFFFFF',
+        pixelRatio: _self.pixelRatio,
+        categories: '',
+        series: [{
+          name: '血压 血氧 血糖',
+          data: '' }],
 
-          _self.showLineA(canvasId, LineA);
+        animation: false,
+        xAxis: {
+          disableGrid: true },
+
+        yAxis: {
+          data: [{
+            axisLine: false }],
+
+          gridType: 'dash',
+          gridColor: '#CCC',
+          dashLength: 2,
+          min: 0.00,
+          max: 150.00
+          // format: (val) => {
+          // 	return val.toFixed(0.00)
+          // }
         },
-        fail: function fail() {
-          _self.tips = "网络错误，小程序端请检查合法域名";
-        } });
+        width: _self.cWidth * _self.pixelRatio,
+        height: _self.cHeight * _self.pixelRatio,
+        extra: {
+          line: {
+            type: 'curve' } } });
+
+
 
     },
 
@@ -531,242 +525,6 @@ var canvaLineA = null;var _default =
 
     },
 
-    inArray: function inArray(arr, key, val) {
-      for (var i = 0; i < arr.length; i++) {
-        if (arr[i][key] === val) {
-          return i;
-        }
-      }
-      return -1;
-    },
-
-    // ArrayBuffer转16进度字符串示例
-    ab2hex: function ab2hex(buffer) {
-      var hexArr = Array.prototype.map.call(
-      new Uint8Array(buffer),
-      function (bit) {
-        return ('00' + bit.toString(16)).slice(-2);
-      });
-
-      return hexArr.join('');
-    },
-
-    bp_openBluetoothAdapter: function bp_openBluetoothAdapter() {var _this4 = this;
-      console.log('获取血压信息');
-      uni.openBluetoothAdapter({
-        success: function success(res) {
-          console.log('openBluetoothAdapter success', res);
-          _this4.bp_startBluetoothDevicesDiscovery();
-        },
-        fail: function fail(res) {
-          if (res.errCode === 10001) {
-            uni.onBluetoothAdapterStateChange(function (res) {
-              // console.log('onBluetoothAdapterStateChange', res)
-              if (res.available) {
-                _this4.bp_startBluetoothDevicesDiscovery();
-              }
-            });
-          }
-        } });
-
-    },
-    bp_startBluetoothDevicesDiscovery: function bp_startBluetoothDevicesDiscovery() {var _this5 = this;
-      if (this.bp_discoveryStarted) {
-        return;
-      }
-      this.bp_discoveryStarted = true;
-      uni.startBluetoothDevicesDiscovery({
-        allowDuplicatesKey: true,
-        success: function success(res) {
-          console.log('startBluetoothDevicesDiscovery success', res);
-          _this5.bp_onBluetoothDeviceFound();
-        } });
-
-    },
-    bp_getBluetoothAdapterState: function bp_getBluetoothAdapterState() {var _this6 = this;
-      console.log('getBluetoothAdapterState');
-      uni.getBluetoothAdapterState({
-        success: function success(res) {
-          console.log('getBluetoothAdapterState', res);
-          if (res.discovering) {
-            _this6.bp_onBluetoothDeviceFound();
-          } else if (res.available) {
-            _this6.bp_startBluetoothDevicesDiscovery();
-          }
-        } });
-
-    },
-    bp_onBluetoothDeviceFound: function bp_onBluetoothDeviceFound() {var _this7 = this;
-      uni.onBluetoothDeviceFound(function (res) {
-        var devices = res.devices;
-        console.log('devices', devices);
-        if (devices[0].name == 'FSRKB_BT_001') {
-          var e = devices[0];
-          _this7.bp_createBLEConnection(e);
-        }
-      });
-    },
-    bp_stopBluetoothDevicesDiscovery: function bp_stopBluetoothDevicesDiscovery() {
-      uni.stopBluetoothDevicesDiscovery();
-    },
-
-    bp_createBLEConnection: function bp_createBLEConnection(e) {var _this8 = this;
-      // const ds = e.currentTarget.dataset
-      var deviceId = e.deviceId;
-      var name = e.name;
-      uni.createBLEConnection({
-        deviceId: deviceId,
-        success: function success(res) {
-          _this8.bp_connected = true;
-          // this.setData({
-          // 	connected: true,
-          // 	name,
-          // 	deviceId,
-          // })
-          _this8.bp_getBLEDeviceServices(deviceId);
-        } });
-
-      this.bp_stopBluetoothDevicesDiscovery();
-    },
-    bp_closeBLEConnection: function bp_closeBLEConnection() {
-      uni.closeBLEConnection({
-        deviceId: this.data.deviceId });
-
-      this.setData({
-        connected: false,
-        chs: [],
-        canWrite: false });
-
-    },
-    bp_getBLEDeviceServices: function bp_getBLEDeviceServices(deviceId) {var _this9 = this;
-      uni.getBLEDeviceServices({
-        deviceId: deviceId,
-        success: function success(res) {
-          for (var i = 0; i < res.services.length; i++) {
-            if (res.services[i].uuid == '0000FFF0-0000-1000-8000-00805F9B34FB') {
-              _this9.bp_getBLEDeviceCharacteristics(deviceId, res.services[i].uuid);
-              return;
-            }
-          }
-        } });
-
-    },
-    bp_getBLEDeviceCharacteristics: function bp_getBLEDeviceCharacteristics(deviceId, serviceId) {var _this10 = this;
-      uni.getBLEDeviceCharacteristics({
-        deviceId: deviceId,
-        serviceId: serviceId,
-        success: function success(res) {
-          // console.log('getBLEDeviceCharacteristics success', res.characteristics)
-          for (var i = 0; i < res.characteristics.length; i++) {
-            var item = res.characteristics[i];
-            if (item.uuid == '0000FFF6-0000-1000-8000-00805F9B34FB') {
-              // this.setData({
-              // 	bp_canWrite: true
-              // })
-              _this10.bp_canWrite = true;
-              _this10.bp_deviceId = deviceId;
-              _this10.bp_serviceId = serviceId;
-              _this10.bp_characteristicId = item.uuid;
-              _this10.bp_writeBLECharacteristicValue();
-
-              uni.notifyBLECharacteristicValueChange({
-                deviceId: deviceId,
-                serviceId: serviceId,
-                characteristicId: item.uuid,
-                state: true });
-
-            }
-          }
-        },
-        fail: function fail(res) {
-          console.error('getBLEDeviceCharacteristics', res);
-        } });
-
-      // 操作之前先监听，保证第一时间获取数据
-      uni.onBLECharacteristicValueChange(function (characteristic) {
-        var vale = ab2hex(characteristic.value);
-        if (vale.substr(6, 2) == 'cc') {//判断是否测量结束，结束则进入
-          if (vale.substr(10, 2) == '00') {//判断是否错误，错误则进入
-            switch (parseInt(vale.substr(8, 2), 16)) {
-              case 1:
-                console.log('传感器异常！');
-                break;
-
-              case 2:
-                console.log('不足以检测心跳或血压！');
-                break;
-
-              case 3:
-                console.log('异常测量结果！');
-                break;
-
-              case 4:
-                console.log('袖口太松或泄漏（10秒压力小于30毫米）');
-                break;
-
-              case 5:
-                console.log('气管堵塞');
-                break;
-
-              case 6:
-                console.log('压力波动过大');
-                break;
-
-              case 7:
-                console.log('压力超过上限');
-                break;
-
-              case 8:
-                console.log('请查看标准数据是否异常');
-                break;}
-
-          } else {//输出测量结果
-            console.log('高压：', parseInt(vale.substr(8, 2), 16), '低压：', parseInt(vale.substr(10, 2), 16), '心率',
-            parseInt(
-            vale.substr(12, 2), 16));
-          }
-        } else {//输出当前压力值
-          console.log('当前压力：', parseInt(vale.substr(10, 2), 16));
-          // 	let bp_value = parseInt(vale.substr(10, 2), 16)
-          // 	let timer = this.getNowTime()
-          // 	this.bp_list.push(bp_value)
-          // 	this.bp_categories.push(timer)
-          // 	if (this.bp_list.length > 8) {
-          // 		this.bp_list.shift()
-          // 		this.bp_categories.shift()
-          // 	}
-          // 	_self.showLineA("charts")
-          // 	// updateData更新图表
-          // 	canvaLineA.updateData({
-          // 		categories: this.bp_categories,
-          // 		series: [{
-          // 			name: '血压/血氧/血糖',
-          // 			data: _self.bp_list
-          // 		}],
-          // 	})
-        }
-      });
-    },
-    bp_writeBLECharacteristicValue: function bp_writeBLECharacteristicValue() {
-      var sz = [0xBE, 0xB0, 0x01, 0xc0, 0x36];
-      var buffer = new ArrayBuffer(5);
-      var dataView = new DataView(buffer);
-
-      for (var i = 0; i < 5; i++) {
-        dataView.setUint8(i, sz[i]);
-      }
-      console.log(buffer);
-      uni.writeBLECharacteristicValue({
-        deviceId: this.bp_deviceId,
-        serviceId: this.bp_serviceId,
-        characteristicId: this.bp_characteristicId,
-        value: buffer });
-
-    },
-    bp_closeBluetoothAdapter: function bp_closeBluetoothAdapter() {
-      uni.closeBluetoothAdapter();
-      this.bp_discoveryStarted = false;
-    },
     // 获取当前时间
     getNowTime: function getNowTime() {
       var now = new Date();
@@ -778,6 +536,38 @@ var canvaLineA = null;var _default =
       second = second < 10 ? '0' + second : second;
       var now_time = "".concat(hour, ":").concat(minute, ":").concat(second);
       return now_time;
+    },
+
+    // 时间戳转普通日期时间格式
+    timestampToTime: function timestampToTime(timestamp) {
+      var date = new Date(timestamp); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+      var Y = date.getFullYear() + '-';
+      var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+      var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
+      var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+      var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+      var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+      return Y + M + D + h + m + s;
+    },
+
+    // 日期选择器
+    bindDateChange: function bindDateChange(e) {
+      this.date = e.target.value;
+    },
+    getDate: function getDate(type) {
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+
+      if (type === 'start') {
+        year = year - 60;
+      } else if (type === 'end') {
+        year = year + 2;
+      }
+      month = month > 9 ? month : '0' + month;;
+      day = day > 9 ? day : '0' + day;
+      return "".concat(year, "-").concat(month, "-").concat(day);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

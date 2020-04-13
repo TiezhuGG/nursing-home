@@ -64,14 +64,14 @@
 			<view class="wrap" style="padding-top: 20upx;">
 				<view class="avg-info">
 					<view class="avg-info-item">
-						<text class="txt-top">平均血氧值</text>
-						<text class="val">{{avg_val_blood}}</text>
-						<text class="txt-bottom">mmHg</text>
+						<text class="txt-top">血氧饱和度</text>
+						<text class="val">{{blood_oxygen ? blood_oxygen : ''}}</text>
+						<text class="txt-bottom">%</text>
 					</view>
 					<view class="avg-info-item">
 						<text class="txt-top">平均心率值</text>
-						<text class="val">{{avg_val_time}}</text>
-						<text class="txt-bottom">次/分钟</text>
+						<text class="val">{{pulse_rate ? pulse_rate : ''}}</text>
+						<text class="txt-bottom">bpm</text>
 					</view>
 				</view>
 			</view>
@@ -83,7 +83,7 @@
 			</view> -->
 			<!-- 按钮 -->
 			<view class="btn-two">
-				<button class="get-bluetooth" @click="bo_openBluetoothAdapter">连接蓝牙</button>
+				<button class="get-bluetooth" @click="bo_openBluetoothAdapter">{{bo_connected == 0 ? '连接蓝牙' : (bo_connected == 1 ? '已连接' : '已断开,重新连接')}}</button>
 				<button class="collect-data">采集血氧数据</button>
 			</view>
 		</view>
@@ -96,13 +96,13 @@
 				<view class="avg-info">
 					<view class="avg-info-item">
 						<text class="txt-top">平均血糖值</text>
-						<text class="val">{{avg_val_blood}}</text>
-						<text class="txt-bottom">mmHg</text>
+						<text class="val"></text>
+						<text class="txt-bottom"></text>
 					</view>
 					<view class="avg-info-item">
 						<text class="txt-top">平均心率值</text>
-						<text class="val">{{avg_val_time}}</text>
-						<text class="txt-bottom">次/分钟</text>
+						<text class="val"></text>
+						<text class="txt-bottom"></text>
 					</view>
 				</view>
 			</view>
@@ -114,7 +114,7 @@
 			</view> -->
 			<!-- 按钮 -->
 			<view class="btn-two">
-				<button class="get-bluetooth" @click="bp_openBluetoothAdapter">连接蓝牙</button>
+				<button class="get-bluetooth">连接蓝牙</button>
 				<button class="collect-data">采集血糖数据</button>
 			</view>
 		</view>
@@ -135,6 +135,7 @@
 				pixelRatio: 1,
 				patientList: [],
 				patient: null,
+				// 当前患者id
 				pid: '',
 				// 血压
 				bp_devices: [],
@@ -149,7 +150,8 @@
 				bp_categories: [],
 				// 血氧
 				bo_devices: [],
-				bo_connected: false,
+				// 0: 未连接, 1: 已连接, 2: 已断开, 重新连接
+				bo_connected: 0,
 				bo_chs: [],
 				bo_discoveryStarted: false,
 				bo_canWrite: false,
@@ -158,6 +160,9 @@
 				bo_characteristicId: '',
 				bo_list: [],
 				bo_categories: [],
+				blood_oxygen: null,
+				pulse_rate: null,
+				bo_weared: null,
 
 				this_week: '6月7日-6月13日',
 				avg_val_blood: '135/80',
@@ -166,11 +171,22 @@
 		},
 		onLoad(options) {
 			// console.log('options',options)
-			// 从客户管理界面进来会传入pid
+			// 从客户管理界面进来会传入patient_id
 			if (options.patient_id) {
+				this.pid = options.patient_id
 				this.fetchPatientInfo(options.patient_id)
 			}
 			this.fetchPatientList()
+		},
+		
+		watch: {
+			patient(newVal, oldVal) {
+				// 每次切换病人时关闭蓝牙模块并清空数据列表bo_list, 之后再重新连接蓝牙进行采集数据
+				if(oldVal != null) {
+					this.bo_closeBluetoothAdapter()
+				}
+				// console.log(`newVal ${JSON.stringify(newVal)}, oldVal ${oldVal}`)
+			}
 		},
 
 		methods: {
@@ -179,6 +195,7 @@
 				// console.log(e)
 				for (let item of this.patientList) {
 					if (item.id === Number(e.detail.value) + 1) {
+						this.pid = item.id
 						this.fetchPatientInfo(item.id)
 					}
 				}
@@ -219,6 +236,20 @@
 				return now_time
 			},
 
+			// 获取当前时间戳
+			getTimestamp() {
+				let timestamp = new Date().getTime()
+				return timestamp
+			},
+			
+			// 数据存储
+			saveData() {
+				if(this.bo_weared == false) {
+					console.log('患者摘下指夹式血氧仪')
+					
+				}
+			},
+	
 			inArray(arr, key, val) {
 				for (let i = 0; i < arr.length; i++) {
 					if (arr[i][key] === val) {
@@ -321,16 +352,11 @@
 			},
 			// bp_closeBLEConnection() {
 			// 	uni.closeBLEConnection({
-			// 		deviceId: this.data.deviceId
+			// 		deviceId: this.bp_deviceId
 			// 	})
-			// 	// this.setData({
-			// 	// 	connected: false,
-			// 	// 	chs: [],
-			// 	// 	canWrite: false,
-			// 	// })
 			// 	this.bp_connected = false
 			// 	this.bp_chs: []
-			// 	this.canWrite = false
+			// 	this.bp_canWrite = false
 			// },
 
 			bp_getBLEDeviceServices(deviceId) {
@@ -409,7 +435,8 @@
 									break
 							}
 						} else { //输出测量结果
-							console.log('高压：', parseInt(vale.substr(8, 2), 16), '低压：', parseInt(vale.substr(10, 2), 16), '心率', parseInt(vale.substr(12, 2), 16))
+							console.log('高压：', parseInt(vale.substr(8, 2), 16), '低压：', parseInt(vale.substr(10, 2), 16), '心率', parseInt(
+								vale.substr(12, 2), 16))
 						}
 					} else { //输出当前压力值
 						console.log('当前压力：', parseInt(vale.substr(10, 2), 16))
@@ -498,13 +525,8 @@
 				uni.createBLEConnection({
 					deviceId,
 					success: (res) => {
-						// this.setData({
-						// 	connected: true,
-						// 	name,
-						// 	deviceId,
-						// })
 						console.log('连接蓝牙成功')
-						this.bo_connected = true
+						this.bo_connected = 1
 						this.bo_getBLEDeviceServices(deviceId)
 					}
 				})
@@ -570,15 +592,31 @@
 					let vale = this.ab2hex(characteristic.value)
 					if (vale.substr(20, 2) == 1) { //判断是否戴好
 						console.log('未戴好！')
+						this.bo_weared = false
 					} else {
-						console.log('当前血氧含量为：', parseInt(vale.substr(16, 2), 16), '脉率值:', parseInt(vale.substr(18, 2), 16)) //输出当前血氧饱和度,脉率值
+						// bo_weared判断患者是否戴上血氧仪
+						if (this.bo_weared != true) {
+							this.bo_weared = true
+						}
+						this.blood_oxygen = parseInt(vale.substr(16, 2), 16)
+						this.pulse_rate = parseInt(vale.substr(18, 2), 16)
+						let bo = {
+							'blood_oxygen': this.blood_oxygen,
+							'pulse_rate': this.pulse_rate,
+							'timestamp': this.getTimestamp()
+						}
+						this.bo_list.push(JSON.stringify(bo))
+						console.log(`当前血氧饱和度: ${this.blood_oxygen},  脉率值${this.pulse_rate}, 数据列表${this.bo_list}`)
+						// console.log('当前血氧含量为：', parseInt(vale.substr(16, 2), 16), '脉率值:', parseInt(vale.substr(18, 2), 16)) //输出当前血氧饱和度,脉率值
 					}
 				})
 			},
 
+			// 发送二进制数据
 			bo_writeBLECharacteristicValue() {
 				let buffer = new ArrayBuffer(1)
 				let dataView = new DataView(buffer)
+				console.log(`buffer是${this.buffer}, dataView是${this.dataView}`)
 				dataView.setUint8(0, 0)
 				uni.writeBLECharacteristicValue({
 					deviceId: this.bo_deviceId,
@@ -587,10 +625,16 @@
 					value: buffer,
 				})
 			},
-
+			
+			// 关闭蓝牙模块
 			bo_closeBluetoothAdapter() {
-				uni.closeBluetoothAdapter()
-				this.bo_discoveryStarted = false
+				uni.closeBluetoothAdapter({
+					success() {
+						this.bo_discoveryStarted = false
+						this.bo_connected = 2
+						this.bo_list = []
+					}
+				})
 			},
 		},
 	}
