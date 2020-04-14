@@ -204,8 +204,14 @@
 			} */
 }
 .blood-status .infos .date .this-week {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
         font-size: 26rpx;
         color: #333;
+}
+.blood-status .infos .date .this-week .space {
+          margin-right: 10rpx;
 }
 .blood-status .infos .wrap {
       width: 750rpx;

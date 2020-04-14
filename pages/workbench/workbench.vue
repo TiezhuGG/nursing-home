@@ -38,7 +38,7 @@
 				<img class="item-img" src="../../static/images/item-img1.png">
 				<text class="item-txt">实时心率</text>
 			</view>
-			<navigator class="item" url="../heart-rate/heart-rate">
+			<navigator class="item" url="../playback/playback">
 				<img class="item-img" src="../../static/images/item-img2.png">
 				<text class="item-txt">心率回放</text>
 			</navigator>
@@ -96,9 +96,9 @@
 		},
 		onShow() {
 			// 心率页面患者id 默认首次为1
-			this.pid = uni.getStorageSync('pid') ? uni.getStorageSync('pid') : 1
+			// this.pid = uni.getStorageSync('pid') ? uni.getStorageSync('pid') : 1
 			// 血状态页面患者id 默认首次为1
-			this.bpid = uni.getStorageSync('bpid') ? uni.getStorageSync('bpid') : 1
+			// this.bpid = uni.getStorageSync('bpid') ? uni.getStorageSync('bpid') : 1
 		},
 
 		methods: {

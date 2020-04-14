@@ -148,8 +148,13 @@
 			} */
 
 			.this-week {
+				display: flex;
 				font-size: 26upx;
 				color: #333;
+				
+				.space {
+					margin-right: 10upx;
+				}
 			}
 
 /* 			.last-week {

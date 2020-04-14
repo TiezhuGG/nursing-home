@@ -11,7 +11,8 @@
     "pages/notice/notice",
     "pages/video/video",
     "pages/login/login",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/playback/playback"
   ],
   "subPackages": [],
   "window": {
@@ -46,5 +47,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap17.json"
+  "sitemapLocation": "sitemap36.json"
 }

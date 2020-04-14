@@ -22,13 +22,11 @@
 					<text class='txt'>
 
 					</text> -->
-					
-					<!-- 日期选择器 -->
-<!-- 					<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+					<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
 						<view class="txt">
 							选择时间: {{date}}
 						</view>
-					</picker> -->
+					</picker>
 				</view>
 				<!-- <text class="total">最后30次测量</text> -->
 

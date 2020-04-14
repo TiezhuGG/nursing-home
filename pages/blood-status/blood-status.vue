@@ -35,14 +35,28 @@
 					<!-- 					<img src="../../static/images/back-green.png">
 					<text class="txt">上一周</text> -->
 				</view>
-				<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+				<!-- 				<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
 					<view class="this-week">
-						选择时间: {{date}}
+						选择时间: {{date.substr(5) + " 至 "}}
 					</view>
-				</picker>
+				</picker> -->
+
+				<view class="this-week">
+					<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange1">
+						<text class="space">
+							选择时间: {{date.substr(5) + " 至"}}
+						</text>
+					</picker>
+					<picker mode="date" :value="date2" :start="startDate" :end="endDate" @change="bindDateChange2">
+						<text>
+							{{date2.substr(5)}}
+						</text>
+					</picker>
+				</view>
+
 				<view class="next-week">
-					<!-- <text class="txt">下一周</text> -->
-					<!-- <img src="../../static/images/go-green.png"> -->
+					<!-- 					<text class="txt">下一周</text>
+					<img src="../../static/images/go-green.png"> -->
 				</view>
 			</view>
 			<!-- 平均值 -->
@@ -68,7 +82,7 @@
 			</view>
 			<!-- 按钮 -->
 			<view class="btn">
-				<button class="get-msg" @click="test(pid)">获取血压信息</button>
+				<button class="get-msg" @click="getData(1)">获取血压信息</button>
 				<!-- <button class="get-msg" @click="bp_openBluetoothAdapter">获取血压信息</button> -->
 			</view>
 		</view>
@@ -82,11 +96,18 @@
 					<!-- <img src="../../static/images/back-green.png"> -->
 					<!-- <text class="txt">上一周</text> -->
 				</view>
-				<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
-					<view class="this-week">
-						选择时间: {{date}}
-					</view>
-				</picker>
+				<view class="this-week">
+					<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange1">
+						<text class="space">
+							选择时间: {{date.substr(5) + " 至"}}
+						</text>
+					</picker>
+					<picker mode="date" :value="date2" :start="startDate" :end="endDate" @change="bindDateChange2">
+						<text>
+							{{date2.substr(5)}}
+						</text>
+					</picker>
+				</view>
 				<view class="next-week">
 					<!-- <text class="txt">下一周</text> -->
 					<!-- <img src="../../static/images/go-green.png"> -->
@@ -115,7 +136,7 @@
 			</view>
 			<!-- 按钮 -->
 			<view class="btn">
-				<button class="get-msg" @click="getServerData(currentIndex + 1)">获取血氧信息</button>
+				<button class="get-msg" @click="getData(2)">获取血氧信息</button>
 			</view>
 		</view>
 
@@ -128,11 +149,18 @@
 					<!-- <img src="../../static/images/back-green.png"> -->
 					<!-- <text class="txt">上一周</text> -->
 				</view>
-				<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
-					<view class="this-week">
-						选择时间: {{date}}
-					</view>
-				</picker>
+				<view class="this-week">
+					<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange1">
+						<text class="space">
+							选择时间: {{date.substr(5) + " 至"}}
+						</text>
+					</picker>
+					<picker mode="date" :value="date2" :start="startDate" :end="endDate" @change="bindDateChange2">
+						<text>
+							{{date2.substr(5)}}
+						</text>
+					</picker>
+				</view>
 				<view class="next-week">
 					<!-- <text class="txt">下一周</text> -->
 					<!-- <img src="../../static/images/go-green.png"> -->
@@ -161,7 +189,7 @@
 			</view>
 			<!-- 按钮 -->
 			<view class="btn">
-				<button class="get-msg" @click="getServerData(currentIndex + 1)">获取血糖信息</button>
+				<button class="get-msg" @click="getData(3)">获取血糖信息</button>
 			</view>
 		</view>
 
@@ -190,8 +218,10 @@
 				pid: '',
 				showCharts: false,
 				date: currentDate,
-				// heart_rate_list: [],
-				// categories: [],
+				date2: currentDate,
+				start_time: null,
+				end_time: null,
+				data_list: [],
 				// 血压
 				bp_devices: [],
 				bp_connected: false,
@@ -222,6 +252,9 @@
 		},
 
 		onLoad(options) {
+			// 进页面默认日期时间戳和后一天日期时间戳
+			this.start_time = this.dateToTimestamp(this.date)
+			this.end_time = this.start_time + 24 * 60 * 60 * 1000
 			// console.log('bpid',options.bpid)
 			// 从工作台进页面有患者id就执行
 			if (options.bpid) {
@@ -240,7 +273,6 @@
 			_self = this;
 			_self.fetchPatientList()
 			// 加载页面渲染血压的图表信息
-			// this.getServerData(1);
 			this.cWidth = uni.upx2px(750);
 			this.cHeight = uni.upx2px(500);
 		},
@@ -263,80 +295,92 @@
 		watch: {
 			patient(newVal, oldVal) {
 				// 切换病人时清空图表数据（重新渲染图表）
+				console.log(newVal)
+				console.log(oldVal)
+				if(newVal.id != oldVal.id) {
+					this.showCharts = false
+				}
 				this.bp_list = []
 				this.bp_categories = []
+				this.bo_list = []
+				this.bo_categories = []
+				_self.showLineA(this.chart)
+				// updateData更新图表
+				canvaLineA.updateData({
+					categories: this.bo_categories,
+					series: [{
+						name: '血氧',
+						data: this.bo_list
+					}],
+				})
+				console.log('watch', this.showCharts)
 			},
 			deep: true
 		},
 
 		methods: {
-			test(bpid) {
+			test(bpid, list) {
 				this.showCharts = true
-				this.fetchPatientInfo(bpid)
-				setInterval(() => {
-					let randomData = Math.random() * 300
-					let timer = Math.random() * 300
-					this.bp_list.push(randomData)
-					this.bp_categories.push(timer)
-					// console.log(this.bp_list)
-					if (this.bp_list.length > 8) {
-						this.bp_list.shift()
-						this.bp_categories.shift()
-					}
-
-					// 初始化图表实例
-					_self.showLineA(this.chart)
-					// updateData更新图表
-					canvaLineA.updateData({
-						categories: _self.bp_categories,
-						series: [{
-							name: '血压',
-							data: _self.bp_list
-						}],
-					})
-				}, 1000)
-
-			},
-			// 选择患者
-			bindPickerChange(e) {
-				// console.log(e)
-				for (let item of this.patientList) {
-					if (item.id === Number(e.detail.value) + 1) {
-						// this.fetchPatientInfo(item.id)
-						// 把患者id缓存到本地
-						uni.setStorage({
-							key: 'bpid',
-							data: item.id
-						})
-						this.test(item.id)
+				if (bpid) {
+					this.fetchPatientInfo(bpid)
+					for (let i = 0; i < list.length; i++) {
+						setTimeout(() => {
+							let randomData = Math.random() * 300
+							let timer = Math.random() * 300
+							this.bp_list.push(randomData)
+							this.bp_categories.push(timer)
+							// console.log(this.bp_list)
+							if (this.bp_list.length > 8) {
+								this.bp_list.shift()
+								this.bp_categories.shift()
+							}
+							
+							// 初始化图表实例
+							_self.showLineA(this.chart)
+							// updateData更新图表
+							canvaLineA.updateData({
+								categories: _self.bp_categories,
+								series: [{
+									name: '血压',
+									data: _self.bp_list
+								}],
+							})
+						}, 1000 * i)
 					}
 				}
 			},
-			// 获取患者列表(ID)
-			async fetchPatientList() {
-				await uni.request({
-					url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
-					success: res => {
-						this.patientList = res.data.data
-					}
-				})
-			},
-			// 获取患者信息
-			async fetchPatientInfo(id) {
-				await uni.request({
-					url: `https://ciai.le-cx.com/index.php/api/patient/info?id=${id}`,
-					success: res => {
-						this.patient = res.data.data
-					},
-				})
-			},
-			// 切换导航tab
-			switchTab(index) {
-				this.currentIndex = index
-				// 切换导航改变对应的图表canvas-id
-				this.chart = index + 1
-			},
 
+			drawChart(pid, list) {
+				this.showCharts = true
+				console.log('drawChart',this.showCharts)
+				if (pid) {
+					this.fetchPatientInfo(pid)
+					for (let i = 0; i < list.length; i++) {
+						setTimeout(() => {
+							this.bo_list.push(list[i].value)
+							// console.log('this.bo_list', this.bo_list)
+							let timer = list[i].time.substr(10, 1)
+							// console.log(timer)
+							this.bo_categories.push(timer)
+							// console.log(this.bo_list.length)
+							if (this.bo_list.length > 8) {
+								this.bo_list.shift()
+								this.bo_categories.shift()
+							}
+							// 初始化图表实例
+							_self.showLineA(this.chart)
+							// updateData更新图表
+							canvaLineA.updateData({
+								categories: this.bo_categories,
+								series: [{
+									name: '血氧',
+									data: this.bo_list
+								}],
+							})
+						}, 1000 * i)
+					}
+				}
+			},
 			// 图表配置
 			showLineA(canvasId) {
 				canvaLineA = new uCharts({
@@ -368,11 +412,8 @@
 						gridType: 'dash',
 						gridColor: '#CCC',
 						dashLength: 2,
-						min: 0.00,
-						max: 150.00,
-						// format: (val) => {
-						// 	return val.toFixed(0.00)
-						// }
+						min: 0,
+						max: 120,
 					},
 					width: _self.cWidth * _self.pixelRatio,
 					height: _self.cHeight * _self.pixelRatio,
@@ -383,6 +424,77 @@
 					}
 				});
 			},
+			// 获取血压、血氧、血糖数据
+			async getData(type) {
+				await uni.request({
+					url: 'https://ciai.le-cx.com/index.php/api/alarm/getHealthRow',
+					data: {
+						'type': type,
+						'patient_id': this.pid,
+						'start_time': this.start_time,
+						'end_time': this.end_time
+					},
+					success: (res) => {
+						if (res.data.code == 1) {
+							console.log('开始获取血氧数据', res.data.data)
+							this.data_list = res.data.data
+							this.drawChart(this.pid, this.data_list)
+							// this.test(this.pid, list)
+						} else {
+							uni.showToast({
+								title: '请先选择患者',
+								icon: 'none',
+								duration: 2000
+							})
+						}
+					}
+				})
+			},
+			// 选择患者
+			bindPickerChange(e) {
+				// console.log(e)
+				for (let item of this.patientList) {
+					if (item.id === Number(e.detail.value) + 1) {
+						this.pid = item.id
+						this.fetchPatientInfo(item.id)
+						// 把患者id缓存到本地
+						uni.setStorage({
+							key: 'bpid',
+							data: item.id
+						})
+
+						// this.test(item.id)
+					}
+				}
+			},
+			// 获取患者列表(ID)
+			async fetchPatientList() {
+				await uni.request({
+					url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
+					success: res => {
+						this.patientList = res.data.data
+					}
+				})
+			},
+			// 获取患者信息
+			async fetchPatientInfo(id) {
+				await uni.request({
+					url: `https://ciai.le-cx.com/index.php/api/patient/info?id=${id}`,
+					success: res => {
+						this.patient = res.data.data
+					},
+				})
+			},
+			// 切换导航tab
+			switchTab(index) {
+				this.currentIndex = index
+				// 切换导航改变对应的图表canvas-id
+				this.chart = index + 1
+				// 切换导航隐藏图表
+				this.showCharts = false
+				this.bp_list = []
+				this.bp_categories = []
+			},
 
 			touchLineA(e) {
 				canvaLineA.showToolTip(e, {
@@ -392,17 +504,10 @@
 				});
 			},
 
-			// 获取当前时间
-			getNowTime() {
-				let now = new Date()
-				let hour = now.getHours()
-				let minute = now.getMinutes()
-				let second = now.getSeconds()
-				hour = hour < 10 ? '0' + hour : hour
-				minute = minute < 10 ? '0' + minute : minute
-				second = second < 10 ? '0' + second : second
-				let now_time = `${hour}:${minute}:${second}`
-				return now_time
+			// 日期格式转时间戳
+			dateToTimestamp(date) {
+				let timestamp = new Date(date).getTime()
+				return timestamp
 			},
 
 			// 时间戳转普通日期时间格式
@@ -416,17 +521,23 @@
 				var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
 				return Y + M + D + h + m + s;
 			},
-			
-			// 日期选择器
-			bindDateChange(e) {
+
+			// 日期选择器1
+			bindDateChange1(e) {
 				this.date = e.target.value
+				this.start_time = this.dateToTimestamp(this.date)
+			},
+			// 日期选择器2
+			bindDateChange2(e) {
+				this.date2 = e.target.value
+				this.end_time = this.dateToTimestamp(this.date2)
 			},
 			getDate(type) {
 				const date = new Date();
 				let year = date.getFullYear();
 				let month = date.getMonth() + 1;
 				let day = date.getDate();
-			
+
 				if (type === 'start') {
 					year = year - 60;
 				} else if (type === 'end') {

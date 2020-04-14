@@ -238,9 +238,9 @@ var _default =
   },
   onShow: function onShow() {
     // 心率页面患者id 默认首次为1
-    this.pid = uni.getStorageSync('pid') ? uni.getStorageSync('pid') : 1;
+    // this.pid = uni.getStorageSync('pid') ? uni.getStorageSync('pid') : 1
     // 血状态页面患者id 默认首次为1
-    this.bpid = uni.getStorageSync('bpid') ? uni.getStorageSync('bpid') : 1;
+    // this.bpid = uni.getStorageSync('bpid') ? uni.getStorageSync('bpid') : 1
   },
 
   methods: {

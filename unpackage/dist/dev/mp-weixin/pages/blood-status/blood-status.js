@@ -98,6 +98,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var g0 = _vm.date.substr(5)
+  var g1 = _vm.date2.substr(5)
+  var g2 = _vm.date.substr(5)
+  var g3 = _vm.date2.substr(5)
+  var g4 = _vm.date.substr(5)
+  var g5 = _vm.date2.substr(5)
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        g0: g0,
+        g1: g1,
+        g2: g2,
+        g3: g3,
+        g4: g4,
+        g5: g5
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -302,7 +321,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-charts/u-charts.js */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _createForOfIteratorHelper(o) {if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var it,normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-charts/u-charts.js */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _createForOfIteratorHelper(o) {if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var it,normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 var _self;
 var canvaLineA = null;var _default =
 {
@@ -323,8 +370,10 @@ var canvaLineA = null;var _default =
       pid: '',
       showCharts: false,
       date: currentDate,
-      // heart_rate_list: [],
-      // categories: [],
+      date2: currentDate,
+      start_time: null,
+      end_time: null,
+      data_list: [],
       // 血压
       bp_devices: [],
       bp_connected: false,
@@ -355,6 +404,9 @@ var canvaLineA = null;var _default =
   },
 
   onLoad: function onLoad(options) {
+    // 进页面默认日期时间戳和后一天日期时间戳
+    this.start_time = this.dateToTimestamp(this.date);
+    this.end_time = this.start_time + 24 * 60 * 60 * 1000;
     // console.log('bpid',options.bpid)
     // 从工作台进页面有患者id就执行
     if (options.bpid) {
@@ -373,7 +425,6 @@ var canvaLineA = null;var _default =
     _self = this;
     _self.fetchPatientList();
     // 加载页面渲染血压的图表信息
-    // this.getServerData(1);
     this.cWidth = uni.upx2px(750);
     this.cHeight = uni.upx2px(500);
   },
@@ -396,80 +447,92 @@ var canvaLineA = null;var _default =
   watch: {
     patient: function patient(newVal, oldVal) {
       // 切换病人时清空图表数据（重新渲染图表）
+      console.log(newVal);
+      console.log(oldVal);
+      if (newVal.id != oldVal.id) {
+        this.showCharts = false;
+      }
       this.bp_list = [];
       this.bp_categories = [];
+      this.bo_list = [];
+      this.bo_categories = [];
+      _self.showLineA(this.chart);
+      // updateData更新图表
+      canvaLineA.updateData({
+        categories: this.bo_categories,
+        series: [{
+          name: '血氧',
+          data: this.bo_list }] });
+
+
+      console.log('watch', this.showCharts);
     },
     deep: true },
 
 
   methods: {
-    test: function test(bpid) {var _this = this;
+    test: function test(bpid, list) {var _this = this;
       this.showCharts = true;
-      this.fetchPatientInfo(bpid);
-      setInterval(function () {
-        var randomData = Math.random() * 300;
-        var timer = Math.random() * 300;
-        _this.bp_list.push(randomData);
-        _this.bp_categories.push(timer);
-        // console.log(this.bp_list)
-        if (_this.bp_list.length > 8) {
-          _this.bp_list.shift();
-          _this.bp_categories.shift();
+      if (bpid) {
+        this.fetchPatientInfo(bpid);
+        for (var i = 0; i < list.length; i++) {
+          setTimeout(function () {
+            var randomData = Math.random() * 300;
+            var timer = Math.random() * 300;
+            _this.bp_list.push(randomData);
+            _this.bp_categories.push(timer);
+            // console.log(this.bp_list)
+            if (_this.bp_list.length > 8) {
+              _this.bp_list.shift();
+              _this.bp_categories.shift();
+            }
+
+            // 初始化图表实例
+            _self.showLineA(_this.chart);
+            // updateData更新图表
+            canvaLineA.updateData({
+              categories: _self.bp_categories,
+              series: [{
+                name: '血压',
+                data: _self.bp_list }] });
+
+
+          }, 1000 * i);
         }
-
-        // 初始化图表实例
-        _self.showLineA(_this.chart);
-        // updateData更新图表
-        canvaLineA.updateData({
-          categories: _self.bp_categories,
-          series: [{
-            name: '血压',
-            data: _self.bp_list }] });
-
-
-      }, 1000);
-
-    },
-    // 选择患者
-    bindPickerChange: function bindPickerChange(e) {
-      // console.log(e)
-      var _iterator = _createForOfIteratorHelper(this.patientList),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
-          if (item.id === Number(e.detail.value) + 1) {
-            // this.fetchPatientInfo(item.id)
-            // 把患者id缓存到本地
-            uni.setStorage({
-              key: 'bpid',
-              data: item.id });
-
-            this.test(item.id);
-          }
-        }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
-    },
-    // 获取患者列表(ID)
-    fetchPatientList: function fetchPatientList() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  uni.request({
-                    url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
-                    success: function success(res) {
-                      _this2.patientList = res.data.data;
-                    } }));case 2:case "end":return _context.stop();}}}, _callee);}))();
-
-    },
-    // 获取患者信息
-    fetchPatientInfo: function fetchPatientInfo(id) {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
-                  uni.request({
-                    url: "https://ciai.le-cx.com/index.php/api/patient/info?id=".concat(id),
-                    success: function success(res) {
-                      _this3.patient = res.data.data;
-                    } }));case 2:case "end":return _context2.stop();}}}, _callee2);}))();
-
-    },
-    // 切换导航tab
-    switchTab: function switchTab(index) {
-      this.currentIndex = index;
-      // 切换导航改变对应的图表canvas-id
-      this.chart = index + 1;
+      }
     },
 
+    drawChart: function drawChart(pid, list) {var _this2 = this;
+      this.showCharts = true;
+      console.log('drawChart', this.showCharts);
+      if (pid) {
+        this.fetchPatientInfo(pid);var _loop = function _loop(
+        i) {
+          setTimeout(function () {
+            _this2.bo_list.push(list[i].value);
+            // console.log('this.bo_list', this.bo_list)
+            var timer = list[i].time.substr(10, 1);
+            // console.log(timer)
+            _this2.bo_categories.push(timer);
+            // console.log(this.bo_list.length)
+            if (_this2.bo_list.length > 8) {
+              _this2.bo_list.shift();
+              _this2.bo_categories.shift();
+            }
+            // 初始化图表实例
+            _self.showLineA(_this2.chart);
+            // updateData更新图表
+            canvaLineA.updateData({
+              categories: _this2.bo_categories,
+              series: [{
+                name: '血氧',
+                data: _this2.bo_list }] });
+
+
+          }, 1000 * i);};for (var i = 0; i < list.length; i++) {_loop(i);
+        }
+      }
+    },
     // 图表配置
     showLineA: function showLineA(canvasId) {
       canvaLineA = new _uCharts.default({
@@ -501,12 +564,9 @@ var canvaLineA = null;var _default =
           gridType: 'dash',
           gridColor: '#CCC',
           dashLength: 2,
-          min: 0.00,
-          max: 150.00
-          // format: (val) => {
-          // 	return val.toFixed(0.00)
-          // }
-        },
+          min: 0,
+          max: 120 },
+
         width: _self.cWidth * _self.pixelRatio,
         height: _self.cHeight * _self.pixelRatio,
         extra: {
@@ -515,6 +575,77 @@ var canvaLineA = null;var _default =
 
 
 
+    },
+    // 获取血压、血氧、血糖数据
+    getData: function getData(type) {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  uni.request({
+                    url: 'https://ciai.le-cx.com/index.php/api/alarm/getHealthRow',
+                    data: {
+                      'type': type,
+                      'patient_id': _this3.pid,
+                      'start_time': _this3.start_time,
+                      'end_time': _this3.end_time },
+
+                    success: function success(res) {
+                      if (res.data.code == 1) {
+                        console.log('开始获取血氧数据', res.data.data);
+                        _this3.data_list = res.data.data;
+                        _this3.drawChart(_this3.pid, _this3.data_list);
+                        // this.test(this.pid, list)
+                      } else {
+                        uni.showToast({
+                          title: '请先选择患者',
+                          icon: 'none',
+                          duration: 2000 });
+
+                      }
+                    } }));case 2:case "end":return _context.stop();}}}, _callee);}))();
+
+    },
+    // 选择患者
+    bindPickerChange: function bindPickerChange(e) {
+      // console.log(e)
+      var _iterator = _createForOfIteratorHelper(this.patientList),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
+          if (item.id === Number(e.detail.value) + 1) {
+            this.pid = item.id;
+            this.fetchPatientInfo(item.id);
+            // 把患者id缓存到本地
+            uni.setStorage({
+              key: 'bpid',
+              data: item.id });
+
+
+            // this.test(item.id)
+          }
+        }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
+    },
+    // 获取患者列表(ID)
+    fetchPatientList: function fetchPatientList() {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+                  uni.request({
+                    url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
+                    success: function success(res) {
+                      _this4.patientList = res.data.data;
+                    } }));case 2:case "end":return _context2.stop();}}}, _callee2);}))();
+
+    },
+    // 获取患者信息
+    fetchPatientInfo: function fetchPatientInfo(id) {var _this5 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+                  uni.request({
+                    url: "https://ciai.le-cx.com/index.php/api/patient/info?id=".concat(id),
+                    success: function success(res) {
+                      _this5.patient = res.data.data;
+                    } }));case 2:case "end":return _context3.stop();}}}, _callee3);}))();
+
+    },
+    // 切换导航tab
+    switchTab: function switchTab(index) {
+      this.currentIndex = index;
+      // 切换导航改变对应的图表canvas-id
+      this.chart = index + 1;
+      // 切换导航隐藏图表
+      this.showCharts = false;
+      this.bp_list = [];
+      this.bp_categories = [];
     },
 
     touchLineA: function touchLineA(e) {
@@ -525,17 +656,10 @@ var canvaLineA = null;var _default =
 
     },
 
-    // 获取当前时间
-    getNowTime: function getNowTime() {
-      var now = new Date();
-      var hour = now.getHours();
-      var minute = now.getMinutes();
-      var second = now.getSeconds();
-      hour = hour < 10 ? '0' + hour : hour;
-      minute = minute < 10 ? '0' + minute : minute;
-      second = second < 10 ? '0' + second : second;
-      var now_time = "".concat(hour, ":").concat(minute, ":").concat(second);
-      return now_time;
+    // 日期格式转时间戳
+    dateToTimestamp: function dateToTimestamp(date) {
+      var timestamp = new Date(date).getTime();
+      return timestamp;
     },
 
     // 时间戳转普通日期时间格式
@@ -550,9 +674,15 @@ var canvaLineA = null;var _default =
       return Y + M + D + h + m + s;
     },
 
-    // 日期选择器
-    bindDateChange: function bindDateChange(e) {
+    // 日期选择器1
+    bindDateChange1: function bindDateChange1(e) {
       this.date = e.target.value;
+      this.start_time = this.dateToTimestamp(this.date);
+    },
+    // 日期选择器2
+    bindDateChange2: function bindDateChange2(e) {
+      this.date2 = e.target.value;
+      this.end_time = this.dateToTimestamp(this.date2);
     },
     getDate: function getDate(type) {
       var date = new Date();

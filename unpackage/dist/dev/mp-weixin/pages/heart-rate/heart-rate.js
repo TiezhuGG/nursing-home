@@ -202,13 +202,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
 var _uCharts = _interopRequireDefault(__webpack_require__(/*! ../../components/u-charts/u-charts.js */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _createForOfIteratorHelper(o) {if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var it,normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
 var _self;
 var canvaLineA = null;
 var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 50);var _default =
 {
   data: function data() {
+    var currentDate = this.getDate({
+      format: true });
+
     return {
+      showCharts: false,
       time_range: ['08:25', '09:45', '10:22', '12:12', '13:25', '16:25', '18:25'],
       dateList: [{
         date: '2020年2月19日',
@@ -228,7 +242,8 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 50);var _defau
       patientList: [],
       patient: null,
       heart_rate_list: [],
-      categories: [] };
+      categories: [],
+      date: currentDate };
 
   },
   onLoad: function onLoad(options) {
@@ -237,17 +252,29 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 50);var _defau
     if (options.pid) {
       this.test(options.pid);
     }
-
     _self = this;
     this.fetchPatientList();
     // _self.getServerData();
     this.cWidth = uni.upx2px(750);
     this.cHeight = uni.upx2px(500);
   },
+  onHide: function onHide() {
+    this.showCharts = false;
+    this.heart_rate_list = [];
+    this.categories = [];
+  },
+  computed: {
+    startDate: function startDate() {
+      return this.getDate('start');
+    },
+    endDate: function endDate() {
+      return this.getDate('end');
+    } },
+
   watch: {
     patient: function patient(newVal, oldVal) {
-      console.log(newVal);
-      console.log(oldVal);
+      // console.log(newVal)
+      // console.log(oldVal)
       // 切换病人时清空图表数据（重新渲染图表）
       this.heart_rate_list = [];
       this.categories = [];
@@ -265,7 +292,27 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 50);var _defau
 
 
   methods: {
+    // 日期选择器
+    bindDateChange: function bindDateChange(e) {
+      this.date = e.target.value;
+    },
+    getDate: function getDate(type) {
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+
+      if (type === 'start') {
+        year = year - 60;
+      } else if (type === 'end') {
+        year = year + 2;
+      }
+      month = month > 9 ? month : '0' + month;;
+      day = day > 9 ? day : '0' + day;
+      return "".concat(year, "-").concat(month, "-").concat(day);
+    },
     test: function test(pid) {var _this = this;
+      this.showCharts = true;
       this.fetchPatientInfo(pid);
       setInterval(function () {
         var randomData = Math.random() * 300;
@@ -288,7 +335,7 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 50);var _defau
             data: _self.heart_rate_list }] });
 
 
-      }, 1500);
+      }, 1000);
 
     },
     // picker @change事件

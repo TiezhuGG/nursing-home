@@ -83,8 +83,8 @@
 			</view> -->
 			<!-- 按钮 -->
 			<view class="btn-two">
-				<button class="get-bluetooth" @click="bo_openBluetoothAdapter">{{bo_connected == 0 ? '连接蓝牙' : (bo_connected == 1 ? '已连接' : '已断开,重新连接')}}</button>
-				<button class="collect-data">采集血氧数据</button>
+				<button class="get-bluetooth" @click="bo_openBluetoothAdapter">{{bo_connected == 0 ? '连接蓝牙' : (bo_connected == 1 ? '已连接' : '已断开, 重新连接')}}</button>
+				<button class="collect-data" @click="saveBOData">采集血氧数据</button>
 			</view>
 		</view>
 
@@ -150,7 +150,7 @@
 				bp_categories: [],
 				// 血氧
 				bo_devices: [],
-				// 0: 未连接, 1: 已连接, 2: 已断开, 重新连接
+				// 0: 未连接, 1: 已连接, 2: 已断开, 重新连接, 3: 未找到该蓝牙设备
 				bo_connected: 0,
 				bo_chs: [],
 				bo_discoveryStarted: false,
@@ -162,7 +162,7 @@
 				bo_categories: [],
 				blood_oxygen: null,
 				pulse_rate: null,
-				bo_weared: null,
+				bo_weared: false,
 
 				this_week: '6月7日-6月13日',
 				avg_val_blood: '135/80',
@@ -178,11 +178,11 @@
 			}
 			this.fetchPatientList()
 		},
-		
+
 		watch: {
 			patient(newVal, oldVal) {
 				// 每次切换病人时关闭蓝牙模块并清空数据列表bo_list, 之后再重新连接蓝牙进行采集数据
-				if(oldVal != null) {
+				if (oldVal != null) {
 					this.bo_closeBluetoothAdapter()
 				}
 				// console.log(`newVal ${JSON.stringify(newVal)}, oldVal ${oldVal}`)
@@ -241,15 +241,31 @@
 				let timestamp = new Date().getTime()
 				return timestamp
 			},
-			
-			// 数据存储
-			saveData() {
-				if(this.bo_weared == false) {
-					console.log('患者摘下指夹式血氧仪')
-					
+
+			// 血氧信息存储
+			async saveBOData() {
+				console.log(`this.bo_weared ${this.bo_weared}`)
+				console.log(`this.bo_list ${this.bo_list.length}`)
+				if (this.bo_weared === false && this.bo_list.length !== 0) {
+					console.log('患者未佩戴血氧仪')
+					console.log(this.bo_list)
+					this.bo_list = JSON.stringify(this.bo_list)
+					await uni.request({
+						url: 'https://ciai.le-cx.com/index.php/api/alarm/putHealthRow',
+						data: {
+							data: this.bo_list
+						},
+						header: {
+							'content-type': 'application/x-www-form-urlencoded',
+						},
+						method: 'POST',
+						success(res) {
+							console.log(res.msg)
+						}
+					})
 				}
 			},
-	
+
 			inArray(arr, key, val) {
 				for (let i = 0; i < arr.length; i++) {
 					if (arr[i][key] === val) {
@@ -502,6 +518,12 @@
 						console.log('startBluetoothDevicesDiscovery success', res)
 						this.bo_onBluetoothDeviceFound()
 					},
+					fail: () => {
+						uni.showModal({
+							titile: '提示',
+							content: '未搜索到蓝牙设备'
+						})
+					}
 				})
 			},
 
@@ -513,6 +535,11 @@
 					if (bo_devices[0].name == 'Samo4 pulse oximeter') {
 						let e = bo_devices[0]
 						this.bo_createBLEConnection(e)
+					} else {
+						// setTimeout(() => {
+						// 	// 停止搜索蓝牙设备
+						// 	this.bo_stopBluetoothDevicesDiscovery()
+						// }, 5000)
 					}
 				})
 			},
@@ -601,11 +628,13 @@
 						this.blood_oxygen = parseInt(vale.substr(16, 2), 16)
 						this.pulse_rate = parseInt(vale.substr(18, 2), 16)
 						let bo = {
-							'blood_oxygen': this.blood_oxygen,
+							'type': 2,
+							'value': this.blood_oxygen,
+							'patient_id': this.pid,
 							'pulse_rate': this.pulse_rate,
 							'timestamp': this.getTimestamp()
 						}
-						this.bo_list.push(JSON.stringify(bo))
+						this.bo_list.push(bo)
 						console.log(`当前血氧饱和度: ${this.blood_oxygen},  脉率值${this.pulse_rate}, 数据列表${this.bo_list}`)
 						// console.log('当前血氧含量为：', parseInt(vale.substr(16, 2), 16), '脉率值:', parseInt(vale.substr(18, 2), 16)) //输出当前血氧饱和度,脉率值
 					}
@@ -625,7 +654,7 @@
 					value: buffer,
 				})
 			},
-			
+
 			// 关闭蓝牙模块
 			bo_closeBluetoothAdapter() {
 				uni.closeBluetoothAdapter({
