@@ -256,6 +256,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
 var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-charts/u-charts.js */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _createForOfIteratorHelper(o) {if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var it,normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}var _default =
 
 {
@@ -268,9 +273,9 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
       pixelRatio: 1,
       patientList: [],
       patient: null,
-      // 当前患者id
-      pid: '',
-      // 血压
+      pid: '', // 当前患者id
+      connected: 0, // 0: 未连接, 1: 已连接, 2: 重新连接
+      // 血压参数
       bp_devices: [],
       bp_connected: false,
       bp_chs: [],
@@ -279,28 +284,21 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
       bp_deviceId: '',
       bp_serviceId: '',
       bp_characteristicId: '',
-      bp_list: [],
-      bp_categories: [],
-      // 血氧
+      blood_pressure: null,
+      high_blood_pressure: 0, // 高压
+      low_blood_pressure: 0, // 低压
+      pressure_pulse_rate: 0, // 血压平均心率
+      // 血氧参数
       bo_devices: [],
-      // 0: 未连接, 1: 已连接, 2: 已断开, 重新连接, 3: 未找到该蓝牙设备
-      bo_connected: 0,
       bo_chs: [],
       bo_discoveryStarted: false,
       bo_canWrite: false,
       bo_deviceId: '',
       bo_serviceId: '',
       bo_characteristicId: '',
-      bo_list: [],
-      bo_categories: [],
-      blood_oxygen: null,
-      pulse_rate: null,
-      bo_weared: false,
-
-      this_week: '6月7日-6月13日',
-      avg_val_blood: '135/80',
-      avg_val_time: 65 };
-
+      blood_oxygen: 0, // 血压、血氧、血糖值
+      oxygen_pulse_rate: 0 // 血氧平均心率
+    };
   },
   onLoad: function onLoad(options) {
     // console.log('options',options)
@@ -314,9 +312,11 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
 
   watch: {
     patient: function patient(newVal, oldVal) {
-      // 每次切换病人时关闭蓝牙模块并清空数据列表bo_list, 之后再重新连接蓝牙进行采集数据
+      // 每次切换病人时关闭蓝牙模块, 之后再重新连接蓝牙进行采集数据
       if (oldVal != null) {
         this.bo_closeBluetoothAdapter();
+        // 让按钮显示'连接蓝牙'
+        this.connected = 0;
       }
       // console.log(`newVal ${JSON.stringify(newVal)}, oldVal ${oldVal}`)
     } },
@@ -325,6 +325,7 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
   methods: {
     // 选择患者
     bindPickerChange: function bindPickerChange(e) {
+      this.connected = 0;
       // console.log(e)
       var _iterator = _createForOfIteratorHelper(this.patientList),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
           if (item.id === Number(e.detail.value) + 1) {
@@ -354,19 +355,8 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
     // 切换导航tab
     switchTab: function switchTab(index) {
       this.currentIndex = index;
-    },
-
-    // 获取当前时间
-    getNowTime: function getNowTime() {
-      var now = new Date();
-      var hour = now.getHours();
-      var minute = now.getMinutes();
-      var second = now.getSeconds();
-      hour = hour < 10 ? '0' + hour : hour;
-      minute = minute < 10 ? '0' + minute : minute;
-      second = second < 10 ? '0' + second : second;
-      var now_time = "".concat(hour, ":").concat(minute, ":").concat(second);
-      return now_time;
+      // this.connected = 0
+      uni.hideLoading();
     },
 
     // 获取当前时间戳
@@ -375,27 +365,80 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
       return timestamp;
     },
 
-    // 血氧信息存储
-    saveBOData: function saveBOData() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
-                console.log("this.bo_weared ".concat(_this3.bo_weared));
-                console.log("this.bo_list ".concat(_this3.bo_list.length));if (!(
-                _this3.bo_weared === false && _this3.bo_list.length !== 0)) {_context3.next = 8;break;}
-                console.log('患者未佩戴血氧仪');
-                console.log(_this3.bo_list);
-                _this3.bo_list = JSON.stringify(_this3.bo_list);_context3.next = 8;return (
+    // 血状态信息存储
+    saveData: function saveData(type) {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                console.log('采集数据，connected', _this3.connected);if (!(
+                _this3.connected !== 2 && (_this3.blood_oxygen !== 0 || _this3.high_blood_pressure !== 0))) {_context3.next = 13;break;}
+                // 采集数据后断开蓝牙连接（让connected === 2,只能存储一次数据）
+                _this3.bo_closeBluetoothAdapter();
+                // 通过判断type的值存储血压、血氧或血糖的数据
+                if (!(type === 1)) {_context3.next = 8;break;}_context3.next = 6;return (
                   uni.request({
                     url: 'https://ciai.le-cx.com/index.php/api/alarm/putHealthRow',
                     data: {
-                      data: _this3.bo_list },
+                      'type': type,
+                      'value': JSON.stringify(_this3.blood_pressure),
+                      'patient_id': _this3.pid,
+                      'pulse_rate': _this3.pressure_pulse_rate,
+                      'timestamp': _this3.getTimestamp() },
 
                     header: {
                       'content-type': 'application/x-www-form-urlencoded' },
 
                     method: 'POST',
                     success: function success(res) {
-                      console.log(res.msg);
-                    } }));case 8:case "end":return _context3.stop();}}}, _callee3);}))();
+                      uni.showToast({
+                        title: '血压数据采集成功',
+                        icon: 'none',
+                        duration: 3000 });
 
+                      console.log('血压数据存储成功', res);
+                    } }));case 6:_context3.next = 11;break;case 8:if (!(
+
+                type === 2)) {_context3.next = 11;break;}_context3.next = 11;return (
+                  uni.request({
+                    url: 'https://ciai.le-cx.com/index.php/api/alarm/putHealthRow',
+                    data: {
+                      'type': type,
+                      'value': _this3.blood_oxygen,
+                      'patient_id': _this3.pid,
+                      'pulse_rate': _this3.pulse_rate,
+                      'timestamp': _this3.getTimestamp() },
+
+                    header: {
+                      'content-type': 'application/x-www-form-urlencoded' },
+
+                    method: 'POST',
+                    success: function success(res) {
+                      uni.showToast({
+                        title: '血氧数据采集成功',
+                        icon: 'none',
+                        duration: 3000 });
+
+                      console.log('血氧数据存储成功', res);
+                    } }));case 11:_context3.next = 14;break;case 13:
+
+
+
+                if (type === 1) {
+                  uni.showToast({
+                    title: "\u8BF7\u5148\u8FDE\u63A5\u8840\u538B\u8BA1\u84DD\u7259",
+                    icon: 'none',
+                    duration: 3000 });
+
+                } else if (type === 2) {
+                  uni.showToast({
+                    title: "\u8BF7\u5148\u8FDE\u63A5\u8840\u6C27\u4EEA\u84DD\u7259",
+                    icon: 'none',
+                    duration: 3000 });
+
+                } else {
+                  uni.showToast({
+                    title: "\u8BF7\u5148\u8FDE\u63A5\u8840\u7CD6\u4EEA\u84DD\u7259",
+                    icon: 'none',
+                    duration: 3000 });
+
+                }case 14:case "end":return _context3.stop();}}}, _callee3);}))();
 
     },
 
@@ -421,6 +464,7 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
 
     // 血压计
     bp_openBluetoothAdapter: function bp_openBluetoothAdapter() {var _this4 = this;
+      this.bp_discoveryStarted = false;
       console.log('初始化血压计蓝牙');
       uni.openBluetoothAdapter({
         success: function success(res) {
@@ -468,36 +512,48 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
     bp_onBluetoothDeviceFound: function bp_onBluetoothDeviceFound() {var _this7 = this;
       console.log('开始查找蓝牙设备');
       uni.onBluetoothDeviceFound(function (res) {
-        var devices = res.devices;
-        console.log('devices', devices[0].name);
-        if (devices[0].name == 'FSRKB_BT-001') {
-          var e = devices[0];
+        var bp_devices = res.devices;
+        console.log('devices', bp_devices[0].name);
+        if (bp_devices[0].name == 'FSRKB_BT-001') {
+          uni.hideLoading();
+          var e = bp_devices[0];
           _this7.bp_createBLEConnection(e);
+        } else {
+          // 停止搜索蓝牙设备
+          _this7.bp_stopBluetoothDevicesDiscovery();
+          uni.showLoading({
+            title: '正在连接蓝牙...' });
+
+          if (_this7.connected === 1) {
+            uni.hideLoading();
+          } else {
+            setTimeout(function () {
+              // this.connected = 2
+              uni.hideLoading();
+            }, 5000);
+          }
         }
       });
     },
     bp_stopBluetoothDevicesDiscovery: function bp_stopBluetoothDevicesDiscovery() {
+      this.bp_discoveryStarted = false;
       uni.stopBluetoothDevicesDiscovery();
     },
 
     bp_createBLEConnection: function bp_createBLEConnection(e) {var _this8 = this;
       // const ds = e.currentTarget.dataset
+      this.bp_stopBluetoothDevicesDiscovery();
+      console.log('开始连接蓝牙~~~');
       var deviceId = e.deviceId;
       var name = e.name;
       uni.createBLEConnection({
         deviceId: deviceId,
         success: function success(res) {
           console.log('连接血压计成功');
-          _this8.bp_connected = true;
-          // this.setData({
-          // 	connected: true,
-          // 	name,
-          // 	deviceId,
-          // })
+          _this8.connected = 1;
           _this8.bp_getBLEDeviceServices(deviceId);
         } });
 
-      this.bp_stopBluetoothDevicesDiscovery();
     },
     // bp_closeBLEConnection() {
     // 	uni.closeBLEConnection({
@@ -509,6 +565,7 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
     // },
 
     bp_getBLEDeviceServices: function bp_getBLEDeviceServices(deviceId) {var _this9 = this;
+      console.log('获取血压计的所有服务');
       uni.getBLEDeviceServices({
         deviceId: deviceId,
         success: function success(res) {
@@ -522,6 +579,7 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
 
     },
     bp_getBLEDeviceCharacteristics: function bp_getBLEDeviceCharacteristics(deviceId, serviceId) {var _this10 = this;
+      console.log('获取血压计的特征值');
       uni.getBLEDeviceCharacteristics({
         deviceId: deviceId,
         serviceId: serviceId,
@@ -530,9 +588,6 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
           for (var i = 0; i < res.characteristics.length; i++) {
             var item = res.characteristics[i];
             if (item.uuid == '0000FFF6-0000-1000-8000-00805F9B34FB') {
-              // this.setData({
-              // 	bp_canWrite: true
-              // })
               _this10.bp_canWrite = true;
               _this10.bp_deviceId = deviceId;
               _this10.bp_serviceId = serviceId;
@@ -555,39 +610,140 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
       // 操作之前先监听，保证第一时间获取数据
       uni.onBLECharacteristicValueChange(function (characteristic) {
         var vale = _this10.ab2hex(characteristic.value);
-        if (vale.substr(6, 2) == 'cc') {//判断是否测量结束，结束则进入
+        if (vale.substr(6, 2) == 'cc' && _this10.connected != 2) {//判断是否测量结束，结束则进入
           if (vale.substr(10, 2) == '00') {//判断是否错误，错误则进入
             switch (parseInt(vale.substr(8, 2), 16)) {
               case 1:
                 console.log('传感器异常！');
+                // 断开蓝牙连接
+                uni.closeBluetoothAdapter({
+                  success: function success() {
+                    _this10.connected = 2;
+                    uni.showToast({
+                      title: '传感器异常！',
+                      icon: 'none',
+                      duration: 3000 });
+
+                  } });
+
                 break;
               case 2:
                 console.log('不足以检测心跳或血压！');
+                uni.closeBluetoothAdapter({
+                  success: function success() {
+                    _this10.connected = 2;
+                    uni.showToast({
+                      title: '不足以检测心跳或血压！',
+                      icon: 'none',
+                      duration: 3000 });
+
+                  } });
+
                 break;
               case 3:
                 console.log('异常测量结果！');
+                uni.closeBluetoothAdapter({
+                  success: function success() {
+                    _this10.connected = 2;
+                    uni.showToast({
+                      title: '异常测量结果！',
+                      icon: 'none',
+                      duration: 3000 });
+
+                  } });
+
                 break;
               case 4:
                 console.log('袖口太松或泄漏（10秒压力小于30毫米）');
+                uni.closeBluetoothAdapter({
+                  success: function success() {
+                    _this10.connected = 2;
+                    uni.showToast({
+                      title: '袖口太松或泄漏（10秒压力小于30毫米）！',
+                      icon: 'none',
+                      duration: 3000 });
+
+                  } });
+
                 break;
               case 5:
                 console.log('气管堵塞');
+                uni.closeBluetoothAdapter({
+                  success: function success() {
+                    _this10.connected = 2;
+                    uni.showToast({
+                      title: '气管堵塞！',
+                      icon: 'none',
+                      duration: 3000 });
+
+                  } });
+
                 break;
               case 6:
                 console.log('压力波动过大');
+                uni.closeBluetoothAdapter({
+                  success: function success() {
+                    _this10.connected = 2;
+                    uni.showToast({
+                      title: '压力波动过大！',
+                      icon: 'none',
+                      duration: 3000 });
+
+                  } });
+
                 break;
               case 7:
                 console.log('压力超过上限');
+                uni.closeBluetoothAdapter({
+                  success: function success() {
+                    _this10.connected = 2;
+                    uni.showToast({
+                      title: '压力超过上限！',
+                      icon: 'none',
+                      duration: 3000 });
+
+                  } });
+
                 break;
               case 8:
                 console.log('请查看标准数据是否异常');
+                uni.closeBluetoothAdapter({
+                  success: function success() {
+                    _this10.connected = 2;
+                    uni.showToast({
+                      title: '请查看标准数据是否异常！',
+                      icon: 'none',
+                      duration: 3000 });
+
+                  } });
+
                 break;}
 
           } else {//输出测量结果
-            console.log('高压：', parseInt(vale.substr(8, 2), 16), '低压：', parseInt(vale.substr(10, 2), 16), '心率', parseInt(
-            vale.substr(12, 2), 16));
+            uni.hideLoading();
+            if (parseInt(vale.substr(8, 2), 16) && parseInt(vale.substr(10, 2), 16)) {
+              // 高压
+              _this10.high_blood_pressure = parseInt(vale.substr(8, 2), 16);
+              // 低压
+              _this10.low_blood_pressure = parseInt(vale.substr(10, 2), 16);
+              _this10.blood_pressure = {
+                'high_blood_pressure': _this10.high_blood_pressure,
+                'low_blood_pressure': _this10.low_blood_pressure };
+
+
+              console.log('最终血压为:', _this10.blood_pressure, JSON.stringify(_this10.blood_pressure));
+              _this10.pressure_pulse_rate = parseInt(vale.substr(12, 2), 16);
+            }
+            console.log('高压：', _this10.high_blood_pressure,
+            '低压：', _this10.low_blood_pressure,
+            '心率', parseInt(vale.substr(12, 2), 16));
+            console.log('高压：', parseInt(vale.substr(8, 2), 16),
+            '低压：', parseInt(vale.substr(10, 2), 16),
+            '心率', parseInt(vale.substr(12, 2), 16));
+
           }
         } else {//输出当前压力值
+          uni.hideLoading();
           console.log('当前压力：', parseInt(vale.substr(10, 2), 16));
         }
       });
@@ -609,13 +765,20 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
 
     },
     bp_closeBluetoothAdapter: function bp_closeBluetoothAdapter() {
-      uni.closeBluetoothAdapter();
+      this.connected = 2;
       this.bp_discoveryStarted = false;
+      uni.closeBluetoothAdapter({
+        success: function success() {
+          uni.hideLoading();
+          console.log('关闭蓝牙设备');
+        } });
+
     },
 
     // 血氧仪
     // 初始化蓝牙模块
     bo_openBluetoothAdapter: function bo_openBluetoothAdapter() {var _this11 = this;
+      this.bo_discoveryStarted = false;
       console.log('初始化蓝牙模块，进行血氧仪连接');
       uni.openBluetoothAdapter({
         success: function success(res) {
@@ -639,6 +802,7 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
 
     // 开始搜寻附近的蓝牙设备
     bo_startBluetoothDevicesDiscovery: function bo_startBluetoothDevicesDiscovery() {var _this12 = this;
+      console.log('this.bo_discoveryStarted', this.bo_discoveryStarted);
       // 通过bo_discoveryStarted判断是否开启蓝牙设备搜索
       if (this.bo_discoveryStarted) {
         return;
@@ -646,7 +810,7 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
       this.bo_discoveryStarted = true;
       uni.startBluetoothDevicesDiscovery({
         // 允许重复上报同一设备
-        allowDuplicatesKey: true,
+        // allowDuplicatesKey: true,
         success: function success(res) {
           console.log('startBluetoothDevicesDiscovery success', res);
           _this12.bo_onBluetoothDeviceFound();
@@ -666,19 +830,31 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
         console.log('onBluetoothDeviceFound success', res);
         var bo_devices = res.devices;
         if (bo_devices[0].name == 'Samo4 pulse oximeter') {
+          uni.hideLoading();
           var e = bo_devices[0];
           _this13.bo_createBLEConnection(e);
         } else {
-          // setTimeout(() => {
-          // 	// 停止搜索蓝牙设备
-          // 	this.bo_stopBluetoothDevicesDiscovery()
-          // }, 5000)
+          // 停止搜索蓝牙设备
+          _this13.bo_stopBluetoothDevicesDiscovery();
+          uni.showLoading({
+            title: '正在连接蓝牙...' });
+
+          if (_this13.connected === 1) {
+            uni.hideLoading();
+          } else {
+            setTimeout(function () {
+              // this.connected = 2
+              uni.hideLoading();
+            }, 5000);
+          }
         }
       });
     },
 
     // 连接低功耗蓝牙设备
     bo_createBLEConnection: function bo_createBLEConnection(e) {var _this14 = this;
+      // 停止搜索蓝牙
+      this.bo_stopBluetoothDevicesDiscovery();
       console.log('开始连接蓝牙~~~');
       var deviceId = e.deviceId;
       var name = e.name;
@@ -686,16 +862,16 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
         deviceId: deviceId,
         success: function success(res) {
           console.log('连接蓝牙成功');
-          _this14.bo_connected = 1;
+          _this14.connected = 1;
           _this14.bo_getBLEDeviceServices(deviceId);
         } });
 
-      this.bo_stopBluetoothDevicesDiscovery();
     },
 
     // 停止搜索附近的蓝牙设备
     bo_stopBluetoothDevicesDiscovery: function bo_stopBluetoothDevicesDiscovery() {
       console.log('停止搜索蓝牙设备');
+      this.bo_discoveryStarted = false;
       uni.stopBluetoothDevicesDiscovery();
     },
 
@@ -750,25 +926,24 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
       // 监听低功耗蓝牙设备的特征值变化事件，(操作之前先监听，保证第一时间获取数据)
       uni.onBLECharacteristicValueChange(function (characteristic) {
         var vale = _this16.ab2hex(characteristic.value);
-        if (vale.substr(20, 2) == 1) {//判断是否戴好
+        if (vale.substr(20, 2) == 1 && _this16.connected != 2) {//判断是否戴好
           console.log('未戴好！');
-          _this16.bo_weared = false;
-        } else {
-          // bo_weared判断患者是否戴上血氧仪
-          if (_this16.bo_weared != true) {
-            _this16.bo_weared = true;
-          }
-          _this16.blood_oxygen = parseInt(vale.substr(16, 2), 16);
-          _this16.pulse_rate = parseInt(vale.substr(18, 2), 16);
-          var bo = {
-            'type': 2,
-            'value': _this16.blood_oxygen,
-            'patient_id': _this16.pid,
-            'pulse_rate': _this16.pulse_rate,
-            'timestamp': _this16.getTimestamp() };
+          // 断开蓝牙连接
+          uni.closeBluetoothAdapter({
+            success: function success() {
+              _this16.connected = 2;
+              uni.showToast({
+                title: '请检查是否佩戴血氧仪',
+                icon: 'none',
+                duration: 3000 });
 
-          _this16.bo_list.push(bo);
-          console.log("\u5F53\u524D\u8840\u6C27\u9971\u548C\u5EA6: ".concat(_this16.blood_oxygen, ",  \u8109\u7387\u503C").concat(_this16.pulse_rate, ", \u6570\u636E\u5217\u8868").concat(_this16.bo_list));
+            } });
+
+        } else {
+          uni.hideLoading();
+          _this16.blood_oxygen = parseInt(vale.substr(16, 2), 16);
+          _this16.oxygen_pulse_rate = parseInt(vale.substr(18, 2), 16);
+          console.log("\u5F53\u524D\u8840\u6C27\u9971\u548C\u5EA6: ".concat(_this16.blood_oxygen, ",  \u8109\u7387\u503C").concat(_this16.oxygen_pulse_rate));
           // console.log('当前血氧含量为：', parseInt(vale.substr(16, 2), 16), '脉率值:', parseInt(vale.substr(18, 2), 16)) //输出当前血氧饱和度,脉率值
         }
       });
@@ -790,11 +965,12 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
 
     // 关闭蓝牙模块
     bo_closeBluetoothAdapter: function bo_closeBluetoothAdapter() {
+      this.connected = 2;
+      this.bo_discoveryStarted = false;
       uni.closeBluetoothAdapter({
         success: function success() {
-          this.bo_discoveryStarted = false;
-          this.bo_connected = 2;
-          this.bo_list = [];
+          uni.hideLoading();
+          console.log('关闭蓝牙设备');
         } });
 
     } } };exports.default = _default;

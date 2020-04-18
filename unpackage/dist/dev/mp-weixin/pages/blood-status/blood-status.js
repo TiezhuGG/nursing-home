@@ -349,6 +349,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-charts/u-charts.js */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _createForOfIteratorHelper(o) {if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var it,normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 var _self;
 var canvaLineA = null;var _default =
@@ -373,7 +377,8 @@ var canvaLineA = null;var _default =
       date2: currentDate,
       start_time: null,
       end_time: null,
-      data_list: [],
+      // 血压某测量时间
+      timer: '',
       // 血压
       bp_devices: [],
       bp_connected: false,
@@ -385,6 +390,10 @@ var canvaLineA = null;var _default =
       bp_characteristicId: '',
       bp_list: [],
       bp_categories: [],
+      blood_pressure: null,
+      high_blood_pressure: null,
+      low_blood_pressure: null,
+      pressure_pulse_rate: null,
       // 血氧
       bo_devices: [],
       bo_connected: false,
@@ -396,10 +405,8 @@ var canvaLineA = null;var _default =
       bo_characteristicId: '',
       bo_list: [],
       bo_categories: [],
-
-      this_week: '6月7日-6月13日',
-      avg_val_blood: '135/80',
-      avg_val_time: 65 };
+      blood_oxygen: null,
+      oxygen_pulse_rate: null };
 
   },
 
@@ -431,8 +438,8 @@ var canvaLineA = null;var _default =
 
   onHide: function onHide() {
     this.showCharts = false;
-    this.bp_list = [];
-    this.bp_categories = [];
+    // this.bp_list = []
+    // this.bp_categories = []
   },
 
   computed: {
@@ -447,25 +454,21 @@ var canvaLineA = null;var _default =
   watch: {
     patient: function patient(newVal, oldVal) {
       // 切换病人时清空图表数据（重新渲染图表）
-      console.log(newVal);
-      console.log(oldVal);
-      if (newVal.id != oldVal.id) {
+      if (oldVal != null && newVal.id != oldVal.id) {
         this.showCharts = false;
       }
-      this.bp_list = [];
-      this.bp_categories = [];
-      this.bo_list = [];
-      this.bo_categories = [];
-      _self.showLineA(this.chart);
-      // updateData更新图表
-      canvaLineA.updateData({
-        categories: this.bo_categories,
-        series: [{
-          name: '血氧',
-          data: this.bo_list }] });
-
-
-      console.log('watch', this.showCharts);
+      // this.bo_list = []
+      // this.bo_categories = []
+      // _self.showLineA(this.chart)
+      // // updateData更新图表
+      // canvaLineA.updateData({
+      // 	categories: this.bo_categories,
+      // 	series: [{
+      // 		name: '血氧',
+      // 		data: this.bo_list
+      // 	}],
+      // })
+      // console.log('watch', this.showCharts)
     },
     deep: true },
 
@@ -493,7 +496,7 @@ var canvaLineA = null;var _default =
             canvaLineA.updateData({
               categories: _self.bp_categories,
               series: [{
-                name: '血压',
+                name: '血压 血氧 血糖',
                 data: _self.bp_list }] });
 
 
@@ -502,101 +505,95 @@ var canvaLineA = null;var _default =
       }
     },
 
-    drawChart: function drawChart(pid, list) {var _this2 = this;
+    // 画图
+    drawChart: function drawChart(pid, list, typeName) {
       this.showCharts = true;
-      console.log('drawChart', this.showCharts);
+      // 画图时先清空图表数据
+      this.bo_list = [];
+      this.bo_categories = [];
+      // console.log('drawChart', this.showCharts)
       if (pid) {
-        this.fetchPatientInfo(pid);var _loop = function _loop(
-        i) {
-          setTimeout(function () {
-            _this2.bo_list.push(list[i].value);
-            // console.log('this.bo_list', this.bo_list)
-            var timer = list[i].time.substr(10, 1);
-            // console.log(timer)
-            _this2.bo_categories.push(timer);
-            // console.log(this.bo_list.length)
-            if (_this2.bo_list.length > 8) {
-              _this2.bo_list.shift();
-              _this2.bo_categories.shift();
+        this.fetchPatientInfo(pid);
+        // 心率总值(用于计算平均心率值)
+        var total_pulse_rate = 0;
+        // 血氧/血糖总值
+        var total_blood = 0;
+        // 高压列表
+        var high_list = [];
+        // 低压列表
+        var low_list = [];
+        for (var i = 0; i < list.length; i++) {
+          // console.log(list[i].value)
+          // console.log(list[i].pulse_rate)
+          if (list[i].value === "undefined" || list[i].pulse_rate === "undefined") {
+            continue;
+          } else {
+            var timer = this.timestampToTime(parseInt(list[i].time)).substr(5, 11);
+            // 血压/血氧/血糖 时间戳列表
+            this.bo_categories.push(timer);
+            // console.log('this.categories',this.bo_categories)
+            total_pulse_rate += parseInt(list[i].pulse_rate);
+            if (typeName === "血氧") {// 血氧
+              // 血氧列表
+              this.bo_list.push(list[i].value);
+              total_blood += parseInt(list[i].value);
+            } else if (typeName === "血压") {// 血压
+              high_list.push(JSON.parse(list[i].value).high_blood_pressure);
+              low_list.push(JSON.parse(list[i].value).low_blood_pressure);
+            } else {
+              console.log("血糖");
             }
-            // 初始化图表实例
-            _self.showLineA(_this2.chart);
-            // updateData更新图表
-            canvaLineA.updateData({
-              categories: _this2.bo_categories,
-              series: [{
-                name: '血氧',
-                data: _this2.bo_list }] });
+          }
+        }
+        if (total_pulse_rate != 0 && typeName == '血压') {
+          console.log('获取血压数据');
+          this.pressure_pulse_rate = (total_pulse_rate / i).toFixed(0);
+          // 血压列表
+          this.bp_list = [
+          { "name": "高压", "data": high_list },
+          { "name": "低压", "data": low_list }];
 
-
-          }, 1000 * i);};for (var i = 0; i < list.length; i++) {_loop(i);
+          _self.showLineA(this.chart, this.bo_categories, this.bp_list, typeName);
+        }
+        if (total_pulse_rate != 0 && typeName == '血氧') {
+          console.log('获取血氧数据');
+          this.oxygen_pulse_rate = (total_pulse_rate / i).toFixed(0);
+          // 首次渲染血氧图表显示第一个血氧值
+          this.blood_oxygen = this.bo_list[0];
+          _self.showLineA(this.chart, this.bo_categories, this.bo_list, typeName);
         }
       }
     },
-    // 图表配置
-    showLineA: function showLineA(canvasId) {
-      canvaLineA = new _uCharts.default({
-        $this: _self,
-        canvasId: canvasId,
-        type: 'line',
-        fontSize: 11,
-        colors: ['#24C789'],
-        legend: {
-          show: true },
 
-        dataLabel: false,
-        dataPointShape: true,
-        background: '#FFFFFF',
-        pixelRatio: _self.pixelRatio,
-        categories: '',
-        series: [{
-          name: '血压 血氧 血糖',
-          data: '' }],
-
-        animation: false,
-        xAxis: {
-          disableGrid: true },
-
-        yAxis: {
-          data: [{
-            axisLine: false }],
-
-          gridType: 'dash',
-          gridColor: '#CCC',
-          dashLength: 2,
-          min: 0,
-          max: 120 },
-
-        width: _self.cWidth * _self.pixelRatio,
-        height: _self.cHeight * _self.pixelRatio,
-        extra: {
-          line: {
-            type: 'curve' } } });
-
-
-
-    },
     // 获取血压、血氧、血糖数据
-    getData: function getData(type) {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+    getData: function getData(type, typeName) {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   uni.request({
                     url: 'https://ciai.le-cx.com/index.php/api/alarm/getHealthRow',
                     data: {
                       'type': type,
-                      'patient_id': _this3.pid,
-                      'start_time': _this3.start_time,
-                      'end_time': _this3.end_time },
+                      'patient_id': _this2.pid,
+                      'start_time': _this2.start_time,
+                      'end_time': _this2.end_time },
 
                     success: function success(res) {
                       if (res.data.code == 1) {
-                        console.log('开始获取血氧数据', res.data.data);
-                        _this3.data_list = res.data.data;
-                        _this3.drawChart(_this3.pid, _this3.data_list);
-                        // this.test(this.pid, list)
+                        // console.log('开始获取数据', res.data.data)
+                        var data_list = res.data.data;
+                        // 获取数据后进行画图
+                        if (data_list.length !== 0) {
+                          _this2.drawChart(_this2.pid, data_list, typeName);
+                        } else {
+                          uni.showToast({
+                            title: '该时间段内没有数据',
+                            icon: 'none',
+                            duration: 3000 });
+
+                        }
                       } else {
                         uni.showToast({
                           title: '请先选择患者',
                           icon: 'none',
-                          duration: 2000 });
+                          duration: 3000 });
 
                       }
                     } }));case 2:case "end":return _context.stop();}}}, _callee);}))();
@@ -604,6 +601,10 @@ var canvaLineA = null;var _default =
     },
     // 选择患者
     bindPickerChange: function bindPickerChange(e) {
+      this.blood_pressure = null;
+      this.pressure_pulse_rate = null;
+      this.blood_oxygen = null;
+      this.oxygen_pulse_rate = null;
       // console.log(e)
       var _iterator = _createForOfIteratorHelper(this.patientList),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
           if (item.id === Number(e.detail.value) + 1) {
@@ -614,26 +615,25 @@ var canvaLineA = null;var _default =
               key: 'bpid',
               data: item.id });
 
-
             // this.test(item.id)
           }
         }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
     },
     // 获取患者列表(ID)
-    fetchPatientList: function fetchPatientList() {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+    fetchPatientList: function fetchPatientList() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
                   uni.request({
                     url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
                     success: function success(res) {
-                      _this4.patientList = res.data.data;
+                      _this3.patientList = res.data.data;
                     } }));case 2:case "end":return _context2.stop();}}}, _callee2);}))();
 
     },
     // 获取患者信息
-    fetchPatientInfo: function fetchPatientInfo(id) {var _this5 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+    fetchPatientInfo: function fetchPatientInfo(id) {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
                   uni.request({
                     url: "https://ciai.le-cx.com/index.php/api/patient/info?id=".concat(id),
                     success: function success(res) {
-                      _this5.patient = res.data.data;
+                      _this4.patient = res.data.data;
                     } }));case 2:case "end":return _context3.stop();}}}, _callee3);}))();
 
     },
@@ -644,16 +644,143 @@ var canvaLineA = null;var _default =
       this.chart = index + 1;
       // 切换导航隐藏图表
       this.showCharts = false;
-      this.bp_list = [];
-      this.bp_categories = [];
+      // this.bp_list = []
+      // this.bp_categories = []
     },
 
+    // 图表配置
+    showLineA: function showLineA(canvasId, categories, seriesData, seriesName) {
+      // 根据图表名称画相应的图
+      if (seriesName === '血氧' || seriesName === '血糖') {
+        canvaLineA = new _uCharts.default({
+          $this: _self,
+          canvasId: canvasId,
+          type: 'line',
+          fontSize: 11,
+          colors: ['#24C789'],
+          legend: {
+            show: true },
+
+          dataLabel: false,
+          dataPointShape: true,
+          background: '#FFFFFF',
+          pixelRatio: _self.pixelRatio,
+          categories: categories,
+          // series: seriesData,
+          series: [{
+            name: seriesName,
+            data: seriesData }],
+
+          animation: false,
+          xAxis: {
+            disableGrid: true,
+            disabled: true,
+            axisLine: false },
+
+          yAxis: {
+            data: [{
+              axisLine: false,
+              // min: 0,
+              // max: 180,
+              format: function format(val) {
+                return val.toFixed(0);
+              } }],
+
+            gridType: 'dash',
+            gridColor: '#CCC',
+            dashLength: 2 },
+
+          width: _self.cWidth * _self.pixelRatio,
+          height: _self.cHeight * _self.pixelRatio,
+          extra: {
+            line: {
+              type: 'curve' },
+
+            tooltip: {
+              'gridColor': '#ccc' } } });
+
+
+
+      } else {
+        canvaLineA = new _uCharts.default({
+          $this: _self,
+          canvasId: canvasId,
+          type: 'line',
+          fontSize: 11,
+          colors: ['#24C789'],
+          legend: {
+            show: true },
+
+          dataLabel: false,
+          dataPointShape: true,
+          background: '#FFFFFF',
+          pixelRatio: _self.pixelRatio,
+          categories: categories,
+          series: seriesData,
+          animation: false,
+          xAxis: {
+            disableGrid: true,
+            disabled: true,
+            axisLine: false },
+
+          yAxis: {
+            data: [{
+              axisLine: false,
+              min: 0,
+              max: 180,
+              format: function format(val) {
+                return val.toFixed(0);
+              } }],
+
+            gridType: 'dash',
+            gridColor: '#CCC',
+            dashLength: 2 },
+
+          width: _self.cWidth * _self.pixelRatio,
+          height: _self.cHeight * _self.pixelRatio,
+          extra: {
+            line: {
+              type: 'curve' },
+
+            tooltip: {
+              'gridColor': '#ccc' } } });
+
+
+
+      }
+    },
+
+    // 血压图表点击事件
     touchLineA: function touchLineA(e) {
       canvaLineA.showToolTip(e, {
         format: function format(item, category) {
+          // 把category赋值到e的某个属性
+          e.category = category;
           return category + ' ' + item.name + ':' + item.data;
         } });
 
+      // 根据测量时间对应的索引拿到高压和低压的值
+      this.timer = e.category;
+      var index = this.bo_categories.indexOf(this.timer);
+      if (index !== -1) {
+        this.high_blood_pressure = this.bp_list[0].data[index];
+        this.low_blood_pressure = this.bp_list[1].data[index];
+        // console.log('高压',this.bp_list[0].data[index])
+        // console.log('低压',this.bp_list[1].data[index])
+      }
+    },
+
+    // 血氧图表点击事件
+    touchLineB: function touchLineB(e) {
+      canvaLineA.showToolTip(e, {
+        format: function format(item, category) {
+          // 把item.data赋值到e的某个属性，便于后面可以拿到图表每个标识数据
+          e.blood_oxygen = item.data;
+          return category + ' ' + item.name + ':' + item.data;
+        } });
+
+      // 通过e拿到每个图表标识的数据
+      this.blood_oxygen = e.blood_oxygen; // 血氧				
     },
 
     // 日期格式转时间戳

@@ -1,5 +1,5 @@
 <template>
-	<view class="heart-rate">
+	<view class="playback">
 		<view class="top">
 			<view class="patient_infos">
 				<img class="avatar" :src="patient.avatar">
@@ -18,14 +18,25 @@
 
 			<view class="date-module">
 				<view class="date">
-<!-- 					<img class="back" src="../../static/images/back2.png">
+					<!-- 					<img class="back" src="../../static/images/back2.png">
 					<text class='txt'>
 
 					</text> -->
-					<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+					<!-- 					<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
 						<view class="txt">
 							选择时间: {{date}}
 						</view>
+					</picker> -->
+
+					<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange1">
+						<text class="txt">
+							选择时间: {{date.substr(5) + " 至"}}
+						</text>
+					</picker>
+					<picker mode="date" :value="date2" :start="startDate" :end="endDate" @change="bindDateChange2">
+						<text class="txt">
+							{{date2.substr(5)}}
+						</text>
 					</picker>
 				</view>
 				<!-- <text class="total">最后30次测量</text> -->
@@ -40,11 +51,11 @@
 		</view>
 
 		<view class="middle">
-			<view class="time-range">
+			<!-- 			<view class="time-range">
 				<block v-for="(item, index) in time_range" :key="index">
 					<text class="time">{{item}}</text>
 				</block>
-			</view>
+			</view> -->
 			<view class="beat">
 				<view class="beat-item">
 					<text class="txt">最高(BPM)</text>
@@ -109,6 +120,7 @@
 				heart_rate_list: [],
 				categories: [],
 				date: currentDate,
+				date2: currentDate,
 			};
 		},
 		onLoad(options) {
@@ -157,9 +169,15 @@
 		},
 
 		methods: {
-			// 日期选择器
-			bindDateChange(e) {
+			// 日期选择器1
+			bindDateChange1(e) {
 				this.date = e.target.value
+				this.start_time = this.dateToTimestamp(this.date)
+			},
+			// 日期选择器2
+			bindDateChange2(e) {
+				this.date2 = e.target.value
+				this.end_time = this.dateToTimestamp(this.date2)
 			},
 			getDate(type) {
 				const date = new Date();
@@ -364,19 +382,6 @@
 				});
 			},
 
-			// 获取当前时间
-			// getNowTime() {
-			// 	let now = new Date()
-			// 	let hour = now.getHours()
-			// 	let minute = now.getMinutes()
-			// 	let second = now.getSeconds()
-			// 	hour = hour < 10 ? '0' + hour : hour
-			// 	minute = minute < 10 ? '0' + minute : minute
-			// 	second = second < 10 ? '0' + second : second
-			// 	let now_time = `${hour}:${minute}:${second}`
-			// 	return now_time
-			// },
-
 			async getServerData() {
 				await uni.request({
 					url: 'https://www.ucharts.cn/data.json',
@@ -416,7 +421,7 @@
 		height: 430upx;
 	}
 
-	.heart-rate {
+	.playback {
 		background-color: #F7F7F7;
 
 		.top {
@@ -483,14 +488,15 @@
 			}
 
 			.date-module {
-				width: 280upx;
-				display: flex;
-				flex-direction: column;
+				width: 350upx;
+				// display: flex;
+				// flex-direction: column;
 				margin-top: 40upx;
 				margin-bottom: 40upx;
+
 				.date {
 					display: flex;
-					justify-content: space-between;
+					// justify-content: space-between;
 					align-items: center;
 
 					.back {
@@ -501,6 +507,7 @@
 					.txt {
 						font-size: 28upx;
 						color: #fff;
+						margin-right: 10upx;
 					}
 				}
 
@@ -518,7 +525,7 @@
 			height: 236upx;
 			display: flex;
 			flex-direction: column;
-			justify-content: space-between;
+			justify-content: center;
 			background-color: #fff;
 
 			.time-range {
@@ -535,6 +542,7 @@
 			.beat {
 				display: flex;
 				justify-content: space-between;
+				margin-top: 50upx;
 
 				.beat-item {
 					display: flex;
@@ -594,8 +602,10 @@
 					font-size: 28upx;
 
 					.txt {
+						display: inline-block;
 						color: #999;
 						margin-bottom: 28upx;
+						margin-right: 10upx;
 					}
 
 					.bpm {

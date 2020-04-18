@@ -33,14 +33,19 @@
 			<view class="wrap" style="padding-top: 20upx;">
 				<view class="avg-info">
 					<view class="avg-info-item">
-						<text class="txt-top">平均血压值</text>
-						<text class="val">{{avg_val_blood}}</text>
+						<text class="txt-top">高压</text>
+						<text class="val">{{high_blood_pressure ? high_blood_pressure : ''}}</text>
+						<text class="txt-bottom">mmHg</text>
+					</view>
+					<view class="avg-info-item">
+						<text class="txt-top">低压</text>
+						<text class="val">{{low_blood_pressure ? low_blood_pressure : ''}}</text>
 						<text class="txt-bottom">mmHg</text>
 					</view>
 					<view class="avg-info-item">
 						<text class="txt-top">平均心率值</text>
-						<text class="val">{{avg_val_time}}</text>
-						<text class="txt-bottom">次/分钟</text>
+						<text class="val">{{pressure_pulse_rate ? pressure_pulse_rate : ''}}</text>
+						<text class="txt-bottom">bpm</text>
 					</view>
 				</view>
 			</view>
@@ -52,8 +57,8 @@
 			</view> -->
 			<!-- 按钮 -->
 			<view class="btn-two">
-				<button class="get-bluetooth" @click="bp_openBluetoothAdapter">连接蓝牙</button>
-				<button class="collect-data">采集血压数据</button>
+				<button class="get-bluetooth" @click="bp_openBluetoothAdapter">{{connected == 0 ? '连接蓝牙' : (connected == 1 ? '已连接' : '请重新连接')}}</button>
+				<button class="collect-data" @click="saveData(1)">采集血压数据</button>
 			</view>
 		</view>
 
@@ -70,7 +75,7 @@
 					</view>
 					<view class="avg-info-item">
 						<text class="txt-top">平均心率值</text>
-						<text class="val">{{pulse_rate ? pulse_rate : ''}}</text>
+						<text class="val">{{oxygen_pulse_rate ? oxygen_pulse_rate : ''}}</text>
 						<text class="txt-bottom">bpm</text>
 					</view>
 				</view>
@@ -83,8 +88,8 @@
 			</view> -->
 			<!-- 按钮 -->
 			<view class="btn-two">
-				<button class="get-bluetooth" @click="bo_openBluetoothAdapter">{{bo_connected == 0 ? '连接蓝牙' : (bo_connected == 1 ? '已连接' : '已断开, 重新连接')}}</button>
-				<button class="collect-data" @click="saveBOData">采集血氧数据</button>
+				<button class="get-bluetooth" @click="bo_openBluetoothAdapter">{{connected == 0 ? '连接蓝牙' : (connected == 1 ? '已连接' : '请重新连接')}}</button>
+				<button class="collect-data" @click="saveData(2)">采集血氧数据</button>
 			</view>
 		</view>
 
@@ -114,8 +119,8 @@
 			</view> -->
 			<!-- 按钮 -->
 			<view class="btn-two">
-				<button class="get-bluetooth">连接蓝牙</button>
-				<button class="collect-data">采集血糖数据</button>
+				<button class="get-bluetooth">{{connected == 0 ? '连接蓝牙' : (connected == 1 ? '已连接' : '请重新连接')}}</button>
+				<button class="collect-data" @click="saveData(3)">采集血糖数据</button>
 			</view>
 		</view>
 
@@ -135,9 +140,9 @@
 				pixelRatio: 1,
 				patientList: [],
 				patient: null,
-				// 当前患者id
-				pid: '',
-				// 血压
+				pid: '', // 当前患者id
+				connected: 0, // 0: 未连接, 1: 已连接, 2: 重新连接
+				// 血压参数
 				bp_devices: [],
 				bp_connected: false,
 				bp_chs: [],
@@ -146,27 +151,20 @@
 				bp_deviceId: '',
 				bp_serviceId: '',
 				bp_characteristicId: '',
-				bp_list: [],
-				bp_categories: [],
-				// 血氧
+				blood_pressure: null,
+				high_blood_pressure: 0, // 高压
+				low_blood_pressure: 0, // 低压
+				pressure_pulse_rate: 0, // 血压平均心率
+				// 血氧参数
 				bo_devices: [],
-				// 0: 未连接, 1: 已连接, 2: 已断开, 重新连接, 3: 未找到该蓝牙设备
-				bo_connected: 0,
 				bo_chs: [],
 				bo_discoveryStarted: false,
 				bo_canWrite: false,
 				bo_deviceId: '',
 				bo_serviceId: '',
 				bo_characteristicId: '',
-				bo_list: [],
-				bo_categories: [],
-				blood_oxygen: null,
-				pulse_rate: null,
-				bo_weared: false,
-
-				this_week: '6月7日-6月13日',
-				avg_val_blood: '135/80',
-				avg_val_time: 65,
+				blood_oxygen: 0, // 血压、血氧、血糖值
+				oxygen_pulse_rate: 0, // 血氧平均心率
 			};
 		},
 		onLoad(options) {
@@ -181,9 +179,11 @@
 
 		watch: {
 			patient(newVal, oldVal) {
-				// 每次切换病人时关闭蓝牙模块并清空数据列表bo_list, 之后再重新连接蓝牙进行采集数据
+				// 每次切换病人时关闭蓝牙模块, 之后再重新连接蓝牙进行采集数据
 				if (oldVal != null) {
 					this.bo_closeBluetoothAdapter()
+					// 让按钮显示'连接蓝牙'
+					this.connected = 0
 				}
 				// console.log(`newVal ${JSON.stringify(newVal)}, oldVal ${oldVal}`)
 			}
@@ -192,6 +192,7 @@
 		methods: {
 			// 选择患者
 			bindPickerChange(e) {
+				this.connected = 0
 				// console.log(e)
 				for (let item of this.patientList) {
 					if (item.id === Number(e.detail.value) + 1) {
@@ -221,19 +222,8 @@
 			// 切换导航tab
 			switchTab(index) {
 				this.currentIndex = index
-			},
-
-			// 获取当前时间
-			getNowTime() {
-				let now = new Date()
-				let hour = now.getHours()
-				let minute = now.getMinutes()
-				let second = now.getSeconds()
-				hour = hour < 10 ? '0' + hour : hour
-				minute = minute < 10 ? '0' + minute : minute
-				second = second < 10 ? '0' + second : second
-				let now_time = `${hour}:${minute}:${second}`
-				return now_time
+				// this.connected = 0
+				uni.hideLoading()
 			},
 
 			// 获取当前时间戳
@@ -242,27 +232,80 @@
 				return timestamp
 			},
 
-			// 血氧信息存储
-			async saveBOData() {
-				console.log(`this.bo_weared ${this.bo_weared}`)
-				console.log(`this.bo_list ${this.bo_list.length}`)
-				if (this.bo_weared === false && this.bo_list.length !== 0) {
-					console.log('患者未佩戴血氧仪')
-					console.log(this.bo_list)
-					this.bo_list = JSON.stringify(this.bo_list)
-					await uni.request({
-						url: 'https://ciai.le-cx.com/index.php/api/alarm/putHealthRow',
-						data: {
-							data: this.bo_list
-						},
-						header: {
-							'content-type': 'application/x-www-form-urlencoded',
-						},
-						method: 'POST',
-						success(res) {
-							console.log(res.msg)
-						}
-					})
+			// 血状态信息存储
+			async saveData(type) {
+				console.log('采集数据，connected', this.connected)
+				if (this.connected !== 2 && (this.blood_oxygen !== 0 || this.high_blood_pressure !== 0)) {
+					// 采集数据后断开蓝牙连接（让connected === 2,只能存储一次数据）
+					this.bo_closeBluetoothAdapter()
+					// 通过判断type的值存储血压、血氧或血糖的数据
+					if (type === 1) {
+						await uni.request({
+							url: 'https://ciai.le-cx.com/index.php/api/alarm/putHealthRow',
+							data: {
+								'type': type,
+								'value': JSON.stringify(this.blood_pressure),
+								'patient_id': this.pid,
+								'pulse_rate': this.pressure_pulse_rate,
+								'timestamp': this.getTimestamp()
+							},
+							header: {
+								'content-type': 'application/x-www-form-urlencoded',
+							},
+							method: 'POST',
+							success(res) {
+								uni.showToast({
+									title: '血压数据采集成功',
+									icon: 'none',
+									duration: 3000
+								})
+								console.log('血压数据存储成功', res)
+							}
+						})
+					} else if (type === 2) {
+						await uni.request({
+							url: 'https://ciai.le-cx.com/index.php/api/alarm/putHealthRow',
+							data: {
+								'type': type,
+								'value': this.blood_oxygen,
+								'patient_id': this.pid,
+								'pulse_rate': this.pulse_rate,
+								'timestamp': this.getTimestamp()
+							},
+							header: {
+								'content-type': 'application/x-www-form-urlencoded',
+							},
+							method: 'POST',
+							success(res) {
+								uni.showToast({
+									title: '血氧数据采集成功',
+									icon: 'none',
+									duration: 3000
+								})
+								console.log('血氧数据存储成功', res)
+							}
+						})
+					}
+				} else {
+					if (type === 1) {
+						uni.showToast({
+							title: `请先连接血压计蓝牙`,
+							icon: 'none',
+							duration: 3000
+						})
+					} else if (type === 2) {
+						uni.showToast({
+							title: `请先连接血氧仪蓝牙`,
+							icon: 'none',
+							duration: 3000
+						})
+					} else {
+						uni.showToast({
+							title: `请先连接血糖仪蓝牙`,
+							icon: 'none',
+							duration: 3000
+						})
+					}
 				}
 			},
 
@@ -288,6 +331,7 @@
 
 			// 血压计
 			bp_openBluetoothAdapter() {
+				this.bp_discoveryStarted = false
 				console.log('初始化血压计蓝牙')
 				uni.openBluetoothAdapter({
 					success: (res) => {
@@ -335,36 +379,48 @@
 			bp_onBluetoothDeviceFound() {
 				console.log('开始查找蓝牙设备')
 				uni.onBluetoothDeviceFound((res) => {
-					var devices = res.devices
-					console.log('devices', devices[0].name)
-					if (devices[0].name == 'FSRKB_BT-001') {
-						let e = devices[0]
+					var bp_devices = res.devices
+					console.log('devices', bp_devices[0].name)
+					if (bp_devices[0].name == 'FSRKB_BT-001') {
+						uni.hideLoading()
+						let e = bp_devices[0]
 						this.bp_createBLEConnection(e)
+					} else {
+						// 停止搜索蓝牙设备
+						this.bp_stopBluetoothDevicesDiscovery()
+						uni.showLoading({
+							title: '正在连接蓝牙...'
+						})
+						if (this.connected === 1) {
+							uni.hideLoading()
+						} else {
+							setTimeout(() => {
+								// this.connected = 2
+								uni.hideLoading()
+							}, 5000)
+						}
 					}
 				})
 			},
 			bp_stopBluetoothDevicesDiscovery() {
+				this.bp_discoveryStarted = false
 				uni.stopBluetoothDevicesDiscovery()
 			},
 
 			bp_createBLEConnection(e) {
 				// const ds = e.currentTarget.dataset
+				this.bp_stopBluetoothDevicesDiscovery()
+				console.log('开始连接蓝牙~~~')
 				const deviceId = e.deviceId
 				const name = e.name
 				uni.createBLEConnection({
 					deviceId,
 					success: (res) => {
 						console.log('连接血压计成功')
-						this.bp_connected = true
-						// this.setData({
-						// 	connected: true,
-						// 	name,
-						// 	deviceId,
-						// })
+						this.connected = 1
 						this.bp_getBLEDeviceServices(deviceId)
 					}
 				})
-				this.bp_stopBluetoothDevicesDiscovery()
 			},
 			// bp_closeBLEConnection() {
 			// 	uni.closeBLEConnection({
@@ -376,6 +432,7 @@
 			// },
 
 			bp_getBLEDeviceServices(deviceId) {
+				console.log('获取血压计的所有服务')
 				uni.getBLEDeviceServices({
 					deviceId,
 					success: (res) => {
@@ -389,6 +446,7 @@
 				})
 			},
 			bp_getBLEDeviceCharacteristics(deviceId, serviceId) {
+				console.log('获取血压计的特征值')
 				uni.getBLEDeviceCharacteristics({
 					deviceId,
 					serviceId,
@@ -397,9 +455,6 @@
 						for (let i = 0; i < res.characteristics.length; i++) {
 							let item = res.characteristics[i]
 							if (item.uuid == '0000FFF6-0000-1000-8000-00805F9B34FB') {
-								// this.setData({
-								// 	bp_canWrite: true
-								// })
 								this.bp_canWrite = true
 								this.bp_deviceId = deviceId
 								this.bp_serviceId = serviceId
@@ -422,39 +477,140 @@
 				// 操作之前先监听，保证第一时间获取数据
 				uni.onBLECharacteristicValueChange((characteristic) => {
 					let vale = this.ab2hex(characteristic.value)
-					if (vale.substr(6, 2) == 'cc') { //判断是否测量结束，结束则进入
+					if (vale.substr(6, 2) == 'cc' && this.connected != 2) { //判断是否测量结束，结束则进入
 						if (vale.substr(10, 2) == '00') { //判断是否错误，错误则进入
 							switch (parseInt(vale.substr(8, 2), 16)) {
 								case 1:
 									console.log('传感器异常！')
+									// 断开蓝牙连接
+									uni.closeBluetoothAdapter({
+										success: () => {
+											this.connected = 2
+											uni.showToast({
+												title: '传感器异常！',
+												icon: 'none',
+												duration: 3000
+											})
+										}
+									})
 									break
 								case 2:
 									console.log('不足以检测心跳或血压！')
+									uni.closeBluetoothAdapter({
+										success: () => {
+											this.connected = 2
+											uni.showToast({
+												title: '不足以检测心跳或血压！',
+												icon: 'none',
+												duration: 3000
+											})
+										}
+									})
 									break
 								case 3:
 									console.log('异常测量结果！')
+									uni.closeBluetoothAdapter({
+										success: () => {
+											this.connected = 2
+											uni.showToast({
+												title: '异常测量结果！',
+												icon: 'none',
+												duration: 3000
+											})
+										}
+									})
 									break
 								case 4:
 									console.log('袖口太松或泄漏（10秒压力小于30毫米）')
+									uni.closeBluetoothAdapter({
+										success: () => {
+											this.connected = 2
+											uni.showToast({
+												title: '袖口太松或泄漏（10秒压力小于30毫米）！',
+												icon: 'none',
+												duration: 3000
+											})
+										}
+									})
 									break
 								case 5:
 									console.log('气管堵塞')
+									uni.closeBluetoothAdapter({
+										success: () => {
+											this.connected = 2
+											uni.showToast({
+												title: '气管堵塞！',
+												icon: 'none',
+												duration: 3000
+											})
+										}
+									})
 									break
 								case 6:
 									console.log('压力波动过大')
+									uni.closeBluetoothAdapter({
+										success: () => {
+											this.connected = 2
+											uni.showToast({
+												title: '压力波动过大！',
+												icon: 'none',
+												duration: 3000
+											})
+										}
+									})
 									break
 								case 7:
 									console.log('压力超过上限')
+									uni.closeBluetoothAdapter({
+										success: () => {
+											this.connected = 2
+											uni.showToast({
+												title: '压力超过上限！',
+												icon: 'none',
+												duration: 3000
+											})
+										}
+									})
 									break
 								case 8:
 									console.log('请查看标准数据是否异常')
+									uni.closeBluetoothAdapter({
+										success: () => {
+											this.connected = 2
+											uni.showToast({
+												title: '请查看标准数据是否异常！',
+												icon: 'none',
+												duration: 3000
+											})
+										}
+									})
 									break
 							}
 						} else { //输出测量结果
-							console.log('高压：', parseInt(vale.substr(8, 2), 16), '低压：', parseInt(vale.substr(10, 2), 16), '心率', parseInt(
-								vale.substr(12, 2), 16))
+							uni.hideLoading()
+							if (parseInt(vale.substr(8, 2), 16) && parseInt(vale.substr(10, 2), 16)) {
+								// 高压
+								this.high_blood_pressure = parseInt(vale.substr(8, 2), 16)
+								// 低压
+								this.low_blood_pressure = parseInt(vale.substr(10, 2), 16)
+								this.blood_pressure = {
+									'high_blood_pressure': this.high_blood_pressure,
+									'low_blood_pressure': this.low_blood_pressure,
+								}
+
+								console.log('最终血压为:', this.blood_pressure, JSON.stringify(this.blood_pressure))
+								this.pressure_pulse_rate = parseInt(vale.substr(12, 2), 16)
+							}
+							console.log('高压：', this.high_blood_pressure,
+								'低压：', this.low_blood_pressure,
+								'心率', parseInt(vale.substr(12, 2), 16))
+							console.log('高压：', parseInt(vale.substr(8, 2), 16),
+								'低压：', parseInt(vale.substr(10, 2), 16),
+								'心率', parseInt(vale.substr(12, 2), 16))
+
 						}
 					} else { //输出当前压力值
+						uni.hideLoading()
 						console.log('当前压力：', parseInt(vale.substr(10, 2), 16))
 					}
 				})
@@ -476,13 +632,20 @@
 				})
 			},
 			bp_closeBluetoothAdapter() {
-				uni.closeBluetoothAdapter()
+				this.connected = 2
 				this.bp_discoveryStarted = false
+				uni.closeBluetoothAdapter({
+					success() {
+						uni.hideLoading()
+						console.log('关闭蓝牙设备')
+					}
+				})
 			},
 
 			// 血氧仪
 			// 初始化蓝牙模块
 			bo_openBluetoothAdapter() {
+				this.bo_discoveryStarted = false
 				console.log('初始化蓝牙模块，进行血氧仪连接')
 				uni.openBluetoothAdapter({
 					success: (res) => {
@@ -506,6 +669,7 @@
 
 			// 开始搜寻附近的蓝牙设备
 			bo_startBluetoothDevicesDiscovery() {
+				console.log('this.bo_discoveryStarted', this.bo_discoveryStarted)
 				// 通过bo_discoveryStarted判断是否开启蓝牙设备搜索
 				if (this.bo_discoveryStarted) {
 					return
@@ -513,7 +677,7 @@
 				this.bo_discoveryStarted = true
 				uni.startBluetoothDevicesDiscovery({
 					// 允许重复上报同一设备
-					allowDuplicatesKey: true,
+					// allowDuplicatesKey: true,
 					success: (res) => {
 						console.log('startBluetoothDevicesDiscovery success', res)
 						this.bo_onBluetoothDeviceFound()
@@ -533,19 +697,31 @@
 					console.log('onBluetoothDeviceFound success', res)
 					var bo_devices = res.devices
 					if (bo_devices[0].name == 'Samo4 pulse oximeter') {
+						uni.hideLoading()
 						let e = bo_devices[0]
 						this.bo_createBLEConnection(e)
 					} else {
-						// setTimeout(() => {
-						// 	// 停止搜索蓝牙设备
-						// 	this.bo_stopBluetoothDevicesDiscovery()
-						// }, 5000)
+						// 停止搜索蓝牙设备
+						this.bo_stopBluetoothDevicesDiscovery()
+						uni.showLoading({
+							title: '正在连接蓝牙...'
+						})
+						if (this.connected === 1) {
+							uni.hideLoading()
+						} else {
+							setTimeout(() => {
+								// this.connected = 2
+								uni.hideLoading()
+							}, 5000)
+						}
 					}
 				})
 			},
 
 			// 连接低功耗蓝牙设备
 			bo_createBLEConnection(e) {
+				// 停止搜索蓝牙
+				this.bo_stopBluetoothDevicesDiscovery()
 				console.log('开始连接蓝牙~~~')
 				const deviceId = e.deviceId
 				const name = e.name
@@ -553,16 +729,16 @@
 					deviceId,
 					success: (res) => {
 						console.log('连接蓝牙成功')
-						this.bo_connected = 1
+						this.connected = 1
 						this.bo_getBLEDeviceServices(deviceId)
 					}
 				})
-				this.bo_stopBluetoothDevicesDiscovery()
 			},
 
 			// 停止搜索附近的蓝牙设备
 			bo_stopBluetoothDevicesDiscovery() {
 				console.log('停止搜索蓝牙设备')
+				this.bo_discoveryStarted = false
 				uni.stopBluetoothDevicesDiscovery()
 			},
 
@@ -617,25 +793,24 @@
 				// 监听低功耗蓝牙设备的特征值变化事件，(操作之前先监听，保证第一时间获取数据)
 				uni.onBLECharacteristicValueChange((characteristic) => {
 					let vale = this.ab2hex(characteristic.value)
-					if (vale.substr(20, 2) == 1) { //判断是否戴好
+					if (vale.substr(20, 2) == 1 && this.connected != 2) { //判断是否戴好
 						console.log('未戴好！')
-						this.bo_weared = false
+						// 断开蓝牙连接
+						uni.closeBluetoothAdapter({
+							success: () => {
+								this.connected = 2
+								uni.showToast({
+									title: '请检查是否佩戴血氧仪',
+									icon: 'none',
+									duration: 3000
+								})
+							}
+						})
 					} else {
-						// bo_weared判断患者是否戴上血氧仪
-						if (this.bo_weared != true) {
-							this.bo_weared = true
-						}
+						uni.hideLoading()
 						this.blood_oxygen = parseInt(vale.substr(16, 2), 16)
-						this.pulse_rate = parseInt(vale.substr(18, 2), 16)
-						let bo = {
-							'type': 2,
-							'value': this.blood_oxygen,
-							'patient_id': this.pid,
-							'pulse_rate': this.pulse_rate,
-							'timestamp': this.getTimestamp()
-						}
-						this.bo_list.push(bo)
-						console.log(`当前血氧饱和度: ${this.blood_oxygen},  脉率值${this.pulse_rate}, 数据列表${this.bo_list}`)
+						this.oxygen_pulse_rate = parseInt(vale.substr(18, 2), 16)
+						console.log(`当前血氧饱和度: ${this.blood_oxygen},  脉率值${this.oxygen_pulse_rate}`)
 						// console.log('当前血氧含量为：', parseInt(vale.substr(16, 2), 16), '脉率值:', parseInt(vale.substr(18, 2), 16)) //输出当前血氧饱和度,脉率值
 					}
 				})
@@ -657,11 +832,12 @@
 
 			// 关闭蓝牙模块
 			bo_closeBluetoothAdapter() {
+				this.connected = 2
+				this.bo_discoveryStarted = false
 				uni.closeBluetoothAdapter({
 					success() {
-						this.bo_discoveryStarted = false
-						this.bo_connected = 2
-						this.bo_list = []
+						uni.hideLoading()
+						console.log('关闭蓝牙设备')
 					}
 				})
 			},

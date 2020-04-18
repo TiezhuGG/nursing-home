@@ -11,20 +11,21 @@
 					</view>
 				</view>
 				<view class="no-info" v-if="!patient">请选择患者</view>
-				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name">
-					<view><img class="more" src="../../static/images/more.png"></view>
-				</picker>
+				<!-- 				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name">
+					<view @click="toChoice()"><img class="more" src="../../static/images/more.png"></view>
+				</picker> -->
+				<view @click="toChoice()"><img class="more" src="../../static/images/more.png"></view>
 			</view>
 
 			<view class="date-module">
 				<view class="date">
-<!-- 					<img class="back" src="../../static/images/back2.png">
+					<!-- 					<img class="back" src="../../static/images/back2.png">
 					<text class='txt'>
 
 					</text> -->
-					
+
 					<!-- 日期选择器 -->
-<!-- 					<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+					<!-- 					<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
 						<view class="txt">
 							选择时间: {{date}}
 						</view>
@@ -42,11 +43,11 @@
 		</view>
 
 		<view class="middle">
-			<view class="time-range">
+			<!-- 			<view class="time-range">
 				<block v-for="(item, index) in time_range" :key="index">
 					<text class="time">{{item}}</text>
 				</block>
-			</view>
+			</view> -->
 			<view class="beat">
 				<view class="beat-item">
 					<text class="txt">最高(BPM)</text>
@@ -83,6 +84,27 @@
 	var _self;
 	var canvaLineA = null;
 	var mqtt = require('../../common/js/mqtt.min.js')
+	var client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
+		clientId: 'abcdefghijklmnopqrstuvwxyz0123456789',
+		username: 'admin',
+		password: 'admin'
+	})
+	// function randomString(len) { //客户端id生成
+	// 	len = len || 32;
+	// 	var chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+	// 	var maxPos = chars.length;
+	// 	var pwd = '';
+	// 	for (var i = 0; i < len; i++) {
+	// 		pwd += chars.charAt(Math.floor(Math.random() * maxPos));
+	// 	}
+	// 	return pwd;
+	// }
+	// let myClientId = randomString()
+	// var client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
+	// 	clientId: myClientId,
+	// 	username: 'admin',
+	// 	password: 'admin'
+	// })
 	export default {
 		data() {
 			const currentDate = this.getDate({
@@ -111,21 +133,17 @@
 				heart_rate_list: [],
 				categories: [],
 				date: currentDate,
+				mac: 'E21B0CF75104', //测试用mac
+				connected: false,
+				is_open: false
 			};
 		},
-		onLoad(options) {
-			console.log('pid', options.pid)
-			// 进页面有患者id就执行
-			if (options.pid) {
-				this.test(options.pid)
-			}
-			_self = this;
-			this.fetchPatientList()
-			// _self.getServerData();
-			this.cWidth = uni.upx2px(750);
-			this.cHeight = uni.upx2px(500);
-		},
+
 		onHide() {
+			// console.log('onHide', this.client)
+			this.client.on('disconnect', () => {
+				console.log('断开连接')
+			})
 			this.showCharts = false
 			this.heart_rate_list = []
 			this.categories = []
@@ -138,49 +156,138 @@
 				return this.getDate('end');
 			}
 		},
-		watch: {
-			patient(newVal, oldVal) {
-				// console.log(newVal)
-				// console.log(oldVal)
-				// 切换病人时清空图表数据（重新渲染图表）
-				this.heart_rate_list = []
-				this.categories = []
-				if (oldVal != null) {
-					canvaLineA.updateData({
-						categories: this.categories,
-						series: [{
-							name: '实时心率',
-							data: this.heart_rate_list
-						}],
-					})
-				}
-			},
-			deep: true
+		// watch: {
+		// 	patient(newVal, oldVal) {
+		// 		// console.log(newVal)
+		// 		// console.log(oldVal)
+		// 		// 切换病人时清空图表数据（重新渲染图表）
+		// 		// this.heart_rate_list = []
+		// 		// this.categories = []
+		// 		// uni.navigateTo({
+		// 		// 	url: '../heart-rate/heart-rate',
+		// 		// })
+		// 		// _self.showLineA("myChart")
+		// 		// if (newVal != null) {
+		// 		// 	canvaLineA.updateData({
+		// 		// 		categories: this.categories,
+		// 		// 		series: [{
+		// 		// 			name: '实时心率',
+		// 		// 			data: this.heart_rate_list
+		// 		// 		}],
+		// 		// 	})
+		// 		// }
+		// 	},
+		// 	deep: true
+		// },
+		onLoad(options) {
+			// console.log('pid', options.pid)
+			if (options.connected) {
+				this.is_open = options.connected
+				console.log('isopen', this.is_open)
+			}
+			console.log('心率页面',this.connected, this.is_open)
+			this.getSocket()
+			// 进页面有患者id就执行
+			if (options.pid) {
+				this.fetchPatientInfo(options.pid)
+			}
+			_self = this;
+			this.fetchPatientList()
+			// _self.getServerData();
+			this.cWidth = uni.upx2px(750);
+			this.cHeight = uni.upx2px(500);
 		},
 
 		methods: {
-			// 日期选择器
-			bindDateChange(e) {
-				this.date = e.target.value
-			},
-			getDate(type) {
-				const date = new Date();
-				let year = date.getFullYear();
-				let month = date.getMonth() + 1;
-				let day = date.getDate();
-
-				if (type === 'start') {
-					year = year - 60;
-				} else if (type === 'end') {
-					year = year + 2;
-				}
-				month = month > 9 ? month : '0' + month;;
-				day = day > 9 ? day : '0' + day;
-				return `${year}-${month}-${day}`;
+			// 获取socket数据
+			getSocket() {
+				this.showCharts = true
+				// if (!this.is_open) {
+				// 	console.log('创建mqtt连接~~')
+				// 	// 创建mqtt对象
+				// 	var client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
+				// 		clientId: this.randomString(),
+				// 		username: 'admin',
+				// 		password: 'admin'
+				// 	})
+				// }
+				// var client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
+				// 	clientId: this.randomString(),
+				// 	username: 'admin',
+				// 	password: 'admin'
+				// })
+				client.on('connect', () => {
+					console.log('mqtt连接成功')
+					client.subscribe('/statues', (err) => {
+						if (!err) {
+							console.log('订阅成功')
+							// console.log('connect2',this.client.connected)
+							// this.connected = this.client.connected
+							// console.log('connect3',this.connected)
+						} else {
+							console.log('订阅失败')
+						}
+					})
+				})
+				console.log('client', client)
+				// 客户端连接错误事件
+				client.on('error', error => {
+					console.log(error)
+				})
+				// 监听接收消息事件
+				client.on('message', (topic, message) => {
+					// console.log('收到消息：' + message.toString())
+					let data = message.toString()
+					// console.log(data)
+					let dataArr = JSON.parse(data)
+					// console.log('dataArr')
+					if (dataArr.length > 1) {
+						for (let item of dataArr) {
+							// if (this.patient && item.mac == this.patient.mac) {
+							if (this.patient && item.mac == this.mac) { //测试用
+								// console.log(item)
+								// 心率
+								let heart_rate = parseInt(item.rawData.slice(26, 28), 16)
+								console.log('心率', heart_rate)
+								// 步数
+								let steps = parseInt(item.rawData.slice(15, 17), 16)
+								// 电池电量
+								let power = parseInt(item.rawData.slice(17, 18), 16)
+								// x轴时间
+								let timer = item.timestamp.slice(12, 19)
+								this.heart_rate_list.push(heart_rate)
+								this.categories.push(timer)
+								// console.log(this.heart_rate_list)
+								if (this.heart_rate_list.length > 120) {
+									this.heart_rate_list.shift()
+									this.categories.shift()
+								}
+								// 初始化图表实例
+								_self.showLineA("myChart")
+								// updateData更新图表
+								canvaLineA.updateData({
+									categories: this.categories,
+									series: [{
+										name: '实时心率',
+										data: _self.heart_rate_list
+									}],
+								})
+							}
+						}
+					}
+				})
+				// this.client = await mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
+				// 	clientId: this.randomString(),
+				// 	username: 'admin',
+				// 	password: 'admin'
+				// })
+				
 			},
 			test(pid) {
 				this.showCharts = true
 				this.fetchPatientInfo(pid)
+				// 初始化图表实例
+				_self.showLineA("myChart")
 				setInterval(() => {
 					let randomData = Math.random() * 300
 					let timer = Math.random() * 300
@@ -191,9 +298,6 @@
 						this.heart_rate_list.shift()
 						this.categories.shift()
 					}
-
-					// 初始化图表实例
-					_self.showLineA("myChart")
 					// updateData更新图表
 					canvaLineA.updateData({
 						categories: this.categories,
@@ -203,25 +307,40 @@
 						}],
 					})
 				}, 1000)
-
 			},
-			// picker @change事件
-			bindPickerChange(e) {
-				// console.log(e)
-				for (let item of this.patientList) {
-					if (item.id === Number(e.detail.value) + 1) {
-						// this.fetchPatientInfo(item.id)
-						// this.getSocket()
 
-						// 把患者id缓存到本地
-						uni.setStorage({
-							key: 'pid',
-							data: item.id
-						})
-						this.test(item.id)
-					}
-				}
+			toChoice() {
+				uni.redirectTo({
+					url: `../choicePatient/choicePatient`
+				})
+				// if(this.connected === true) {
+				// 	uni.redirectTo({
+				// 		url: `../choicePatient/choicePatient?connected=${this.connected}`
+				// 	})
+				// } else {
+				// 	uni.redirectTo({
+				// 		url: `../choicePatient/choicePatient`
+				// 	})
+				// }
 			},
+
+			// 选择患者picker @change事件
+			// bindPickerChange(e) {
+			// 	this.showCharts = true
+			// 	// console.log(e)
+			// 	for (let item of this.patientList) {
+			// 		if (item.id === Number(e.detail.value) + 1) {
+			// 			this.fetchPatientInfo(item.id)
+			// 			// this.getSocket()
+			// 			// 把患者id缓存到本地
+			// 			// uni.setStorage({
+			// 			// 	key: 'pid',
+			// 			// 	data: item.id
+			// 			// })
+			// 			// this.test(item.id)
+			// 		}
+			// 	}
+			// },
 			// 获取患者列表(ID)
 			async fetchPatientList() {
 				await uni.request({
@@ -240,69 +359,7 @@
 					},
 				})
 			},
-			// 获取socket数据
-			async getSocket() {
-				let client = await mqtt.connect('wxs://59.60.183.104:8888/mqtt', {
-					clientId: 'adfas',
-					username: 'admin',
-					password: 'admin'
-				})
-				client.on('connect', () => {
-					console.log('mqtt连接成功')
-					client.subscribe('/statues', (err) => {
-						if (!err) {
-							console.log('订阅成功')
-						} else {
-							console.log('订阅失败')
-						}
-					})
-				})
-				// 客户端连接错误事件
-				client.on('error', error => {
-					console.log(error)
-				})
-				// 监听接收消息事件
-				client.on('message', (topic, message) => {
-					// console.log('收到消息：' + message.toString())
-					let data = message.toString()
-					// console.log(data)
-					let dataArr = JSON.parse(data)
-					if (dataArr.length > 1) {
-						for (let item of dataArr) {
-							if (this.patient && item.mac == this.patient.mac) {
-								console.log(item)
-								// 心率
-								let heart_rate = parseInt(item.rawData.slice(14, 15), 16)
-								// 步数
-								let steps = parseInt(item.rawData.slice(15, 17), 16)
-								// 电池电量
-								let power = parseInt(item.rawData.slice(17, 18), 16)
-								// x轴时间
-								let timer = item.timestamp.slice(12, 19)
-								this.heart_rate_list.push(heart_rate)
-								// let randomData = Math.random() * 300
-								// this.heart_rate_list.push(randomData)
-								this.categories.push(timer)
-								// console.log(this.heart_rate_list)
-								if (this.heart_rate_list.length > 8) {
-									this.heart_rate_list.shift()
-									this.categories.shift()
-								}
-								// 初始化图表实例
-								_self.showLineA("myChart")
-								// updateData更新图表
-								canvaLineA.updateData({
-									categories: this.categories,
-									series: [{
-										name: '实时心率',
-										data: _self.heart_rate_list
-									}],
-								})
-							}
-						}
-					}
-				})
-			},
+			
 
 			showLineA(canvasId) {
 				// 图表实例和配置
@@ -322,12 +379,14 @@
 						data: ''
 					}],
 					animation: false,
+					dataPointShape: false,
 					xAxis: {
 						gridColor: '#FFF',
 						gridType: 'dash',
 						disableGrid: true,
 						axisLine: false,
 						fontColor: '#FFF',
+						disabled: true,
 						// boundaryGap: 'justify'
 					},
 					yAxis: {
@@ -335,8 +394,11 @@
 							position: 'right',
 							fontColor: '#FFF',
 							axisLineColor: '#24C789',
-							min: 0,
-							max: 300,
+							// min: 0,
+							// max: 150,
+							format: (val) => {
+								return val.toFixed(0)
+							}
 						}],
 						gridType: 'dash',
 						gridColor: '#FFF',
@@ -366,18 +428,37 @@
 				});
 			},
 
-			// 获取当前时间
-			// getNowTime() {
-			// 	let now = new Date()
-			// 	let hour = now.getHours()
-			// 	let minute = now.getMinutes()
-			// 	let second = now.getSeconds()
-			// 	hour = hour < 10 ? '0' + hour : hour
-			// 	minute = minute < 10 ? '0' + minute : minute
-			// 	second = second < 10 ? '0' + second : second
-			// 	let now_time = `${hour}:${minute}:${second}`
-			// 	return now_time
-			// },
+			randomString(len) { //客户端id生成
+				len = len || 32;
+				var chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+				var maxPos = chars.length;
+				var pwd = '';
+				for (var i = 0; i < len; i++) {
+					pwd += chars.charAt(Math.floor(Math.random() * maxPos));
+				}
+				return pwd;
+			},
+
+			// 日期选择器
+			bindDateChange(e) {
+				this.date = e.target.value
+			},
+
+			getDate(type) {
+				const date = new Date();
+				let year = date.getFullYear();
+				let month = date.getMonth() + 1;
+				let day = date.getDate();
+
+				if (type === 'start') {
+					year = year - 60;
+				} else if (type === 'end') {
+					year = year + 2;
+				}
+				month = month > 9 ? month : '0' + month;;
+				day = day > 9 ? day : '0' + day;
+				return `${year}-${month}-${day}`;
+			},
 
 			async getServerData() {
 				await uni.request({
@@ -490,6 +571,7 @@
 				flex-direction: column;
 				margin-top: 40upx;
 				margin-bottom: 40upx;
+
 				.date {
 					display: flex;
 					justify-content: space-between;
@@ -520,7 +602,7 @@
 			height: 236upx;
 			display: flex;
 			flex-direction: column;
-			justify-content: space-between;
+			justify-content: center;
 			background-color: #fff;
 
 			.time-range {
@@ -537,6 +619,7 @@
 			.beat {
 				display: flex;
 				justify-content: space-between;
+				margin-top: 50upx;
 
 				.beat-item {
 					display: flex;

@@ -98,6 +98,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var g0 = _vm.date.substr(5)
+  var g1 = _vm.date2.substr(5)
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        g0: g0,
+        g1: g1
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -210,6 +221,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 var _uCharts = _interopRequireDefault(__webpack_require__(/*! ../../components/u-charts/u-charts.js */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _createForOfIteratorHelper(o) {if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var it,normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
 var _self;
 var canvaLineA = null;
@@ -241,7 +263,8 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 50);var _defau
       patient: null,
       heart_rate_list: [],
       categories: [],
-      date: currentDate };
+      date: currentDate,
+      date2: currentDate };
 
   },
   onLoad: function onLoad(options) {
@@ -290,9 +313,15 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 50);var _defau
 
 
   methods: {
-    // 日期选择器
-    bindDateChange: function bindDateChange(e) {
+    // 日期选择器1
+    bindDateChange1: function bindDateChange1(e) {
       this.date = e.target.value;
+      this.start_time = this.dateToTimestamp(this.date);
+    },
+    // 日期选择器2
+    bindDateChange2: function bindDateChange2(e) {
+      this.date2 = e.target.value;
+      this.end_time = this.dateToTimestamp(this.date2);
     },
     getDate: function getDate(type) {
       var date = new Date();
@@ -496,19 +525,6 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 50);var _defau
         } });
 
     },
-
-    // 获取当前时间
-    // getNowTime() {
-    // 	let now = new Date()
-    // 	let hour = now.getHours()
-    // 	let minute = now.getMinutes()
-    // 	let second = now.getSeconds()
-    // 	hour = hour < 10 ? '0' + hour : hour
-    // 	minute = minute < 10 ? '0' + minute : minute
-    // 	second = second < 10 ? '0' + second : second
-    // 	let now_time = `${hour}:${minute}:${second}`
-    // 	return now_time
-    // },
 
     getServerData: function getServerData() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.next = 2;return (
                   uni.request({

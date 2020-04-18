@@ -155,9 +155,9 @@
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
             flex-direction: column;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-            justify-content: space-between;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
     background-color: #fff;
 }
 .heart-rate .middle .time-range {
@@ -180,6 +180,7 @@
       -webkit-box-pack: justify;
       -webkit-justify-content: space-between;
               justify-content: space-between;
+      margin-top: 50rpx;
 }
 .heart-rate .middle .beat .beat-item {
         display: -webkit-box;

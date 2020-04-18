@@ -92,6 +92,12 @@
 				"navigationBarBackgroundColor": "#24C789"
 			}
         }
+        ,{
+            "path" : "pages/choicePatient/choicePatient",
+            "style" : {
+				"navigationBarTitleText": "选择患者"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

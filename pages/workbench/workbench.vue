@@ -30,7 +30,7 @@
 
 		<!-- 内容 -->
 		<view class="main">
-<!-- 			<navigator class="item" url="../heart-rate/heart-rate">
+			<!-- 			<navigator class="item" url="../heart-rate/heart-rate">
 				<img class="item-img" src="../../static/images/item-img1.png">
 				<text class="item-txt">实时心率</text>
 			</navigator> -->
@@ -46,7 +46,7 @@
 				<img class="item-img" src="../../static/images/heart.png">
 				<text class="item-txt">心电图</text>
 			</navigator>
-<!-- 			<navigator class="item" url="../blood-status/blood-status">
+			<!-- 			<navigator class="item" url="../blood-status/blood-status">
 				<img class="item-img" src="../../static/images/item-img4.png">
 				<text class="item-txt">血压 血氧 血糖</text>
 			</navigator> -->
@@ -291,7 +291,7 @@
 							console.log(`${res.characteristicId}变化, 现在是{$JSON.stringify(res.value)}`)
 							let value = this.ab2hex(res.value)
 							console.log(`value ---> ${value}`)
-							
+
 						})
 					}
 				})

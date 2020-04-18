@@ -757,7 +757,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -7086,7 +7086,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7107,14 +7107,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7190,7 +7190,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8527,7 +8527,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/workbench/workbench": { "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" }, "pages/collect-data/collect-data": { "navigationBarTitleText": "血压 血氧 血糖" }, "pages/management/management": { "navigationBarTitleText": "客户管理" }, "pages/electrocardiogram/electrocardiogram": { "navigationBarTitleText": "心电图", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" }, "pages/blood-status/blood-status": { "navigationBarTitleText": "血压 血氧 血糖" }, "pages/heart-rate/heart-rate": { "navigationBarTitleText": "实时心率", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" }, "pages/warning/warning": { "navigationBarTitleText": "报警" }, "pages/personal/personal": { "navigationBarTitleText": "个人信息", "navigationBarBackgroundColor": "#FFFFFF" }, "pages/notice/notice": { "navigationBarTitleText": "公告信息" }, "pages/video/video": { "navigationBarTitleText": "视频监控", "navigationBarBackgroundColor": "#FFFFFF" }, "pages/login/login": {}, "pages/index/index": { "navigationBarTitleText": "" }, "pages/playback/playback": { "navigationBarTitleText": "心率回放", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/workbench/workbench": { "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/collect-data/collect-data": { "navigationBarTitleText": "血压 血氧 血糖", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/management/management": { "navigationBarTitleText": "客户管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/electrocardiogram/electrocardiogram": { "navigationBarTitleText": "心电图", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/blood-status/blood-status": { "navigationBarTitleText": "血压 血氧 血糖", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/heart-rate/heart-rate": { "navigationBarTitleText": "实时心率", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/warning/warning": { "navigationBarTitleText": "报警", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/personal/personal": { "navigationBarTitleText": "个人信息", "navigationBarBackgroundColor": "#FFFFFF", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/notice/notice": { "navigationBarTitleText": "公告信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/video/video": { "navigationBarTitleText": "视频监控", "navigationBarBackgroundColor": "#FFFFFF", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/login/login": { "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/index/index": { "navigationBarTitleText": "", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/playback/playback": { "navigationBarTitleText": "心率回放", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/choicePatient/choicePatient": { "navigationBarTitleText": "选择患者", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
