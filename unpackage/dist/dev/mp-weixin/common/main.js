@@ -98,19 +98,18 @@ __webpack_require__.r(__webpack_exports__);
     hasLogin: function hasLogin() {
       var userInfo = uni.getStorageSync('userInfo');
       if (userInfo) {
-        // uni.switchTab({
-        // 	url: 'pages/workbench/workbench'
-        // })
+        uni.switchTab({
+          url: 'pages/workbench/workbench' });
+
       } else {
         uni.reLaunch({
           url: 'pages/login/login' });
 
-        // uni.hideHomeButton()
+        uni.hideHomeButton();
       }
     } },
 
   onLaunch: function onLaunch() {
-    console.log('App Launch');
   },
   onShow: function onShow() {
     this.hasLogin();

@@ -212,39 +212,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-var _uCharts2 = _interopRequireDefault(__webpack_require__(/*! ../../components/u-charts/u-charts.js */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _createForOfIteratorHelper(o) {if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var it,normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
+var _uCharts2 = _interopRequireDefault(__webpack_require__(/*! ../../components/u-charts/u-charts.js */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _createForOfIteratorHelper(o) {if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var it,normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
 var _self;
 var canvaLineA = null;
-var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 50);
-var client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
-  clientId: 'abcdefghijklmnopqrstuvwxyz0123456789',
-  username: 'admin',
-  password: 'admin' });
-
-// function randomString(len) { //客户端id生成
-// 	len = len || 32;
-// 	var chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-// 	var maxPos = chars.length;
-// 	var pwd = '';
-// 	for (var i = 0; i < len; i++) {
-// 		pwd += chars.charAt(Math.floor(Math.random() * maxPos));
-// 	}
-// 	return pwd;
-// }
-// let myClientId = randomString()
-// var client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
-// 	clientId: myClientId,
-// 	username: 'admin',
-// 	password: 'admin'
-// })
-var _default = {
+var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 50);var _default =
+{
   data: function data() {
     var currentDate = this.getDate({
       format: true });
 
     return {
-      showCharts: false,
       time_range: ['08:25', '09:45', '10:22', '12:12', '13:25', '16:25', '18:25'],
       dateList: [{
         date: '2020年2月19日',
@@ -257,6 +234,7 @@ var _default = {
 
       bpm: '86BPM',
 
+      showCharts: false,
       cWidth: '',
       cHeight: '',
       pixelRatio: 1,
@@ -265,22 +243,39 @@ var _default = {
       patient: null,
       heart_rate_list: [],
       categories: [],
+      heart_rate: null, // 心率
       date: currentDate,
       mac: 'E21B0CF75104', //测试用mac
-      connected: false,
-      is_open: false };
-
+      highest_bpm: 0, // 最高心率
+      lowest_bpm: 0, // 最低心率
+      avg_bpm: 0 // 平均心率
+    };
   },
 
-  onHide: function onHide() {
-    // console.log('onHide', this.client)
-    this.client.on('disconnect', function () {
-      console.log('断开连接');
-    });
-    this.showCharts = false;
-    this.heart_rate_list = [];
-    this.categories = [];
+  onLoad: function onLoad(options) {
+    // 图表实例需要赋值this给_self
+    _self = this;
+    // 进页面有患者id就执行
+    if (options.pid) {
+      this.fetchPatientInfo(options.pid);
+      this.getSocket();
+    }
+    this.fetchPatientList();
+    this.cWidth = uni.upx2px(750);
+    this.cHeight = uni.upx2px(500);
   },
+
+  onUnload: function onUnload() {
+    // 断开websocket
+    if (this.client) {
+      uni.closeSocket({
+        success: function success() {
+          console.log('断开websocket');
+        } });
+
+    }
+  },
+
   computed: {
     startDate: function startDate() {
       return this.getDate('start');
@@ -289,151 +284,125 @@ var _default = {
       return this.getDate('end');
     } },
 
-  // watch: {
-  // 	patient(newVal, oldVal) {
-  // 		// console.log(newVal)
-  // 		// console.log(oldVal)
-  // 		// 切换病人时清空图表数据（重新渲染图表）
-  // 		// this.heart_rate_list = []
-  // 		// this.categories = []
-  // 		// uni.navigateTo({
-  // 		// 	url: '../heart-rate/heart-rate',
-  // 		// })
-  // 		// _self.showLineA("myChart")
-  // 		// if (newVal != null) {
-  // 		// 	canvaLineA.updateData({
-  // 		// 		categories: this.categories,
-  // 		// 		series: [{
-  // 		// 			name: '实时心率',
-  // 		// 			data: this.heart_rate_list
-  // 		// 		}],
-  // 		// 	})
-  // 		// }
-  // 	},
-  // 	deep: true
-  // },
-  onLoad: function onLoad(options) {
-    // console.log('pid', options.pid)
-    if (options.connected) {
-      this.is_open = options.connected;
-      console.log('isopen', this.is_open);
-    }
-    console.log('心率页面', this.connected, this.is_open);
-    this.getSocket();
-    // 进页面有患者id就执行
-    if (options.pid) {
-      this.fetchPatientInfo(options.pid);
-    }
-    _self = this;
-    this.fetchPatientList();
-    // _self.getServerData();
-    this.cWidth = uni.upx2px(750);
-    this.cHeight = uni.upx2px(500);
-  },
+
+  watch: {
+    patient: function patient(newVal, oldVal) {
+      // console.log(newVal)
+      // console.log(oldVal)
+      // 切换病人时清空图表数据（重新渲染图表）
+      this.heart_rate_list = [];
+      this.categories = [];
+      _self.showLineA("myChart");
+      if (newVal != null) {
+        canvaLineA.updateData({
+          categories: this.categories,
+          series: [{
+            name: '实时心率',
+            data: this.heart_rate_list }] });
+
+
+      }
+    },
+    deep: true },
+
 
   methods: {
-    // 获取socket数据
-    getSocket: function getSocket() {var _this = this;
+    // 测试用
+    test: function test(pid) {var _this = this;
       this.showCharts = true;
-      // if (!this.is_open) {
-      // 	console.log('创建mqtt连接~~')
-      // 	// 创建mqtt对象
-      // 	var client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
-      // 		clientId: this.randomString(),
-      // 		username: 'admin',
-      // 		password: 'admin'
-      // 	})
-      // }
-      // var client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
-      // 	clientId: this.randomString(),
-      // 	username: 'admin',
-      // 	password: 'admin'
-      // })
-      client.on('connect', function () {
-        console.log('mqtt连接成功');
-        client.subscribe('/statues', function (err) {
-          if (!err) {
-            console.log('订阅成功');
-            // console.log('connect2',this.client.connected)
-            // this.connected = this.client.connected
-            // console.log('connect3',this.connected)
-          } else {
-            console.log('订阅失败');
-          }
+      this.fetchPatientInfo(pid);
+      // 初始化图表实例
+      // _self.showLineA("myChart")
+      setInterval(function () {
+        var randomData = Math.random() * 300;
+        var timer = Math.random() * 300;
+        _this.heart_rate_list.push(randomData);
+        _this.categories.push(timer);
+        // console.log(this.heart_rate_list)
+        if (_this.heart_rate_list.length > 8) {
+          _this.heart_rate_list.shift();
+          _this.categories.shift();
+        }
+        // updateData更新图表
+        canvaLineA.updateData({
+          categories: _this.categories,
+          series: [{
+            name: '实时心率',
+            data: _self.heart_rate_list }] });
+
+
+      }, 1000);
+    },
+
+    // 获取socket数据
+    getSocket: function getSocket() {var _this2 = this;
+      this.showCharts = true;
+      if (this.client == null) {
+        this.client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
+          clientId: this.randomString(),
+          username: 'admin',
+          password: 'admin' });
+
+        this.client.on('connect', function () {
+          console.log('mqtt连接成功');
+          _this2.client.subscribe('/statues', function (err) {
+            if (!err) {
+              console.log('订阅成功');
+              // 断连重载图表
+              _self.showLineA("myChart");
+              canvaLineA.updateData({
+                categories: _this2.categories,
+                series: [{
+                  name: '实时心率',
+                  data: _this2.heart_rate_list }] });
+
+
+            } else {
+              console.log('订阅失败');
+            }
+          });
         });
-      });
-      console.log('client', client);
+      }
       // 客户端连接错误事件
-      client.on('error', function (error) {
+      this.client.on('error', function (error) {
         console.log(error);
       });
       // 监听接收消息事件
-      client.on('message', function (topic, message) {
+      this.client.on('message', function (topic, message) {
         // console.log('收到消息：' + message.toString())
         var data = message.toString();
-        // console.log(data)
+        // dataArr是一组数据 四条数据 第一条为网关数据 后三条为有效数据
         var dataArr = JSON.parse(data);
-        // console.log('dataArr')
         if (dataArr.length > 1) {var _iterator = _createForOfIteratorHelper(
           dataArr),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
               // if (this.patient && item.mac == this.patient.mac) {
-              if (_this.patient && item.mac == _this.mac) {//测试用
-                // console.log(item)
+              if (_this2.patient && item.mac == _this2.mac) {//测试用mac
                 // 心率
-                var heart_rate = parseInt(item.rawData.slice(26, 28), 16);
-                console.log('心率', heart_rate);
-                // 步数
-                var steps = parseInt(item.rawData.slice(15, 17), 16);
-                // 电池电量
-                var power = parseInt(item.rawData.slice(17, 18), 16);
-                // x轴时间
-                var timer = item.timestamp.slice(12, 19);
-                _this.heart_rate_list.push(heart_rate);
-                _this.categories.push(timer);
-                // console.log(this.heart_rate_list)
-                if (_this.heart_rate_list.length > 120) {
-                  _this.heart_rate_list.shift();
-                  _this.categories.shift();
-                }
-                // 初始化图表实例
-                _self.showLineA("myChart");
-                // updateData更新图表
-                canvaLineA.updateData({
-                  categories: _this.categories,
-                  series: [{
-                    name: '实时心率',
-                    data: _self.heart_rate_list }] });
-
-
+                // this.heart_rate = parseInt(item.rawData.slice(26, 28), 16)
+                _this2.heart_rate = Math.ceil(Math.random() * 300);
+                console.log('心率', _this2.heart_rate);
+                var timer = item.timestamp.slice(12, 19); // x轴时间
+                _this2.heart_rate_list.push(_this2.heart_rate); // 心率列表
+                _this2.categories.push(timer); // 时间列表
+                _this2.highest_bpm = Math.max.apply(Math, _toConsumableArray(_this2.heart_rate_list));
+                _this2.lowest_bpm = Math.min.apply(Math, _toConsumableArray(_this2.heart_rate_list));
+                _this2.avg_bpm = _this2.getAverage(_this2.heart_rate_list);
+                _this2.drawChart();
               }
             }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
         }
       });
-      // this.client = await mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
-      // 	clientId: this.randomString(),
-      // 	username: 'admin',
-      // 	password: 'admin'
-      // })
-
     },
-    test: function test(pid) {var _this2 = this;
-      this.showCharts = true;
-      this.fetchPatientInfo(pid);
-      // 初始化图表实例
-      _self.showLineA("myChart");
+
+    // 绘制图表
+    drawChart: function drawChart() {var _this3 = this;
       setInterval(function () {
-        var randomData = Math.random() * 300;
-        var timer = Math.random() * 300;
-        _this2.heart_rate_list.push(randomData);
-        _this2.categories.push(timer);
-        // console.log(this.heart_rate_list)
-        if (_this2.heart_rate_list.length > 8) {
-          _this2.heart_rate_list.shift();
-          _this2.categories.shift();
+        if (_this3.heart_rate_list.length > 50) {
+          _this3.heart_rate_list.shift();
+          _this3.categories.shift();
         }
-        // updateData更新图表
         canvaLineA.updateData({
-          categories: _this2.categories,
+          categories: _self.categories,
           series: [{
             name: '实时心率',
             data: _self.heart_rate_list }] });
@@ -446,15 +415,6 @@ var _default = {
       uni.redirectTo({
         url: "../choicePatient/choicePatient" });
 
-      // if(this.connected === true) {
-      // 	uni.redirectTo({
-      // 		url: `../choicePatient/choicePatient?connected=${this.connected}`
-      // 	})
-      // } else {
-      // 	uni.redirectTo({
-      // 		url: `../choicePatient/choicePatient`
-      // 	})
-      // }
     },
 
     // 选择患者picker @change事件
@@ -474,25 +434,26 @@ var _default = {
     // 		}
     // 	}
     // },
+
     // 获取患者列表(ID)
-    fetchPatientList: function fetchPatientList() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+    fetchPatientList: function fetchPatientList() {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   uni.request({
                     url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
                     success: function success(res) {
-                      _this3.patientList = res.data.data;
+                      _this4.patientList = res.data.data;
                     } }));case 2:case "end":return _context.stop();}}}, _callee);}))();
 
     },
+
     // 获取患者信息
-    fetchPatientInfo: function fetchPatientInfo(id) {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+    fetchPatientInfo: function fetchPatientInfo(id) {var _this5 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
                   uni.request({
                     url: "https://ciai.le-cx.com/index.php/api/patient/info?id=".concat(id),
                     success: function success(res) {
-                      _this4.patient = res.data.data;
+                      _this5.patient = res.data.data;
                     } }));case 2:case "end":return _context2.stop();}}}, _callee2);}))();
 
     },
-
 
     showLineA: function showLineA(canvasId) {var _uCharts;
       // 图表实例和配置
@@ -519,9 +480,8 @@ var _default = {
         disableGrid: true,
         axisLine: false,
         fontColor: '#FFF',
-        disabled: true
-        // boundaryGap: 'justify'
-      }), _defineProperty(_uCharts, "yAxis",
+        disabled: true }), _defineProperty(_uCharts, "yAxis",
+
       {
         data: [{
           position: 'right',
@@ -593,28 +553,13 @@ var _default = {
       return "".concat(year, "-").concat(month, "-").concat(day);
     },
 
-    getServerData: function getServerData() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
-                  uni.request({
-                    url: 'https://www.ucharts.cn/data.json',
-                    data: {},
-                    success: function success(res) {
-                      console.log(res.data.data);
-                      var LineA = {
-                        categories: [],
-                        series: [] };
-
-                      //这里后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-                      LineA.categories = res.data.data.LineA.categories;
-                      // LineA.series = res.data.data.LineA.series;
-                      // 只筛选了最后一条数据进行可视化
-                      LineA.series = res.data.data.LineA.series;
-                      LineA.series = [LineA.series.pop()];
-                      _self.showLineA("myChart", LineA);
-                    },
-                    fail: function fail() {
-                      _self.tips = "网络错误，小程序端请检查合法域名";
-                    } }));case 2:case "end":return _context3.stop();}}}, _callee3);}))();
-
+    // 求数组平均值
+    getAverage: function getAverage(arr) {
+      var sum = 0;
+      for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+      }
+      return Math.ceil(sum / arr.length);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

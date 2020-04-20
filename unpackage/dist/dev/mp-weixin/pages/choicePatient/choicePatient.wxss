@@ -136,7 +136,7 @@
 }
 .selection .watch-data {
     position: absolute;
-    left: 415rpx;
+    left: 465rpx;
 }
 .selection .collect-data {
     position: absolute;
@@ -144,7 +144,7 @@
 }
 .selection .watch-data,
   .selection .collect-data {
-    width: 120rpx;
+    width: 180rpx;
     height: 40rpx;
     line-height: 40rpx;
     text-align: center;

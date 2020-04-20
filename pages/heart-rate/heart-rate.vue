@@ -10,7 +10,7 @@
 						<text class="gender">性别: {{patient.gender === 1 ? '男' : '女'}}</text>
 					</view>
 				</view>
-				<view class="no-info" v-if="!patient">请选择患者</view>
+				<view class="no-info" v-if="!patient" @click="toChoice()">请选择患者</view>
 				<!-- 				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name">
 					<view @click="toChoice()"><img class="more" src="../../static/images/more.png"></view>
 				</picker> -->
@@ -31,7 +31,6 @@
 						</view>
 					</picker> -->
 				</view>
-				<!-- <text class="total">最后30次测量</text> -->
 
 			</view>
 			<!-- 图表 -->
@@ -51,21 +50,21 @@
 			<view class="beat">
 				<view class="beat-item">
 					<text class="txt">最高(BPM)</text>
-					<text class="val">107</text>
+					<text class="val">{{ highest_bpm === 0 ? '' : highest_bpm }}</text>
 				</view>
 				<view class="beat-item">
 					<text class="txt">平均(BPM)</text>
-					<text class="val">82</text>
+					<text class="val">{{ avg_bpm === 0 ? '' : avg_bpm }}</text>
 				</view>
 				<view class="beat-item">
 					<text class="txt">最低(BPM)</text>
-					<text class="val">45</text>
+					<text class="val">{{ lowest_bpm === 0 ? '' : lowest_bpm }}</text>
 				</view>
 			</view>
 		</view>
 
 		<view class="bottom">
-			<view class="bottom-top">
+			<!-- 			<view class="bottom-top">
 				最近三十次测量结果
 			</view>
 			<view class="bottom-item" v-for="(item,index) in dateList" :key="index">
@@ -74,7 +73,7 @@
 					<text class="txt">{{item}}</text>
 					<text class="bpm">{{bpm}}</text>
 				</view>
-			</view>
+			</view> -->
 		</view>
 	</view>
 </template>
@@ -84,34 +83,12 @@
 	var _self;
 	var canvaLineA = null;
 	var mqtt = require('../../common/js/mqtt.min.js')
-	var client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
-		clientId: 'abcdefghijklmnopqrstuvwxyz0123456789',
-		username: 'admin',
-		password: 'admin'
-	})
-	// function randomString(len) { //客户端id生成
-	// 	len = len || 32;
-	// 	var chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-	// 	var maxPos = chars.length;
-	// 	var pwd = '';
-	// 	for (var i = 0; i < len; i++) {
-	// 		pwd += chars.charAt(Math.floor(Math.random() * maxPos));
-	// 	}
-	// 	return pwd;
-	// }
-	// let myClientId = randomString()
-	// var client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
-	// 	clientId: myClientId,
-	// 	username: 'admin',
-	// 	password: 'admin'
-	// })
 	export default {
 		data() {
 			const currentDate = this.getDate({
 				format: true
 			})
 			return {
-				showCharts: false,
 				time_range: ['08:25', '09:45', '10:22', '12:12', '13:25', '16:25', '18:25'],
 				dateList: [{
 						date: '2020年2月19日',
@@ -124,6 +101,7 @@
 				],
 				bpm: '86BPM',
 
+				showCharts: false,
 				cWidth: '',
 				cHeight: '',
 				pixelRatio: 1,
@@ -132,22 +110,39 @@
 				patient: null,
 				heart_rate_list: [],
 				categories: [],
+				heart_rate: null, // 心率
 				date: currentDate,
 				mac: 'E21B0CF75104', //测试用mac
-				connected: false,
-				is_open: false
+				highest_bpm: 0,	// 最高心率
+				lowest_bpm: 0, // 最低心率
+				avg_bpm: 0, // 平均心率
 			};
 		},
-
-		onHide() {
-			// console.log('onHide', this.client)
-			this.client.on('disconnect', () => {
-				console.log('断开连接')
-			})
-			this.showCharts = false
-			this.heart_rate_list = []
-			this.categories = []
+		
+		onLoad(options) {
+			// 图表实例需要赋值this给_self
+			_self = this;
+			// 进页面有患者id就执行
+			if (options.pid) {
+				this.fetchPatientInfo(options.pid)
+				this.getSocket()
+			}
+			this.fetchPatientList()
+			this.cWidth = uni.upx2px(750);
+			this.cHeight = uni.upx2px(500);
 		},
+
+		onUnload() {
+			// 断开websocket
+			if (this.client) {
+				uni.closeSocket({
+					success() {
+						console.log('断开websocket')
+					}
+				})
+			}
+		},
+
 		computed: {
 			startDate() {
 				return this.getDate('start');
@@ -156,138 +151,35 @@
 				return this.getDate('end');
 			}
 		},
-		// watch: {
-		// 	patient(newVal, oldVal) {
-		// 		// console.log(newVal)
-		// 		// console.log(oldVal)
-		// 		// 切换病人时清空图表数据（重新渲染图表）
-		// 		// this.heart_rate_list = []
-		// 		// this.categories = []
-		// 		// uni.navigateTo({
-		// 		// 	url: '../heart-rate/heart-rate',
-		// 		// })
-		// 		// _self.showLineA("myChart")
-		// 		// if (newVal != null) {
-		// 		// 	canvaLineA.updateData({
-		// 		// 		categories: this.categories,
-		// 		// 		series: [{
-		// 		// 			name: '实时心率',
-		// 		// 			data: this.heart_rate_list
-		// 		// 		}],
-		// 		// 	})
-		// 		// }
-		// 	},
-		// 	deep: true
-		// },
-		onLoad(options) {
-			// console.log('pid', options.pid)
-			if (options.connected) {
-				this.is_open = options.connected
-				console.log('isopen', this.is_open)
-			}
-			console.log('心率页面',this.connected, this.is_open)
-			this.getSocket()
-			// 进页面有患者id就执行
-			if (options.pid) {
-				this.fetchPatientInfo(options.pid)
-			}
-			_self = this;
-			this.fetchPatientList()
-			// _self.getServerData();
-			this.cWidth = uni.upx2px(750);
-			this.cHeight = uni.upx2px(500);
+		
+		watch: {
+			patient(newVal, oldVal) {
+				// console.log(newVal)
+				// console.log(oldVal)
+				// 切换病人时清空图表数据（重新渲染图表）
+				this.heart_rate_list = []
+				this.categories = []
+				_self.showLineA("myChart")
+				if (newVal != null) {
+					canvaLineA.updateData({
+						categories: this.categories,
+						series: [{
+							name: '实时心率',
+							data: this.heart_rate_list
+						}],
+					})
+				}
+			},
+			deep: true
 		},
 
 		methods: {
-			// 获取socket数据
-			getSocket() {
-				this.showCharts = true
-				// if (!this.is_open) {
-				// 	console.log('创建mqtt连接~~')
-				// 	// 创建mqtt对象
-				// 	var client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
-				// 		clientId: this.randomString(),
-				// 		username: 'admin',
-				// 		password: 'admin'
-				// 	})
-				// }
-				// var client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
-				// 	clientId: this.randomString(),
-				// 	username: 'admin',
-				// 	password: 'admin'
-				// })
-				client.on('connect', () => {
-					console.log('mqtt连接成功')
-					client.subscribe('/statues', (err) => {
-						if (!err) {
-							console.log('订阅成功')
-							// console.log('connect2',this.client.connected)
-							// this.connected = this.client.connected
-							// console.log('connect3',this.connected)
-						} else {
-							console.log('订阅失败')
-						}
-					})
-				})
-				console.log('client', client)
-				// 客户端连接错误事件
-				client.on('error', error => {
-					console.log(error)
-				})
-				// 监听接收消息事件
-				client.on('message', (topic, message) => {
-					// console.log('收到消息：' + message.toString())
-					let data = message.toString()
-					// console.log(data)
-					let dataArr = JSON.parse(data)
-					// console.log('dataArr')
-					if (dataArr.length > 1) {
-						for (let item of dataArr) {
-							// if (this.patient && item.mac == this.patient.mac) {
-							if (this.patient && item.mac == this.mac) { //测试用
-								// console.log(item)
-								// 心率
-								let heart_rate = parseInt(item.rawData.slice(26, 28), 16)
-								console.log('心率', heart_rate)
-								// 步数
-								let steps = parseInt(item.rawData.slice(15, 17), 16)
-								// 电池电量
-								let power = parseInt(item.rawData.slice(17, 18), 16)
-								// x轴时间
-								let timer = item.timestamp.slice(12, 19)
-								this.heart_rate_list.push(heart_rate)
-								this.categories.push(timer)
-								// console.log(this.heart_rate_list)
-								if (this.heart_rate_list.length > 120) {
-									this.heart_rate_list.shift()
-									this.categories.shift()
-								}
-								// 初始化图表实例
-								_self.showLineA("myChart")
-								// updateData更新图表
-								canvaLineA.updateData({
-									categories: this.categories,
-									series: [{
-										name: '实时心率',
-										data: _self.heart_rate_list
-									}],
-								})
-							}
-						}
-					}
-				})
-				// this.client = await mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
-				// 	clientId: this.randomString(),
-				// 	username: 'admin',
-				// 	password: 'admin'
-				// })
-				
-			},
+			// 测试用
 			test(pid) {
 				this.showCharts = true
 				this.fetchPatientInfo(pid)
 				// 初始化图表实例
-				_self.showLineA("myChart")
+				// _self.showLineA("myChart")
 				setInterval(() => {
 					let randomData = Math.random() * 300
 					let timer = Math.random() * 300
@@ -309,19 +201,87 @@
 				}, 1000)
 			},
 
+			// 获取socket数据
+			getSocket() {
+				this.showCharts = true
+				if (this.client == null) {
+					this.client = mqtt.connect('wxs://ciaiky.le-cx.com/mqtt', {
+						clientId: this.randomString(),
+						username: 'admin',
+						password: 'admin'
+					})
+					this.client.on('connect', () => {
+						console.log('mqtt连接成功')
+						this.client.subscribe('/statues', (err) => {
+							if (!err) {
+								console.log('订阅成功')
+								// 断连重载图表
+								_self.showLineA("myChart")
+								canvaLineA.updateData({
+									categories: this.categories,
+									series: [{
+										name: '实时心率',
+										data: this.heart_rate_list
+									}],
+								})
+							} else {
+								console.log('订阅失败')
+							}
+						})
+					})
+				}
+				// 客户端连接错误事件
+				this.client.on('error', error => {
+					console.log(error)
+				})
+				// 监听接收消息事件
+				this.client.on('message', (topic, message) => {
+					// console.log('收到消息：' + message.toString())
+					let data = message.toString()
+					// dataArr是一组数据 四条数据 第一条为网关数据 后三条为有效数据
+					let dataArr = JSON.parse(data)
+					if (dataArr.length > 1) {
+						for (let item of dataArr) {
+							// if (this.patient && item.mac == this.patient.mac) {
+							if (this.patient && item.mac == this.mac) { //测试用mac
+								// 心率
+								// this.heart_rate = parseInt(item.rawData.slice(26, 28), 16)
+								this.heart_rate = Math.ceil(Math.random() * 300)
+								console.log('心率', this.heart_rate)
+								let timer = item.timestamp.slice(12, 19) // x轴时间
+								this.heart_rate_list.push(this.heart_rate) // 心率列表
+								this.categories.push(timer) // 时间列表
+								this.highest_bpm = Math.max(...this.heart_rate_list) 
+								this.lowest_bpm = Math.min(...this.heart_rate_list) 
+								this.avg_bpm = this.getAverage(this.heart_rate_list) 
+								this.drawChart()
+							}
+						}
+					}
+				})
+			},
+			
+			// 绘制图表
+			drawChart() {
+				setInterval(() => {
+					if (this.heart_rate_list.length > 50) {
+						this.heart_rate_list.shift()
+						this.categories.shift()
+					}
+					canvaLineA.updateData({
+						categories: _self.categories,
+						series: [{
+							name: '实时心率',
+							data: _self.heart_rate_list
+						}],
+					})
+				}, 1000)
+			},
+
 			toChoice() {
 				uni.redirectTo({
-					url: `../choicePatient/choicePatient`
+					url: `../choicePatient/choicePatient`,
 				})
-				// if(this.connected === true) {
-				// 	uni.redirectTo({
-				// 		url: `../choicePatient/choicePatient?connected=${this.connected}`
-				// 	})
-				// } else {
-				// 	uni.redirectTo({
-				// 		url: `../choicePatient/choicePatient`
-				// 	})
-				// }
 			},
 
 			// 选择患者picker @change事件
@@ -341,6 +301,7 @@
 			// 		}
 			// 	}
 			// },
+
 			// 获取患者列表(ID)
 			async fetchPatientList() {
 				await uni.request({
@@ -350,6 +311,7 @@
 					}
 				})
 			},
+
 			// 获取患者信息
 			async fetchPatientInfo(id) {
 				await uni.request({
@@ -359,7 +321,6 @@
 					},
 				})
 			},
-			
 
 			showLineA(canvasId) {
 				// 图表实例和配置
@@ -387,7 +348,6 @@
 						axisLine: false,
 						fontColor: '#FFF',
 						disabled: true,
-						// boundaryGap: 'justify'
 					},
 					yAxis: {
 						data: [{
@@ -460,30 +420,14 @@
 				return `${year}-${month}-${day}`;
 			},
 
-			async getServerData() {
-				await uni.request({
-					url: 'https://www.ucharts.cn/data.json',
-					data: {},
-					success: function(res) {
-						console.log(res.data.data)
-						let LineA = {
-							categories: [],
-							series: []
-						};
-						//这里后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-						LineA.categories = res.data.data.LineA.categories;
-						// LineA.series = res.data.data.LineA.series;
-						// 只筛选了最后一条数据进行可视化
-						LineA.series = res.data.data.LineA.series;
-						LineA.series = [LineA.series.pop()];
-						_self.showLineA("myChart", LineA);
-					},
-					fail: () => {
-						_self.tips = "网络错误，小程序端请检查合法域名";
-					},
-				});
-			},
-
+			// 求数组平均值
+			getAverage(arr) {
+				var sum = 0
+				for (let i = 0; i < arr.length; i++) {
+					sum += arr[i]
+				}
+				return Math.ceil(sum / arr.length)
+			}
 		},
 	}
 </script>
