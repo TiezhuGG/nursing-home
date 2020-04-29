@@ -113,12 +113,12 @@
 				heart_rate: null, // 心率
 				date: currentDate,
 				mac: 'E21B0CF75104', //测试用mac
-				highest_bpm: 0,	// 最高心率
+				highest_bpm: 0, // 最高心率
 				lowest_bpm: 0, // 最低心率
 				avg_bpm: 0, // 平均心率
 			};
 		},
-		
+
 		onLoad(options) {
 			// 图表实例需要赋值this给_self
 			_self = this;
@@ -151,7 +151,7 @@
 				return this.getDate('end');
 			}
 		},
-		
+
 		watch: {
 			patient(newVal, oldVal) {
 				// console.log(newVal)
@@ -242,25 +242,25 @@
 					let dataArr = JSON.parse(data)
 					if (dataArr.length > 1) {
 						for (let item of dataArr) {
-							// if (this.patient && item.mac == this.patient.mac) {
-							if (this.patient && item.mac == this.mac) { //测试用mac
+							if (this.patient && item.mac == this.patient.mac) {
+							// if (this.patient && item.mac == this.mac) { //测试用mac
 								// 心率
-								// this.heart_rate = parseInt(item.rawData.slice(26, 28), 16)
-								this.heart_rate = Math.ceil(Math.random() * 300)
+								this.heart_rate = parseInt(item.rawData.slice(26, 28), 16)
+								// this.heart_rate = Math.ceil(Math.random() * 300)
 								console.log('心率', this.heart_rate)
 								let timer = item.timestamp.slice(12, 19) // x轴时间
 								this.heart_rate_list.push(this.heart_rate) // 心率列表
 								this.categories.push(timer) // 时间列表
-								this.highest_bpm = Math.max(...this.heart_rate_list) 
-								this.lowest_bpm = Math.min(...this.heart_rate_list) 
-								this.avg_bpm = this.getAverage(this.heart_rate_list) 
+								this.highest_bpm = Math.max(...this.heart_rate_list)
+								this.lowest_bpm = Math.min(...this.heart_rate_list)
+								this.avg_bpm = this.getAverage(this.heart_rate_list)
 								this.drawChart()
 							}
 						}
 					}
 				})
 			},
-			
+
 			// 绘制图表
 			drawChart() {
 				setInterval(() => {

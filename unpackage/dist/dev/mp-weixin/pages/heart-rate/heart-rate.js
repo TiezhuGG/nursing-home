@@ -375,11 +375,11 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 50);var _defau
         var dataArr = JSON.parse(data);
         if (dataArr.length > 1) {var _iterator = _createForOfIteratorHelper(
           dataArr),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
-              // if (this.patient && item.mac == this.patient.mac) {
-              if (_this2.patient && item.mac == _this2.mac) {//测试用mac
+              if (_this2.patient && item.mac == _this2.patient.mac) {
+                // if (this.patient && item.mac == this.mac) { //测试用mac
                 // 心率
-                // this.heart_rate = parseInt(item.rawData.slice(26, 28), 16)
-                _this2.heart_rate = Math.ceil(Math.random() * 300);
+                _this2.heart_rate = parseInt(item.rawData.slice(26, 28), 16);
+                // this.heart_rate = Math.ceil(Math.random() * 300)
                 console.log('心率', _this2.heart_rate);
                 var timer = item.timestamp.slice(12, 19); // x轴时间
                 _this2.heart_rate_list.push(_this2.heart_rate); // 心率列表

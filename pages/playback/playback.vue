@@ -18,28 +18,17 @@
 
 			<view class="date-module">
 				<view class="date">
-					<!-- 					<img class="back" src="../../static/images/back2.png">
-					<text class='txt'>
-
-					</text> -->
-					<!-- 					<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+					<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
 						<view class="txt">
 							选择时间: {{date}}
 						</view>
-					</picker> -->
-
-					<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange1">
-						<text class="txt">
-							选择时间: {{date.substr(5) + " 至"}}
-						</text>
 					</picker>
-					<picker mode="date" :value="date2" :start="startDate" :end="endDate" @change="bindDateChange2">
-						<text class="txt">
-							{{date2.substr(5)}}
-						</text>
+					<picker mode="selector" :range="typeList" @change="bindTypeChange" range-key="time">
+						<view class="txt">
+							选择类型: {{ timeType }}
+						</view>
 					</picker>
 				</view>
-				<!-- <text class="total">最后30次测量</text> -->
 
 			</view>
 			<!-- 图表 -->
@@ -51,28 +40,23 @@
 		</view>
 
 		<view class="middle">
-			<!-- 			<view class="time-range">
-				<block v-for="(item, index) in time_range" :key="index">
-					<text class="time">{{item}}</text>
-				</block>
-			</view> -->
 			<view class="beat">
 				<view class="beat-item">
 					<text class="txt">最高(BPM)</text>
-					<text class="val">107</text>
+					<text class="val">{{ highest_bpm === 0||highest_bpm === null ? '' : highest_bpm }}</text>
 				</view>
 				<view class="beat-item">
 					<text class="txt">平均(BPM)</text>
-					<text class="val">82</text>
+					<text class="val">{{ avg_bpm === 0|| avg_bpm === null ? '' : avg_bpm }}</text>
 				</view>
 				<view class="beat-item">
 					<text class="txt">最低(BPM)</text>
-					<text class="val">45</text>
+					<text class="val">{{ lowest_bpm === 0||lowest_bpm === null ? '' : lowest_bpm }}</text>
 				</view>
 			</view>
 		</view>
 
-		<view class="bottom">
+		<!-- 		<view class="bottom">
 			<view class="bottom-top">
 				最近三十次测量结果
 			</view>
@@ -83,7 +67,7 @@
 					<text class="bpm">{{bpm}}</text>
 				</view>
 			</view>
-		</view>
+		</view> -->
 	</view>
 </template>
 
@@ -120,18 +104,35 @@
 				heart_rate_list: [],
 				categories: [],
 				date: currentDate,
-				date2: currentDate,
+				mac: '',
+				typeList: [{
+						time: '5分钟',
+						type: "1"
+					},
+					{
+						time: '10分钟',
+						type: "2"
+					},
+					{
+						time: '30分钟',
+						type: "3"
+					},
+					{
+						time: '60分钟',
+						type: "4"
+					},
+				],
+				timeType: '5分钟',
+				type: '1',
+				dataList: [],
+				highest_bpm: 0,
+				lowest_bpm: 0,
+				avg_bpm: 0
 			};
 		},
 		onLoad(options) {
-			console.log('pid', options.pid)
-			// 进页面有患者id就执行
-			if (options.pid) {
-				this.test(options.pid)
-			}
 			_self = this;
 			this.fetchPatientList()
-			// _self.getServerData();
 			this.cWidth = uni.upx2px(750);
 			this.cHeight = uni.upx2px(500);
 		},
@@ -150,93 +151,74 @@
 		},
 		watch: {
 			patient(newVal, oldVal) {
-				// console.log(newVal)
-				// console.log(oldVal)
-				// 切换病人时清空图表数据（重新渲染图表）
-				this.heart_rate_list = []
-				this.categories = []
-				if (oldVal != null) {
-					canvaLineA.updateData({
-						categories: this.categories,
-						series: [{
-							name: '实时心率',
-							data: this.heart_rate_list
-						}],
-					})
+				this.drawChart()
+			},
+			type(newVal, oldVal) {
+				if (this.patient) {
+					this.drawChart()
+				}
+			},
+			date(newVal, oldVal) {
+				if (this.patient) {
+					this.drawChart()
 				}
 			},
 			deep: true
 		},
 
 		methods: {
-			// 日期选择器1
-			bindDateChange1(e) {
-				this.date = e.target.value
-				this.start_time = this.dateToTimestamp(this.date)
+			drawChart() {
+				this.heart_rate_list = []
+				this.categories = []
+				this.getData()
 			},
-			// 日期选择器2
-			bindDateChange2(e) {
-				this.date2 = e.target.value
-				this.end_time = this.dateToTimestamp(this.date2)
-			},
-			getDate(type) {
-				const date = new Date();
-				let year = date.getFullYear();
-				let month = date.getMonth() + 1;
-				let day = date.getDate();
-
-				if (type === 'start') {
-					year = year - 60;
-				} else if (type === 'end') {
-					year = year + 2;
-				}
-				month = month > 9 ? month : '0' + month;;
-				day = day > 9 ? day : '0' + day;
-				return `${year}-${month}-${day}`;
-			},
-			test(pid) {
-				this.showCharts = true
-				this.fetchPatientInfo(pid)
-				setInterval(() => {
-					let randomData = Math.random() * 300
-					let timer = Math.random() * 300
-					this.heart_rate_list.push(randomData)
-					this.categories.push(timer)
-					// console.log(this.heart_rate_list)
-					if (this.heart_rate_list.length > 8) {
-						this.heart_rate_list.shift()
-						this.categories.shift()
-					}
-
-					// 初始化图表实例
-					_self.showLineA("myChart")
-					// updateData更新图表
-					canvaLineA.updateData({
-						categories: this.categories,
-						series: [{
-							name: '实时心率',
-							data: _self.heart_rate_list
-						}],
-					})
-				}, 1000)
-
-			},
-			// picker @change事件
+			// 选择患者picker
 			bindPickerChange(e) {
-				// console.log(e)
 				for (let item of this.patientList) {
 					if (item.id === Number(e.detail.value) + 1) {
-						// this.fetchPatientInfo(item.id)
-						// this.getSocket()
-
-						// 把患者id缓存到本地
-						uni.setStorage({
-							key: 'pid',
-							data: item.id
-						})
-						this.test(item.id)
+						this.fetchPatientInfo(item.id)
 					}
 				}
+			},
+			// 选择时间段picker
+			bindTypeChange(e) {
+				for (let item of this.typeList) {
+					if (this.typeList.indexOf(item) == e.detail.value) {
+						this.timeType = item.time
+						this.type = item.type
+						return
+					}
+				}
+			},
+
+			async getData() {
+				this.showCharts = true
+				await uni.request({
+					url: 'https://ciaiky.le-cx.com/php/chaxun.php',
+					method: "POST",
+					header: {
+						'content-type': 'application/x-www-form-urlencoded',
+					},
+					data: {
+						shangchuan_date: this.date,
+						data_mingzi: this.patient.mac,
+						data_sj: this.type
+						// shangchuan_date: "2020-01-01",
+						// data_mingzi: this.patient.mac,
+						// data_sj: "1"
+					},
+					success: res => {
+						this.dataList = res.data
+						for (let item of this.dataList) {
+							this.heart_rate_list.push(item.data_xl)
+							this.categories.push(item.data_time)
+						}
+						this.highest_bpm = Math.max(...this.heart_rate_list)
+						this.lowest_bpm = Math.min(...this.heart_rate_list)
+						this.avg_bpm = this.getAverage(this.heart_rate_list)
+						_self.showLineA("myChart", this.categories, this.heart_rate_list)
+					}
+				})
 			},
 			// 获取患者列表(ID)
 			async fetchPatientList() {
@@ -256,71 +238,8 @@
 					},
 				})
 			},
-			// 获取socket数据
-			async getSocket() {
-				let client = await mqtt.connect('wxs://59.60.183.104:8888/mqtt', {
-					clientId: 'adfas',
-					username: 'admin',
-					password: 'admin'
-				})
-				client.on('connect', () => {
-					console.log('mqtt连接成功')
-					client.subscribe('/statues', (err) => {
-						if (!err) {
-							console.log('订阅成功')
-						} else {
-							console.log('订阅失败')
-						}
-					})
-				})
-				// 客户端连接错误事件
-				client.on('error', error => {
-					console.log(error)
-				})
-				// 监听接收消息事件
-				client.on('message', (topic, message) => {
-					// console.log('收到消息：' + message.toString())
-					let data = message.toString()
-					// console.log(data)
-					let dataArr = JSON.parse(data)
-					if (dataArr.length > 1) {
-						for (let item of dataArr) {
-							if (this.patient && item.mac == this.patient.mac) {
-								console.log(item)
-								// 心率
-								let heart_rate = parseInt(item.rawData.slice(14, 15), 16)
-								// 步数
-								let steps = parseInt(item.rawData.slice(15, 17), 16)
-								// 电池电量
-								let power = parseInt(item.rawData.slice(17, 18), 16)
-								// x轴时间
-								let timer = item.timestamp.slice(12, 19)
-								this.heart_rate_list.push(heart_rate)
-								// let randomData = Math.random() * 300
-								// this.heart_rate_list.push(randomData)
-								this.categories.push(timer)
-								// console.log(this.heart_rate_list)
-								if (this.heart_rate_list.length > 8) {
-									this.heart_rate_list.shift()
-									this.categories.shift()
-								}
-								// 初始化图表实例
-								_self.showLineA("myChart")
-								// updateData更新图表
-								canvaLineA.updateData({
-									categories: this.categories,
-									series: [{
-										name: '实时心率',
-										data: _self.heart_rate_list
-									}],
-								})
-							}
-						}
-					}
-				})
-			},
 
-			showLineA(canvasId) {
+			showLineA(canvasId, categories, heart_rate) {
 				// 图表实例和配置
 				canvaLineA = new uCharts({
 					$this: _self,
@@ -329,13 +248,13 @@
 					type: 'line',
 					fontSize: 12,
 					dataLabel: false,
-					dataPointShape: true,
+					dataPointShape: false,
 					background: '#24C789',
 					pixelRatio: _self.pixelRatio,
-					categories: '',
+					categories: categories,
 					series: [{
 						name: '实时心率',
-						data: ''
+						data: heart_rate
 					}],
 					animation: false,
 					xAxis: {
@@ -344,6 +263,7 @@
 						disableGrid: true,
 						axisLine: false,
 						fontColor: '#FFF',
+						disabled: true,
 						// boundaryGap: 'justify'
 					},
 					yAxis: {
@@ -352,7 +272,7 @@
 							fontColor: '#FFF',
 							axisLineColor: '#24C789',
 							min: 0,
-							max: 300,
+							max: 180,
 						}],
 						gridType: 'dash',
 						gridColor: '#FFF',
@@ -381,31 +301,34 @@
 					}
 				});
 			},
-
-			async getServerData() {
-				await uni.request({
-					url: 'https://www.ucharts.cn/data.json',
-					data: {},
-					success: function(res) {
-						console.log(res.data.data)
-						let LineA = {
-							categories: [],
-							series: []
-						};
-						//这里后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-						LineA.categories = res.data.data.LineA.categories;
-						// LineA.series = res.data.data.LineA.series;
-						// 只筛选了最后一条数据进行可视化
-						LineA.series = res.data.data.LineA.series;
-						LineA.series = [LineA.series.pop()];
-						_self.showLineA("myChart", LineA);
-					},
-					fail: () => {
-						_self.tips = "网络错误，小程序端请检查合法域名";
-					},
-				});
+			// 日期选择器
+			bindDateChange(e) {
+				this.date = e.target.value
 			},
 
+			getDate(type) {
+				const date = new Date();
+				let year = date.getFullYear();
+				let month = date.getMonth() + 1;
+				let day = date.getDate();
+
+				if (type === 'start') {
+					year = year - 60;
+				} else if (type === 'end') {
+					year = year + 2;
+				}
+				month = month > 9 ? month : '0' + month;;
+				day = day > 9 ? day : '0' + day;
+				return `${year}-${month}-${day}`;
+			},
+			// 求数组平均值
+			getAverage(arr) {
+				var sum = 0
+				for (let i = 0; i < arr.length; i++) {
+					sum += parseInt(arr[i])
+				}
+				return Math.ceil(sum / arr.length)
+			}
 		},
 	}
 </script>
@@ -488,15 +411,16 @@
 			}
 
 			.date-module {
-				width: 350upx;
+				width: 100%;
 				// display: flex;
 				// flex-direction: column;
 				margin-top: 40upx;
-				margin-bottom: 40upx;
+				display: flex;
+				justify-content: space-around;
 
 				.date {
 					display: flex;
-					// justify-content: space-between;
+					// justify-content: center;
 					align-items: center;
 
 					.back {

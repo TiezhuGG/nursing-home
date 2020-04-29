@@ -109,9 +109,13 @@
         margin-top: 5rpx;
 }
 .playback .top .date-module {
-      width: 350rpx;
+      width: 100%;
       margin-top: 40rpx;
-      margin-bottom: 40rpx;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: space-around;
+              justify-content: space-around;
 }
 .playback .top .date-module .date {
         display: -webkit-box;

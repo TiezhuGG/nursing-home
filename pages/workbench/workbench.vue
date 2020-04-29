@@ -42,7 +42,8 @@
 				<img class="item-img" src="../../static/images/item-img2.png">
 				<text class="item-txt">心率回放</text>
 			</navigator>
-			<navigator class="item" url="../electrocardiogram/electrocardiogram">
+			<!-- <navigator class="item" url="../electrocardiogram/electrocardiogram"> -->
+			<navigator class="item">
 				<img class="item-img" src="../../static/images/heart.png">
 				<text class="item-txt">心电图</text>
 			</navigator>
@@ -54,7 +55,8 @@
 				<img class="item-img" src="../../static/images/item-img4.png">
 				<text class="item-txt">血压 血氧 血糖</text>
 			</view>
-			<navigator class="item" url="../video/video">
+			<!-- <navigator class="item" url="../video/video"> -->
+			<navigator class="item">
 				<img class="item-img" src="../../static/images/item-img5.png">
 				<text class="item-txt">视频监控</text>
 			</navigator>
