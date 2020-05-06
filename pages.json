@@ -1,6 +1,12 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
 			"path": "pages/workbench/workbench",
 			"style": {
 				"navigationBarTextStyle": "white",
@@ -77,27 +83,21 @@
 			"path": "pages/login/login",
 			"style": {}
 		},
+
 		{
-			"path": "pages/index/index",
+			"path": "pages/playback/playback",
 			"style": {
-				"navigationBarTitleText": ""
-			}
-		}
-	    ,{
-            "path" : "pages/playback/playback",
-            "style" : {
 				"navigationBarTitleText": "心率回放",
 				"navigationBarTextStyle": "white",
 				"navigationBarBackgroundColor": "#24C789"
 			}
-        }
-        ,{
-            "path" : "pages/choicePatient/choicePatient",
-            "style" : {
+		}, {
+			"path": "pages/choicePatient/choicePatient",
+			"style": {
 				"navigationBarTitleText": "选择患者"
 			}
-        }
-    ],
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		// "navigationBarTitleText": "uni-app",

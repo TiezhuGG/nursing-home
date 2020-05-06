@@ -18,7 +18,7 @@
 		onLaunch: function() {
 		},
 		onShow: function() {
-			this.hasLogin()
+			// this.hasLogin()
 		},
 		onHide: function() {
 			console.log('App Hide')

@@ -112,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
   onLaunch: function onLaunch() {
   },
   onShow: function onShow() {
-    this.hasLogin();
+    // this.hasLogin()
   },
   onHide: function onHide() {
     console.log('App Hide');
