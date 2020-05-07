@@ -7745,18 +7745,18 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 35:
+/***/ 37:
 /*!*********************************************************************************************!*\
   !*** ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator/index.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 36);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 38);
 
 /***/ }),
 
-/***/ 36:
+/***/ 38:
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -7787,7 +7787,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 37);
+module.exports = __webpack_require__(/*! ./runtime */ 39);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -7804,7 +7804,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 37:
+/***/ 39:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -8536,7 +8536,18 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 38:
+/***/ 4:
+/*!*******************************************************!*\
+  !*** C:/Users/window/Desktop/nursing-home/pages.json ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 40:
 /*!****************************************************************************!*\
   !*** C:/Users/window/Desktop/nursing-home/components/u-charts/u-charts.js ***!
   \****************************************************************************/
@@ -14181,18 +14192,7 @@ if ( true && typeof module.exports === "object") {
 
 /***/ }),
 
-/***/ 4:
-/*!*******************************************************!*\
-  !*** C:/Users/window/Desktop/nursing-home/pages.json ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ 47:
+/***/ 49:
 /*!***************************************************************************!*\
   !*** C:/Users/window/Desktop/nursing-home/common/js/chineseConversion.js ***!
   \***************************************************************************/
@@ -16006,7 +16006,7 @@ main();
 
 /***/ }),
 
-/***/ 56:
+/***/ 58:
 /*!******************************************************************!*\
   !*** C:/Users/window/Desktop/nursing-home/common/js/mqtt.min.js ***!
   \******************************************************************/

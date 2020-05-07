@@ -1,4 +1,4 @@
-<view class="index"><view class="header"><image src="../../static/images/header-img.png"></image></view><view class="main"><view class="main-header"><view class="txt"><text>{{patientNum?patientNum:0}}</text><text>用户数(人)</text></view><image src="../../static/images/split.png"></image><view class="txt"><text>{{wearingNum?wearingNum:0}}</text><text>实时佩戴人数(人)</text></view></view><view class="main-content" style="background:url(../../static/images/index-back.png) right;background-size:448rpx 666rpx;background-repeat:no-repeat;"><text>1.智能可穿戴系统（智能腕表）
+<view class="index"><view class="header"><image src="../../static/images/header-img.png"></image></view><view class="main"><view class="main-header"><view class="txt"><text>{{patientNum?patientNum:0}}</text><text>用户数(人)</text></view><image src="../../static/images/split.png"></image><view class="txt"><text>{{watch_amount?watch_amount:0}}</text><text>实时佩戴人数(人)</text></view></view><view class="main-content" style="background:url(../../static/images/index-back.png) right;background-size:448rpx 666rpx;background-repeat:no-repeat;"><text>1.智能可穿戴系统（智能腕表）
 
 				2.生命体征监测（心率、血氧监测，个性化阈值设定，动态数据实时采集）
 

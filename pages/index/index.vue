@@ -11,7 +11,7 @@
 				</view>
 				<image src="../../static/images/split.png"></image>
 				<view class="txt">
-					<text>{{ wearingNum ? wearingNum : 0}}</text>
+					<text>{{ watch_amount ? watch_amount : 0}}</text>
 					<text>实时佩戴人数(人)</text>
 				</view>
 			</view>
@@ -47,13 +47,14 @@
 		data() {
 			return {
 				userInfo: null,
-				patientNum: 0,
-				wearingNum: 0,
+				patientNum: 0,	// 用户数
+				watch_amount: 0		// 实时佩戴人数
 			}
 		},
 		created() {
 			this.userInfo = uni.getStorageSync('userInfo') ? uni.getStorageSync('userInfo') : ''
 			this.fetchPatients()
+			this.fetchWatchCount()
 		},
 
 		methods: {
@@ -74,6 +75,14 @@
 					success: res => {
 						const patientList = res.data.data
 						this.patientNum = patientList.length
+					}
+				})
+			},
+			fetchWatchCount() {
+				uni.request({
+					url: 'https://ciaiky.le-cx.com/php/watch_on.php',
+					success: res => {
+						this.watch_amount = res.data[0].watch_amount
 					}
 				})
 			}
