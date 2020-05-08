@@ -47,16 +47,24 @@
 		data() {
 			return {
 				userInfo: null,
-				patientNum: 0,	// 用户数
-				watch_amount: 0		// 实时佩戴人数
+				patientNum: 0, // 用户数
+				watch_amount: 0, // 实时佩戴人数
+				reqeustTask: null,
+				interval: null
 			}
 		},
-		created() {
+		onLoad() {
 			this.userInfo = uni.getStorageSync('userInfo') ? uni.getStorageSync('userInfo') : ''
 			this.fetchPatients()
-			this.fetchWatchCount()
+			// 三秒刷新一次数据
+			this.interval = setInterval(() => {
+				this.fetchWatchCount()
+			}, 3000)
 		},
-
+		onUnload() {
+			console.log('stop request')
+			clearInterval(this.interval)
+		},
 		methods: {
 			toWorkbench() {
 				if (this.userInfo) {
@@ -64,7 +72,7 @@
 						url: '../workbench/workbench'
 					})
 				} else {
-					uni.navigateTo({
+					uni.reLaunch({
 						url: '../login/login'
 					})
 				}
@@ -79,13 +87,15 @@
 				})
 			},
 			fetchWatchCount() {
-				uni.request({
+				var req = uni.request({
 					url: 'https://ciaiky.le-cx.com/php/watch_on.php',
 					success: res => {
 						this.watch_amount = res.data[0].watch_amount
+						console.log(res)
 					}
 				})
-			}
+				this.reqeustTask = req
+			},
 		}
 	}
 </script>

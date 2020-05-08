@@ -190,15 +190,23 @@ var _default =
     return {
       userInfo: null,
       patientNum: 0, // 用户数
-      watch_amount: 0 // 实时佩戴人数
-    };
+      watch_amount: 0, // 实时佩戴人数
+      reqeustTask: null,
+      interval: null };
+
   },
-  created: function created() {
+  onLoad: function onLoad() {var _this = this;
     this.userInfo = uni.getStorageSync('userInfo') ? uni.getStorageSync('userInfo') : '';
     this.fetchPatients();
-    this.fetchWatchCount();
+    // 三秒刷新一次数据
+    this.interval = setInterval(function () {
+      _this.fetchWatchCount();
+    }, 3000);
   },
-
+  onUnload: function onUnload() {
+    console.log('stop request');
+    clearInterval(this.interval);
+  },
   methods: {
     toWorkbench: function toWorkbench() {
       if (this.userInfo) {
@@ -206,27 +214,29 @@ var _default =
           url: '../workbench/workbench' });
 
       } else {
-        uni.navigateTo({
+        uni.reLaunch({
           url: '../login/login' });
 
       }
     },
-    fetchPatients: function fetchPatients() {var _this = this;
+    fetchPatients: function fetchPatients() {var _this2 = this;
       uni.request({
         url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
         success: function success(res) {
           var patientList = res.data.data;
-          _this.patientNum = patientList.length;
+          _this2.patientNum = patientList.length;
         } });
 
     },
-    fetchWatchCount: function fetchWatchCount() {var _this2 = this;
-      uni.request({
+    fetchWatchCount: function fetchWatchCount() {var _this3 = this;
+      var req = uni.request({
         url: 'https://ciaiky.le-cx.com/php/watch_on.php',
         success: function success(res) {
-          _this2.watch_amount = res.data[0].watch_amount;
+          _this3.watch_amount = res.data[0].watch_amount;
+          console.log(res);
         } });
 
+      this.reqeustTask = req;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
