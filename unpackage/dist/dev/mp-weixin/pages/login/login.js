@@ -181,9 +181,9 @@ var _default =
       change_type: 'password' };
 
   },
-  onShow: function onShow() {
-    uni.hideHomeButton();
-  },
+  // onShow() {
+  // 	uni.hideHomeButton()
+  // },
   methods: {
     clearAccount: function clearAccount() {
       this.user_phone = '';

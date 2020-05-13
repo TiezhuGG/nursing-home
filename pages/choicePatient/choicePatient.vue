@@ -18,13 +18,13 @@
 					<block v-for="(item, idx) in list" :key="idx">
 						<view class="item_letter" :id="item.letter">{{ item.letter }}</view>
 						<block v-for="(user, index) in item.data" :key="index">
-							<view class="selection" @click="toHeartRate(user.id)">
+							<view class="selection" @click="toPage(user.id)">
 								<img class="item_avatar" :src="user.avatar" />
 								<view>
 									<text class="item_name">{{ user.name }}</text>
 									<text class="item_age">年龄: {{ user.age }}</text>
 								</view>
-								<view class="watch-data">查看实时心率</view>
+								<view class="watch-data">{{ type_id === 1 ? '查看实时心率' : (type_id === 2 ? '查看心率回放' : '血压血氧血糖')}}</view>
 							</view>
 						</block>
 					</block>
@@ -55,9 +55,12 @@
 				showLetter: '',
 				isShowLetter: false,
 				toastShowLetter: '',
+				type_id: ''
 			};
 		},
 		onLoad(options) {
+			this.type_id = options.id
+			console.log("this.type_id",this.type_id)
 			this.fetchPatientList()
 			const searchLetter = this.searchLetter;
 			const sysInfo = uni.getSystemInfoSync();
@@ -125,10 +128,21 @@
 				})
 			},
 			// 跳转实时心率页面
-			toHeartRate(id) {
-				uni.redirectTo({
-					url: `../heart-rate/heart-rate?pid=${id}`
-				})
+			toPage(id) {
+				if (this.type_id == 1) {
+					uni.redirectTo({
+						url: `../heart-rate/heart-rate?pid=${id}`
+					})
+				} else if (this.type_id == 2) {
+					uni.redirectTo({
+						url: `../playback/playback?pid=${id}`
+					})
+				} else {
+					uni.redirectTo({
+						url: `../blood-status/blood-status?pid=${id}`
+					})
+				}
+
 			},
 			// 按字母a-z排序
 			sortLetter(arr) {
@@ -255,12 +269,12 @@
 			position: absolute;
 			left: 465upx;
 		}
-		
+
 		.collect-data {
 			position: absolute;
 			left: 550upx;
 		}
-		
+
 		.watch-data,
 		.collect-data {
 			width: 180upx;

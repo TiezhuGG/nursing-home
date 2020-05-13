@@ -205,6 +205,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 var _uCharts = _interopRequireDefault(__webpack_require__(/*! ../../components/u-charts/u-charts.js */ 40));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _createForOfIteratorHelper(o) {if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var it,normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
 var _self;
 var canvaLineA = null;
@@ -265,6 +267,10 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 58);var _defau
   },
   onLoad: function onLoad(options) {
     _self = this;
+    // 进页面有患者id就执行
+    if (options.pid) {
+      this.fetchPatientInfo(options.pid);
+    }
     this.fetchPatientList();
     this.cWidth = uni.upx2px(750);
     this.cHeight = uni.upx2px(500);
@@ -295,33 +301,37 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 58);var _defau
       if (this.patient) {
         this.drawChart();
       }
-    },
-    deep: true },
+    } },
 
 
   methods: {
+    toChoice: function toChoice() {
+      uni.redirectTo({
+        url: "../choicePatient/choicePatient?id=2" });
+
+    },
     drawChart: function drawChart() {
       this.heart_rate_list = [];
       this.categories = [];
       this.getData();
     },
     // 选择患者picker
-    bindPickerChange: function bindPickerChange(e) {var _iterator = _createForOfIteratorHelper(
-      this.patientList),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
-          if (item.id === Number(e.detail.value) + 1) {
-            this.fetchPatientInfo(item.id);
-          }
-        }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
-    },
+    // bindPickerChange(e) {
+    // 	for (let item of this.patientList) {
+    // 		if (item.id === Number(e.detail.value) + 1) {
+    // 			this.fetchPatientInfo(item.id)
+    // 		}
+    // 	}
+    // },
     // 选择时间段picker
-    bindTypeChange: function bindTypeChange(e) {var _iterator2 = _createForOfIteratorHelper(
-      this.typeList),_step2;try {for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {var item = _step2.value;
+    bindTypeChange: function bindTypeChange(e) {var _iterator = _createForOfIteratorHelper(
+      this.typeList),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
           if (this.typeList.indexOf(item) == e.detail.value) {
             this.timeType = item.time;
             this.type = item.type;
             return;
           }
-        }} catch (err) {_iterator2.e(err);} finally {_iterator2.f();}
+        }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
     },
 
     getData: function getData() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
@@ -341,11 +351,11 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 58);var _defau
                       // data_sj: "1"
                     },
                     success: function success(res) {
-                      _this.dataList = res.data;var _iterator3 = _createForOfIteratorHelper(
-                      _this.dataList),_step3;try {for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {var item = _step3.value;
+                      _this.dataList = res.data;var _iterator2 = _createForOfIteratorHelper(
+                      _this.dataList),_step2;try {for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {var item = _step2.value;
                           _this.heart_rate_list.push(item.data_xl);
                           _this.categories.push(item.data_time);
-                        }} catch (err) {_iterator3.e(err);} finally {_iterator3.f();}
+                        }} catch (err) {_iterator2.e(err);} finally {_iterator2.f();}
                       _this.highest_bpm = Math.max.apply(Math, _toConsumableArray(_this.heart_rate_list));
                       _this.lowest_bpm = Math.min.apply(Math, _toConsumableArray(_this.heart_rate_list));
                       _this.avg_bpm = _this.getAverage(_this.heart_rate_list);

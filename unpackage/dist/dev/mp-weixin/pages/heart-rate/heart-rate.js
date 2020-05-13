@@ -413,7 +413,7 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 58);var _defau
 
     toChoice: function toChoice() {
       uni.redirectTo({
-        url: "../choicePatient/choicePatient" });
+        url: "../choicePatient/choicePatient?id=1" });
 
     },
 

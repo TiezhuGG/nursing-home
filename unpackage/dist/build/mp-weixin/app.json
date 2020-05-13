@@ -1,16 +1,19 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/workbench/workbench",
+    "pages/collect-data/collect-data",
+    "pages/management/management",
     "pages/electrocardiogram/electrocardiogram",
     "pages/blood-status/blood-status",
     "pages/heart-rate/heart-rate",
-    "pages/management/management",
     "pages/warning/warning",
     "pages/personal/personal",
     "pages/notice/notice",
     "pages/video/video",
     "pages/login/login",
-    "pages/index/index"
+    "pages/playback/playback",
+    "pages/choicePatient/choicePatient"
   ],
   "subPackages": [],
   "window": {

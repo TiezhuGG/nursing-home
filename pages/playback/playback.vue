@@ -10,10 +10,12 @@
 						<text class="gender">性别: {{patient.gender === 1 ? '男' : '女'}}</text>
 					</view>
 				</view>
-				<view class="no-info" v-if="!patient">请选择患者</view>
+				<!-- 				<view class="no-info" v-if="!patient">请选择患者</view>
 				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name">
 					<view><img class="more" src="../../static/images/more.png"></view>
-				</picker>
+				</picker> -->
+				<view class="no-info" v-if="!patient" @click="toChoice">请选择患者</view>
+				<view><img class="more" src="../../static/images/more.png" @click="toChoice"></view>
 			</view>
 
 			<view class="date-module">
@@ -132,6 +134,10 @@
 		},
 		onLoad(options) {
 			_self = this;
+			// 进页面有患者id就执行
+			if (options.pid) {
+				this.fetchPatientInfo(options.pid)
+			}
 			this.fetchPatientList()
 			this.cWidth = uni.upx2px(750);
 			this.cHeight = uni.upx2px(500);
@@ -143,10 +149,10 @@
 		},
 		computed: {
 			startDate() {
-				return this.getDate('start');
+				return this.getDate('start')
 			},
 			endDate() {
-				return this.getDate('end');
+				return this.getDate('end')
 			}
 		},
 		watch: {
@@ -163,23 +169,27 @@
 					this.drawChart()
 				}
 			},
-			deep: true
 		},
 
 		methods: {
+			toChoice() {
+				uni.redirectTo({
+					url: `../choicePatient/choicePatient?id=2`,
+				})
+			},
 			drawChart() {
 				this.heart_rate_list = []
 				this.categories = []
 				this.getData()
 			},
 			// 选择患者picker
-			bindPickerChange(e) {
-				for (let item of this.patientList) {
-					if (item.id === Number(e.detail.value) + 1) {
-						this.fetchPatientInfo(item.id)
-					}
-				}
-			},
+			// bindPickerChange(e) {
+			// 	for (let item of this.patientList) {
+			// 		if (item.id === Number(e.detail.value) + 1) {
+			// 			this.fetchPatientInfo(item.id)
+			// 		}
+			// 	}
+			// },
 			// 选择时间段picker
 			bindTypeChange(e) {
 				for (let item of this.typeList) {

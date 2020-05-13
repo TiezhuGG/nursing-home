@@ -187,10 +187,13 @@ var _chineseConversion = __webpack_require__(/*! @/common/js/chineseConversion.j
       winHeight: 0,
       showLetter: '',
       isShowLetter: false,
-      toastShowLetter: '' };
+      toastShowLetter: '',
+      type_id: '' };
 
   },
   onLoad: function onLoad(options) {
+    this.type_id = options.id;
+    console.log("this.type_id", this.type_id);
     this.fetchPatientList();
     var searchLetter = this.searchLetter;
     var sysInfo = uni.getSystemInfoSync();
@@ -258,9 +261,20 @@ var _chineseConversion = __webpack_require__(/*! @/common/js/chineseConversion.j
 
     },
     // 跳转实时心率页面
-    toHeartRate: function toHeartRate(id) {
-      uni.redirectTo({
-        url: "../heart-rate/heart-rate?pid=".concat(id) });
+    toPage: function toPage(id) {
+      if (this.type_id == 1) {
+        uni.redirectTo({
+          url: "../heart-rate/heart-rate?pid=".concat(id) });
+
+      } else if (this.type_id == 2) {
+        uni.redirectTo({
+          url: "../playback/playback?pid=".concat(id) });
+
+      } else {
+        uni.redirectTo({
+          url: "../blood-status/blood-status?pid=".concat(id) });
+
+      }
 
     },
     // 按字母a-z排序

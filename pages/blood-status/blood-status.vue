@@ -11,10 +11,12 @@
 						<text class="gender">性别: {{patient.gender === 1 ? '男' : '女'}}</text>
 					</view>
 				</view>
-				<view class="no-info" v-if="!patient">请选择患者</view>
+				<view class="no-info" v-if="!patient" @click="toChoice">请选择患者</view>
+				<view><img class="more" src="../../static/images/more.png" @click="toChoice"></view>
+				<!-- 				<view class="no-info" v-if="!patient">请选择患者</view>
 				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name">
 					<view><img class="more" src="../../static/images/more.png"></view>
-				</picker>
+				</picker> -->
 			</view>
 		</view>
 
@@ -264,11 +266,15 @@
 			this.end_time = this.start_time + 24 * 60 * 60 * 1000
 			// console.log('bpid',options.bpid)
 			// 从工作台进页面有患者id就执行
-			if (options.bpid) {
-				console.log('从工作台进来', options.bpid)
-				this.fetchPatientInfo(options.bpid)
-				this.pid = options.bpid
-				// this.test(options.bpid)
+			// if (options.bpid) {
+			// 	console.log('从工作台进来', options.bpid)
+			// 	this.fetchPatientInfo(options.bpid)
+			// 	this.pid = options.bpid
+			// 	// this.test(options.bpid)
+			// }
+			if (options.pid) {
+				this.pid = options.pid
+				this.fetchPatientInfo(options.pid)
 			}
 			// 从客户管理界面进来会传入patient_id
 			if (options.patient_id) {
@@ -322,36 +328,42 @@
 		},
 
 		methods: {
-			test(bpid, list) {
-				this.showCharts = true
-				if (bpid) {
-					this.fetchPatientInfo(bpid)
-					for (let i = 0; i < list.length; i++) {
-						setTimeout(() => {
-							let randomData = Math.random() * 300
-							let timer = Math.random() * 300
-							this.bp_list.push(randomData)
-							this.bp_categories.push(timer)
-							// console.log(this.bp_list)
-							if (this.bp_list.length > 8) {
-								this.bp_list.shift()
-								this.bp_categories.shift()
-							}
-
-							// 初始化图表实例
-							_self.showLineA(this.chart)
-							// updateData更新图表
-							canvaLineA.updateData({
-								categories: _self.bp_categories,
-								series: [{
-									name: '血压 血氧 血糖',
-									data: _self.bp_list
-								}],
-							})
-						}, 1000 * i)
-					}
-				}
+			toChoice() {
+				uni.redirectTo({
+					url: `../choicePatient/choicePatient?id=3`,
+				})
 			},
+
+			// test(bpid, list) {
+			// 	this.showCharts = true
+			// 	if (bpid) {
+			// 		this.fetchPatientInfo(bpid)
+			// 		for (let i = 0; i < list.length; i++) {
+			// 			setTimeout(() => {
+			// 				let randomData = Math.random() * 300
+			// 				let timer = Math.random() * 300
+			// 				this.bp_list.push(randomData)
+			// 				this.bp_categories.push(timer)
+			// 				// console.log(this.bp_list)
+			// 				if (this.bp_list.length > 8) {
+			// 					this.bp_list.shift()
+			// 					this.bp_categories.shift()
+			// 				}
+
+			// 				// 初始化图表实例
+			// 				_self.showLineA(this.chart)
+			// 				// updateData更新图表
+			// 				canvaLineA.updateData({
+			// 					categories: _self.bp_categories,
+			// 					series: [{
+			// 						name: '血压 血氧 血糖',
+			// 						data: _self.bp_list
+			// 					}],
+			// 				})
+			// 			}, 1000 * i)
+			// 		}
+			// 	}
+			// },
 
 			// 画图
 			drawChart(pid, list, typeName) {
@@ -381,11 +393,11 @@
 							this.bo_categories.push(timer)
 							// console.log('this.categories',this.bo_categories)
 							total_pulse_rate += parseInt(list[i].pulse_rate)
-							if (typeName === "血氧") {// 血氧
+							if (typeName === "血氧") { // 血氧
 								// 血氧列表
 								this.bo_list.push(list[i].value)
 								total_blood += parseInt(list[i].value)
-							} else if(typeName === "血压") {// 血压
+							} else if (typeName === "血压") { // 血压
 								high_list.push(JSON.parse(list[i].value).high_blood_pressure)
 								low_list.push(JSON.parse(list[i].value).low_blood_pressure)
 							} else {
@@ -397,9 +409,14 @@
 						console.log('获取血压数据')
 						this.pressure_pulse_rate = (total_pulse_rate / i).toFixed(0)
 						// 血压列表
-						this.bp_list = [
-							{"name": "高压", "data": high_list},
-							{"name": "低压", "data": low_list},
+						this.bp_list = [{
+								"name": "高压",
+								"data": high_list
+							},
+							{
+								"name": "低压",
+								"data": low_list
+							},
 						]
 						_self.showLineA(this.chart, this.bo_categories, this.bp_list, typeName)
 					}
@@ -499,7 +516,7 @@
 			// 图表配置
 			showLineA(canvasId, categories, seriesData, seriesName) {
 				// 根据图表名称画相应的图
-				if(seriesName === '血氧' || seriesName === '血糖') {
+				if (seriesName === '血氧' || seriesName === '血糖') {
 					canvaLineA = new uCharts({
 						$this: _self,
 						canvasId: canvasId,
@@ -597,7 +614,7 @@
 					});
 				}
 			},
-			
+
 			// 血压图表点击事件
 			touchLineA(e) {
 				canvaLineA.showToolTip(e, {
@@ -610,14 +627,14 @@
 				// 根据测量时间对应的索引拿到高压和低压的值
 				this.timer = e.category
 				let index = this.bo_categories.indexOf(this.timer)
-				if(index !== -1) {
+				if (index !== -1) {
 					this.high_blood_pressure = this.bp_list[0].data[index]
 					this.low_blood_pressure = this.bp_list[1].data[index]
 					// console.log('高压',this.bp_list[0].data[index])
 					// console.log('低压',this.bp_list[1].data[index])
 				}
 			},
-			
+
 			// 血氧图表点击事件
 			touchLineB(e) {
 				canvaLineA.showToolTip(e, {
@@ -628,7 +645,7 @@
 					},
 				});
 				// 通过e拿到每个图表标识的数据
-				this.blood_oxygen = e.blood_oxygen	// 血氧				
+				this.blood_oxygen = e.blood_oxygen // 血氧				
 			},
 
 			// 日期格式转时间戳

@@ -280,7 +280,7 @@
 
 			toChoice() {
 				uni.redirectTo({
-					url: `../choicePatient/choicePatient`,
+					url: `../choicePatient/choicePatient?id=1`,
 				})
 			},
 
