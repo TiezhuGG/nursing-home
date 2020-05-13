@@ -271,6 +271,8 @@ var mqtt = __webpack_require__(/*! ../../common/js/mqtt.min.js */ 58);var _defau
     if (options.pid) {
       this.fetchPatientInfo(options.pid);
     }
+    // 默认第一个患者
+    this.fetchPatientInfo(1);
     this.fetchPatientList();
     this.cWidth = uni.upx2px(750);
     this.cHeight = uni.upx2px(500);
