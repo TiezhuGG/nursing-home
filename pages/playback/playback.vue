@@ -134,12 +134,13 @@
 		},
 		onLoad(options) {
 			_self = this;
-			// 进页面有患者id就执行
 			if (options.pid) {
+				// 进页面有患者id就执行
 				this.fetchPatientInfo(options.pid)
+			} else {
+				// 默认第一个患者
+				this.fetchPatientInfo(1)
 			}
-			// 默认第一个患者
-			this.fetchPatientInfo(1)
 			this.fetchPatientList()
 			this.cWidth = uni.upx2px(750);
 			this.cHeight = uni.upx2px(500);

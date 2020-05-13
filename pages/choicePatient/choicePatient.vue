@@ -24,7 +24,7 @@
 									<text class="item_name">{{ user.name }}</text>
 									<text class="item_age">年龄: {{ user.age }}</text>
 								</view>
-								<view class="watch-data">{{ type_id === 1 ? '查看实时心率' : (type_id === 2 ? '查看心率回放' : '血压血氧血糖')}}</view>
+								<view class="watch-data">{{ type_id == 1 ? '查看实时心率' : (type_id == 2 ? '查看心率回放' : '血压血氧血糖')}}</view>
 							</view>
 						</block>
 					</block>
