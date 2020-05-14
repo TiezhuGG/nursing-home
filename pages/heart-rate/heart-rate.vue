@@ -1,7 +1,7 @@
 <template>
 	<view class="heart-rate">
 		<view class="top">
-			<view class="patient_infos">
+			<view class="patient_infos" @click="toChoice()">
 				<img class="avatar" :src="patient.avatar">
 				<view class="info" v-if="patient">
 					<text class="name">{{patient.name}}</text>
@@ -10,11 +10,11 @@
 						<text class="gender">性别: {{patient.gender === 1 ? '男' : '女'}}</text>
 					</view>
 				</view>
-				<view class="no-info" v-if="!patient" @click="toChoice()">请选择患者</view>
+				<view class="no-info" v-if="!patient" >请选择患者</view>
 				<!-- 				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name">
 					<view @click="toChoice()"><img class="more" src="../../static/images/more.png"></view>
 				</picker> -->
-				<view @click="toChoice()"><img class="more" src="../../static/images/more.png"></view>
+				<view><img class="more" src="../../static/images/more.png"></view>
 			</view>
 
 			<view class="date-module">

@@ -1,7 +1,7 @@
 <template>
 	<view class="playback">
 		<view class="top">
-			<view class="patient_infos">
+			<view class="patient_infos" @click="toChoice">
 				<img class="avatar" :src="patient.avatar">
 				<view class="info" v-if="patient">
 					<text class="name">{{patient.name}}</text>
@@ -14,8 +14,8 @@
 				<picker mode="selector" :range="patientList" @change="bindPickerChange" range-key="name">
 					<view><img class="more" src="../../static/images/more.png"></view>
 				</picker> -->
-				<view class="no-info" v-if="!patient" @click="toChoice">请选择患者</view>
-				<view><img class="more" src="../../static/images/more.png" @click="toChoice"></view>
+				<view class="no-info" v-if="!patient">请选择患者</view>
+				<view><img class="more" src="../../static/images/more.png"></view>
 			</view>
 
 			<view class="date-module">

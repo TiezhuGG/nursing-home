@@ -131,7 +131,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _createForOfIteratorHelper(o) {if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var it,normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;} //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -206,28 +206,17 @@ var _default =
   data: function data() {
     return {
       nurseInfo: {},
-      noticeList: [],
-      isOpenBle: false,
-      devicesList: [],
-      deviceId: "67:95:69:F9:B3:C5",
-      serviceId: '',
-      primaryUUID: '',
-      characteristicId: {
-        writeId: '',
-        notifyId: '' },
-
-      pid: '',
-      bpid: '' };
-
+      noticeList: []
+      // pid: '',
+      // bpid: '',
+    };
   },
   onLoad: function onLoad() {
     // 加载页面时清除pid和bpid
-    uni.removeStorageSync('pid');
-    uni.removeStorageSync('bpid');
+    // uni.removeStorageSync('pid')
+    // uni.removeStorageSync('bpid')
     this.nurseInfo = uni.getStorageSync('userInfo');
     this.fetchNoticeList();
-    //在页面加载时初始化蓝牙适配器
-    // this.initBluetoothAdapter()
   },
   onShow: function onShow() {
     // 心率页面患者id 默认首次为1
@@ -238,240 +227,25 @@ var _default =
 
   methods: {
     // 跳转心率页面传pid
-    toHeartRate: function toHeartRate() {
-      uni.navigateTo({
-        url: "../heart-rate/heart-rate?pid=".concat(this.pid) });
+    // toHeartRate() {
+    // 	uni.navigateTo({
+    // 		url: `../heart-rate/heart-rate?pid=${this.pid}`
+    // 	})
+    // },
+    // // 跳转血状态页面传bpid
+    // toBloodStatus() {
+    // 	uni.navigateTo({
+    // 		url: `../blood-status/blood-status?bpid=${this.bpid}`
+    // 	})
+    // },
+
+    prompt: function prompt() {
+      uni.showToast({
+        title: '此功能开发中……',
+        icon: 'none',
+        duration: 2000 });
 
     },
-    // 跳转血状态页面传bpid
-    toBloodStatus: function toBloodStatus() {
-      uni.navigateTo({
-        url: "../blood-status/blood-status?bpid=".concat(this.bpid) });
-
-    },
-    // 初始化蓝牙适配器
-    initBluetoothAdapter: function initBluetoothAdapter() {var _this = this;
-      uni.openBluetoothAdapter({
-        success: function success(e) {
-          console.log('初始化蓝牙成功', e.errMsg);
-          _this.isOpenBle = true;
-          // 初始化完毕后搜索附近蓝牙设备
-          _this.searchBluetoothDevice();
-        },
-        fail: function fail(e) {
-          console.log("\u521D\u59CB\u5316\u84DD\u7259\u5931\u8D25\uFF0C\u9519\u8BEF\u7801: (".concat(e.errCode, " || ").concat(e.errMsg, ")"));
-        } });
-
-      // 同时监听蓝牙连接状态
-      this.onBLEConnectionStateChange();
-    },
-
-    // 搜索附近蓝牙设备
-    searchBluetoothDevice: function searchBluetoothDevice() {var _this2 = this;
-      // 在页面显示的时候判断是否已经初始化完成蓝牙适配器，若成功，则开始查找设备
-      setTimeout(function () {
-        if (_this2.isOpenBle) {
-          console.log("开始搜索附近蓝牙智能设备");
-          uni.startBluetoothDevicesDiscovery({
-            success: function success(res) {
-              _this2.findBluetoothDevice();
-            },
-            fail: function fail(res) {
-              console.log("查找设备失败!");
-              uni.showToast({
-                icon: "none",
-                title: "查找设备失败！",
-                duration: 3000 });
-
-            } });
-
-        } else {
-          console.log("\u672A\u521D\u59CB\u5316\u84DD\u7259\u9002\u914D\u5668, isOpenBle:".concat(_this2.isOpenBle));
-        }
-      }, 1000);
-    },
-
-    // 发现蓝牙设备
-    findBluetoothDevice: function findBluetoothDevice() {var _this3 = this;
-      console.log("监听寻找新设备");
-      uni.onBluetoothDeviceFound(function (devices) {
-        console.log('开始监听寻找到新设备的事件');
-        _this3.getBleDevices();
-      });
-    },
-
-    // 获取在蓝牙模块生效期间所有已发现的蓝牙设备。包括已经和本机处于连接状态的设备。
-    getBleDevices: function getBleDevices() {var _this4 = this;
-      console.log("获取蓝牙设备");
-      uni.getBluetoothDevices({
-        success: function success(res) {
-          console.log(res);
-          console.log("\u83B7\u53D6\u84DD\u7259\u8BBE\u5907\u6210\u529F: ".concat(res.errMsg));
-          _this4.devicesList = res.devices;var _iterator = _createForOfIteratorHelper(
-          _this4.devicesList),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
-              // this.deviceId = item.deviceId
-              // console.log('item.deviceId == this.deviceId',item.deviceId == this.deviceId)
-              console.log(item.deviceId);
-              if (item.deviceId == _this4.deviceId) {
-                console.log("\u627E\u5230\u84DD\u7259\u8BBE\u5907".concat(item.deviceId, "\uFF0C\u5F00\u59CB\u8FDE\u63A5~~~~~"));
-                // 进行蓝牙连接
-                setTimeout(function () {
-                  _this4.getConnectBlue();
-                }, 1000);
-                break;
-              }
-              // console.log({
-              // 	'index': this.devicesList.indexOf(item), 
-              // 	'bluetooth': item,
-              // 	'deviceId': this.deviceId
-              // })
-            }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
-        },
-        fail: function fail(res) {
-          console.log("\u83B7\u53D6\u84DD\u7259\u8BBE\u5907\u5931\u8D25: ".concat(res.errMsg));
-        } });
-
-    },
-
-    // 进行蓝牙连接
-    getConnectBlue: function getConnectBlue() {var _this5 = this;
-      console.log("".concat(this.deviceId, "\u84DD\u7259\u8BBE\u5907\u8FDE\u63A5\u4E2D"));
-      uni.createBLEConnection({
-        deviceId: this.deviceId,
-        success: function success(res) {
-          console.log("".concat(_this5.deviceId, "\u84DD\u7259\u8BBE\u5907\u8FDE\u63A5\u6210\u529F"));
-          // 成功连接蓝牙设备后获取该设备服务ID
-          _this5.getBLEDeviceServices();
-          // 成功连接蓝牙设备后停止搜索
-          _this5.stopDiscovery();
-        },
-        fail: function fail(res) {
-          console.log("\u84DD\u7259\u8BBE\u5907\u8FDE\u63A5\u5931\u8D25", res);
-          uni.closeBLEConnection({
-            deviceId: _this5.deviceId,
-            success: function success(res) {
-              console.log('蓝牙设备连接断开, 正在重新连接');
-              _this5.getConnectBlue();
-            } });
-
-        } });
-
-    },
-
-    // 获取蓝牙设备所有服务
-    getBLEDeviceServices: function getBLEDeviceServices() {var _this6 = this;
-      console.log("\u6B63\u5728\u83B7\u53D6\u84DD\u7259\u8BBE\u5907\u6240\u6709\u670D\u52A1");
-      var serviceList = [];
-      uni.getBLEDeviceServices({
-        deviceId: this.deviceId,
-        success: function success(res) {
-          serviceList = res.services;
-          console.log("\u83B7\u53D6\u84DD\u7259\u8BBE\u5907\u670D\u52A1\u6210\u529F".concat(JSON.stringify(res.services)));var _iterator2 = _createForOfIteratorHelper(
-          serviceList),_step2;try {for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {var service = _step2.value;
-              console.log("service--".concat(service, "---serviceId-").concat(service.uuid));
-              if (service.uuid.indexOf(_this6.primaryUUID) != -1) {
-                _this6.serviceId = service.uuid;
-                console.log("\u8BBE\u5907\u7684serviceId".concat(_this6.serviceId));
-                // 开始获取指定服务的特征值
-                _this6.getBLEDeviceCharacteristics();
-                break;
-              }
-            }} catch (err) {_iterator2.e(err);} finally {_iterator2.f();}
-          _this6.getBLEDeviceCharacteristics();
-        },
-        fail: function fail(res) {
-          console.log('device services:', res.services);
-        } });
-
-    },
-
-    // 获取指定服务的特征值
-    getBLEDeviceCharacteristics: function getBLEDeviceCharacteristics() {var _this7 = this;
-      console.log("\u5F00\u59CB\u83B7\u53D6\u670D\u52A1\u7279\u5F81\u503C");
-      var characteristicsList = [];
-      uni.getBLEDeviceCharacteristics({
-        deviceId: this.deviceId,
-        serviceId: this.serviceId,
-        success: function success(res) {
-          console.log("\u83B7\u53D6\u7684".concat(_this7.serviceId, "\u670D\u52A1\u7684\u7279\u5F81\u503C").concat(JSON.stringify(res.characteristics)));
-          characteristicsList = res.characteristics;var _iterator3 = _createForOfIteratorHelper(
-          characteristicsList),_step3;try {for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {var characteristic = _step3.value;
-              console.log("\u7279\u5F81\u503C".concat(JSON.stringify(characteristic)));
-              if (characteristic.properties.notify) {
-                _this7.characteristicId.notifyId = characteristic.uuid;
-                console.log("notifyId\u503C\u4E3A\uFF1A".concat(_this7.characteristicId.notifyId));
-              }
-              if (characteristic.properties.write) {
-                _this7.characteristicId.writeId = characteristic.uuid;
-                console.log("writeId\u503C\u4E3A\uFF1A".concat(_this7.characteristicId.writeId));
-              }
-            }
-            // 订阅特征值
-            // this.notify()
-          } catch (err) {_iterator3.e(err);} finally {_iterator3.f();}} });
-
-    },
-
-    // 开始订阅特征值
-    notify: function notify() {var _this8 = this;
-      uni.notifyBLECharacteristicValueChange({
-        state: true,
-        deviceId: this.deviceId,
-        serviceId: this.serviceId,
-        characteristicId: this.characteristicId.notifyId,
-        success: function success(res) {
-          console.log("\u8BA2\u9605\u7279\u5F81\u503C".concat(JSON.stringify(res)));
-          uni.onBLECharacteristicValueChange(function (res) {
-            console.log("\u76D1\u542C\u4F4E\u529F\u8017\u84DD\u7259\u8BBE\u5907\u7684\u7279\u5F81\u503C\u53D8\u5316\u4E8B\u4EF6".concat(JSON.stringify(res)));
-            console.log("".concat(res.characteristicId, "\u53D8\u5316, \u73B0\u5728\u662F{$JSON.stringify(res.value)}"));
-            var value = _this8.ab2hex(res.value);
-            console.log("value ---> ".concat(value));
-
-          });
-        } });
-
-    },
-
-    // 停止搜索蓝牙设备(连接设备后调用)
-    stopDiscovery: function stopDiscovery() {
-      uni.stopBluetoothDevicesDiscovery({
-        success: function success(e) {
-          console.log("\u505C\u6B62\u641C\u7D22\u84DD\u7259\u8BBE\u5907: ".concat(e.errMsg));
-        },
-        fail: function fail(e) {
-          console.log("\u505C\u6B62\u641C\u7D22\u84DD\u7259\u8BBE\u5907\u5931\u8D25\uFF0C\u9519\u8BEF\u7801: ".concat(e.errCode));
-        } });
-
-    },
-
-    // 监听低功耗蓝牙连接状态的改变事件
-    onBLEConnectionStateChange: function onBLEConnectionStateChange() {var _this9 = this;
-      uni.onBLEConnectionStateChange(function (res) {
-        console.log("\u84DD\u7259\u8FDE\u63A5\u72B6\u6001".concat(JSON.stringify(res)));
-        if (!res.connected) {
-          console.log('断开低功耗蓝牙成功~~');
-          // 关闭蓝牙连接
-          uni.closeBLEConnection({
-            deviceId: _this9.deviceId,
-            success: function success(res) {
-              console.log('关闭蓝牙模块');
-            } });
-
-        }
-      });
-    },
-
-    // ArrayBuffer转16进度字符串
-    ab2hex: function ab2hex(buffer) {
-      var hexArr = Array.prototype.map.call(
-      new Uint8Array(buffer),
-      function (bit) {
-        return ('00' + bit.toString(16)).slice(-2);
-      });
-
-      return hexArr.join('');
-    },
-
 
     // 跳转公告信息页
     toNotice: function toNotice(notice_id) {
@@ -481,12 +255,12 @@ var _default =
     },
 
     // 获取公告列表
-    fetchNoticeList: function fetchNoticeList() {var _this10 = this;
+    fetchNoticeList: function fetchNoticeList() {var _this = this;
       uni.request({
         url: 'https://ciai.le-cx.com/index.php/api/notice/noticeList',
         success: function success(res) {
           // console.log(res)
-          _this10.noticeList = res.data.data;
+          _this.noticeList = res.data.data;
         } });
 
     } } };exports.default = _default;
