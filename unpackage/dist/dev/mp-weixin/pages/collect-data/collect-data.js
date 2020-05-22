@@ -310,11 +310,20 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
     this.fetchPatientList();
   },
 
+  onUnload: function onUnload() {
+    console.log('bb');
+    this.bo_closeBluetoothAdapter();
+    this.bp_closeBluetoothAdapter();
+    this.connected = 0;
+  },
+
   watch: {
     patient: function patient(newVal, oldVal) {
       // 每次切换病人时关闭蓝牙模块, 之后再重新连接蓝牙进行采集数据
       if (oldVal != null) {
+        console.log('cc');
         this.bo_closeBluetoothAdapter();
+        this.bp_closeBluetoothAdapter();
         // 让按钮显示'连接蓝牙'
         this.connected = 0;
       }
@@ -510,31 +519,52 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
 
     },
     bp_onBluetoothDeviceFound: function bp_onBluetoothDeviceFound() {var _this7 = this;
+      uni.showLoading({
+        title: '正在连接蓝牙...' });
+
       console.log('开始查找蓝牙设备');
       uni.onBluetoothDeviceFound(function (res) {
-        var bp_devices = res.devices;
-        console.log('devices', bp_devices[0].name);
-        if (bp_devices[0].name == 'FSRKB_BT-001') {
-          uni.hideLoading();
-          var e = bp_devices[0];
-          _this7.bp_createBLEConnection(e);
-        } else {
-          // 停止搜索蓝牙设备
-          _this7.bp_stopBluetoothDevicesDiscovery();
-          uni.showLoading({
-            title: '正在连接蓝牙...' });
-
-          if (_this7.connected === 1) {
-            uni.hideLoading();
-          } else {
-            setTimeout(function () {
-              // this.connected = 2
-              uni.hideLoading();
-            }, 5000);
-          }
-        }
+        _this7.bp_getBluetoothDevices();
+        // var bp_devices = res.devices
+        // console.log('devices', bp_devices[0].name)
+        // if (bp_devices[0].name == 'FSRKB_BT-001') {
+        // 	uni.hideLoading()
+        // 	let e = bp_devices[0]
+        // 	this.bp_createBLEConnection(e)
+        // } else {
+        // 	uni.showLoading({
+        // 		title: '正在连接蓝牙...'
+        // 	})
+        // 	if (this.connected === 1) {
+        // 		uni.hideLoading()
+        // 	} else {
+        // 		setTimeout(() => {
+        // 			// this.connected = 2
+        // 			uni.hideLoading()
+        // 		}, 5000)
+        // 	}
+        // }
       });
     },
+
+    // 获取所有蓝牙设备
+    bp_getBluetoothDevices: function bp_getBluetoothDevices() {
+      var that = this;
+      uni.getBluetoothDevices({
+        success: function success(res) {
+          console.log('获取蓝牙所有设备', res);
+          var bp_devices = res.devices;var _iterator2 = _createForOfIteratorHelper(
+          bp_devices),_step2;try {for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {var item = _step2.value;
+              if (item.name == 'FSRKB_BT-001') {
+                uni.hideLoading();
+                var e = item;
+                that.bp_createBLEConnection(e);
+              }
+            }} catch (err) {_iterator2.e(err);} finally {_iterator2.f();}
+        } });
+
+    },
+
     bp_stopBluetoothDevicesDiscovery: function bp_stopBluetoothDevicesDiscovery() {
       this.bp_discoveryStarted = false;
       uni.stopBluetoothDevicesDiscovery();
@@ -549,6 +579,7 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
       uni.createBLEConnection({
         deviceId: deviceId,
         success: function success(res) {
+          uni.hideLoading();
           console.log('连接血压计成功');
           _this8.connected = 1;
           _this8.bp_getBLEDeviceServices(deviceId);
@@ -827,43 +858,65 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
     // 监听寻找到新设备的事件
     bo_onBluetoothDeviceFound: function bo_onBluetoothDeviceFound() {var _this13 = this;
       uni.onBluetoothDeviceFound(function (res) {
-        console.log('onBluetoothDeviceFound success', res);
-        var bo_devices = res.devices;
-        if (bo_devices[0].name == 'Samo4 pulse oximeter') {
-          uni.hideLoading();
-          var e = bo_devices[0];
-          _this13.bo_createBLEConnection(e);
-        } else {
-          // 停止搜索蓝牙设备
-          _this13.bo_stopBluetoothDevicesDiscovery();
-          uni.showLoading({
-            title: '正在连接蓝牙...' });
+        uni.showLoading({
+          title: '正在连接蓝牙...' });
 
-          if (_this13.connected === 1) {
-            uni.hideLoading();
-          } else {
-            setTimeout(function () {
-              // this.connected = 2
-              uni.hideLoading();
-            }, 5000);
-          }
-        }
+        console.log('onBluetoothDeviceFound success', res);
+        _this13.bo_getBluetoothDevices();
+        // var bo_devices = res.devices
+        // if (bo_devices[0].name == 'Samo4 pulse oximeter') {
+        // 	uni.hideLoading()
+        // 	let e = bo_devices[0]
+        // 	this.bo_createBLEConnection(e)
+        // } else {
+        // 	// 停止搜索蓝牙设备
+        // 	// this.bo_stopBluetoothDevicesDiscovery()
+        // 	uni.showLoading({
+        // 		title: '正在连接蓝牙...'
+        // 	})
+        // 	if (this.connected === 1) {
+        // 		uni.hideLoading()
+        // 	} else {
+        // 		setTimeout(() => {
+        // 			// this.connected = 2
+        // 			uni.hideLoading()
+        // 		}, 5000)
+        // 	}
+        // }
       });
+    },
+
+    // 获取所有蓝牙设备
+    bo_getBluetoothDevices: function bo_getBluetoothDevices() {
+      var that = this;
+      uni.getBluetoothDevices({
+        success: function success(res) {
+          console.log('获取蓝牙所有设备', res);
+          var bo_devices = res.devices;var _iterator3 = _createForOfIteratorHelper(
+          bo_devices),_step3;try {for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {var item = _step3.value;
+              if (item.name == 'Samo4 pulse oximeter') {
+                var e = item;
+                that.bo_createBLEConnection(e);
+              }
+            }} catch (err) {_iterator3.e(err);} finally {_iterator3.f();}
+        } });
+
     },
 
     // 连接低功耗蓝牙设备
     bo_createBLEConnection: function bo_createBLEConnection(e) {var _this14 = this;
-      // 停止搜索蓝牙
-      this.bo_stopBluetoothDevicesDiscovery();
       console.log('开始连接蓝牙~~~');
       var deviceId = e.deviceId;
       var name = e.name;
       uni.createBLEConnection({
         deviceId: deviceId,
         success: function success(res) {
+          uni.hideLoading();
           console.log('连接蓝牙成功');
           _this14.connected = 1;
           _this14.bo_getBLEDeviceServices(deviceId);
+          // 停止搜索蓝牙
+          _this14.bo_stopBluetoothDevicesDiscovery();
         } });
 
     },
