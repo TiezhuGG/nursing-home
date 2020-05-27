@@ -482,6 +482,11 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
         },
         fail: function fail(res) {
           if (res.errCode === 10001) {
+            uni.showToast({
+              title: '用户蓝牙未开启或者手机不支持蓝牙功能',
+              icon: 'none',
+              duration: 3000 });
+
             uni.onBluetoothAdapterStateChange(function (res) {
               console.log('onBluetoothAdapterStateChange', res);
               if (res.available) {
@@ -555,7 +560,7 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
           console.log('获取蓝牙所有设备', res);
           var bp_devices = res.devices;var _iterator2 = _createForOfIteratorHelper(
           bp_devices),_step2;try {for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {var item = _step2.value;
-              if (item.name == 'FSRKB_BT-001') {
+              if (item.name == 'FSRKB_BT-001' || item.localName == 'FSRKB_BT-001') {
                 uni.hideLoading();
                 var e = item;
                 that.bp_createBLEConnection(e);
@@ -818,6 +823,11 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
         },
         fail: function fail(res) {
           if (res.errCode === 10001) {
+            uni.showToast({
+              title: '用户蓝牙未开启或者手机不支持蓝牙功能',
+              icon: 'none',
+              duration: 3000 });
+
             console.log('用户蓝牙未开启或者手机不支持蓝牙功能');
             // 监听手机蓝牙状态
             uni.onBluetoothAdapterStateChange(function (res) {
