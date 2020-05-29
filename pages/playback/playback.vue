@@ -284,12 +284,10 @@
 							position: 'right',
 							fontColor: '#FFF',
 							axisLineColor: '#24C789',
-							min: 0,
-							max: 180,
 						}],
 						gridType: 'dash',
 						gridColor: '#FFF',
-						splitNumber: 6,
+						splitNumber: 5,
 						dashLength: 2,
 					},
 					width: _self.cWidth * _self.pixelRatio,
@@ -355,6 +353,7 @@
 	.charts {
 		width: 750upx;
 		height: 430upx;
+		margin-top: 50rpx;
 	}
 
 	.playback {

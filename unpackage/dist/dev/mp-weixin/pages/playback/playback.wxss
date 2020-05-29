@@ -31,6 +31,7 @@
 .charts {
   width: 750rpx;
   height: 430rpx;
+  margin-top: 50rpx;
 }
 .playback {
   background-color: #F7F7F7;
