@@ -7714,18 +7714,49 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 21:
+/***/ 29:
 /*!*********************************************************************************************!*\
   !*** ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator/index.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 22);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 30);
 
 /***/ }),
 
-/***/ 22:
+/***/ 3:
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ 30:
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -7756,7 +7787,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 23);
+module.exports = __webpack_require__(/*! ./runtime */ 31);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -7773,7 +7804,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 23:
+/***/ 31:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -8501,37 +8532,6 @@ if (hadRuntime) {
     return this || (typeof self === "object" && self);
   })() || Function("return this")()
 );
-
-
-/***/ }),
-
-/***/ 3:
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
 
 
 /***/ }),
@@ -16037,7 +16037,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/warningDetail/warningDetail": { "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/index/index": { "navigationBarTitleText": "", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/workbench/workbench": { "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/collect-data/collect-data": { "navigationBarTitleText": "血压 血氧 血糖", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/management/management": { "navigationBarTitleText": "客户管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/electrocardiogram/electrocardiogram": { "navigationBarTitleText": "心电图", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/blood-status/blood-status": { "navigationBarTitleText": "血压 血氧 血糖", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/heart-rate/heart-rate": { "navigationBarTitleText": "实时心率", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/warning/warning": { "navigationBarTitleText": "报警", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/personal/personal": { "navigationBarTitleText": "个人信息", "navigationBarBackgroundColor": "#FFFFFF", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/notice/notice": { "navigationBarTitleText": "公告信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/video/video": { "navigationBarTitleText": "视频监控", "navigationBarBackgroundColor": "#FFFFFF", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/login/login": { "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/playback/playback": { "navigationBarTitleText": "心率回放", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/choicePatient/choicePatient": { "navigationBarTitleText": "选择患者", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "" }, "pages/warningDetail/warningDetail": {}, "pages/workbench/workbench": { "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" }, "pages/collect-data/collect-data": { "navigationBarTitleText": "血压 血氧 血糖" }, "pages/management/management": { "navigationBarTitleText": "客户管理" }, "pages/electrocardiogram/electrocardiogram": { "navigationBarTitleText": "心电图", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" }, "pages/blood-status/blood-status": { "navigationBarTitleText": "血压 血氧 血糖" }, "pages/heart-rate/heart-rate": { "navigationBarTitleText": "实时心率", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" }, "pages/warning/warning": { "navigationBarTitleText": "报警" }, "pages/personal/personal": { "navigationBarTitleText": "个人信息", "navigationBarBackgroundColor": "#FFFFFF" }, "pages/notice/notice": { "navigationBarTitleText": "公告信息" }, "pages/video/video": { "navigationBarTitleText": "视频监控", "navigationBarBackgroundColor": "#FFFFFF" }, "pages/login/login": {}, "pages/playback/playback": { "navigationBarTitleText": "心率回放", "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#24C789" }, "pages/choicePatient/choicePatient": { "navigationBarTitleText": "选择患者" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 
