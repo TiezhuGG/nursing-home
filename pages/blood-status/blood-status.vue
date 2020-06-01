@@ -268,6 +268,8 @@
 				blood_oxygen: null,
 				oxygen_pulse_rate: null,
 				showPopup: true, // 是否显示弹窗
+				bo_heart_list: [],		// 血氧的心率列表
+				bo_all_list: []			// 血氧，心率数据总列表
 			};
 		},
 
@@ -290,6 +292,7 @@
 			}
 			// 从客户管理界面进来会传入patient_id
 			if (options.patient_id) {
+				this.showPopup = false
 				console.log('从客户管理界面进来', options.patient_id)
 				this.fetchPatientInfo(options.patient_id)
 				this.pid = options.patient_id
@@ -343,7 +346,7 @@
 			close() {
 				this.showPopup = false
 			},
-			
+
 			toChoice() {
 				uni.redirectTo({
 					url: `../choicePatient/choicePatient?id=3`,
@@ -385,6 +388,7 @@
 			drawChart(pid, list, typeName) {
 				this.showCharts = true
 				// 画图时先清空图表数据
+				this.bo_heart_list = []
 				this.bo_list = []
 				this.bo_categories = []
 				// console.log('drawChart', this.showCharts)
@@ -400,7 +404,7 @@
 					let low_list = []
 					for (var i = 0; i < list.length; i++) {
 						// console.log(list[i].value)
-						// console.log(list[i].pulse_rate)
+						console.log('心率', list[i].pulse_rate)
 						if (list[i].value === "undefined" || list[i].pulse_rate === "undefined") {
 							continue
 						} else {
@@ -412,6 +416,7 @@
 							if (typeName === "血氧") { // 血氧
 								// 血氧列表
 								this.bo_list.push(list[i].value)
+								this.bo_heart_list.push(list[i].pulse_rate)
 								total_blood += parseInt(list[i].value)
 							} else if (typeName === "血压") { // 血压
 								high_list.push(JSON.parse(list[i].value).high_blood_pressure)
@@ -441,7 +446,16 @@
 						this.oxygen_pulse_rate = (total_pulse_rate / i).toFixed(0)
 						// 首次渲染血氧图表显示第一个血氧值
 						this.blood_oxygen = this.bo_list[0]
-						_self.showLineA(this.chart, this.bo_categories, this.bo_list, typeName)
+						this.bo_all_list = [{
+								"name": "血氧",
+								"data": this.bo_list
+							},
+							{
+								"name": "平均心率",
+								"data": this.bo_heart_list
+							}
+						]
+						_self.showLineA(this.chart, this.bo_categories, this.bo_all_list, typeName)
 					}
 				}
 			},
@@ -458,7 +472,7 @@
 					},
 					success: (res) => {
 						if (res.data.code == 1) {
-							// console.log('开始获取数据', res.data.data)
+							console.log('开始获取数据', res.data.data)
 							let data_list = res.data.data
 							// 获取数据后进行画图
 							if (data_list.length !== 0) {
@@ -480,59 +494,11 @@
 					}
 				})
 			},
-			// 选择患者
-			bindPickerChange(e) {
-				this.blood_pressure = null
-				this.pressure_pulse_rate = null
-				this.blood_oxygen = null
-				this.oxygen_pulse_rate = null
-				// console.log(e)
-				for (let item of this.patientList) {
-					if (item.id === Number(e.detail.value) + 1) {
-						this.pid = item.id
-						this.fetchPatientInfo(item.id)
-						// 把患者id缓存到本地
-						uni.setStorage({
-							key: 'bpid',
-							data: item.id
-						})
-						// this.test(item.id)
-					}
-				}
-			},
-			// 获取患者列表(ID)
-			async fetchPatientList() {
-				await uni.request({
-					url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
-					success: res => {
-						this.patientList = res.data.data
-					}
-				})
-			},
-			// 获取患者信息
-			async fetchPatientInfo(id) {
-				await uni.request({
-					url: `https://ciai.le-cx.com/index.php/api/patient/info?id=${id}`,
-					success: res => {
-						this.patient = res.data.data
-					},
-				})
-			},
-			// 切换导航tab
-			switchTab(index) {
-				this.currentIndex = index
-				// 切换导航改变对应的图表canvas-id
-				this.chart = index + 1
-				// 切换导航隐藏图表
-				this.showCharts = false
-				// this.bp_list = []
-				// this.bp_categories = []
-			},
 
 			// 图表配置
 			showLineA(canvasId, categories, seriesData, seriesName) {
 				// 根据图表名称画相应的图
-				if (seriesName === '血氧' || seriesName === '血糖') {
+				if ( seriesName === '血糖') {
 					canvaLineA = new uCharts({
 						$this: _self,
 						canvasId: canvasId,
@@ -588,7 +554,7 @@
 						canvasId: canvasId,
 						type: 'line',
 						fontSize: 11,
-						colors: ['#24C789'],
+						colors: ['#24C789', '#FF5A5A'],
 						legend: {
 							show: true
 						},
@@ -630,6 +596,56 @@
 					});
 				}
 			},
+			// 选择患者
+			bindPickerChange(e) {
+				this.blood_pressure = null
+				this.pressure_pulse_rate = null
+				this.blood_oxygen = null
+				this.oxygen_pulse_rate = null
+				// console.log(e)
+				for (let item of this.patientList) {
+					if (item.id === Number(e.detail.value) + 1) {
+						this.pid = item.id
+						this.fetchPatientInfo(item.id)
+						// 把患者id缓存到本地
+						uni.setStorage({
+							key: 'bpid',
+							data: item.id
+						})
+						// this.test(item.id)
+					}
+				}
+			},
+			// 获取患者列表(ID)
+			async fetchPatientList() {
+				await uni.request({
+					url: 'https://ciai.le-cx.com/index.php/api/patient/patientList',
+					success: res => {
+						this.patientList = res.data.data
+					}
+				})
+			},
+			// 获取患者信息
+			async fetchPatientInfo(id) {
+				await uni.request({
+					url: `https://ciai.le-cx.com/index.php/api/patient/info?id=${id}`,
+					success: res => {
+						this.patient = res.data.data
+					},
+				})
+			},
+			// 切换导航tab
+			switchTab(index) {
+				this.currentIndex = index
+				// 切换导航改变对应的图表canvas-id
+				this.chart = index + 1
+				// 切换导航隐藏图表
+				this.showCharts = false
+				// this.bp_list = []
+				// this.bp_categories = []
+			},
+
+
 
 			// 血压图表点击事件
 			touchLineA(e) {
@@ -713,19 +729,21 @@
 
 <style lang="scss">
 	@import '../../common/css/blood-status';
+
 	// 弹窗
 	.popup-wrap {
+
 		// 弹窗蒙版
 		.mask {
-		  width: 100%;
-		  height: 100%;
-		  position: absolute;
-		  top: 0;
-		  background-color: #000;
-		  opacity: 0.6;
-		  z-index: 1;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			background-color: #000;
+			opacity: 0.6;
+			z-index: 1;
 		}
-		
+
 		.popup {
 			width: 600upx;
 			height: 860upx;
@@ -738,14 +756,14 @@
 			top: 10%;
 			left: 10%;
 			z-index: 2;
-	
+
 			.gif {
 				width: 430upx;
 				height: 442upx;
 				margin-top: 66upx;
 				margin-bottom: 33upx;
 			}
-	
+
 			.txt {
 				width: 416upx;
 				height: 140upx;
@@ -754,7 +772,7 @@
 				color: #333;
 				font-size: 32upx;
 			}
-	
+
 			button {
 				width: 430upx;
 				height: 80upx;
@@ -764,12 +782,12 @@
 				background-color: #24C789;
 				border-radius: 8upx;
 			}
-	
+
 			button::after {
 				border: none !important;
 			}
 		}
-	
+
 		.close {
 			width: 62upx;
 			height: 62upx;

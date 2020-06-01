@@ -132,6 +132,8 @@
 							}
 						}
 						this.sortLetter(this.list)
+						// 停止下拉刷新
+						uni.stopPullDownRefresh()
 					}
 				})
 			},
@@ -171,6 +173,7 @@
 			
 			// 下拉刷新
 			onPullDownRefresh() {
+				this.list = []
 				this.fetchPatientList()
 			},
 		},
