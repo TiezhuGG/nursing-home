@@ -1,0 +1,1 @@
+<view class="warningDetail"><view class="warning"><view><text>起夜报警</text><switch checked="{{checked1}}" data-event-opts="{{[['change',[['switch1Change',['$event']]]]]}}" bindchange="__e"></switch></view><view><text>摔倒报警</text><switch checked="{{checked2}}" data-event-opts="{{[['change',[['switch2Change',['$event']]]]]}}" bindchange="__e"></switch></view></view></view>

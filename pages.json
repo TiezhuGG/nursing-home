@@ -7,6 +7,20 @@
 			}
 		},
 		{
+			"path": "pages/heart-rate/heart-rate",
+			"style": {
+				"navigationBarTitleText": "实时心率",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#24C789"
+			}
+		},
+
+		{
+			"path": "pages/warningDetail/warningDetail",
+			"style": {}
+		},
+
+		{
 			"path": "pages/workbench/workbench",
 			"style": {
 				"navigationBarTextStyle": "white",
@@ -23,7 +37,9 @@
 		{
 			"path": "pages/management/management",
 			"style": {
-				"navigationBarTitleText": "客户管理"
+				"navigationBarTitleText": "客户管理",
+				"enablePullDownRefresh": true, 
+				"backgroundTextStyle": "dark"
 			}
 		},
 
@@ -41,14 +57,7 @@
 				"navigationBarTitleText": "血压 血氧 血糖"
 			}
 		},
-		{
-			"path": "pages/heart-rate/heart-rate",
-			"style": {
-				"navigationBarTitleText": "实时心率",
-				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#24C789"
-			}
-		},
+
 
 		{
 			"path": "pages/warning/warning",
@@ -94,9 +103,12 @@
 		}, {
 			"path": "pages/choicePatient/choicePatient",
 			"style": {
-				"navigationBarTitleText": "选择患者"
+				"navigationBarTitleText": "选择患者",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark"
 			}
 		}
+
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

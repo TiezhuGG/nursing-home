@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "选择患者",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
   "usingComponents": {}
 }

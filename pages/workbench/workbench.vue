@@ -60,7 +60,7 @@
 				<img class="item-img" src="../../static/images/item-img5.png">
 				<text class="item-txt">视频监控</text>
 			</navigator>
-			<navigator class="item" @click="prompt">
+			<navigator class="item" url="../warningDetail/warningDetail">
 				<img class="item-img" src="../../static/images/item-img6.png">
 				<text class="item-txt">起夜/摔倒警报</text>
 			</navigator>
