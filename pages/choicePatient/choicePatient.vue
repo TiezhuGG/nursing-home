@@ -60,7 +60,7 @@
 		},
 		onLoad(options) {
 			this.type_id = options.id
-			console.log("this.type_id",this.type_id)
+			console.log("this.type_id", this.type_id)
 			this.fetchPatientList()
 			const searchLetter = this.searchLetter;
 			const sysInfo = uni.getSystemInfoSync();
@@ -170,6 +170,10 @@
 			// 失去焦点 输入框内容清空
 			bindBlur(e) {
 				this.inputName = '';
+			},
+			// 下拉刷新
+			onPullDownRefresh() {
+				this.fetchPatientList()
 			},
 		},
 	};

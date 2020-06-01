@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/heart-rate/heart-rate",
     "pages/warningDetail/warningDetail",
     "pages/workbench/workbench",
     "pages/collect-data/collect-data",
     "pages/management/management",
     "pages/electrocardiogram/electrocardiogram",
     "pages/blood-status/blood-status",
-    "pages/heart-rate/heart-rate",
     "pages/warning/warning",
     "pages/personal/personal",
     "pages/notice/notice",
@@ -49,5 +49,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap99.json"
+  "sitemapLocation": "sitemap24.json"
 }

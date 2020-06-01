@@ -168,6 +168,11 @@
 			bindBlur(e) {
 				this.inputName = '';
 			},
+			
+			// 下拉刷新
+			onPullDownRefresh() {
+				this.fetchPatientList()
+			},
 		},
 	};
 </script>

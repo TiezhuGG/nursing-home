@@ -65,7 +65,7 @@
 	export default {
 		data() {
 			return {
-				currentIndex: 1,
+				currentIndex: 0,
 				navTitles: ['未处理', '已处理'],
 				handledList: [],
 				unhandledList: [],

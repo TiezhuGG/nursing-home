@@ -57,6 +57,18 @@
 				</view>
 			</view>
 		</view>
+		
+		<!-- 弹窗 -->
+		<view class="popup-wrap" v-if="showPopup">
+			<!-- 弹窗蒙版 -->
+			<view class="mask"></view>
+			<view class="popup">
+				<image class="gif" src="../../static/images/popup.gif"></image>
+				<text class="txt">身体状况信息需在上方选择老人后才可显示</text>
+				<button @click="toChoice()">选择患者</button>
+				<image class="close" src="../../static/images/close.png" @click="close"></image>
+			</view>
+		</view>
 
 		<!-- 		<view class="bottom">
 			<view class="bottom-top">
@@ -129,7 +141,8 @@
 				dataList: [],
 				highest_bpm: 0,
 				lowest_bpm: 0,
-				avg_bpm: 0
+				avg_bpm: 0,
+				showPopup: true, // 是否显示弹窗
 			};
 		},
 		onLoad(options) {
@@ -137,6 +150,7 @@
 			if (options.pid) {
 				// 进页面有患者id就执行
 				this.fetchPatientInfo(options.pid)
+				this.showPopup = false
 			} else {
 				// 默认第一个患者
 				this.fetchPatientInfo(1)
@@ -175,6 +189,9 @@
 		},
 
 		methods: {
+			close() {
+				this.showPopup = false
+			},
 			toChoice() {
 				uni.redirectTo({
 					url: `../choicePatient/choicePatient?id=2`,
@@ -345,6 +362,71 @@
 </script>
 
 <style lang="scss">
+	// 弹窗
+	.popup-wrap {
+		// 弹窗蒙版
+		.mask {
+		  width: 100%;
+		  height: 100%;
+		  position: absolute;
+		  top: 0;
+		  background-color: #000;
+		  opacity: 0.6;
+		  z-index: 1;
+		}
+		
+		.popup {
+			width: 600upx;
+			height: 860upx;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background-color: #fff;
+			border-radius: 20upx;
+			position: absolute;
+			top: 10%;
+			left: 10%;
+			z-index: 2;
+	
+			.gif {
+				width: 430upx;
+				height: 442upx;
+				margin-top: 66upx;
+				margin-bottom: 33upx;
+			}
+	
+			.txt {
+				width: 416upx;
+				height: 140upx;
+				text-align: center;
+				margin-top: 30upx;
+				color: #333;
+				font-size: 32upx;
+			}
+	
+			button {
+				width: 430upx;
+				height: 80upx;
+				margin-top: 30upx;
+				color: #fff;
+				font-size: 32upx;
+				background-color: #24C789;
+				border-radius: 8upx;
+			}
+	
+			button::after {
+				border: none !important;
+			}
+		}
+	
+		.close {
+			width: 62upx;
+			height: 62upx;
+			position: absolute;
+			top: 105%;
+			left: 44%;
+		}
+	}
 	/*样式的width和height一定要与定义的cWidth和cHeight相对应*/
 	.qiun-charts {
 		width: 750upx;
