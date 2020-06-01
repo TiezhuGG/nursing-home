@@ -265,6 +265,8 @@ var _chineseConversion = __webpack_require__(/*! @/common/js/chineseConversion.j
               }
             }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
           _this.sortLetter(_this.list);
+          // 停止下拉刷新
+          uni.stopPullDownRefresh();
         } });
 
     },
@@ -304,6 +306,7 @@ var _chineseConversion = __webpack_require__(/*! @/common/js/chineseConversion.j
 
     // 下拉刷新
     onPullDownRefresh: function onPullDownRefresh() {
+      this.list = [];
       this.fetchPatientList();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

@@ -278,7 +278,7 @@
 								'type': type,
 								'value': this.blood_oxygen,
 								'patient_id': this.pid,
-								'pulse_rate': this.pulse_rate,
+								'pulse_rate': this.oxygen_pulse_rate,
 								'timestamp': this.getTimestamp()
 							},
 							header: {

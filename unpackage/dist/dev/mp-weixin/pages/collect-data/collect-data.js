@@ -411,7 +411,7 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
                       'type': type,
                       'value': _this3.blood_oxygen,
                       'patient_id': _this3.pid,
-                      'pulse_rate': _this3.pulse_rate,
+                      'pulse_rate': _this3.oxygen_pulse_rate,
                       'timestamp': _this3.getTimestamp() },
 
                     header: {
