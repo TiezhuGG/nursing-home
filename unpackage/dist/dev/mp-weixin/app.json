@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/blood-status/blood-status",
     "pages/management/management",
-    "pages/index/index",
     "pages/heart-rate/heart-rate",
     "pages/warningDetail/warningDetail",
     "pages/workbench/workbench",
@@ -48,5 +48,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap65.json"
 }
