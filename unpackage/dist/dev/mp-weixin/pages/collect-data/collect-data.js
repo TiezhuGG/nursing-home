@@ -369,6 +369,7 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
                       _this2.warn_blood_pressure_min = res.data.data.blood_pressure_min;
                       _this2.warn_blood_oxygen_max = res.data.data.blood_oxygen;
                       _this2.warn_blood_oxygen_min = res.data.data.blood_oxygen_min;
+
                     } }));case 2:case "end":return _context2.stop();}}}, _callee2);}))();
 
     },
@@ -395,20 +396,20 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
 
                     method: 'POST',
                     success: function success(res) {
-                      if (this.blood_pressure.high_blood_pressure > this.warn_blood_oxygen_max) {
+                      if (this.blood_pressure.high_blood_pressure > this.warn_blood_pressure_max) {
                         uni.showModal({
                           title: '警告',
-                          content: '该老人血压值过高，请注意！' });
+                          content: '该长者血压值过高，请注意！' });
 
-                      } else if (this.blood_pressure.low_blood_pressure > this.warn_blood_oxygen_min) {
+                      } else if (this.blood_pressure.low_blood_pressure > this.warn_blood_pressure_min) {
                         uni.showModal({
                           title: '警告',
-                          content: '该老人血压值过低，请注意！' });
+                          content: '该长者血压值过低，请注意！' });
 
                       } else
                       uni.showModal({
                         title: '提示',
-                        content: '数据采集成功，该老人血压正常！' });
+                        content: '数据采集成功，该长者血压正常！' });
 
 
                       console.log('血压数据存储成功', res);
@@ -432,17 +433,17 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-cha
                       if (this.blood_oxygen > this.warn_blood_oxygen_max) {
                         uni.showModal({
                           title: '警告',
-                          content: '该老人血氧值过高，请注意' });
+                          content: '该长者血氧值过高，请注意' });
 
                       } else if (this.blood_oxygen < this.warn_blood_oxygen_min) {
                         uni.showModal({
                           title: '警告',
-                          content: '该老人血氧值过低，请注意' });
+                          content: '该长者血氧值过低，请注意' });
 
                       } else {
                         uni.showModal({
                           title: '提示',
-                          content: '数据采集成功，该老人血氧正常！' });
+                          content: '数据采集成功，该长者血氧正常！' });
 
                       }
                       console.log('血氧数据存储成功', res);

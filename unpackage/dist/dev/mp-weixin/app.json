@@ -48,5 +48,10 @@
       }
     ]
   },
+<<<<<<< HEAD
   "usingComponents": {}
+=======
+  "usingComponents": {},
+  "sitemapLocation": "sitemap30.json"
+>>>>>>> lhf4.13
 }
