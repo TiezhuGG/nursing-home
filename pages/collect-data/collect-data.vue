@@ -165,6 +165,13 @@
 				bo_characteristicId: '',
 				blood_oxygen: 0, // 血压、血氧、血糖值
 				oxygen_pulse_rate: 0, // 血氧平均心率
+				// 血压 血氧 血糖报警临界值
+				warn_blood_pressure_max: null,
+				warn_blood_pressure_min: null,
+				warn_blood_oxygen_max: null,
+				warn_blood_oxygen_min: null,
+				warn_blood_sugar_max: null,
+				warn_blood_sugar_min: null,
 			};
 		},
 		onLoad(options) {
@@ -225,20 +232,12 @@
 					url: `https://ciai.le-cx.com/index.php/api/patient/info?id=${id}`,
 					success: res => {
 						this.patient = res.data.data
+						this.warn_blood_pressure_max = res.data.data.blood_pressure
+						this.warn_blood_pressure_min = res.data.data.blood_pressure_min
+						this.warn_blood_oxygen_max = res.data.data.blood_oxygen
+						this.warn_blood_oxygen_min = res.data.data.blood_oxygen_min
 					},
 				})
-			},
-			// 切换导航tab
-			switchTab(index) {
-				this.currentIndex = index
-				// this.connected = 0
-				uni.hideLoading()
-			},
-
-			// 获取当前时间戳
-			getTimestamp() {
-				let timestamp = new Date().getTime()
-				return timestamp
 			},
 
 			// 血状态信息存储
@@ -263,11 +262,22 @@
 							},
 							method: 'POST',
 							success(res) {
-								uni.showToast({
-									title: '血压数据采集成功',
-									icon: 'none',
-									duration: 3000
-								})
+								if (this.blood_pressure.high_blood_pressure > this.warn_blood_oxygen_max) {
+									uni.showModal({
+										title: '警告',
+										content: '该老人血压值过高，请注意！',
+									})
+								} else if (this.blood_pressure.low_blood_pressure > this.warn_blood_oxygen_min) {
+									uni.showModal({
+										title: '警告',
+										content: '该老人血压值过低，请注意！',
+									})
+								} else(
+									uni.showModal({
+										title: '提示',
+										content: '数据采集成功，该老人血压正常！'
+									})
+								)
 								console.log('血压数据存储成功', res)
 							}
 						})
@@ -286,11 +296,22 @@
 							},
 							method: 'POST',
 							success(res) {
-								uni.showToast({
-									title: '血氧数据采集成功',
-									icon: 'none',
-									duration: 3000
-								})
+								if(this.blood_oxygen > this.warn_blood_oxygen_max) {
+									uni.showModal({
+										title: '警告',
+										content: '该老人血氧值过高，请注意'
+									})
+								} else if(this.blood_oxygen < this.warn_blood_oxygen_min) {
+									uni.showModal({
+										title: '警告',
+										content: '该老人血氧值过低，请注意'
+									})
+								} else {
+									uni.showModal({
+										title: '提示',
+										content: '数据采集成功，该老人血氧正常！'
+									})
+								}
 								console.log('血氧数据存储成功', res)
 							}
 						})
@@ -316,6 +337,19 @@
 						})
 					}
 				}
+			},
+
+			// 切换导航tab
+			switchTab(index) {
+				this.currentIndex = index
+				// this.connected = 0
+				uni.hideLoading()
+			},
+
+			// 获取当前时间戳
+			getTimestamp() {
+				let timestamp = new Date().getTime()
+				return timestamp
 			},
 
 			inArray(arr, key, val) {
@@ -391,9 +425,9 @@
 				})
 			},
 			bp_onBluetoothDeviceFound() {
-					uni.showLoading({
-						title: '正在连接蓝牙...'
-					})
+				uni.showLoading({
+					title: '正在连接蓝牙...'
+				})
 				console.log('开始查找蓝牙设备')
 				uni.onBluetoothDeviceFound((res) => {
 					this.bp_getBluetoothDevices()
@@ -431,7 +465,7 @@
 								uni.hideLoading()
 								let e = item
 								that.bp_createBLEConnection(e)
-							} 
+							}
 						}
 					}
 				})
